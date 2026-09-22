@@ -6,6 +6,7 @@ import { api, type Alineamiento, type Especie, type FilaBringRate } from '@/api/
 import BehaviorPanel from '@/components/BehaviorPanel.vue';
 import Cargando from '@/components/Cargando.vue';
 import PartnerSuggest from '@/components/PartnerSuggest.vue';
+import RoleGroups from '@/components/RoleGroups.vue';
 import Rotulo from '@/components/Rotulo.vue';
 import SlotEditor, { type Hueco } from '@/components/SlotEditor.vue';
 import SpeciesSprite from '@/components/SpeciesSprite.vue';
@@ -115,6 +116,8 @@ const enfocado = computed(() => {
     return huecos.value[enfoque.value]?.slug ?? null;
 });
 
+const ancla = computed(() => enfocado.value ?? slugsElegidos.value[slugsElegidos.value.length - 1] ?? null);
+
 const datosMeta = computed(() =>
     elegidos.value
         .map((h) => meta.value.find((m) => m.slug === h.slug))
@@ -198,6 +201,14 @@ const pegado = computed(() =>
                     @quitar="quitar(indice)"
                 />
             </div>
+
+            <section v-if="ancla" class="mb-14">
+                <Rotulo :texto="$t('papel.titulo')" />
+                <p class="mb-5 max-w-2xl text-sm leading-relaxed text-fog">
+                    {{ $t('papel.entradilla', { especie: ancla }) }}
+                </p>
+                <RoleGroups :slug="ancla" :equipo="slugsElegidos" anadible @anadir="anadir" />
+            </section>
 
             <section v-if="datosMeta.length > 0" class="mb-14">
                 <Rotulo :texto="$t('constructor.que_hace_la_gente')" />

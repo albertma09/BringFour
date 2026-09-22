@@ -234,6 +234,8 @@ export interface Cobertura {
 export interface Analisis {
     especie: FichaEspecie;
     velocidad: { base: number; percentil: number; ritmo: string; muestra: number };
+    papel: Papel;
+    cierre: TasaCierre | null;
     conjunto: {
         categoria: string;
         habilidad: string | null;
@@ -273,17 +275,33 @@ export interface RazonEstructural {
     movimientos?: string[];
 }
 
+export interface TasaCierre {
+    ganadas: number;
+    cierra: number;
+    pct: number;
+    intervalo: [number, number];
+}
+
+export interface Papel {
+    eje: string;
+    etiquetas: string[];
+    cubos: string[];
+}
+
 export interface CompaneroEstructural extends Especie {
     tipos: string[];
     peso: number;
+    eje: string;
+    etiquetas: string[];
     razones: RazonEstructural[];
     encaje: number;
+    cierre: TasaCierre | null;
 }
 
 export interface CompanerosEstructurales {
     especie: string;
     ritmo: string;
-    companeros: CompaneroEstructural[];
+    cubos: Record<string, CompaneroEstructural[]>;
 }
 
 async function get<T>(ruta: string, params: Record<string, string | number> = {}): Promise<T> {
@@ -356,8 +374,11 @@ export const api = {
 
     amenazas: (slug: string, c: Comunes) => get<Amenazas>(`/build/species/${slug}/threats`, c),
 
-    estructurales: (slug: string, c: Comunes) =>
-        get<CompanerosEstructurales>(`/build/species/${slug}/structural-partners`, c),
+    estructurales: (slug: string, c: Comunes, equipo: string[] = []) =>
+        get<CompanerosEstructurales>(`/build/species/${slug}/structural-partners`, {
+            ...c,
+            equipo: equipo.join(','),
+        }),
 
     opciones: (slug: string, c: Comunes) =>
         get<{ especie: Especie & { abilities: Habilidad[] }; movimientos: Movimiento[]; objetos: ObjetoBuilder[] }>(

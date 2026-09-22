@@ -10,50 +10,36 @@ final class StructuralPartnerQuery
 
     private const REDIRECCION = ['followme', 'ragepowder'];
 
-    public function __construct(private TypeChart $chart, private SetBuilder $builder) {}
+    public function __construct(private TypeChart $chart, private RoleClassifier $roles) {}
 
-    public function forSpecies(object $species, int $regulationId, array $meta, array $ritmo, array $sinCubrir, int $top): array
-    {
+    public function forSpecies(
+        object $species,
+        int $regulationId,
+        array $meta,
+        array $ritmo,
+        array $sinCubrir,
+        array $cierres,
+        array $excluir,
+        int $porCubo,
+    ): array {
         $tipos = json_decode((string) $species->types, true) ?: [];
         $debilidades = array_keys($this->chart->weaknesses($tipos));
         $necesita = $ritmo['ritmo'] === 'rapido' ? [] : self::CONTROL;
-        $candidatos = [];
+        $fuera = [...$excluir, $species->slug];
 
-        foreach ($meta as $rival) {
-            if ($rival['slug'] === $species->slug) {
-                continue;
-            }
+        $candidatos = array_values(array_filter($meta, fn (array $r) => ! in_array($r['slug'], $fuera, true)));
+        $slugs = array_column($candidatos, 'slug');
+        $papeles = $this->roles->forMany($slugs, $regulationId);
+        $aportes = $this->aportes($slugs, $regulationId, [...self::CONTROL, ...self::REDIRECCION]);
+        $alcances = $this->alcances($slugs, $regulationId);
 
-            $razones = [];
-            $tapa = $this->tapa($rival['tipos'], $debilidades);
+        $cubos = array_fill_keys(RoleClassifier::CUBOS, []);
 
-            if ($tapa !== []) {
-                $razones[] = ['clave' => 'tapa', 'tipos' => $tapa];
-            }
+        foreach ($candidatos as $rival) {
+            $papel = $papeles[$rival['slug']] ?? ['eje' => 'apoyo', 'etiquetas' => [], 'cubos' => ['apoyo']];
+            $razones = $this->razones($rival, $debilidades, $necesita, $sinCubrir, $aportes, $alcances);
 
-            $aporta = $this->aporta($rival['slug'], $regulationId, $necesita);
-
-            if ($aporta !== []) {
-                $razones[] = ['clave' => 'ritmo', 'movimientos' => $aporta];
-            }
-
-            $redirige = $this->aporta($rival['slug'], $regulationId, self::REDIRECCION);
-
-            if ($redirige !== []) {
-                $razones[] = ['clave' => 'redirige', 'movimientos' => $redirige];
-            }
-
-            $rellena = $this->rellena($rival['slug'], $regulationId, $sinCubrir);
-
-            if ($rellena !== []) {
-                $razones[] = ['clave' => 'cubre', 'tipos' => $rellena];
-            }
-
-            if ($razones === []) {
-                continue;
-            }
-
-            $candidatos[] = [
+            $ficha = [
                 'slug' => $rival['slug'],
                 'name' => $rival['name'],
                 'name_es' => $rival['name_es'],
@@ -61,32 +47,82 @@ final class StructuralPartnerQuery
                 'sprite_stone' => $rival['sprite_stone'],
                 'tipos' => $rival['tipos'],
                 'peso' => $rival['peso'],
+                'eje' => $papel['eje'],
+                'etiquetas' => $papel['etiquetas'],
                 'razones' => $razones,
                 'encaje' => count($razones),
+                'cierre' => $cierres[$rival['slug']] ?? null,
             ];
+
+            foreach ($papel['cubos'] as $cubo) {
+                $cubos[$cubo][] = $ficha;
+            }
         }
 
-        usort($candidatos, fn (array $a, array $b) => [$b['encaje'], $b['peso']] <=> [$a['encaje'], $a['peso']]);
+        $usados = [];
+        $salida = [];
 
-        return array_slice($candidatos, 0, $top);
+        foreach (RoleClassifier::ORDEN_RELLENO as $nombre) {
+            $lista = $cubos[$nombre] ?? [];
+
+            usort($lista, function (array $a, array $b) use ($nombre, $usados) {
+                $repe = [in_array($a['slug'], $usados, true), in_array($b['slug'], $usados, true)];
+
+                if ($repe[0] !== $repe[1]) {
+                    return $repe[0] ? 1 : -1;
+                }
+
+                return $nombre === 'remate'
+                    ? [$b['cierre']['pct'] ?? -1, $b['encaje'], $b['peso']] <=> [$a['cierre']['pct'] ?? -1, $a['encaje'], $a['peso']]
+                    : [$b['encaje'], $b['peso']] <=> [$a['encaje'], $a['peso']];
+            });
+
+            $elegidos = array_slice($lista, 0, $porCubo);
+
+            if ($elegidos === []) {
+                continue;
+            }
+
+            $usados = [...$usados, ...array_column($elegidos, 'slug')];
+            $salida[$nombre] = $elegidos;
+        }
+
+        return $salida;
     }
 
-    private function rellena(string $slug, int $regulationId, array $sinCubrir): array
+    private function razones(array $rival, array $debilidades, array $necesita, array $sinCubrir, array $aportes, array $alcances): array
     {
-        if ($sinCubrir === []) {
-            return [];
+        $razones = [];
+        $tapa = $this->tapa($rival['tipos'], $debilidades);
+
+        if ($tapa !== []) {
+            $razones[] = ['clave' => 'tapa', 'tipos' => $tapa];
         }
 
-        $tipos = DB::table('learnsets as l')
-            ->join('moves as m', 'm.id', '=', 'l.move_id')
-            ->join('species as s', 's.id', '=', 'l.species_id')
-            ->where('s.slug', $slug)
-            ->where('l.regulation_id', $regulationId)
-            ->where('m.power', '>', 0)
-            ->distinct()
-            ->pluck('m.type')
-            ->all();
+        $suyos = $aportes[$rival['slug']] ?? [];
+        $ritmo = array_values(array_intersect_key($suyos, array_flip($necesita)));
 
+        if ($ritmo !== []) {
+            $razones[] = ['clave' => 'ritmo', 'movimientos' => $ritmo];
+        }
+
+        $redirige = array_values(array_intersect_key($suyos, array_flip(self::REDIRECCION)));
+
+        if ($redirige !== []) {
+            $razones[] = ['clave' => 'redirige', 'movimientos' => $redirige];
+        }
+
+        $rellena = $this->rellena($alcances[$rival['slug']] ?? [], $sinCubrir);
+
+        if ($rellena !== []) {
+            $razones[] = ['clave' => 'cubre', 'tipos' => $rellena];
+        }
+
+        return $razones;
+    }
+
+    private function rellena(array $tipos, array $sinCubrir): array
+    {
         $resueltos = [];
 
         foreach ($sinCubrir as $duro) {
@@ -115,19 +151,50 @@ final class StructuralPartnerQuery
         return $tapados;
     }
 
-    private function aporta(string $slug, int $regulationId, array $movimientos): array
+    private function aportes(array $slugs, int $regulationId, array $movimientos): array
     {
-        if ($movimientos === []) {
+        if ($slugs === [] || $movimientos === []) {
             return [];
         }
 
-        return DB::table('learnsets as l')
+        $filas = DB::table('learnsets as l')
             ->join('moves as m', 'm.id', '=', 'l.move_id')
             ->join('species as s', 's.id', '=', 'l.species_id')
-            ->where('s.slug', $slug)
+            ->whereIn('s.slug', $slugs)
             ->where('l.regulation_id', $regulationId)
             ->whereIn('m.slug', $movimientos)
-            ->pluck('m.name')
-            ->all();
+            ->get(['s.slug as especie', 'm.slug as clave', 'm.name as nombre']);
+
+        $salida = [];
+
+        foreach ($filas as $fila) {
+            $salida[$fila->especie][$fila->clave] = $fila->nombre;
+        }
+
+        return $salida;
+    }
+
+    private function alcances(array $slugs, int $regulationId): array
+    {
+        if ($slugs === []) {
+            return [];
+        }
+
+        $filas = DB::table('learnsets as l')
+            ->join('moves as m', 'm.id', '=', 'l.move_id')
+            ->join('species as s', 's.id', '=', 'l.species_id')
+            ->whereIn('s.slug', $slugs)
+            ->where('l.regulation_id', $regulationId)
+            ->where('m.power', '>', 0)
+            ->distinct()
+            ->get(['s.slug as especie', 'm.type as tipo']);
+
+        $salida = [];
+
+        foreach ($filas as $fila) {
+            $salida[$fila->especie][] = $fila->tipo;
+        }
+
+        return $salida;
     }
 }

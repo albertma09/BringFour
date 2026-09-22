@@ -211,6 +211,32 @@ export default {
             cubre: 'reaches {que}, which it cannot',
         },
     },
+    papel: {
+        titulo: 'What your team is missing',
+        entradilla: 'The same candidates split by what they do, so the whole team does not end up being support. Anchor: {especie}.',
+        cierre: 'still up in {pct}% of its wins ({n})',
+        cierre_aviso: 'The closing rate is how many won games that Pokémon was on the field at the end. It describes when it contributes, it does not prove it wins the game: a bulky one survives to the end without being the finisher, and one that comes in early and does its job scores low without being worse.',
+        eje: {
+            fisico: 'Physical attacker',
+            especial: 'Special attacker',
+            mixto: 'Mixed attacker',
+            apoyo: 'Support',
+        },
+        cubo: {
+            remate: 'To close games',
+            velocidad: 'For speed control',
+            apoyo: 'To hold it together',
+            fisico: 'Other physical attackers',
+            especial: 'Other special attackers',
+        },
+        texto: {
+            remate: 'The ones still standing when the game is won. Sorted by that rate, not by how much they are used.',
+            velocidad: 'They hand you the turn: Tailwind if you want to run, Trick Room if you would rather flip it.',
+            apoyo: 'They redirect, set screens or hold on so the others can hit.',
+            fisico: 'In case the team is leaning one way and the same wall stops all of it.',
+            especial: 'Same on the other side. Splitting physical and special pressure stops one opponent from holding your whole team.',
+        },
+    },
     pokedex: {
         titulo: 'Pokédex',
         entradilla: 'Everything legal in the active regulation.',

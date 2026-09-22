@@ -3,21 +3,31 @@
 namespace App\Http\Controllers\Api;
 
 use App\Domain\Build\MetaRoster;
+use App\Domain\Build\RoleClassifier;
 use App\Domain\Build\SetBuilder;
 use App\Domain\Build\SpeedContext;
 use App\Domain\Build\StructuralPartnerQuery;
 use App\Domain\Build\ThreatQuery;
+use App\Domain\Meta\ClosingQuery;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class BuildController extends ApiController
 {
-    public function analysis(Request $request, SetBuilder $builder, SpeedContext $speed, MetaRoster $roster, string $slug): JsonResponse
-    {
+    public function analysis(
+        Request $request,
+        SetBuilder $builder,
+        SpeedContext $speed,
+        MetaRoster $roster,
+        RoleClassifier $roles,
+        ClosingQuery $cierre,
+        string $slug,
+    ): JsonResponse {
         $species = $this->species($slug);
         [$formatId, $regulationId] = $this->contexto($request);
-        $meta = $roster->brought($formatId, $this->elo($request));
+        $elo = $this->elo($request);
+        $meta = $roster->brought($formatId, $elo);
 
         $conjunto = $builder->build($species, $regulationId, $meta);
         $ritmo = $speed->forSpecies(json_decode((string) $species->base_stats, true) ?: [], $meta);
@@ -25,6 +35,8 @@ class BuildController extends ApiController
         return response()->json([
             'especie' => $this->ficha($species),
             'velocidad' => $ritmo,
+            'papel' => $roles->forSpecies($species, $regulationId),
+            'cierre' => $cierre->forSpecies($species->slug, $formatId, $elo, $this->min($request)),
             'conjunto' => $conjunto,
             'meta' => ['especies' => count($meta), 'traidas' => array_sum(array_column($meta, 'peso'))],
             'deducido' => true,
@@ -52,20 +64,32 @@ class BuildController extends ApiController
         SetBuilder $builder,
         SpeedContext $speed,
         MetaRoster $roster,
+        ClosingQuery $cierre,
         string $slug,
     ): JsonResponse {
         $species = $this->species($slug);
         [$formatId, $regulationId] = $this->contexto($request);
-        $meta = $roster->brought($formatId, $this->elo($request));
+        $elo = $this->elo($request);
+        $meta = $roster->brought($formatId, $elo);
 
         $conjunto = $builder->build($species, $regulationId, $meta);
         $ritmo = $speed->forSpecies(json_decode((string) $species->base_stats, true) ?: [], $meta);
         $sinCubrir = $this->sinCubrir($conjunto['cobertura']['resisten'], $meta);
+        $excluir = array_filter(explode(',', (string) $request->query('equipo', '')));
 
         return response()->json([
             'especie' => $species->slug,
             'ritmo' => $ritmo['ritmo'],
-            'companeros' => $query->forSpecies($species, $regulationId, $meta, $ritmo, $sinCubrir, $this->top($request, 8, 24)),
+            'cubos' => $query->forSpecies(
+                $species,
+                $regulationId,
+                $meta,
+                $ritmo,
+                $sinCubrir,
+                $cierre->rates($formatId, $elo, $this->min($request)),
+                $excluir,
+                $this->top($request, 4, 12),
+            ),
         ]);
     }
 

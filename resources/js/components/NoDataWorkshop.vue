@@ -2,19 +2,24 @@
 import { ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { comunes } from '@/ajustes';
-import { api, type Analisis, type CompanerosEstructurales, type MovimientoTaller } from '@/api/cliente';
-import SpeciesSprite from '@/components/SpeciesSprite.vue';
+import { api, type Analisis, type MovimientoTaller } from '@/api/cliente';
+import RoleGroups from '@/components/RoleGroups.vue';
 import ThreatList from '@/components/ThreatList.vue';
 import TypeTag from '@/components/TypeTag.vue';
 
-const props = withDefaults(defineProps<{ slug: string; aplicable?: boolean }>(), { aplicable: false });
-const emit = defineEmits<{ aplicar: [{ habilidad: string | null; movimientos: string[] }] }>();
+const props = withDefaults(
+    defineProps<{ slug: string; aplicable?: boolean; equipo?: string[]; anadible?: boolean }>(),
+    { aplicable: false, equipo: () => [], anadible: false },
+);
+const emit = defineEmits<{
+    aplicar: [{ habilidad: string | null; movimientos: string[] }];
+    anadir: [string];
+}>();
 
 const { locale } = useI18n();
 
 const cargando = ref(false);
 const analisis = ref<Analisis | null>(null);
-const estructurales = ref<CompanerosEstructurales | null>(null);
 
 function nombre(fila: { name: string; name_es: string | null }): string {
     return locale.value === 'es' ? (fila.name_es ?? fila.name) : fila.name;
@@ -24,15 +29,9 @@ async function cargar(): Promise<void> {
     cargando.value = true;
 
     try {
-        const [uno, dos] = await Promise.all([
-            api.analisis(props.slug, comunes.value),
-            api.estructurales(props.slug, comunes.value),
-        ]);
-        analisis.value = uno;
-        estructurales.value = dos;
+        analisis.value = await api.analisis(props.slug, comunes.value);
     } catch {
         analisis.value = null;
-        estructurales.value = null;
     } finally {
         cargando.value = false;
     }
@@ -72,6 +71,12 @@ function aplicar(): void {
 
             <section class="mb-6">
                 <p class="rotulo mb-2">{{ $t('taller.lectura') }}</p>
+                <p class="mb-2 text-sm text-mist">
+                    {{ $t(`papel.eje.${analisis.papel.eje}`) }}
+                    <span v-if="analisis.cierre" class="cifra text-amber">
+                        · {{ $t('papel.cierre', { pct: analisis.cierre.pct, n: analisis.cierre.ganadas }) }}
+                    </span>
+                </p>
                 <p class="text-sm leading-relaxed text-fog">
                     {{
                         $t(`taller.ritmo.${analisis.velocidad.ritmo}`, {
@@ -142,38 +147,12 @@ function aplicar(): void {
                 <ThreatList :slug="slug" />
             </section>
 
-            <section v-if="estructurales && estructurales.companeros.length > 0">
+            <section>
                 <p class="rotulo mb-2">{{ $t('taller.companeros') }}</p>
-                <p class="mb-3 text-xs leading-relaxed text-fog">{{ $t('taller.companeros_texto') }}</p>
-
-                <ul class="space-y-1.5">
-                    <li
-                        v-for="companero in estructurales.companeros"
-                        :key="companero.slug"
-                        class="superficie flex items-center gap-3 rounded-lg border border-line-soft px-3 py-2"
-                    >
-                        <SpeciesSprite
-                            :sprite="companero.sprite"
-                            :stone="companero.sprite_stone"
-                            :name="nombre(companero)"
-                            :size="32"
-                        />
-                        <span class="min-w-0 flex-1">
-                            <span class="block truncate text-sm text-mist">{{ nombre(companero) }}</span>
-                            <span class="block text-[11px] text-fog-dim">
-                                <template v-for="(razon, indice) in companero.razones" :key="razon.clave">
-                                    <template v-if="indice > 0"> · </template>
-                                    {{
-                                        $t(`taller.razon.${razon.clave}`, {
-                                            que: (razon.tipos ?? razon.movimientos ?? []).join(', '),
-                                        })
-                                    }}
-                                </template>
-                            </span>
-                        </span>
-                    </li>
-                </ul>
+                <p class="mb-4 text-xs leading-relaxed text-fog">{{ $t('taller.companeros_texto') }}</p>
+                <RoleGroups :slug="slug" :equipo="equipo" :anadible="anadible" @anadir="emit('anadir', $event)" />
             </section>
+
         </template>
     </div>
 </template>

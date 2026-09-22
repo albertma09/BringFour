@@ -387,3 +387,58 @@ Arreglado en tres partes:
 - Al llegar a cuatro, la búsqueda se sustituye por un aviso de que hay que quitar uno para cambiarlo. Antes el clic simplemente no hacía nada, sin explicación.
 
 De paso, al cambiar de formato ahora se **podan** el movimiento, el objeto y la habilidad que dejen de ser legales en la regulación nueva. Antes se quedaban guardados en el equipo pero no se pintaban, así que el contador decía cuatro y se veían tres.
+
+---
+
+# Fase 6 — Compañeros por papel y tasa de cierre (22-sep-2026)
+
+## El problema: todo eran apoyos
+
+Los tres criterios estructurales de la fase anterior (tapa las debilidades, da el turno, redirige) premiaban **solo a los Pokémon de apoyo**. Para Clawitzer salían cuatro con Espacio Raro y poco más, cuando lo que hace falta es poder elegir también otro atacante, o ver cuál de los candidatos es el que cierra partidas.
+
+Ahora se devuelve **agrupado por papel**: para rematar · para el control de velocidad · para sostener · otros atacantes físicos · otros atacantes especiales.
+
+**Decisión clave: los cubos de ataque no exigen razón estructural.** Un atacante puro puede no tapar ninguna debilidad ni aportar control de velocidad, y si se exigiera razón se quedaría fuera justo lo que se estaba pidiendo. La razón estructural sigue existiendo, pero como criterio de orden y no de entrada.
+
+Los cubos se rellenan en orden **remate → velocidad → apoyo → físico → especial**, y quien ya ha salido en un cubo baja al final de los siguientes. Sin eso, Volcarona y Sinistcha aparecían idénticos en tres secciones seguidas, que es lo contrario de dar variedad.
+
+## La tasa de cierre: una *win condition* medida
+
+De las partidas **ganadas** llevando a un Pokémon, en cuántas estaba **en el campo al acabar**. El denominador son solo partidas ganadas, para que no sea una tasa de victoria disfrazada.
+
+| Especie | Ganadas | Cierra | Tasa |
+|---|---|---|---|
+| Archaludon | 283 | 210 | 74,2 % |
+| Golisopod | 264 | 193 | 73,1 % |
+| Kingambit | 278 | 155 | 55,8 % |
+| Sneasler | 562 | 271 | 48,2 % |
+| Rillaboom | 652 | 299 | 45,9 % |
+| Indeedee-F | 571 | 182 | 31,9 % |
+
+Rillaboom se trae más que nadie y casi nunca es el que cierra: hace su trabajo pronto. Archaludon es lo contrario.
+
+**Esto describe correlación, no causa, y el texto de la interfaz lo dice.** Un Pokémon duro sobrevive hasta el final sin ser quien remata, y uno que entra pronto y cumple sale bajo sin ser peor. La cifra dice *cuándo* aporta, no cuánto vale.
+
+## Un fallo que habría hecho parecer inútil a toda mega
+
+La primera versión daba **Salamence 4,3 %** y **Metagross 7,5 %**. La causa: `replay_teams` guarda la forma base, pero el estado del campo al final guarda la forma **mega**, así que el cruce no encontraba nada.
+
+Al arreglarlo mapeando formas a su base, se rompió lo contrario: **Indeedee-F pasó a 0 %**, porque Indeedee-F tiene `base_form_id` apuntando a Indeedee pero **no es una mega**: es una especie distinta que aparece como tal en el Team Preview. La condición correcta es mapear solo cuando `is_mega`.
+
+| | antes | tras el primer arreglo | correcto |
+|---|---|---|---|
+| Salamence | 4,3 % | 52,7 % | 52,7 % |
+| Metagross | 7,5 % | 50,9 % | 50,9 % |
+| Indeedee-F | 31,9 % | **0 %** | 31,9 % |
+
+## Los papeles salen de la mecánica
+
+El eje ofensivo, de las estadísticas base. Las etiquetas de función, del repertorio y de la habilidad: control de velocidad, redirección, pantallas, clima, terreno, y **remate** solo si sube *y además* pega. Los repertorios se cargan en bloque, una consulta para las ~100 especies del meta.
+
+Se mantiene la separación de siempre: **el papel se deduce, la tasa de cierre se mide**, y en pantalla se distinguen.
+
+## Limitaciones que quedan
+
+- El ancla de la recomendación es **un solo Pokémon** (el último tocado), no el equipo entero. Los ya elegidos se excluyen, pero no se suman sus debilidades para buscar quien las tape todas.
+- La tasa de cierre no distingue ganar con seis en pie de ganar con uno: mira quién está en el campo, no cuántos quedaban.
+- Sigue pendiente que el conjunto propuesto conozca al resto del equipo.

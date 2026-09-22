@@ -211,6 +211,32 @@ export default {
             cubre: 'llega a {que}, que él no alcanza',
         },
     },
+    papel: {
+        titulo: 'Qué te falta en el equipo',
+        entradilla: 'Los mismos candidatos separados por lo que hacen, para que no se te vaya el equipo entero en apoyos. Ancla: {especie}.',
+        cierre: 'cierra el {pct} % de las que gana ({n})',
+        cierre_aviso: 'La tasa de cierre es de cuántas partidas ganadas estaba ese Pokémon en el campo al acabar. Describe cuándo aporta, no demuestra que gane él: uno duro sobrevive hasta el final sin ser el que remata, y uno que entra pronto y hace su trabajo sale bajo sin ser peor.',
+        eje: {
+            fisico: 'Atacante físico',
+            especial: 'Atacante especial',
+            mixto: 'Atacante mixto',
+            apoyo: 'Apoyo',
+        },
+        cubo: {
+            remate: 'Para rematar',
+            velocidad: 'Para el control de velocidad',
+            apoyo: 'Para sostener',
+            fisico: 'Otros atacantes físicos',
+            especial: 'Otros atacantes especiales',
+        },
+        texto: {
+            remate: 'Los que siguen en pie cuando la partida se gana. Ordenados por esa tasa y no por cuánto se usan.',
+            velocidad: 'Te dan el turno: Viento Afín si quieres correr, Espacio Raro si prefieres darle la vuelta.',
+            apoyo: 'Redirigen, ponen pantallas o aguantan para que los demás peguen.',
+            fisico: 'Por si el equipo se te está quedando de un solo lado y todo te lo para el mismo muro.',
+            especial: 'Lo mismo por el otro lado. Repartir presión física y especial evita que un solo rival te aguante el equipo entero.',
+        },
+    },
     pokedex: {
         titulo: 'Pokédex',
         entradilla: 'Todo lo legal en la regulación activa.',

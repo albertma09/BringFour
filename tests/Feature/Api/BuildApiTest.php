@@ -77,22 +77,14 @@ it('separa las amenazas vistas de las que solo son posibles', function () {
     }
 });
 
-it('no se propone a si mismo como amenaza ni como companero', function () {
+it('no se propone a si mismo como amenaza', function () {
     $amenazas = $this->getJson('/api/build/species/rillaboom/threats')->assertOk()->json();
-    $companeros = $this->getJson('/api/build/species/rillaboom/structural-partners')->assertOk()->json();
 
-    expect(array_column($amenazas['confirmadas'], 'slug'))->not->toContain('rillaboom')
-        ->and(array_column($companeros['companeros'], 'slug'))->not->toContain('rillaboom');
+    expect(array_column($amenazas['confirmadas'], 'slug'))->not->toContain('rillaboom');
 });
 
-it('da una razon a cada companero estructural', function () {
-    foreach ($this->getJson('/api/build/species/clawitzer/structural-partners')->assertOk()->json('companeros') as $companero) {
-        expect($companero['razones'])->not->toBeEmpty();
-
-        foreach ($companero['razones'] as $razon) {
-            expect($razon['clave'])->toBeIn(['tapa', 'ritmo', 'redirige', 'cubre']);
-        }
-    }
+it('exige la muestra minima tambien para los companeros', function () {
+    expect($this->getJson('/api/build/species/clawitzer/structural-partners')->assertOk()->json('cubos'))->toBe([]);
 });
 
 it('da 404 en una especie inventada', function (string $ruta) {
