@@ -43,6 +43,7 @@ return new class extends Migration
             $table->id();
             $table->string('slug')->unique();
             $table->string('name');
+            $table->string('sprite_id');
             $table->unsignedSmallInteger('national_dex')->nullable();
             $table->jsonb('types');
             $table->jsonb('base_stats');

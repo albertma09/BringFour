@@ -44,6 +44,12 @@ export function validateCatalogue({ species, moves, abilities, items, alignments
   }
 
   for (const s of species) {
+    if (typeof s.spriteId !== 'string' || s.spriteId.length === 0) {
+      fail(`species ${s.slug}: spriteId vacio o ausente`);
+    }
+    if (!/^[a-z0-9-]+$/.test(s.spriteId)) {
+      fail(`species ${s.slug}: spriteId con formato inesperado "${s.spriteId}"`);
+    }
     if (!Array.isArray(s.types) || s.types.length < 1 || s.types.length > 2) {
       fail(`species ${s.slug}: types debe tener 1 o 2 elementos`);
     }

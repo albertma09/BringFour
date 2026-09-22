@@ -217,3 +217,48 @@ function seedTeamFixture(): array
         'species' => DB::table('species')->where('slug', 'incineroar')->value('id'),
     ];
 }
+
+it('guarda el sprite_id que publica Showdown, no uno derivado del slug', function () {
+    $cases = [
+        'goodrahisui' => 'goodra-hisui',
+        'floetteeternal' => 'floette-eternal',
+        'charizardmegax' => 'charizard-megax',
+        'rillaboom' => 'rillaboom',
+    ];
+
+    foreach ($cases as $slug => $expected) {
+        expect(DB::table('species')->where('slug', $slug)->value('sprite_id'))->toBe($expected);
+    }
+});
+
+it('no deja ninguna especie sin sprite_id', function () {
+    expect(DB::table('species')->whereNull('sprite_id')->orWhere('sprite_id', '')->count())->toBe(0);
+});
+
+it('resuelve base mas piedra para toda mega construible', function () {
+    $unresolved = DB::select("
+        with pares as (
+            select i.slug as piedra, k.key as base_slug, k.value as mega_slug
+            from items i, jsonb_each_text(i.mega_evolutions) k
+            where i.is_mega_stone
+        )
+        select s.slug
+        from species s
+        left join pares p on p.mega_slug = s.slug
+        where s.is_mega and s.is_buildable and p.piedra is null
+    ");
+
+    expect($unresolved)->toBeEmpty();
+});
+
+it('apunta la mega de Floette a la forma legal, no a la base ilegal', function () {
+    $row = DB::selectOne("
+        select k.key as base_slug, i.slug as piedra
+        from items i, jsonb_each_text(i.mega_evolutions) k
+        where i.is_mega_stone and k.value = 'floettemega'
+    ");
+
+    expect($row->base_slug)->toBe('floetteeternal')
+        ->and($row->piedra)->toBe('floettite')
+        ->and(DB::table('species')->where('slug', 'floetteeternal')->value('is_buildable'))->toBeTrue();
+});

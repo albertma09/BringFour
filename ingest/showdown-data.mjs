@@ -41,6 +41,7 @@ function mapSpecies(dex, species) {
   return {
     slug: species.id,
     name: species.name,
+    spriteId: species.spriteid,
     nationalDex: species.num > 0 ? species.num : null,
     types: species.types,
     baseStats: {

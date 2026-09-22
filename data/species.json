@@ -2,6 +2,7 @@
   {
     "slug": "abomasnow",
     "name": "Abomasnow",
+    "spriteId": "abomasnow",
     "nationalDex": 460,
     "types": [
       "Grass",
@@ -28,6 +29,7 @@
   {
     "slug": "abomasnowmega",
     "name": "Abomasnow-Mega",
+    "spriteId": "abomasnow-mega",
     "nationalDex": 460,
     "types": [
       "Grass",
@@ -53,6 +55,7 @@
   {
     "slug": "absol",
     "name": "Absol",
+    "spriteId": "absol",
     "nationalDex": 359,
     "types": [
       "Dark"
@@ -79,6 +82,7 @@
   {
     "slug": "absolmega",
     "name": "Absol-Mega",
+    "spriteId": "absol-mega",
     "nationalDex": 359,
     "types": [
       "Dark"
@@ -103,6 +107,7 @@
   {
     "slug": "absolmegaz",
     "name": "Absol-Mega-Z",
+    "spriteId": "absol-megaz",
     "nationalDex": 359,
     "types": [
       "Dark",
@@ -128,6 +133,7 @@
   {
     "slug": "aegislash",
     "name": "Aegislash",
+    "spriteId": "aegislash",
     "nationalDex": 681,
     "types": [
       "Steel",
@@ -153,6 +159,7 @@
   {
     "slug": "aegislashblade",
     "name": "Aegislash-Blade",
+    "spriteId": "aegislash-blade",
     "nationalDex": 681,
     "types": [
       "Steel",
@@ -178,6 +185,7 @@
   {
     "slug": "aerodactyl",
     "name": "Aerodactyl",
+    "spriteId": "aerodactyl",
     "nationalDex": 142,
     "types": [
       "Rock",
@@ -205,6 +213,7 @@
   {
     "slug": "aerodactylmega",
     "name": "Aerodactyl-Mega",
+    "spriteId": "aerodactyl-mega",
     "nationalDex": 142,
     "types": [
       "Rock",
@@ -230,6 +239,7 @@
   {
     "slug": "aggron",
     "name": "Aggron",
+    "spriteId": "aggron",
     "nationalDex": 306,
     "types": [
       "Steel",
@@ -257,6 +267,7 @@
   {
     "slug": "aggronmega",
     "name": "Aggron-Mega",
+    "spriteId": "aggron-mega",
     "nationalDex": 306,
     "types": [
       "Steel"
@@ -281,6 +292,7 @@
   {
     "slug": "alakazam",
     "name": "Alakazam",
+    "spriteId": "alakazam",
     "nationalDex": 65,
     "types": [
       "Psychic"
@@ -307,6 +319,7 @@
   {
     "slug": "alakazammega",
     "name": "Alakazam-Mega",
+    "spriteId": "alakazam-mega",
     "nationalDex": 65,
     "types": [
       "Psychic"
@@ -331,6 +344,7 @@
   {
     "slug": "alcremie",
     "name": "Alcremie",
+    "spriteId": "alcremie",
     "nationalDex": 869,
     "types": [
       "Fairy"
@@ -356,6 +370,7 @@
   {
     "slug": "alcremiecaramelswirl",
     "name": "Alcremie-Caramel-Swirl",
+    "spriteId": "alcremie",
     "nationalDex": 869,
     "types": [
       "Fairy"
@@ -381,6 +396,7 @@
   {
     "slug": "alcremielemoncream",
     "name": "Alcremie-Lemon-Cream",
+    "spriteId": "alcremie",
     "nationalDex": 869,
     "types": [
       "Fairy"
@@ -406,6 +422,7 @@
   {
     "slug": "alcremiematchacream",
     "name": "Alcremie-Matcha-Cream",
+    "spriteId": "alcremie",
     "nationalDex": 869,
     "types": [
       "Fairy"
@@ -431,6 +448,7 @@
   {
     "slug": "alcremiemintcream",
     "name": "Alcremie-Mint-Cream",
+    "spriteId": "alcremie",
     "nationalDex": 869,
     "types": [
       "Fairy"
@@ -456,6 +474,7 @@
   {
     "slug": "alcremierainbowswirl",
     "name": "Alcremie-Rainbow-Swirl",
+    "spriteId": "alcremie",
     "nationalDex": 869,
     "types": [
       "Fairy"
@@ -481,6 +500,7 @@
   {
     "slug": "alcremierubycream",
     "name": "Alcremie-Ruby-Cream",
+    "spriteId": "alcremie",
     "nationalDex": 869,
     "types": [
       "Fairy"
@@ -506,6 +526,7 @@
   {
     "slug": "alcremierubyswirl",
     "name": "Alcremie-Ruby-Swirl",
+    "spriteId": "alcremie",
     "nationalDex": 869,
     "types": [
       "Fairy"
@@ -531,6 +552,7 @@
   {
     "slug": "altaria",
     "name": "Altaria",
+    "spriteId": "altaria",
     "nationalDex": 334,
     "types": [
       "Dragon",
@@ -557,6 +579,7 @@
   {
     "slug": "altariamega",
     "name": "Altaria-Mega",
+    "spriteId": "altaria-mega",
     "nationalDex": 334,
     "types": [
       "Dragon",
@@ -582,6 +605,7 @@
   {
     "slug": "ampharos",
     "name": "Ampharos",
+    "spriteId": "ampharos",
     "nationalDex": 181,
     "types": [
       "Electric"
@@ -607,6 +631,7 @@
   {
     "slug": "ampharosmega",
     "name": "Ampharos-Mega",
+    "spriteId": "ampharos-mega",
     "nationalDex": 181,
     "types": [
       "Electric",
@@ -632,6 +657,7 @@
   {
     "slug": "annihilape",
     "name": "Annihilape",
+    "spriteId": "annihilape",
     "nationalDex": 979,
     "types": [
       "Fighting",
@@ -659,6 +685,7 @@
   {
     "slug": "appletun",
     "name": "Appletun",
+    "spriteId": "appletun",
     "nationalDex": 842,
     "types": [
       "Grass",
@@ -686,6 +713,7 @@
   {
     "slug": "araquanid",
     "name": "Araquanid",
+    "spriteId": "araquanid",
     "nationalDex": 752,
     "types": [
       "Water",
@@ -712,6 +740,7 @@
   {
     "slug": "arbok",
     "name": "Arbok",
+    "spriteId": "arbok",
     "nationalDex": 24,
     "types": [
       "Poison"
@@ -738,6 +767,7 @@
   {
     "slug": "arboliva",
     "name": "Arboliva",
+    "spriteId": "arboliva",
     "nationalDex": 930,
     "types": [
       "Grass",
@@ -764,6 +794,7 @@
   {
     "slug": "arcanine",
     "name": "Arcanine",
+    "spriteId": "arcanine",
     "nationalDex": 59,
     "types": [
       "Fire"
@@ -790,6 +821,7 @@
   {
     "slug": "arcaninehisui",
     "name": "Arcanine-Hisui",
+    "spriteId": "arcanine-hisui",
     "nationalDex": 59,
     "types": [
       "Fire",
@@ -817,6 +849,7 @@
   {
     "slug": "archaludon",
     "name": "Archaludon",
+    "spriteId": "archaludon",
     "nationalDex": 1018,
     "types": [
       "Steel",
@@ -844,6 +877,7 @@
   {
     "slug": "ariados",
     "name": "Ariados",
+    "spriteId": "ariados",
     "nationalDex": 168,
     "types": [
       "Bug",
@@ -871,6 +905,7 @@
   {
     "slug": "armarouge",
     "name": "Armarouge",
+    "spriteId": "armarouge",
     "nationalDex": 936,
     "types": [
       "Fire",
@@ -897,6 +932,7 @@
   {
     "slug": "aromatisse",
     "name": "Aromatisse",
+    "spriteId": "aromatisse",
     "nationalDex": 683,
     "types": [
       "Fairy"
@@ -922,6 +958,7 @@
   {
     "slug": "audino",
     "name": "Audino",
+    "spriteId": "audino",
     "nationalDex": 531,
     "types": [
       "Normal"
@@ -948,6 +985,7 @@
   {
     "slug": "audinomega",
     "name": "Audino-Mega",
+    "spriteId": "audino-mega",
     "nationalDex": 531,
     "types": [
       "Normal",
@@ -973,6 +1011,7 @@
   {
     "slug": "aurorus",
     "name": "Aurorus",
+    "spriteId": "aurorus",
     "nationalDex": 699,
     "types": [
       "Rock",
@@ -999,6 +1038,7 @@
   {
     "slug": "avalugg",
     "name": "Avalugg",
+    "spriteId": "avalugg",
     "nationalDex": 713,
     "types": [
       "Ice"
@@ -1025,6 +1065,7 @@
   {
     "slug": "avalugghisui",
     "name": "Avalugg-Hisui",
+    "spriteId": "avalugg-hisui",
     "nationalDex": 713,
     "types": [
       "Ice",
@@ -1052,6 +1093,7 @@
   {
     "slug": "azumarill",
     "name": "Azumarill",
+    "spriteId": "azumarill",
     "nationalDex": 184,
     "types": [
       "Water",
@@ -1079,6 +1121,7 @@
   {
     "slug": "banette",
     "name": "Banette",
+    "spriteId": "banette",
     "nationalDex": 354,
     "types": [
       "Ghost"
@@ -1105,6 +1148,7 @@
   {
     "slug": "banettemega",
     "name": "Banette-Mega",
+    "spriteId": "banette-mega",
     "nationalDex": 354,
     "types": [
       "Ghost"
@@ -1129,6 +1173,7 @@
   {
     "slug": "barbaracle",
     "name": "Barbaracle",
+    "spriteId": "barbaracle",
     "nationalDex": 689,
     "types": [
       "Rock",
@@ -1156,6 +1201,7 @@
   {
     "slug": "barbaraclemega",
     "name": "Barbaracle-Mega",
+    "spriteId": "barbaracle-mega",
     "nationalDex": 689,
     "types": [
       "Rock",
@@ -1181,6 +1227,7 @@
   {
     "slug": "basculegion",
     "name": "Basculegion",
+    "spriteId": "basculegion",
     "nationalDex": 902,
     "types": [
       "Water",
@@ -1208,6 +1255,7 @@
   {
     "slug": "basculegionf",
     "name": "Basculegion-F",
+    "spriteId": "basculegion-f",
     "nationalDex": 902,
     "types": [
       "Water",
@@ -1235,6 +1283,7 @@
   {
     "slug": "bastiodon",
     "name": "Bastiodon",
+    "spriteId": "bastiodon",
     "nationalDex": 411,
     "types": [
       "Rock",
@@ -1261,6 +1310,7 @@
   {
     "slug": "baxcalibur",
     "name": "Baxcalibur",
+    "spriteId": "baxcalibur",
     "nationalDex": 998,
     "types": [
       "Dragon",
@@ -1287,6 +1337,7 @@
   {
     "slug": "baxcaliburmega",
     "name": "Baxcalibur-Mega",
+    "spriteId": "baxcalibur-mega",
     "nationalDex": 998,
     "types": [
       "Dragon",
@@ -1312,6 +1363,7 @@
   {
     "slug": "beartic",
     "name": "Beartic",
+    "spriteId": "beartic",
     "nationalDex": 614,
     "types": [
       "Ice"
@@ -1338,6 +1390,7 @@
   {
     "slug": "beedrill",
     "name": "Beedrill",
+    "spriteId": "beedrill",
     "nationalDex": 15,
     "types": [
       "Bug",
@@ -1364,6 +1417,7 @@
   {
     "slug": "beedrillmega",
     "name": "Beedrill-Mega",
+    "spriteId": "beedrill-mega",
     "nationalDex": 15,
     "types": [
       "Bug",
@@ -1389,6 +1443,7 @@
   {
     "slug": "bellibolt",
     "name": "Bellibolt",
+    "spriteId": "bellibolt",
     "nationalDex": 939,
     "types": [
       "Electric"
@@ -1415,6 +1470,7 @@
   {
     "slug": "blastoise",
     "name": "Blastoise",
+    "spriteId": "blastoise",
     "nationalDex": 9,
     "types": [
       "Water"
@@ -1440,6 +1496,7 @@
   {
     "slug": "blastoisemega",
     "name": "Blastoise-Mega",
+    "spriteId": "blastoise-mega",
     "nationalDex": 9,
     "types": [
       "Water"
@@ -1464,6 +1521,7 @@
   {
     "slug": "blaziken",
     "name": "Blaziken",
+    "spriteId": "blaziken",
     "nationalDex": 257,
     "types": [
       "Fire",
@@ -1490,6 +1548,7 @@
   {
     "slug": "blazikenmega",
     "name": "Blaziken-Mega",
+    "spriteId": "blaziken-mega",
     "nationalDex": 257,
     "types": [
       "Fire",
@@ -1515,6 +1574,7 @@
   {
     "slug": "camerupt",
     "name": "Camerupt",
+    "spriteId": "camerupt",
     "nationalDex": 323,
     "types": [
       "Fire",
@@ -1542,6 +1602,7 @@
   {
     "slug": "cameruptmega",
     "name": "Camerupt-Mega",
+    "spriteId": "camerupt-mega",
     "nationalDex": 323,
     "types": [
       "Fire",
@@ -1567,6 +1628,7 @@
   {
     "slug": "castform",
     "name": "Castform",
+    "spriteId": "castform",
     "nationalDex": 351,
     "types": [
       "Normal"
@@ -1591,6 +1653,7 @@
   {
     "slug": "castformrainy",
     "name": "Castform-Rainy",
+    "spriteId": "castform-rainy",
     "nationalDex": 351,
     "types": [
       "Water"
@@ -1615,6 +1678,7 @@
   {
     "slug": "castformsnowy",
     "name": "Castform-Snowy",
+    "spriteId": "castform-snowy",
     "nationalDex": 351,
     "types": [
       "Ice"
@@ -1639,6 +1703,7 @@
   {
     "slug": "castformsunny",
     "name": "Castform-Sunny",
+    "spriteId": "castform-sunny",
     "nationalDex": 351,
     "types": [
       "Fire"
@@ -1663,6 +1728,7 @@
   {
     "slug": "ceruledge",
     "name": "Ceruledge",
+    "spriteId": "ceruledge",
     "nationalDex": 937,
     "types": [
       "Fire",
@@ -1689,6 +1755,7 @@
   {
     "slug": "chandelure",
     "name": "Chandelure",
+    "spriteId": "chandelure",
     "nationalDex": 609,
     "types": [
       "Ghost",
@@ -1716,6 +1783,7 @@
   {
     "slug": "chandeluremega",
     "name": "Chandelure-Mega",
+    "spriteId": "chandelure-mega",
     "nationalDex": 609,
     "types": [
       "Ghost",
@@ -1741,6 +1809,7 @@
   {
     "slug": "charizard",
     "name": "Charizard",
+    "spriteId": "charizard",
     "nationalDex": 6,
     "types": [
       "Fire",
@@ -1767,6 +1836,7 @@
   {
     "slug": "charizardmegax",
     "name": "Charizard-Mega-X",
+    "spriteId": "charizard-megax",
     "nationalDex": 6,
     "types": [
       "Fire",
@@ -1792,6 +1862,7 @@
   {
     "slug": "charizardmegay",
     "name": "Charizard-Mega-Y",
+    "spriteId": "charizard-megay",
     "nationalDex": 6,
     "types": [
       "Fire",
@@ -1817,6 +1888,7 @@
   {
     "slug": "chesnaught",
     "name": "Chesnaught",
+    "spriteId": "chesnaught",
     "nationalDex": 652,
     "types": [
       "Grass",
@@ -1843,6 +1915,7 @@
   {
     "slug": "chesnaughtmega",
     "name": "Chesnaught-Mega",
+    "spriteId": "chesnaught-mega",
     "nationalDex": 652,
     "types": [
       "Grass",
@@ -1868,6 +1941,7 @@
   {
     "slug": "chimecho",
     "name": "Chimecho",
+    "spriteId": "chimecho",
     "nationalDex": 358,
     "types": [
       "Psychic"
@@ -1892,6 +1966,7 @@
   {
     "slug": "chimechomega",
     "name": "Chimecho-Mega",
+    "spriteId": "chimecho-mega",
     "nationalDex": 358,
     "types": [
       "Psychic",
@@ -1917,6 +1992,7 @@
   {
     "slug": "cinderace",
     "name": "Cinderace",
+    "spriteId": "cinderace",
     "nationalDex": 815,
     "types": [
       "Fire"
@@ -1942,6 +2018,7 @@
   {
     "slug": "clawitzer",
     "name": "Clawitzer",
+    "spriteId": "clawitzer",
     "nationalDex": 693,
     "types": [
       "Water"
@@ -1966,6 +2043,7 @@
   {
     "slug": "clefable",
     "name": "Clefable",
+    "spriteId": "clefable",
     "nationalDex": 36,
     "types": [
       "Fairy"
@@ -1992,6 +2070,7 @@
   {
     "slug": "clefablemega",
     "name": "Clefable-Mega",
+    "spriteId": "clefable-mega",
     "nationalDex": 36,
     "types": [
       "Fairy",
@@ -2017,6 +2096,7 @@
   {
     "slug": "cofagrigus",
     "name": "Cofagrigus",
+    "spriteId": "cofagrigus",
     "nationalDex": 563,
     "types": [
       "Ghost"
@@ -2041,6 +2121,7 @@
   {
     "slug": "conkeldurr",
     "name": "Conkeldurr",
+    "spriteId": "conkeldurr",
     "nationalDex": 534,
     "types": [
       "Fighting"
@@ -2067,6 +2148,7 @@
   {
     "slug": "corviknight",
     "name": "Corviknight",
+    "spriteId": "corviknight",
     "nationalDex": 823,
     "types": [
       "Flying",
@@ -2094,6 +2176,7 @@
   {
     "slug": "crabominable",
     "name": "Crabominable",
+    "spriteId": "crabominable",
     "nationalDex": 740,
     "types": [
       "Fighting",
@@ -2121,6 +2204,7 @@
   {
     "slug": "crabominablemega",
     "name": "Crabominable-Mega",
+    "spriteId": "crabominable-mega",
     "nationalDex": 740,
     "types": [
       "Fighting",
@@ -2146,6 +2230,7 @@
   {
     "slug": "cramorant",
     "name": "Cramorant",
+    "spriteId": "cramorant",
     "nationalDex": 845,
     "types": [
       "Flying",
@@ -2171,6 +2256,7 @@
   {
     "slug": "cramorantgorging",
     "name": "Cramorant-Gorging",
+    "spriteId": "cramorant-gorging",
     "nationalDex": 845,
     "types": [
       "Flying",
@@ -2196,6 +2282,7 @@
   {
     "slug": "cramorantgulping",
     "name": "Cramorant-Gulping",
+    "spriteId": "cramorant-gulping",
     "nationalDex": 845,
     "types": [
       "Flying",
@@ -2221,6 +2308,7 @@
   {
     "slug": "decidueye",
     "name": "Decidueye",
+    "spriteId": "decidueye",
     "nationalDex": 724,
     "types": [
       "Grass",
@@ -2247,6 +2335,7 @@
   {
     "slug": "decidueyehisui",
     "name": "Decidueye-Hisui",
+    "spriteId": "decidueye-hisui",
     "nationalDex": 724,
     "types": [
       "Grass",
@@ -2273,6 +2362,7 @@
   {
     "slug": "dedenne",
     "name": "Dedenne",
+    "spriteId": "dedenne",
     "nationalDex": 702,
     "types": [
       "Electric",
@@ -2300,6 +2390,7 @@
   {
     "slug": "delphox",
     "name": "Delphox",
+    "spriteId": "delphox",
     "nationalDex": 655,
     "types": [
       "Fire",
@@ -2326,6 +2417,7 @@
   {
     "slug": "delphoxmega",
     "name": "Delphox-Mega",
+    "spriteId": "delphox-mega",
     "nationalDex": 655,
     "types": [
       "Fire",
@@ -2351,6 +2443,7 @@
   {
     "slug": "diggersby",
     "name": "Diggersby",
+    "spriteId": "diggersby",
     "nationalDex": 660,
     "types": [
       "Normal",
@@ -2378,6 +2471,7 @@
   {
     "slug": "ditto",
     "name": "Ditto",
+    "spriteId": "ditto",
     "nationalDex": 132,
     "types": [
       "Normal"
@@ -2403,6 +2497,7 @@
   {
     "slug": "dragalge",
     "name": "Dragalge",
+    "spriteId": "dragalge",
     "nationalDex": 691,
     "types": [
       "Poison",
@@ -2430,6 +2525,7 @@
   {
     "slug": "dragalgemega",
     "name": "Dragalge-Mega",
+    "spriteId": "dragalge-mega",
     "nationalDex": 691,
     "types": [
       "Poison",
@@ -2455,6 +2551,7 @@
   {
     "slug": "dragapult",
     "name": "Dragapult",
+    "spriteId": "dragapult",
     "nationalDex": 887,
     "types": [
       "Dragon",
@@ -2482,6 +2579,7 @@
   {
     "slug": "dragonite",
     "name": "Dragonite",
+    "spriteId": "dragonite",
     "nationalDex": 149,
     "types": [
       "Dragon",
@@ -2508,6 +2606,7 @@
   {
     "slug": "dragonitemega",
     "name": "Dragonite-Mega",
+    "spriteId": "dragonite-mega",
     "nationalDex": 149,
     "types": [
       "Dragon",
@@ -2533,6 +2632,7 @@
   {
     "slug": "drampa",
     "name": "Drampa",
+    "spriteId": "drampa",
     "nationalDex": 780,
     "types": [
       "Normal",
@@ -2560,6 +2660,7 @@
   {
     "slug": "drampamega",
     "name": "Drampa-Mega",
+    "spriteId": "drampa-mega",
     "nationalDex": 780,
     "types": [
       "Normal",
@@ -2585,6 +2686,7 @@
   {
     "slug": "eelektross",
     "name": "Eelektross",
+    "spriteId": "eelektross",
     "nationalDex": 604,
     "types": [
       "Electric"
@@ -2609,6 +2711,7 @@
   {
     "slug": "eelektrossmega",
     "name": "Eelektross-Mega",
+    "spriteId": "eelektross-mega",
     "nationalDex": 604,
     "types": [
       "Electric"
@@ -2633,6 +2736,7 @@
   {
     "slug": "eiscue",
     "name": "Eiscue",
+    "spriteId": "eiscue",
     "nationalDex": 875,
     "types": [
       "Ice"
@@ -2657,6 +2761,7 @@
   {
     "slug": "eiscuenoice",
     "name": "Eiscue-Noice",
+    "spriteId": "eiscue-noice",
     "nationalDex": 875,
     "types": [
       "Ice"
@@ -2681,6 +2786,7 @@
   {
     "slug": "emboar",
     "name": "Emboar",
+    "spriteId": "emboar",
     "nationalDex": 500,
     "types": [
       "Fire",
@@ -2707,6 +2813,7 @@
   {
     "slug": "emboarmega",
     "name": "Emboar-Mega",
+    "spriteId": "emboar-mega",
     "nationalDex": 500,
     "types": [
       "Fire",
@@ -2732,6 +2839,7 @@
   {
     "slug": "emolga",
     "name": "Emolga",
+    "spriteId": "emolga",
     "nationalDex": 587,
     "types": [
       "Electric",
@@ -2758,6 +2866,7 @@
   {
     "slug": "empoleon",
     "name": "Empoleon",
+    "spriteId": "empoleon",
     "nationalDex": 395,
     "types": [
       "Water",
@@ -2784,6 +2893,7 @@
   {
     "slug": "espathra",
     "name": "Espathra",
+    "spriteId": "espathra",
     "nationalDex": 956,
     "types": [
       "Psychic"
@@ -2810,6 +2920,7 @@
   {
     "slug": "espeon",
     "name": "Espeon",
+    "spriteId": "espeon",
     "nationalDex": 196,
     "types": [
       "Psychic"
@@ -2835,6 +2946,7 @@
   {
     "slug": "excadrill",
     "name": "Excadrill",
+    "spriteId": "excadrill",
     "nationalDex": 530,
     "types": [
       "Ground",
@@ -2862,6 +2974,7 @@
   {
     "slug": "excadrillmega",
     "name": "Excadrill-Mega",
+    "spriteId": "excadrill-mega",
     "nationalDex": 530,
     "types": [
       "Ground",
@@ -2887,6 +3000,7 @@
   {
     "slug": "falinks",
     "name": "Falinks",
+    "spriteId": "falinks",
     "nationalDex": 870,
     "types": [
       "Fighting"
@@ -2912,6 +3026,7 @@
   {
     "slug": "falinksmega",
     "name": "Falinks-Mega",
+    "spriteId": "falinks-mega",
     "nationalDex": 870,
     "types": [
       "Fighting"
@@ -2936,6 +3051,7 @@
   {
     "slug": "farfetchd",
     "name": "Farfetch’d",
+    "spriteId": "farfetchd",
     "nationalDex": 83,
     "types": [
       "Normal",
@@ -2963,6 +3079,7 @@
   {
     "slug": "farigiraf",
     "name": "Farigiraf",
+    "spriteId": "farigiraf",
     "nationalDex": 981,
     "types": [
       "Normal",
@@ -2990,6 +3107,7 @@
   {
     "slug": "feraligatr",
     "name": "Feraligatr",
+    "spriteId": "feraligatr",
     "nationalDex": 160,
     "types": [
       "Water"
@@ -3015,6 +3133,7 @@
   {
     "slug": "feraligatrmega",
     "name": "Feraligatr-Mega",
+    "spriteId": "feraligatr-mega",
     "nationalDex": 160,
     "types": [
       "Water",
@@ -3040,6 +3159,7 @@
   {
     "slug": "flapple",
     "name": "Flapple",
+    "spriteId": "flapple",
     "nationalDex": 841,
     "types": [
       "Grass",
@@ -3067,6 +3187,7 @@
   {
     "slug": "flareon",
     "name": "Flareon",
+    "spriteId": "flareon",
     "nationalDex": 136,
     "types": [
       "Fire"
@@ -3092,6 +3213,7 @@
   {
     "slug": "floette",
     "name": "Floette",
+    "spriteId": "floette",
     "nationalDex": 670,
     "types": [
       "Fairy"
@@ -3117,6 +3239,7 @@
   {
     "slug": "floetteeternal",
     "name": "Floette-Eternal",
+    "spriteId": "floette-eternal",
     "nationalDex": 670,
     "types": [
       "Fairy"
@@ -3142,6 +3265,7 @@
   {
     "slug": "floettemega",
     "name": "Floette-Mega",
+    "spriteId": "floette-mega",
     "nationalDex": 670,
     "types": [
       "Fairy"
@@ -3166,6 +3290,7 @@
   {
     "slug": "florges",
     "name": "Florges",
+    "spriteId": "florges",
     "nationalDex": 671,
     "types": [
       "Fairy"
@@ -3191,6 +3316,7 @@
   {
     "slug": "forretress",
     "name": "Forretress",
+    "spriteId": "forretress",
     "nationalDex": 205,
     "types": [
       "Bug",
@@ -3217,6 +3343,7 @@
   {
     "slug": "froslass",
     "name": "Froslass",
+    "spriteId": "froslass",
     "nationalDex": 478,
     "types": [
       "Ice",
@@ -3243,6 +3370,7 @@
   {
     "slug": "froslassmega",
     "name": "Froslass-Mega",
+    "spriteId": "froslass-mega",
     "nationalDex": 478,
     "types": [
       "Ice",
@@ -3268,6 +3396,7 @@
   {
     "slug": "furfrou",
     "name": "Furfrou",
+    "spriteId": "furfrou",
     "nationalDex": 676,
     "types": [
       "Normal"
@@ -3292,6 +3421,7 @@
   {
     "slug": "gallade",
     "name": "Gallade",
+    "spriteId": "gallade",
     "nationalDex": 475,
     "types": [
       "Psychic",
@@ -3319,6 +3449,7 @@
   {
     "slug": "gallademega",
     "name": "Gallade-Mega",
+    "spriteId": "gallade-mega",
     "nationalDex": 475,
     "types": [
       "Psychic",
@@ -3344,6 +3475,7 @@
   {
     "slug": "garbodor",
     "name": "Garbodor",
+    "spriteId": "garbodor",
     "nationalDex": 569,
     "types": [
       "Poison"
@@ -3370,6 +3502,7 @@
   {
     "slug": "garchomp",
     "name": "Garchomp",
+    "spriteId": "garchomp",
     "nationalDex": 445,
     "types": [
       "Dragon",
@@ -3396,6 +3529,7 @@
   {
     "slug": "garchompmega",
     "name": "Garchomp-Mega",
+    "spriteId": "garchomp-mega",
     "nationalDex": 445,
     "types": [
       "Dragon",
@@ -3421,6 +3555,7 @@
   {
     "slug": "garchompmegaz",
     "name": "Garchomp-Mega-Z",
+    "spriteId": "garchomp-megaz",
     "nationalDex": 445,
     "types": [
       "Dragon"
@@ -3445,6 +3580,7 @@
   {
     "slug": "gardevoir",
     "name": "Gardevoir",
+    "spriteId": "gardevoir",
     "nationalDex": 282,
     "types": [
       "Psychic",
@@ -3472,6 +3608,7 @@
   {
     "slug": "gardevoirmega",
     "name": "Gardevoir-Mega",
+    "spriteId": "gardevoir-mega",
     "nationalDex": 282,
     "types": [
       "Psychic",
@@ -3497,6 +3634,7 @@
   {
     "slug": "garganacl",
     "name": "Garganacl",
+    "spriteId": "garganacl",
     "nationalDex": 934,
     "types": [
       "Rock"
@@ -3523,6 +3661,7 @@
   {
     "slug": "gengar",
     "name": "Gengar",
+    "spriteId": "gengar",
     "nationalDex": 94,
     "types": [
       "Ghost",
@@ -3548,6 +3687,7 @@
   {
     "slug": "gengarmega",
     "name": "Gengar-Mega",
+    "spriteId": "gengar-mega",
     "nationalDex": 94,
     "types": [
       "Ghost",
@@ -3573,6 +3713,7 @@
   {
     "slug": "gholdengo",
     "name": "Gholdengo",
+    "spriteId": "gholdengo",
     "nationalDex": 1000,
     "types": [
       "Steel",
@@ -3598,6 +3739,7 @@
   {
     "slug": "glaceon",
     "name": "Glaceon",
+    "spriteId": "glaceon",
     "nationalDex": 471,
     "types": [
       "Ice"
@@ -3623,6 +3765,7 @@
   {
     "slug": "glalie",
     "name": "Glalie",
+    "spriteId": "glalie",
     "nationalDex": 362,
     "types": [
       "Ice"
@@ -3649,6 +3792,7 @@
   {
     "slug": "glaliemega",
     "name": "Glalie-Mega",
+    "spriteId": "glalie-mega",
     "nationalDex": 362,
     "types": [
       "Ice"
@@ -3673,6 +3817,7 @@
   {
     "slug": "glimmora",
     "name": "Glimmora",
+    "spriteId": "glimmora",
     "nationalDex": 970,
     "types": [
       "Rock",
@@ -3699,6 +3844,7 @@
   {
     "slug": "glimmoramega",
     "name": "Glimmora-Mega",
+    "spriteId": "glimmora-mega",
     "nationalDex": 970,
     "types": [
       "Rock",
@@ -3724,6 +3870,7 @@
   {
     "slug": "gliscor",
     "name": "Gliscor",
+    "spriteId": "gliscor",
     "nationalDex": 472,
     "types": [
       "Ground",
@@ -3751,6 +3898,7 @@
   {
     "slug": "gogoat",
     "name": "Gogoat",
+    "spriteId": "gogoat",
     "nationalDex": 673,
     "types": [
       "Grass"
@@ -3776,6 +3924,7 @@
   {
     "slug": "golisopod",
     "name": "Golisopod",
+    "spriteId": "golisopod",
     "nationalDex": 768,
     "types": [
       "Bug",
@@ -3801,6 +3950,7 @@
   {
     "slug": "golisopodmega",
     "name": "Golisopod-Mega",
+    "spriteId": "golisopod-mega",
     "nationalDex": 768,
     "types": [
       "Bug",
@@ -3826,6 +3976,7 @@
   {
     "slug": "golurk",
     "name": "Golurk",
+    "spriteId": "golurk",
     "nationalDex": 623,
     "types": [
       "Ground",
@@ -3853,6 +4004,7 @@
   {
     "slug": "golurkmega",
     "name": "Golurk-Mega",
+    "spriteId": "golurk-mega",
     "nationalDex": 623,
     "types": [
       "Ground",
@@ -3878,6 +4030,7 @@
   {
     "slug": "goodra",
     "name": "Goodra",
+    "spriteId": "goodra",
     "nationalDex": 706,
     "types": [
       "Dragon"
@@ -3904,6 +4057,7 @@
   {
     "slug": "goodrahisui",
     "name": "Goodra-Hisui",
+    "spriteId": "goodra-hisui",
     "nationalDex": 706,
     "types": [
       "Steel",
@@ -3931,6 +4085,7 @@
   {
     "slug": "gourgeist",
     "name": "Gourgeist",
+    "spriteId": "gourgeist",
     "nationalDex": 711,
     "types": [
       "Ghost",
@@ -3958,6 +4113,7 @@
   {
     "slug": "gourgeistlarge",
     "name": "Gourgeist-Large",
+    "spriteId": "gourgeist-large",
     "nationalDex": 711,
     "types": [
       "Ghost",
@@ -3985,6 +4141,7 @@
   {
     "slug": "gourgeistsmall",
     "name": "Gourgeist-Small",
+    "spriteId": "gourgeist-small",
     "nationalDex": 711,
     "types": [
       "Ghost",
@@ -4012,6 +4169,7 @@
   {
     "slug": "gourgeistsuper",
     "name": "Gourgeist-Super",
+    "spriteId": "gourgeist-super",
     "nationalDex": 711,
     "types": [
       "Ghost",
@@ -4039,6 +4197,7 @@
   {
     "slug": "grapploct",
     "name": "Grapploct",
+    "spriteId": "grapploct",
     "nationalDex": 853,
     "types": [
       "Fighting"
@@ -4064,6 +4223,7 @@
   {
     "slug": "greninja",
     "name": "Greninja",
+    "spriteId": "greninja",
     "nationalDex": 658,
     "types": [
       "Water",
@@ -4091,6 +4251,7 @@
   {
     "slug": "greninjamega",
     "name": "Greninja-Mega",
+    "spriteId": "greninja-mega",
     "nationalDex": 658,
     "types": [
       "Water",
@@ -4116,6 +4277,7 @@
   {
     "slug": "grimmsnarl",
     "name": "Grimmsnarl",
+    "spriteId": "grimmsnarl",
     "nationalDex": 861,
     "types": [
       "Dark",
@@ -4143,6 +4305,7 @@
   {
     "slug": "gyarados",
     "name": "Gyarados",
+    "spriteId": "gyarados",
     "nationalDex": 130,
     "types": [
       "Water",
@@ -4169,6 +4332,7 @@
   {
     "slug": "gyaradosmega",
     "name": "Gyarados-Mega",
+    "spriteId": "gyarados-mega",
     "nationalDex": 130,
     "types": [
       "Water",
@@ -4194,6 +4358,7 @@
   {
     "slug": "hatterene",
     "name": "Hatterene",
+    "spriteId": "hatterene",
     "nationalDex": 858,
     "types": [
       "Psychic",
@@ -4221,6 +4386,7 @@
   {
     "slug": "hawlucha",
     "name": "Hawlucha",
+    "spriteId": "hawlucha",
     "nationalDex": 701,
     "types": [
       "Fighting",
@@ -4248,6 +4414,7 @@
   {
     "slug": "hawluchamega",
     "name": "Hawlucha-Mega",
+    "spriteId": "hawlucha-mega",
     "nationalDex": 701,
     "types": [
       "Fighting",
@@ -4273,6 +4440,7 @@
   {
     "slug": "heliolisk",
     "name": "Heliolisk",
+    "spriteId": "heliolisk",
     "nationalDex": 695,
     "types": [
       "Electric",
@@ -4300,6 +4468,7 @@
   {
     "slug": "heracross",
     "name": "Heracross",
+    "spriteId": "heracross",
     "nationalDex": 214,
     "types": [
       "Bug",
@@ -4327,6 +4496,7 @@
   {
     "slug": "heracrossmega",
     "name": "Heracross-Mega",
+    "spriteId": "heracross-mega",
     "nationalDex": 214,
     "types": [
       "Bug",
@@ -4352,6 +4522,7 @@
   {
     "slug": "hippowdon",
     "name": "Hippowdon",
+    "spriteId": "hippowdon",
     "nationalDex": 450,
     "types": [
       "Ground"
@@ -4377,6 +4548,7 @@
   {
     "slug": "houndoom",
     "name": "Houndoom",
+    "spriteId": "houndoom",
     "nationalDex": 229,
     "types": [
       "Dark",
@@ -4404,6 +4576,7 @@
   {
     "slug": "houndoommega",
     "name": "Houndoom-Mega",
+    "spriteId": "houndoom-mega",
     "nationalDex": 229,
     "types": [
       "Dark",
@@ -4429,6 +4602,7 @@
   {
     "slug": "houndstone",
     "name": "Houndstone",
+    "spriteId": "houndstone",
     "nationalDex": 972,
     "types": [
       "Ghost"
@@ -4454,6 +4628,7 @@
   {
     "slug": "hydrapple",
     "name": "Hydrapple",
+    "spriteId": "hydrapple",
     "nationalDex": 1019,
     "types": [
       "Grass",
@@ -4481,6 +4656,7 @@
   {
     "slug": "hydreigon",
     "name": "Hydreigon",
+    "spriteId": "hydreigon",
     "nationalDex": 635,
     "types": [
       "Dark",
@@ -4506,6 +4682,7 @@
   {
     "slug": "incineroar",
     "name": "Incineroar",
+    "spriteId": "incineroar",
     "nationalDex": 727,
     "types": [
       "Fire",
@@ -4532,6 +4709,7 @@
   {
     "slug": "indeedee",
     "name": "Indeedee",
+    "spriteId": "indeedee",
     "nationalDex": 876,
     "types": [
       "Psychic",
@@ -4559,6 +4737,7 @@
   {
     "slug": "indeedeef",
     "name": "Indeedee-F",
+    "spriteId": "indeedee-f",
     "nationalDex": 876,
     "types": [
       "Psychic",
@@ -4586,6 +4765,7 @@
   {
     "slug": "infernape",
     "name": "Infernape",
+    "spriteId": "infernape",
     "nationalDex": 392,
     "types": [
       "Fire",
@@ -4612,6 +4792,7 @@
   {
     "slug": "inteleon",
     "name": "Inteleon",
+    "spriteId": "inteleon",
     "nationalDex": 818,
     "types": [
       "Water"
@@ -4637,6 +4818,7 @@
   {
     "slug": "jolteon",
     "name": "Jolteon",
+    "spriteId": "jolteon",
     "nationalDex": 135,
     "types": [
       "Electric"
@@ -4662,6 +4844,7 @@
   {
     "slug": "kangaskhan",
     "name": "Kangaskhan",
+    "spriteId": "kangaskhan",
     "nationalDex": 115,
     "types": [
       "Normal"
@@ -4688,6 +4871,7 @@
   {
     "slug": "kangaskhanmega",
     "name": "Kangaskhan-Mega",
+    "spriteId": "kangaskhan-mega",
     "nationalDex": 115,
     "types": [
       "Normal"
@@ -4712,6 +4896,7 @@
   {
     "slug": "kingambit",
     "name": "Kingambit",
+    "spriteId": "kingambit",
     "nationalDex": 983,
     "types": [
       "Dark",
@@ -4739,6 +4924,7 @@
   {
     "slug": "kleavor",
     "name": "Kleavor",
+    "spriteId": "kleavor",
     "nationalDex": 900,
     "types": [
       "Bug",
@@ -4766,6 +4952,7 @@
   {
     "slug": "klefki",
     "name": "Klefki",
+    "spriteId": "klefki",
     "nationalDex": 707,
     "types": [
       "Steel",
@@ -4792,6 +4979,7 @@
   {
     "slug": "kommoo",
     "name": "Kommo-o",
+    "spriteId": "kommoo",
     "nationalDex": 784,
     "types": [
       "Dragon",
@@ -4819,6 +5007,7 @@
   {
     "slug": "krookodile",
     "name": "Krookodile",
+    "spriteId": "krookodile",
     "nationalDex": 553,
     "types": [
       "Ground",
@@ -4846,6 +5035,7 @@
   {
     "slug": "leafeon",
     "name": "Leafeon",
+    "spriteId": "leafeon",
     "nationalDex": 470,
     "types": [
       "Grass"
@@ -4871,6 +5061,7 @@
   {
     "slug": "liepard",
     "name": "Liepard",
+    "spriteId": "liepard",
     "nationalDex": 510,
     "types": [
       "Dark"
@@ -4897,6 +5088,7 @@
   {
     "slug": "lopunny",
     "name": "Lopunny",
+    "spriteId": "lopunny",
     "nationalDex": 428,
     "types": [
       "Normal"
@@ -4923,6 +5115,7 @@
   {
     "slug": "lopunnymega",
     "name": "Lopunny-Mega",
+    "spriteId": "lopunny-mega",
     "nationalDex": 428,
     "types": [
       "Normal",
@@ -4948,6 +5141,7 @@
   {
     "slug": "lucario",
     "name": "Lucario",
+    "spriteId": "lucario",
     "nationalDex": 448,
     "types": [
       "Fighting",
@@ -4975,6 +5169,7 @@
   {
     "slug": "lucariomega",
     "name": "Lucario-Mega",
+    "spriteId": "lucario-mega",
     "nationalDex": 448,
     "types": [
       "Fighting",
@@ -5000,6 +5195,7 @@
   {
     "slug": "lucariomegaz",
     "name": "Lucario-Mega-Z",
+    "spriteId": "lucario-megaz",
     "nationalDex": 448,
     "types": [
       "Fighting",
@@ -5025,6 +5221,7 @@
   {
     "slug": "luxray",
     "name": "Luxray",
+    "spriteId": "luxray",
     "nationalDex": 405,
     "types": [
       "Electric"
@@ -5051,6 +5248,7 @@
   {
     "slug": "lycanroc",
     "name": "Lycanroc",
+    "spriteId": "lycanroc",
     "nationalDex": 745,
     "types": [
       "Rock"
@@ -5077,6 +5275,7 @@
   {
     "slug": "lycanrocdusk",
     "name": "Lycanroc-Dusk",
+    "spriteId": "lycanroc-dusk",
     "nationalDex": 745,
     "types": [
       "Rock"
@@ -5101,6 +5300,7 @@
   {
     "slug": "lycanrocmidnight",
     "name": "Lycanroc-Midnight",
+    "spriteId": "lycanroc-midnight",
     "nationalDex": 745,
     "types": [
       "Rock"
@@ -5127,6 +5327,7 @@
   {
     "slug": "mabosstiff",
     "name": "Mabosstiff",
+    "spriteId": "mabosstiff",
     "nationalDex": 943,
     "types": [
       "Dark"
@@ -5153,6 +5354,7 @@
   {
     "slug": "machamp",
     "name": "Machamp",
+    "spriteId": "machamp",
     "nationalDex": 68,
     "types": [
       "Fighting"
@@ -5179,6 +5381,7 @@
   {
     "slug": "malamar",
     "name": "Malamar",
+    "spriteId": "malamar",
     "nationalDex": 687,
     "types": [
       "Dark",
@@ -5206,6 +5409,7 @@
   {
     "slug": "malamarmega",
     "name": "Malamar-Mega",
+    "spriteId": "malamar-mega",
     "nationalDex": 687,
     "types": [
       "Dark",
@@ -5231,6 +5435,7 @@
   {
     "slug": "mamoswine",
     "name": "Mamoswine",
+    "spriteId": "mamoswine",
     "nationalDex": 473,
     "types": [
       "Ice",
@@ -5258,6 +5463,7 @@
   {
     "slug": "manectric",
     "name": "Manectric",
+    "spriteId": "manectric",
     "nationalDex": 310,
     "types": [
       "Electric"
@@ -5284,6 +5490,7 @@
   {
     "slug": "manectricmega",
     "name": "Manectric-Mega",
+    "spriteId": "manectric-mega",
     "nationalDex": 310,
     "types": [
       "Electric"
@@ -5308,6 +5515,7 @@
   {
     "slug": "maushold",
     "name": "Maushold",
+    "spriteId": "maushold",
     "nationalDex": 925,
     "types": [
       "Normal"
@@ -5334,6 +5542,7 @@
   {
     "slug": "mausholdfour",
     "name": "Maushold-Four",
+    "spriteId": "maushold-four",
     "nationalDex": 925,
     "types": [
       "Normal"
@@ -5360,6 +5569,7 @@
   {
     "slug": "mawile",
     "name": "Mawile",
+    "spriteId": "mawile",
     "nationalDex": 303,
     "types": [
       "Steel",
@@ -5387,6 +5597,7 @@
   {
     "slug": "mawilemega",
     "name": "Mawile-Mega",
+    "spriteId": "mawile-mega",
     "nationalDex": 303,
     "types": [
       "Steel",
@@ -5412,6 +5623,7 @@
   {
     "slug": "medicham",
     "name": "Medicham",
+    "spriteId": "medicham",
     "nationalDex": 308,
     "types": [
       "Fighting",
@@ -5438,6 +5650,7 @@
   {
     "slug": "medichammega",
     "name": "Medicham-Mega",
+    "spriteId": "medicham-mega",
     "nationalDex": 308,
     "types": [
       "Fighting",
@@ -5463,6 +5676,7 @@
   {
     "slug": "meganium",
     "name": "Meganium",
+    "spriteId": "meganium",
     "nationalDex": 154,
     "types": [
       "Grass"
@@ -5488,6 +5702,7 @@
   {
     "slug": "meganiummega",
     "name": "Meganium-Mega",
+    "spriteId": "meganium-mega",
     "nationalDex": 154,
     "types": [
       "Grass",
@@ -5513,6 +5728,7 @@
   {
     "slug": "meloetta",
     "name": "Meloetta",
+    "spriteId": "meloetta",
     "nationalDex": 648,
     "types": [
       "Normal",
@@ -5538,6 +5754,7 @@
   {
     "slug": "meloettapirouette",
     "name": "Meloetta-Pirouette",
+    "spriteId": "meloetta-pirouette",
     "nationalDex": 648,
     "types": [
       "Normal",
@@ -5563,6 +5780,7 @@
   {
     "slug": "meowscarada",
     "name": "Meowscarada",
+    "spriteId": "meowscarada",
     "nationalDex": 908,
     "types": [
       "Grass",
@@ -5589,6 +5807,7 @@
   {
     "slug": "meowstic",
     "name": "Meowstic",
+    "spriteId": "meowstic",
     "nationalDex": 678,
     "types": [
       "Psychic"
@@ -5615,6 +5834,7 @@
   {
     "slug": "meowsticf",
     "name": "Meowstic-F",
+    "spriteId": "meowstic-f",
     "nationalDex": 678,
     "types": [
       "Psychic"
@@ -5641,6 +5861,7 @@
   {
     "slug": "meowsticfmega",
     "name": "Meowstic-F-Mega",
+    "spriteId": "meowstic-fmega",
     "nationalDex": 678,
     "types": [
       "Psychic"
@@ -5665,6 +5886,7 @@
   {
     "slug": "meowsticmmega",
     "name": "Meowstic-M-Mega",
+    "spriteId": "meowstic-mmega",
     "nationalDex": 678,
     "types": [
       "Psychic"
@@ -5689,6 +5911,7 @@
   {
     "slug": "metagross",
     "name": "Metagross",
+    "spriteId": "metagross",
     "nationalDex": 376,
     "types": [
       "Steel",
@@ -5715,6 +5938,7 @@
   {
     "slug": "metagrossmega",
     "name": "Metagross-Mega",
+    "spriteId": "metagross-mega",
     "nationalDex": 376,
     "types": [
       "Steel",
@@ -5740,6 +5964,7 @@
   {
     "slug": "milotic",
     "name": "Milotic",
+    "spriteId": "milotic",
     "nationalDex": 350,
     "types": [
       "Water"
@@ -5766,6 +5991,7 @@
   {
     "slug": "mimikyu",
     "name": "Mimikyu",
+    "spriteId": "mimikyu",
     "nationalDex": 778,
     "types": [
       "Ghost",
@@ -5791,6 +6017,7 @@
   {
     "slug": "mimikyubusted",
     "name": "Mimikyu-Busted",
+    "spriteId": "mimikyu-busted",
     "nationalDex": 778,
     "types": [
       "Ghost",
@@ -5816,6 +6043,7 @@
   {
     "slug": "minior",
     "name": "Minior",
+    "spriteId": "minior",
     "nationalDex": 774,
     "types": [
       "Rock",
@@ -5841,6 +6069,7 @@
   {
     "slug": "miniormeteor",
     "name": "Minior-Meteor",
+    "spriteId": "minior-meteor",
     "nationalDex": 774,
     "types": [
       "Rock",
@@ -5866,6 +6095,7 @@
   {
     "slug": "morpeko",
     "name": "Morpeko",
+    "spriteId": "morpeko",
     "nationalDex": 877,
     "types": [
       "Electric",
@@ -5891,6 +6121,7 @@
   {
     "slug": "morpekohangry",
     "name": "Morpeko-Hangry",
+    "spriteId": "morpeko-hangry",
     "nationalDex": 877,
     "types": [
       "Electric",
@@ -5916,6 +6147,7 @@
   {
     "slug": "mrmime",
     "name": "Mr. Mime",
+    "spriteId": "mrmime",
     "nationalDex": 122,
     "types": [
       "Psychic",
@@ -5943,6 +6175,7 @@
   {
     "slug": "mrrime",
     "name": "Mr. Rime",
+    "spriteId": "mrrime",
     "nationalDex": 866,
     "types": [
       "Ice",
@@ -5970,6 +6203,7 @@
   {
     "slug": "mudsdale",
     "name": "Mudsdale",
+    "spriteId": "mudsdale",
     "nationalDex": 750,
     "types": [
       "Ground"
@@ -5996,6 +6230,7 @@
   {
     "slug": "musharna",
     "name": "Musharna",
+    "spriteId": "musharna",
     "nationalDex": 518,
     "types": [
       "Psychic"
@@ -6022,6 +6257,7 @@
   {
     "slug": "ninetales",
     "name": "Ninetales",
+    "spriteId": "ninetales",
     "nationalDex": 38,
     "types": [
       "Fire"
@@ -6047,6 +6283,7 @@
   {
     "slug": "ninetalesalola",
     "name": "Ninetales-Alola",
+    "spriteId": "ninetales-alola",
     "nationalDex": 38,
     "types": [
       "Ice",
@@ -6073,6 +6310,7 @@
   {
     "slug": "noivern",
     "name": "Noivern",
+    "spriteId": "noivern",
     "nationalDex": 715,
     "types": [
       "Flying",
@@ -6100,6 +6338,7 @@
   {
     "slug": "ogerpon",
     "name": "Ogerpon",
+    "spriteId": "ogerpon",
     "nationalDex": 1017,
     "types": [
       "Grass"
@@ -6124,6 +6363,7 @@
   {
     "slug": "ogerponcornerstonetera",
     "name": "Ogerpon-Cornerstone-Tera",
+    "spriteId": "ogerpon-cornerstonetera",
     "nationalDex": 1017,
     "types": [
       "Grass",
@@ -6149,6 +6389,7 @@
   {
     "slug": "ogerponhearthflametera",
     "name": "Ogerpon-Hearthflame-Tera",
+    "spriteId": "ogerpon-hearthflametera",
     "nationalDex": 1017,
     "types": [
       "Grass",
@@ -6174,6 +6415,7 @@
   {
     "slug": "ogerpontealtera",
     "name": "Ogerpon-Teal-Tera",
+    "spriteId": "ogerpon-tealtera",
     "nationalDex": 1017,
     "types": [
       "Grass"
@@ -6198,6 +6440,7 @@
   {
     "slug": "ogerponwellspringtera",
     "name": "Ogerpon-Wellspring-Tera",
+    "spriteId": "ogerpon-wellspringtera",
     "nationalDex": 1017,
     "types": [
       "Grass",
@@ -6223,6 +6466,7 @@
   {
     "slug": "oranguru",
     "name": "Oranguru",
+    "spriteId": "oranguru",
     "nationalDex": 765,
     "types": [
       "Normal",
@@ -6250,6 +6494,7 @@
   {
     "slug": "orthworm",
     "name": "Orthworm",
+    "spriteId": "orthworm",
     "nationalDex": 968,
     "types": [
       "Steel"
@@ -6275,6 +6520,7 @@
   {
     "slug": "overqwil",
     "name": "Overqwil",
+    "spriteId": "overqwil",
     "nationalDex": 904,
     "types": [
       "Dark",
@@ -6302,6 +6548,7 @@
   {
     "slug": "palafin",
     "name": "Palafin",
+    "spriteId": "palafin",
     "nationalDex": 964,
     "types": [
       "Water"
@@ -6326,6 +6573,7 @@
   {
     "slug": "palafinhero",
     "name": "Palafin-Hero",
+    "spriteId": "palafin-hero",
     "nationalDex": 964,
     "types": [
       "Water"
@@ -6350,6 +6598,7 @@
   {
     "slug": "pangoro",
     "name": "Pangoro",
+    "spriteId": "pangoro",
     "nationalDex": 675,
     "types": [
       "Fighting",
@@ -6377,6 +6626,7 @@
   {
     "slug": "passimian",
     "name": "Passimian",
+    "spriteId": "passimian",
     "nationalDex": 766,
     "types": [
       "Fighting"
@@ -6402,6 +6652,7 @@
   {
     "slug": "pawmot",
     "name": "Pawmot",
+    "spriteId": "pawmot",
     "nationalDex": 923,
     "types": [
       "Electric",
@@ -6429,6 +6680,7 @@
   {
     "slug": "pelipper",
     "name": "Pelipper",
+    "spriteId": "pelipper",
     "nationalDex": 279,
     "types": [
       "Water",
@@ -6456,6 +6708,7 @@
   {
     "slug": "perrserker",
     "name": "Perrserker",
+    "spriteId": "perrserker",
     "nationalDex": 863,
     "types": [
       "Steel"
@@ -6482,6 +6735,7 @@
   {
     "slug": "persian",
     "name": "Persian",
+    "spriteId": "persian",
     "nationalDex": 53,
     "types": [
       "Normal"
@@ -6508,6 +6762,7 @@
   {
     "slug": "persianalola",
     "name": "Persian-Alola",
+    "spriteId": "persian-alola",
     "nationalDex": 53,
     "types": [
       "Dark"
@@ -6534,6 +6789,7 @@
   {
     "slug": "pidgeot",
     "name": "Pidgeot",
+    "spriteId": "pidgeot",
     "nationalDex": 18,
     "types": [
       "Normal",
@@ -6561,6 +6817,7 @@
   {
     "slug": "pidgeotmega",
     "name": "Pidgeot-Mega",
+    "spriteId": "pidgeot-mega",
     "nationalDex": 18,
     "types": [
       "Normal",
@@ -6586,6 +6843,7 @@
   {
     "slug": "pikachu",
     "name": "Pikachu",
+    "spriteId": "pikachu",
     "nationalDex": 25,
     "types": [
       "Electric"
@@ -6611,6 +6869,7 @@
   {
     "slug": "pincurchin",
     "name": "Pincurchin",
+    "spriteId": "pincurchin",
     "nationalDex": 871,
     "types": [
       "Electric"
@@ -6636,6 +6895,7 @@
   {
     "slug": "pinsir",
     "name": "Pinsir",
+    "spriteId": "pinsir",
     "nationalDex": 127,
     "types": [
       "Bug"
@@ -6662,6 +6922,7 @@
   {
     "slug": "pinsirmega",
     "name": "Pinsir-Mega",
+    "spriteId": "pinsir-mega",
     "nationalDex": 127,
     "types": [
       "Bug",
@@ -6687,6 +6948,7 @@
   {
     "slug": "politoed",
     "name": "Politoed",
+    "spriteId": "politoed",
     "nationalDex": 186,
     "types": [
       "Water"
@@ -6713,6 +6975,7 @@
   {
     "slug": "polteageist",
     "name": "Polteageist",
+    "spriteId": "polteageist",
     "nationalDex": 855,
     "types": [
       "Ghost"
@@ -6738,6 +7001,7 @@
   {
     "slug": "polteageistantique",
     "name": "Polteageist-Antique",
+    "spriteId": "polteageist-antique",
     "nationalDex": 855,
     "types": [
       "Ghost"
@@ -6763,6 +7027,7 @@
   {
     "slug": "primarina",
     "name": "Primarina",
+    "spriteId": "primarina",
     "nationalDex": 730,
     "types": [
       "Water",
@@ -6789,6 +7054,7 @@
   {
     "slug": "pyroar",
     "name": "Pyroar",
+    "spriteId": "pyroar",
     "nationalDex": 668,
     "types": [
       "Fire",
@@ -6816,6 +7082,7 @@
   {
     "slug": "pyroarmega",
     "name": "Pyroar-Mega",
+    "spriteId": "pyroar-mega",
     "nationalDex": 668,
     "types": [
       "Fire",
@@ -6841,6 +7108,7 @@
   {
     "slug": "quaquaval",
     "name": "Quaquaval",
+    "spriteId": "quaquaval",
     "nationalDex": 914,
     "types": [
       "Water",
@@ -6867,6 +7135,7 @@
   {
     "slug": "qwilfish",
     "name": "Qwilfish",
+    "spriteId": "qwilfish",
     "nationalDex": 211,
     "types": [
       "Water",
@@ -6894,6 +7163,7 @@
   {
     "slug": "raichu",
     "name": "Raichu",
+    "spriteId": "raichu",
     "nationalDex": 26,
     "types": [
       "Electric"
@@ -6919,6 +7189,7 @@
   {
     "slug": "raichualola",
     "name": "Raichu-Alola",
+    "spriteId": "raichu-alola",
     "nationalDex": 26,
     "types": [
       "Electric",
@@ -6944,6 +7215,7 @@
   {
     "slug": "raichumegax",
     "name": "Raichu-Mega-X",
+    "spriteId": "raichu-megax",
     "nationalDex": 26,
     "types": [
       "Electric"
@@ -6968,6 +7240,7 @@
   {
     "slug": "raichumegay",
     "name": "Raichu-Mega-Y",
+    "spriteId": "raichu-megay",
     "nationalDex": 26,
     "types": [
       "Electric"
@@ -6992,6 +7265,7 @@
   {
     "slug": "rampardos",
     "name": "Rampardos",
+    "spriteId": "rampardos",
     "nationalDex": 409,
     "types": [
       "Rock"
@@ -7017,6 +7291,7 @@
   {
     "slug": "reuniclus",
     "name": "Reuniclus",
+    "spriteId": "reuniclus",
     "nationalDex": 579,
     "types": [
       "Psychic"
@@ -7043,6 +7318,7 @@
   {
     "slug": "rhyperior",
     "name": "Rhyperior",
+    "spriteId": "rhyperior",
     "nationalDex": 464,
     "types": [
       "Ground",
@@ -7070,6 +7346,7 @@
   {
     "slug": "rillaboom",
     "name": "Rillaboom",
+    "spriteId": "rillaboom",
     "nationalDex": 812,
     "types": [
       "Grass"
@@ -7095,6 +7372,7 @@
   {
     "slug": "roserade",
     "name": "Roserade",
+    "spriteId": "roserade",
     "nationalDex": 407,
     "types": [
       "Grass",
@@ -7122,6 +7400,7 @@
   {
     "slug": "rotom",
     "name": "Rotom",
+    "spriteId": "rotom",
     "nationalDex": 479,
     "types": [
       "Electric",
@@ -7147,6 +7426,7 @@
   {
     "slug": "rotomfan",
     "name": "Rotom-Fan",
+    "spriteId": "rotom-fan",
     "nationalDex": 479,
     "types": [
       "Electric",
@@ -7172,6 +7452,7 @@
   {
     "slug": "rotomfrost",
     "name": "Rotom-Frost",
+    "spriteId": "rotom-frost",
     "nationalDex": 479,
     "types": [
       "Electric",
@@ -7197,6 +7478,7 @@
   {
     "slug": "rotomheat",
     "name": "Rotom-Heat",
+    "spriteId": "rotom-heat",
     "nationalDex": 479,
     "types": [
       "Electric",
@@ -7222,6 +7504,7 @@
   {
     "slug": "rotommow",
     "name": "Rotom-Mow",
+    "spriteId": "rotom-mow",
     "nationalDex": 479,
     "types": [
       "Electric",
@@ -7247,6 +7530,7 @@
   {
     "slug": "rotomwash",
     "name": "Rotom-Wash",
+    "spriteId": "rotom-wash",
     "nationalDex": 479,
     "types": [
       "Electric",
@@ -7272,6 +7556,7 @@
   {
     "slug": "runerigus",
     "name": "Runerigus",
+    "spriteId": "runerigus",
     "nationalDex": 867,
     "types": [
       "Ground",
@@ -7297,6 +7582,7 @@
   {
     "slug": "sableye",
     "name": "Sableye",
+    "spriteId": "sableye",
     "nationalDex": 302,
     "types": [
       "Dark",
@@ -7324,6 +7610,7 @@
   {
     "slug": "sableyemega",
     "name": "Sableye-Mega",
+    "spriteId": "sableye-mega",
     "nationalDex": 302,
     "types": [
       "Dark",
@@ -7349,6 +7636,7 @@
   {
     "slug": "salamence",
     "name": "Salamence",
+    "spriteId": "salamence",
     "nationalDex": 373,
     "types": [
       "Dragon",
@@ -7375,6 +7663,7 @@
   {
     "slug": "salamencemega",
     "name": "Salamence-Mega",
+    "spriteId": "salamence-mega",
     "nationalDex": 373,
     "types": [
       "Dragon",
@@ -7400,6 +7689,7 @@
   {
     "slug": "salazzle",
     "name": "Salazzle",
+    "spriteId": "salazzle",
     "nationalDex": 758,
     "types": [
       "Poison",
@@ -7426,6 +7716,7 @@
   {
     "slug": "samurott",
     "name": "Samurott",
+    "spriteId": "samurott",
     "nationalDex": 503,
     "types": [
       "Water"
@@ -7451,6 +7742,7 @@
   {
     "slug": "samurotthisui",
     "name": "Samurott-Hisui",
+    "spriteId": "samurott-hisui",
     "nationalDex": 503,
     "types": [
       "Water",
@@ -7477,6 +7769,7 @@
   {
     "slug": "sandaconda",
     "name": "Sandaconda",
+    "spriteId": "sandaconda",
     "nationalDex": 844,
     "types": [
       "Ground"
@@ -7503,6 +7796,7 @@
   {
     "slug": "sceptile",
     "name": "Sceptile",
+    "spriteId": "sceptile",
     "nationalDex": 254,
     "types": [
       "Grass"
@@ -7528,6 +7822,7 @@
   {
     "slug": "sceptilemega",
     "name": "Sceptile-Mega",
+    "spriteId": "sceptile-mega",
     "nationalDex": 254,
     "types": [
       "Grass",
@@ -7553,6 +7848,7 @@
   {
     "slug": "scizor",
     "name": "Scizor",
+    "spriteId": "scizor",
     "nationalDex": 212,
     "types": [
       "Bug",
@@ -7580,6 +7876,7 @@
   {
     "slug": "scizormega",
     "name": "Scizor-Mega",
+    "spriteId": "scizor-mega",
     "nationalDex": 212,
     "types": [
       "Bug",
@@ -7605,6 +7902,7 @@
   {
     "slug": "scolipede",
     "name": "Scolipede",
+    "spriteId": "scolipede",
     "nationalDex": 545,
     "types": [
       "Bug",
@@ -7632,6 +7930,7 @@
   {
     "slug": "scolipedemega",
     "name": "Scolipede-Mega",
+    "spriteId": "scolipede-mega",
     "nationalDex": 545,
     "types": [
       "Bug",
@@ -7657,6 +7956,7 @@
   {
     "slug": "scovillain",
     "name": "Scovillain",
+    "spriteId": "scovillain",
     "nationalDex": 952,
     "types": [
       "Grass",
@@ -7684,6 +7984,7 @@
   {
     "slug": "scovillainmega",
     "name": "Scovillain-Mega",
+    "spriteId": "scovillain-mega",
     "nationalDex": 952,
     "types": [
       "Grass",
@@ -7709,6 +8010,7 @@
   {
     "slug": "scrafty",
     "name": "Scrafty",
+    "spriteId": "scrafty",
     "nationalDex": 560,
     "types": [
       "Dark",
@@ -7736,6 +8038,7 @@
   {
     "slug": "scraftymega",
     "name": "Scrafty-Mega",
+    "spriteId": "scrafty-mega",
     "nationalDex": 560,
     "types": [
       "Dark",
@@ -7761,6 +8064,7 @@
   {
     "slug": "serperior",
     "name": "Serperior",
+    "spriteId": "serperior",
     "nationalDex": 497,
     "types": [
       "Grass"
@@ -7786,6 +8090,7 @@
   {
     "slug": "sharpedo",
     "name": "Sharpedo",
+    "spriteId": "sharpedo",
     "nationalDex": 319,
     "types": [
       "Water",
@@ -7812,6 +8117,7 @@
   {
     "slug": "sharpedomega",
     "name": "Sharpedo-Mega",
+    "spriteId": "sharpedo-mega",
     "nationalDex": 319,
     "types": [
       "Water",
@@ -7837,6 +8143,7 @@
   {
     "slug": "simipour",
     "name": "Simipour",
+    "spriteId": "simipour",
     "nationalDex": 516,
     "types": [
       "Water"
@@ -7862,6 +8169,7 @@
   {
     "slug": "simisage",
     "name": "Simisage",
+    "spriteId": "simisage",
     "nationalDex": 512,
     "types": [
       "Grass"
@@ -7887,6 +8195,7 @@
   {
     "slug": "simisear",
     "name": "Simisear",
+    "spriteId": "simisear",
     "nationalDex": 514,
     "types": [
       "Fire"
@@ -7912,6 +8221,7 @@
   {
     "slug": "sinistcha",
     "name": "Sinistcha",
+    "spriteId": "sinistcha",
     "nationalDex": 1013,
     "types": [
       "Grass",
@@ -7938,6 +8248,7 @@
   {
     "slug": "sinistchamasterpiece",
     "name": "Sinistcha-Masterpiece",
+    "spriteId": "sinistcha-masterpiece",
     "nationalDex": 1013,
     "types": [
       "Grass",
@@ -7964,6 +8275,7 @@
   {
     "slug": "sirfetchd",
     "name": "Sirfetch’d",
+    "spriteId": "sirfetchd",
     "nationalDex": 865,
     "types": [
       "Fighting"
@@ -7989,6 +8301,7 @@
   {
     "slug": "skarmory",
     "name": "Skarmory",
+    "spriteId": "skarmory",
     "nationalDex": 227,
     "types": [
       "Steel",
@@ -8016,6 +8329,7 @@
   {
     "slug": "skarmorymega",
     "name": "Skarmory-Mega",
+    "spriteId": "skarmory-mega",
     "nationalDex": 227,
     "types": [
       "Steel",
@@ -8041,6 +8355,7 @@
   {
     "slug": "skeledirge",
     "name": "Skeledirge",
+    "spriteId": "skeledirge",
     "nationalDex": 911,
     "types": [
       "Fire",
@@ -8067,6 +8382,7 @@
   {
     "slug": "slowbro",
     "name": "Slowbro",
+    "spriteId": "slowbro",
     "nationalDex": 80,
     "types": [
       "Water",
@@ -8094,6 +8410,7 @@
   {
     "slug": "slowbrogalar",
     "name": "Slowbro-Galar",
+    "spriteId": "slowbro-galar",
     "nationalDex": 80,
     "types": [
       "Poison",
@@ -8121,6 +8438,7 @@
   {
     "slug": "slowbromega",
     "name": "Slowbro-Mega",
+    "spriteId": "slowbro-mega",
     "nationalDex": 80,
     "types": [
       "Water",
@@ -8146,6 +8464,7 @@
   {
     "slug": "slowking",
     "name": "Slowking",
+    "spriteId": "slowking",
     "nationalDex": 199,
     "types": [
       "Water",
@@ -8173,6 +8492,7 @@
   {
     "slug": "slowkinggalar",
     "name": "Slowking-Galar",
+    "spriteId": "slowking-galar",
     "nationalDex": 199,
     "types": [
       "Poison",
@@ -8200,6 +8520,7 @@
   {
     "slug": "slurpuff",
     "name": "Slurpuff",
+    "spriteId": "slurpuff",
     "nationalDex": 685,
     "types": [
       "Fairy"
@@ -8225,6 +8546,7 @@
   {
     "slug": "sneasler",
     "name": "Sneasler",
+    "spriteId": "sneasler",
     "nationalDex": 903,
     "types": [
       "Fighting",
@@ -8252,6 +8574,7 @@
   {
     "slug": "snorlax",
     "name": "Snorlax",
+    "spriteId": "snorlax",
     "nationalDex": 143,
     "types": [
       "Normal"
@@ -8278,6 +8601,7 @@
   {
     "slug": "spiritomb",
     "name": "Spiritomb",
+    "spriteId": "spiritomb",
     "nationalDex": 442,
     "types": [
       "Ghost",
@@ -8304,6 +8628,7 @@
   {
     "slug": "squawkabilly",
     "name": "Squawkabilly",
+    "spriteId": "squawkabilly",
     "nationalDex": 931,
     "types": [
       "Normal",
@@ -8331,6 +8656,7 @@
   {
     "slug": "squawkabillyblue",
     "name": "Squawkabilly-Blue",
+    "spriteId": "squawkabilly-blue",
     "nationalDex": 931,
     "types": [
       "Normal",
@@ -8358,6 +8684,7 @@
   {
     "slug": "squawkabillywhite",
     "name": "Squawkabilly-White",
+    "spriteId": "squawkabilly-white",
     "nationalDex": 931,
     "types": [
       "Normal",
@@ -8385,6 +8712,7 @@
   {
     "slug": "squawkabillyyellow",
     "name": "Squawkabilly-Yellow",
+    "spriteId": "squawkabilly-yellow",
     "nationalDex": 931,
     "types": [
       "Normal",
@@ -8412,6 +8740,7 @@
   {
     "slug": "staraptor",
     "name": "Staraptor",
+    "spriteId": "staraptor",
     "nationalDex": 398,
     "types": [
       "Normal",
@@ -8438,6 +8767,7 @@
   {
     "slug": "staraptormega",
     "name": "Staraptor-Mega",
+    "spriteId": "staraptor-mega",
     "nationalDex": 398,
     "types": [
       "Fighting",
@@ -8463,6 +8793,7 @@
   {
     "slug": "starmie",
     "name": "Starmie",
+    "spriteId": "starmie",
     "nationalDex": 121,
     "types": [
       "Water",
@@ -8490,6 +8821,7 @@
   {
     "slug": "starmiemega",
     "name": "Starmie-Mega",
+    "spriteId": "starmie-mega",
     "nationalDex": 121,
     "types": [
       "Water",
@@ -8515,6 +8847,7 @@
   {
     "slug": "steelix",
     "name": "Steelix",
+    "spriteId": "steelix",
     "nationalDex": 208,
     "types": [
       "Steel",
@@ -8542,6 +8875,7 @@
   {
     "slug": "steelixmega",
     "name": "Steelix-Mega",
+    "spriteId": "steelix-mega",
     "nationalDex": 208,
     "types": [
       "Steel",
@@ -8567,6 +8901,7 @@
   {
     "slug": "stunfisk",
     "name": "Stunfisk",
+    "spriteId": "stunfisk",
     "nationalDex": 618,
     "types": [
       "Ground",
@@ -8594,6 +8929,7 @@
   {
     "slug": "stunfiskgalar",
     "name": "Stunfisk-Galar",
+    "spriteId": "stunfisk-galar",
     "nationalDex": 618,
     "types": [
       "Ground",
@@ -8619,6 +8955,7 @@
   {
     "slug": "swalot",
     "name": "Swalot",
+    "spriteId": "swalot",
     "nationalDex": 317,
     "types": [
       "Poison"
@@ -8645,6 +8982,7 @@
   {
     "slug": "swampert",
     "name": "Swampert",
+    "spriteId": "swampert",
     "nationalDex": 260,
     "types": [
       "Water",
@@ -8671,6 +9009,7 @@
   {
     "slug": "swampertmega",
     "name": "Swampert-Mega",
+    "spriteId": "swampert-mega",
     "nationalDex": 260,
     "types": [
       "Water",
@@ -8696,6 +9035,7 @@
   {
     "slug": "sylveon",
     "name": "Sylveon",
+    "spriteId": "sylveon",
     "nationalDex": 700,
     "types": [
       "Fairy"
@@ -8721,6 +9061,7 @@
   {
     "slug": "talonflame",
     "name": "Talonflame",
+    "spriteId": "talonflame",
     "nationalDex": 663,
     "types": [
       "Fire",
@@ -8747,6 +9088,7 @@
   {
     "slug": "tauros",
     "name": "Tauros",
+    "spriteId": "tauros",
     "nationalDex": 128,
     "types": [
       "Normal"
@@ -8773,6 +9115,7 @@
   {
     "slug": "taurospaldeaaqua",
     "name": "Tauros-Paldea-Aqua",
+    "spriteId": "tauros-paldeaaqua",
     "nationalDex": 128,
     "types": [
       "Fighting",
@@ -8800,6 +9143,7 @@
   {
     "slug": "taurospaldeablaze",
     "name": "Tauros-Paldea-Blaze",
+    "spriteId": "tauros-paldeablaze",
     "nationalDex": 128,
     "types": [
       "Fighting",
@@ -8827,6 +9171,7 @@
   {
     "slug": "taurospaldeacombat",
     "name": "Tauros-Paldea-Combat",
+    "spriteId": "tauros-paldeacombat",
     "nationalDex": 128,
     "types": [
       "Fighting"
@@ -8853,6 +9198,7 @@
   {
     "slug": "terapagos",
     "name": "Terapagos",
+    "spriteId": "terapagos",
     "nationalDex": 1024,
     "types": [
       "Normal"
@@ -8877,6 +9223,7 @@
   {
     "slug": "terapagosterastal",
     "name": "Terapagos-Terastal",
+    "spriteId": "terapagos-terastal",
     "nationalDex": 1024,
     "types": [
       "Normal"
@@ -8901,6 +9248,7 @@
   {
     "slug": "thievul",
     "name": "Thievul",
+    "spriteId": "thievul",
     "nationalDex": 828,
     "types": [
       "Dark"
@@ -8927,6 +9275,7 @@
   {
     "slug": "tinkaton",
     "name": "Tinkaton",
+    "spriteId": "tinkaton",
     "nationalDex": 959,
     "types": [
       "Fairy",
@@ -8954,6 +9303,7 @@
   {
     "slug": "torkoal",
     "name": "Torkoal",
+    "spriteId": "torkoal",
     "nationalDex": 324,
     "types": [
       "Fire"
@@ -8980,6 +9330,7 @@
   {
     "slug": "torterra",
     "name": "Torterra",
+    "spriteId": "torterra",
     "nationalDex": 389,
     "types": [
       "Grass",
@@ -9006,6 +9357,7 @@
   {
     "slug": "toucannon",
     "name": "Toucannon",
+    "spriteId": "toucannon",
     "nationalDex": 733,
     "types": [
       "Normal",
@@ -9033,6 +9385,7 @@
   {
     "slug": "toxapex",
     "name": "Toxapex",
+    "spriteId": "toxapex",
     "nationalDex": 748,
     "types": [
       "Poison",
@@ -9060,6 +9413,7 @@
   {
     "slug": "toxicroak",
     "name": "Toxicroak",
+    "spriteId": "toxicroak",
     "nationalDex": 454,
     "types": [
       "Poison",
@@ -9087,6 +9441,7 @@
   {
     "slug": "toxtricity",
     "name": "Toxtricity",
+    "spriteId": "toxtricity",
     "nationalDex": 849,
     "types": [
       "Electric",
@@ -9114,6 +9469,7 @@
   {
     "slug": "toxtricitylowkey",
     "name": "Toxtricity-Low-Key",
+    "spriteId": "toxtricity-lowkey",
     "nationalDex": 849,
     "types": [
       "Electric",
@@ -9141,6 +9497,7 @@
   {
     "slug": "trevenant",
     "name": "Trevenant",
+    "spriteId": "trevenant",
     "nationalDex": 709,
     "types": [
       "Ghost",
@@ -9168,6 +9525,7 @@
   {
     "slug": "tsareena",
     "name": "Tsareena",
+    "spriteId": "tsareena",
     "nationalDex": 763,
     "types": [
       "Grass"
@@ -9194,6 +9552,7 @@
   {
     "slug": "typhlosion",
     "name": "Typhlosion",
+    "spriteId": "typhlosion",
     "nationalDex": 157,
     "types": [
       "Fire"
@@ -9219,6 +9578,7 @@
   {
     "slug": "typhlosionhisui",
     "name": "Typhlosion-Hisui",
+    "spriteId": "typhlosion-hisui",
     "nationalDex": 157,
     "types": [
       "Fire",
@@ -9245,6 +9605,7 @@
   {
     "slug": "tyranitar",
     "name": "Tyranitar",
+    "spriteId": "tyranitar",
     "nationalDex": 248,
     "types": [
       "Rock",
@@ -9271,6 +9632,7 @@
   {
     "slug": "tyranitarmega",
     "name": "Tyranitar-Mega",
+    "spriteId": "tyranitar-mega",
     "nationalDex": 248,
     "types": [
       "Rock",
@@ -9296,6 +9658,7 @@
   {
     "slug": "tyrantrum",
     "name": "Tyrantrum",
+    "spriteId": "tyrantrum",
     "nationalDex": 697,
     "types": [
       "Rock",
@@ -9322,6 +9685,7 @@
   {
     "slug": "umbreon",
     "name": "Umbreon",
+    "spriteId": "umbreon",
     "nationalDex": 197,
     "types": [
       "Dark"
@@ -9347,6 +9711,7 @@
   {
     "slug": "vanilluxe",
     "name": "Vanilluxe",
+    "spriteId": "vanilluxe",
     "nationalDex": 584,
     "types": [
       "Ice"
@@ -9373,6 +9738,7 @@
   {
     "slug": "vaporeon",
     "name": "Vaporeon",
+    "spriteId": "vaporeon",
     "nationalDex": 134,
     "types": [
       "Water"
@@ -9398,6 +9764,7 @@
   {
     "slug": "venusaur",
     "name": "Venusaur",
+    "spriteId": "venusaur",
     "nationalDex": 3,
     "types": [
       "Grass",
@@ -9424,6 +9791,7 @@
   {
     "slug": "venusaurmega",
     "name": "Venusaur-Mega",
+    "spriteId": "venusaur-mega",
     "nationalDex": 3,
     "types": [
       "Grass",
@@ -9449,6 +9817,7 @@
   {
     "slug": "victreebel",
     "name": "Victreebel",
+    "spriteId": "victreebel",
     "nationalDex": 71,
     "types": [
       "Grass",
@@ -9475,6 +9844,7 @@
   {
     "slug": "victreebelmega",
     "name": "Victreebel-Mega",
+    "spriteId": "victreebel-mega",
     "nationalDex": 71,
     "types": [
       "Grass",
@@ -9500,6 +9870,7 @@
   {
     "slug": "vileplume",
     "name": "Vileplume",
+    "spriteId": "vileplume",
     "nationalDex": 45,
     "types": [
       "Grass",
@@ -9526,6 +9897,7 @@
   {
     "slug": "vivillon",
     "name": "Vivillon",
+    "spriteId": "vivillon",
     "nationalDex": 666,
     "types": [
       "Bug",
@@ -9553,6 +9925,7 @@
   {
     "slug": "vivillonarchipelago",
     "name": "Vivillon-Archipelago",
+    "spriteId": "vivillon",
     "nationalDex": 666,
     "types": [
       "Bug",
@@ -9580,6 +9953,7 @@
   {
     "slug": "vivilloncontinental",
     "name": "Vivillon-Continental",
+    "spriteId": "vivillon",
     "nationalDex": 666,
     "types": [
       "Bug",
@@ -9607,6 +9981,7 @@
   {
     "slug": "vivillonelegant",
     "name": "Vivillon-Elegant",
+    "spriteId": "vivillon",
     "nationalDex": 666,
     "types": [
       "Bug",
@@ -9634,6 +10009,7 @@
   {
     "slug": "vivillonfancy",
     "name": "Vivillon-Fancy",
+    "spriteId": "vivillon-fancy",
     "nationalDex": 666,
     "types": [
       "Bug",
@@ -9661,6 +10037,7 @@
   {
     "slug": "vivillongarden",
     "name": "Vivillon-Garden",
+    "spriteId": "vivillon",
     "nationalDex": 666,
     "types": [
       "Bug",
@@ -9688,6 +10065,7 @@
   {
     "slug": "vivillonhighplains",
     "name": "Vivillon-High Plains",
+    "spriteId": "vivillon",
     "nationalDex": 666,
     "types": [
       "Bug",
@@ -9715,6 +10093,7 @@
   {
     "slug": "vivillonicysnow",
     "name": "Vivillon-Icy Snow",
+    "spriteId": "vivillon",
     "nationalDex": 666,
     "types": [
       "Bug",
@@ -9742,6 +10121,7 @@
   {
     "slug": "vivillonjungle",
     "name": "Vivillon-Jungle",
+    "spriteId": "vivillon",
     "nationalDex": 666,
     "types": [
       "Bug",
@@ -9769,6 +10149,7 @@
   {
     "slug": "vivillonmarine",
     "name": "Vivillon-Marine",
+    "spriteId": "vivillon",
     "nationalDex": 666,
     "types": [
       "Bug",
@@ -9796,6 +10177,7 @@
   {
     "slug": "vivillonmodern",
     "name": "Vivillon-Modern",
+    "spriteId": "vivillon",
     "nationalDex": 666,
     "types": [
       "Bug",
@@ -9823,6 +10205,7 @@
   {
     "slug": "vivillonmonsoon",
     "name": "Vivillon-Monsoon",
+    "spriteId": "vivillon",
     "nationalDex": 666,
     "types": [
       "Bug",
@@ -9850,6 +10233,7 @@
   {
     "slug": "vivillonocean",
     "name": "Vivillon-Ocean",
+    "spriteId": "vivillon",
     "nationalDex": 666,
     "types": [
       "Bug",
@@ -9877,6 +10261,7 @@
   {
     "slug": "vivillonpokeball",
     "name": "Vivillon-Pokeball",
+    "spriteId": "vivillon-pokeball",
     "nationalDex": 666,
     "types": [
       "Bug",
@@ -9904,6 +10289,7 @@
   {
     "slug": "vivillonpolar",
     "name": "Vivillon-Polar",
+    "spriteId": "vivillon",
     "nationalDex": 666,
     "types": [
       "Bug",
@@ -9931,6 +10317,7 @@
   {
     "slug": "vivillonriver",
     "name": "Vivillon-River",
+    "spriteId": "vivillon",
     "nationalDex": 666,
     "types": [
       "Bug",
@@ -9958,6 +10345,7 @@
   {
     "slug": "vivillonsandstorm",
     "name": "Vivillon-Sandstorm",
+    "spriteId": "vivillon",
     "nationalDex": 666,
     "types": [
       "Bug",
@@ -9985,6 +10373,7 @@
   {
     "slug": "vivillonsavanna",
     "name": "Vivillon-Savanna",
+    "spriteId": "vivillon",
     "nationalDex": 666,
     "types": [
       "Bug",
@@ -10012,6 +10401,7 @@
   {
     "slug": "vivillonsun",
     "name": "Vivillon-Sun",
+    "spriteId": "vivillon",
     "nationalDex": 666,
     "types": [
       "Bug",
@@ -10039,6 +10429,7 @@
   {
     "slug": "vivillontundra",
     "name": "Vivillon-Tundra",
+    "spriteId": "vivillon",
     "nationalDex": 666,
     "types": [
       "Bug",
@@ -10066,6 +10457,7 @@
   {
     "slug": "volcarona",
     "name": "Volcarona",
+    "spriteId": "volcarona",
     "nationalDex": 637,
     "types": [
       "Bug",
@@ -10092,6 +10484,7 @@
   {
     "slug": "watchog",
     "name": "Watchog",
+    "spriteId": "watchog",
     "nationalDex": 505,
     "types": [
       "Normal"
@@ -10118,6 +10511,7 @@
   {
     "slug": "weavile",
     "name": "Weavile",
+    "spriteId": "weavile",
     "nationalDex": 461,
     "types": [
       "Dark",
@@ -10144,6 +10538,7 @@
   {
     "slug": "whimsicott",
     "name": "Whimsicott",
+    "spriteId": "whimsicott",
     "nationalDex": 547,
     "types": [
       "Grass",
@@ -10171,6 +10566,7 @@
   {
     "slug": "wigglytuff",
     "name": "Wigglytuff",
+    "spriteId": "wigglytuff",
     "nationalDex": 40,
     "types": [
       "Normal",
@@ -10198,6 +10594,7 @@
   {
     "slug": "wyrdeer",
     "name": "Wyrdeer",
+    "spriteId": "wyrdeer",
     "nationalDex": 899,
     "types": [
       "Normal",
@@ -10225,6 +10622,7 @@
   {
     "slug": "zoroark",
     "name": "Zoroark",
+    "spriteId": "zoroark",
     "nationalDex": 571,
     "types": [
       "Dark"
@@ -10249,6 +10647,7 @@
   {
     "slug": "zoroarkhisui",
     "name": "Zoroark-Hisui",
+    "spriteId": "zoroark-hisui",
     "nationalDex": 571,
     "types": [
       "Normal",

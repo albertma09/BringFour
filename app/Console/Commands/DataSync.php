@@ -67,6 +67,7 @@ class DataSync extends Command
             collect($species)->map(fn (array $row) => [
                 'slug' => $row['slug'],
                 'name' => $row['name'],
+                'sprite_id' => $row['spriteId'],
                 'national_dex' => $row['nationalDex'],
                 'types' => json_encode($row['types']),
                 'base_stats' => json_encode($row['baseStats']),
@@ -79,7 +80,7 @@ class DataSync extends Command
                 'updated_at' => $timestamp,
             ])->all(),
             ['slug'],
-            ['name', 'national_dex', 'types', 'base_stats', 'abilities', 'is_mega', 'is_buildable', 'required_item_slug', 'weight_kg', 'updated_at'],
+            ['name', 'sprite_id', 'national_dex', 'types', 'base_stats', 'abilities', 'is_mega', 'is_buildable', 'required_item_slug', 'weight_kg', 'updated_at'],
         );
 
         $speciesIds = DB::table('species')->pluck('id', 'slug');
