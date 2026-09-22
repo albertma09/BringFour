@@ -1,0 +1,54 @@
+name: Recolectar replays
+
+on:
+  workflow_dispatch:
+    inputs:
+      max_pages:
+        description: 'Paginas maximas por formato'
+        required: false
+        default: '40'
+      backfill:
+        description: 'Backfill completo (ignora el estado guardado)'
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect-replays
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: replay-archive
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Recolectar
+        working-directory: ingest
+        env:
+          TZ_MAX_PAGES: ${{ inputs.max_pages }}
+          TZ_BACKFILL: ${{ inputs.backfill && '1' || '0' }}
+        run: node replay-collector.mjs
+
+      - name: Commit del archivo
+        run: |
+          git config user.name 'turn-zero-bot'
+          git config user.email 'turn-zero-bot@users.noreply.github.com'
+          git add -f data/raw/replays
+          if git diff --cached --quiet; then
+            echo "Sin replays nuevos."
+            exit 0
+          fi
+          git commit -m "Replays: $(date -u +%Y-%m-%d)"
+          git push origin replay-archive

@@ -1,0 +1,10274 @@
+[
+  {
+    "slug": "abomasnow",
+    "name": "Abomasnow",
+    "nationalDex": 460,
+    "types": [
+      "Grass",
+      "Ice"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "atk": 92,
+      "def": 75,
+      "spa": 92,
+      "spd": 85,
+      "spe": 60
+    },
+    "abilities": {
+      "0": "snowwarning",
+      "H": "soundproof"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 135.5
+  },
+  {
+    "slug": "abomasnowmega",
+    "name": "Abomasnow-Mega",
+    "nationalDex": 460,
+    "types": [
+      "Grass",
+      "Ice"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "atk": 132,
+      "def": 105,
+      "spa": 132,
+      "spd": 105,
+      "spe": 30
+    },
+    "abilities": {
+      "0": "snowwarning"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "abomasnow",
+    "requiredItemSlug": "abomasite",
+    "weightKg": 185
+  },
+  {
+    "slug": "absol",
+    "name": "Absol",
+    "nationalDex": 359,
+    "types": [
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 130,
+      "def": 60,
+      "spa": 75,
+      "spd": 60,
+      "spe": 75
+    },
+    "abilities": {
+      "0": "pressure",
+      "1": "superluck",
+      "H": "justified"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 47
+  },
+  {
+    "slug": "absolmega",
+    "name": "Absol-Mega",
+    "nationalDex": 359,
+    "types": [
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 150,
+      "def": 60,
+      "spa": 115,
+      "spd": 60,
+      "spe": 115
+    },
+    "abilities": {
+      "0": "magicbounce"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "absol",
+    "requiredItemSlug": "absolite",
+    "weightKg": 49
+  },
+  {
+    "slug": "absolmegaz",
+    "name": "Absol-Mega-Z",
+    "nationalDex": 359,
+    "types": [
+      "Dark",
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 154,
+      "def": 60,
+      "spa": 75,
+      "spd": 60,
+      "spe": 151
+    },
+    "abilities": {
+      "0": "sharpness"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "absol",
+    "requiredItemSlug": "absolitez",
+    "weightKg": 49
+  },
+  {
+    "slug": "aegislash",
+    "name": "Aegislash",
+    "nationalDex": 681,
+    "types": [
+      "Steel",
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 50,
+      "def": 140,
+      "spa": 50,
+      "spd": 140,
+      "spe": 60
+    },
+    "abilities": {
+      "0": "stancechange"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 53
+  },
+  {
+    "slug": "aegislashblade",
+    "name": "Aegislash-Blade",
+    "nationalDex": 681,
+    "types": [
+      "Steel",
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 140,
+      "def": 50,
+      "spa": 140,
+      "spd": 50,
+      "spe": 60
+    },
+    "abilities": {
+      "0": "stancechange"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "aegislash",
+    "requiredItemSlug": null,
+    "weightKg": 53
+  },
+  {
+    "slug": "aerodactyl",
+    "name": "Aerodactyl",
+    "nationalDex": 142,
+    "types": [
+      "Rock",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 105,
+      "def": 65,
+      "spa": 60,
+      "spd": 75,
+      "spe": 130
+    },
+    "abilities": {
+      "0": "rockhead",
+      "1": "pressure",
+      "H": "unnerve"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 59
+  },
+  {
+    "slug": "aerodactylmega",
+    "name": "Aerodactyl-Mega",
+    "nationalDex": 142,
+    "types": [
+      "Rock",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 135,
+      "def": 85,
+      "spa": 70,
+      "spd": 95,
+      "spe": 150
+    },
+    "abilities": {
+      "0": "toughclaws"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "aerodactyl",
+    "requiredItemSlug": "aerodactylite",
+    "weightKg": 79
+  },
+  {
+    "slug": "aggron",
+    "name": "Aggron",
+    "nationalDex": 306,
+    "types": [
+      "Steel",
+      "Rock"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 110,
+      "def": 180,
+      "spa": 60,
+      "spd": 60,
+      "spe": 50
+    },
+    "abilities": {
+      "0": "sturdy",
+      "1": "rockhead",
+      "H": "heavymetal"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 360
+  },
+  {
+    "slug": "aggronmega",
+    "name": "Aggron-Mega",
+    "nationalDex": 306,
+    "types": [
+      "Steel"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 140,
+      "def": 230,
+      "spa": 60,
+      "spd": 80,
+      "spe": 50
+    },
+    "abilities": {
+      "0": "filter"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "aggron",
+    "requiredItemSlug": "aggronite",
+    "weightKg": 395
+  },
+  {
+    "slug": "alakazam",
+    "name": "Alakazam",
+    "nationalDex": 65,
+    "types": [
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 55,
+      "atk": 50,
+      "def": 45,
+      "spa": 135,
+      "spd": 95,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "synchronize",
+      "1": "innerfocus",
+      "H": "magicguard"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 48
+  },
+  {
+    "slug": "alakazammega",
+    "name": "Alakazam-Mega",
+    "nationalDex": 65,
+    "types": [
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 55,
+      "atk": 50,
+      "def": 65,
+      "spa": 175,
+      "spd": 105,
+      "spe": 150
+    },
+    "abilities": {
+      "0": "trace"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "alakazam",
+    "requiredItemSlug": "alakazite",
+    "weightKg": 48
+  },
+  {
+    "slug": "alcremie",
+    "name": "Alcremie",
+    "nationalDex": 869,
+    "types": [
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 60,
+      "def": 75,
+      "spa": 110,
+      "spd": 121,
+      "spe": 64
+    },
+    "abilities": {
+      "0": "sweetveil",
+      "H": "aromaveil"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 0.5
+  },
+  {
+    "slug": "alcremiecaramelswirl",
+    "name": "Alcremie-Caramel-Swirl",
+    "nationalDex": 869,
+    "types": [
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 60,
+      "def": 75,
+      "spa": 110,
+      "spd": 121,
+      "spe": 64
+    },
+    "abilities": {
+      "0": "sweetveil",
+      "H": "aromaveil"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "alcremie",
+    "requiredItemSlug": null,
+    "weightKg": 0.5
+  },
+  {
+    "slug": "alcremielemoncream",
+    "name": "Alcremie-Lemon-Cream",
+    "nationalDex": 869,
+    "types": [
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 60,
+      "def": 75,
+      "spa": 110,
+      "spd": 121,
+      "spe": 64
+    },
+    "abilities": {
+      "0": "sweetveil",
+      "H": "aromaveil"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "alcremie",
+    "requiredItemSlug": null,
+    "weightKg": 0.5
+  },
+  {
+    "slug": "alcremiematchacream",
+    "name": "Alcremie-Matcha-Cream",
+    "nationalDex": 869,
+    "types": [
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 60,
+      "def": 75,
+      "spa": 110,
+      "spd": 121,
+      "spe": 64
+    },
+    "abilities": {
+      "0": "sweetveil",
+      "H": "aromaveil"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "alcremie",
+    "requiredItemSlug": null,
+    "weightKg": 0.5
+  },
+  {
+    "slug": "alcremiemintcream",
+    "name": "Alcremie-Mint-Cream",
+    "nationalDex": 869,
+    "types": [
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 60,
+      "def": 75,
+      "spa": 110,
+      "spd": 121,
+      "spe": 64
+    },
+    "abilities": {
+      "0": "sweetveil",
+      "H": "aromaveil"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "alcremie",
+    "requiredItemSlug": null,
+    "weightKg": 0.5
+  },
+  {
+    "slug": "alcremierainbowswirl",
+    "name": "Alcremie-Rainbow-Swirl",
+    "nationalDex": 869,
+    "types": [
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 60,
+      "def": 75,
+      "spa": 110,
+      "spd": 121,
+      "spe": 64
+    },
+    "abilities": {
+      "0": "sweetveil",
+      "H": "aromaveil"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "alcremie",
+    "requiredItemSlug": null,
+    "weightKg": 0.5
+  },
+  {
+    "slug": "alcremierubycream",
+    "name": "Alcremie-Ruby-Cream",
+    "nationalDex": 869,
+    "types": [
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 60,
+      "def": 75,
+      "spa": 110,
+      "spd": 121,
+      "spe": 64
+    },
+    "abilities": {
+      "0": "sweetveil",
+      "H": "aromaveil"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "alcremie",
+    "requiredItemSlug": null,
+    "weightKg": 0.5
+  },
+  {
+    "slug": "alcremierubyswirl",
+    "name": "Alcremie-Ruby-Swirl",
+    "nationalDex": 869,
+    "types": [
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 60,
+      "def": 75,
+      "spa": 110,
+      "spd": 121,
+      "spe": 64
+    },
+    "abilities": {
+      "0": "sweetveil",
+      "H": "aromaveil"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "alcremie",
+    "requiredItemSlug": null,
+    "weightKg": 0.5
+  },
+  {
+    "slug": "altaria",
+    "name": "Altaria",
+    "nationalDex": 334,
+    "types": [
+      "Dragon",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 70,
+      "def": 90,
+      "spa": 70,
+      "spd": 105,
+      "spe": 80
+    },
+    "abilities": {
+      "0": "naturalcure",
+      "H": "cloudnine"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 20.6
+  },
+  {
+    "slug": "altariamega",
+    "name": "Altaria-Mega",
+    "nationalDex": 334,
+    "types": [
+      "Dragon",
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 110,
+      "def": 110,
+      "spa": 110,
+      "spd": 105,
+      "spe": 80
+    },
+    "abilities": {
+      "0": "pixilate"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "altaria",
+    "requiredItemSlug": "altarianite",
+    "weightKg": 20.6
+  },
+  {
+    "slug": "ampharos",
+    "name": "Ampharos",
+    "nationalDex": 181,
+    "types": [
+      "Electric"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "atk": 75,
+      "def": 85,
+      "spa": 115,
+      "spd": 90,
+      "spe": 55
+    },
+    "abilities": {
+      "0": "static",
+      "H": "plus"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 61.5
+  },
+  {
+    "slug": "ampharosmega",
+    "name": "Ampharos-Mega",
+    "nationalDex": 181,
+    "types": [
+      "Electric",
+      "Dragon"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "atk": 95,
+      "def": 105,
+      "spa": 165,
+      "spd": 110,
+      "spe": 45
+    },
+    "abilities": {
+      "0": "moldbreaker"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "ampharos",
+    "requiredItemSlug": "ampharosite",
+    "weightKg": 61.5
+  },
+  {
+    "slug": "annihilape",
+    "name": "Annihilape",
+    "nationalDex": 979,
+    "types": [
+      "Fighting",
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 110,
+      "atk": 115,
+      "def": 80,
+      "spa": 50,
+      "spd": 90,
+      "spe": 90
+    },
+    "abilities": {
+      "0": "vitalspirit",
+      "1": "innerfocus",
+      "H": "defiant"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 56
+  },
+  {
+    "slug": "appletun",
+    "name": "Appletun",
+    "nationalDex": 842,
+    "types": [
+      "Grass",
+      "Dragon"
+    ],
+    "baseStats": {
+      "hp": 110,
+      "atk": 85,
+      "def": 80,
+      "spa": 100,
+      "spd": 80,
+      "spe": 30
+    },
+    "abilities": {
+      "0": "ripen",
+      "1": "gluttony",
+      "H": "thickfat"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 13
+  },
+  {
+    "slug": "araquanid",
+    "name": "Araquanid",
+    "nationalDex": 752,
+    "types": [
+      "Water",
+      "Bug"
+    ],
+    "baseStats": {
+      "hp": 68,
+      "atk": 70,
+      "def": 92,
+      "spa": 50,
+      "spd": 132,
+      "spe": 42
+    },
+    "abilities": {
+      "0": "waterbubble",
+      "H": "waterabsorb"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 82
+  },
+  {
+    "slug": "arbok",
+    "name": "Arbok",
+    "nationalDex": 24,
+    "types": [
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 95,
+      "def": 69,
+      "spa": 65,
+      "spd": 79,
+      "spe": 80
+    },
+    "abilities": {
+      "0": "intimidate",
+      "1": "shedskin",
+      "H": "unnerve"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 65
+  },
+  {
+    "slug": "arboliva",
+    "name": "Arboliva",
+    "nationalDex": 930,
+    "types": [
+      "Grass",
+      "Normal"
+    ],
+    "baseStats": {
+      "hp": 78,
+      "atk": 69,
+      "def": 90,
+      "spa": 125,
+      "spd": 109,
+      "spe": 39
+    },
+    "abilities": {
+      "0": "seedsower",
+      "H": "harvest"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 48.2
+  },
+  {
+    "slug": "arcanine",
+    "name": "Arcanine",
+    "nationalDex": 59,
+    "types": [
+      "Fire"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "atk": 110,
+      "def": 80,
+      "spa": 100,
+      "spd": 80,
+      "spe": 95
+    },
+    "abilities": {
+      "0": "intimidate",
+      "1": "flashfire",
+      "H": "justified"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 155
+  },
+  {
+    "slug": "arcaninehisui",
+    "name": "Arcanine-Hisui",
+    "nationalDex": 59,
+    "types": [
+      "Fire",
+      "Rock"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 115,
+      "def": 80,
+      "spa": 95,
+      "spd": 80,
+      "spe": 90
+    },
+    "abilities": {
+      "0": "intimidate",
+      "1": "flashfire",
+      "H": "rockhead"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "arcanine",
+    "requiredItemSlug": null,
+    "weightKg": 168
+  },
+  {
+    "slug": "archaludon",
+    "name": "Archaludon",
+    "nationalDex": 1018,
+    "types": [
+      "Steel",
+      "Dragon"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "atk": 105,
+      "def": 130,
+      "spa": 125,
+      "spd": 65,
+      "spe": 85
+    },
+    "abilities": {
+      "0": "stamina",
+      "1": "sturdy",
+      "H": "stalwart"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 60
+  },
+  {
+    "slug": "ariados",
+    "name": "Ariados",
+    "nationalDex": 168,
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 90,
+      "def": 70,
+      "spa": 60,
+      "spd": 70,
+      "spe": 40
+    },
+    "abilities": {
+      "0": "swarm",
+      "1": "insomnia",
+      "H": "sniper"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 33.5
+  },
+  {
+    "slug": "armarouge",
+    "name": "Armarouge",
+    "nationalDex": 936,
+    "types": [
+      "Fire",
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 60,
+      "def": 100,
+      "spa": 125,
+      "spd": 80,
+      "spe": 75
+    },
+    "abilities": {
+      "0": "flashfire",
+      "H": "weakarmor"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 85
+  },
+  {
+    "slug": "aromatisse",
+    "name": "Aromatisse",
+    "nationalDex": 683,
+    "types": [
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 101,
+      "atk": 72,
+      "def": 72,
+      "spa": 99,
+      "spd": 89,
+      "spe": 29
+    },
+    "abilities": {
+      "0": "healer",
+      "H": "aromaveil"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 15.5
+  },
+  {
+    "slug": "audino",
+    "name": "Audino",
+    "nationalDex": 531,
+    "types": [
+      "Normal"
+    ],
+    "baseStats": {
+      "hp": 103,
+      "atk": 60,
+      "def": 86,
+      "spa": 60,
+      "spd": 86,
+      "spe": 50
+    },
+    "abilities": {
+      "0": "healer",
+      "1": "regenerator",
+      "H": "klutz"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 31
+  },
+  {
+    "slug": "audinomega",
+    "name": "Audino-Mega",
+    "nationalDex": 531,
+    "types": [
+      "Normal",
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 103,
+      "atk": 60,
+      "def": 126,
+      "spa": 80,
+      "spd": 126,
+      "spe": 50
+    },
+    "abilities": {
+      "0": "healer"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "audino",
+    "requiredItemSlug": "audinite",
+    "weightKg": 32
+  },
+  {
+    "slug": "aurorus",
+    "name": "Aurorus",
+    "nationalDex": 699,
+    "types": [
+      "Rock",
+      "Ice"
+    ],
+    "baseStats": {
+      "hp": 123,
+      "atk": 77,
+      "def": 72,
+      "spa": 99,
+      "spd": 92,
+      "spe": 58
+    },
+    "abilities": {
+      "0": "refrigerate",
+      "H": "snowwarning"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 225
+  },
+  {
+    "slug": "avalugg",
+    "name": "Avalugg",
+    "nationalDex": 713,
+    "types": [
+      "Ice"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 117,
+      "def": 184,
+      "spa": 44,
+      "spd": 46,
+      "spe": 28
+    },
+    "abilities": {
+      "0": "owntempo",
+      "1": "icebody",
+      "H": "sturdy"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 505
+  },
+  {
+    "slug": "avalugghisui",
+    "name": "Avalugg-Hisui",
+    "nationalDex": 713,
+    "types": [
+      "Ice",
+      "Rock"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 127,
+      "def": 184,
+      "spa": 34,
+      "spd": 36,
+      "spe": 38
+    },
+    "abilities": {
+      "0": "strongjaw",
+      "1": "icebody",
+      "H": "sturdy"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "avalugg",
+    "requiredItemSlug": null,
+    "weightKg": 262.4
+  },
+  {
+    "slug": "azumarill",
+    "name": "Azumarill",
+    "nationalDex": 184,
+    "types": [
+      "Water",
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 50,
+      "def": 80,
+      "spa": 60,
+      "spd": 80,
+      "spe": 50
+    },
+    "abilities": {
+      "0": "thickfat",
+      "1": "hugepower",
+      "H": "sapsipper"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 28.5
+  },
+  {
+    "slug": "banette",
+    "name": "Banette",
+    "nationalDex": 354,
+    "types": [
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 64,
+      "atk": 115,
+      "def": 65,
+      "spa": 83,
+      "spd": 63,
+      "spe": 65
+    },
+    "abilities": {
+      "0": "insomnia",
+      "1": "frisk",
+      "H": "cursedbody"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 12.5
+  },
+  {
+    "slug": "banettemega",
+    "name": "Banette-Mega",
+    "nationalDex": 354,
+    "types": [
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 64,
+      "atk": 165,
+      "def": 75,
+      "spa": 93,
+      "spd": 83,
+      "spe": 75
+    },
+    "abilities": {
+      "0": "prankster"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "banette",
+    "requiredItemSlug": "banettite",
+    "weightKg": 13
+  },
+  {
+    "slug": "barbaracle",
+    "name": "Barbaracle",
+    "nationalDex": 689,
+    "types": [
+      "Rock",
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 72,
+      "atk": 105,
+      "def": 115,
+      "spa": 54,
+      "spd": 86,
+      "spe": 68
+    },
+    "abilities": {
+      "0": "toughclaws",
+      "1": "sniper",
+      "H": "pickpocket"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 96
+  },
+  {
+    "slug": "barbaraclemega",
+    "name": "Barbaracle-Mega",
+    "nationalDex": 689,
+    "types": [
+      "Rock",
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 72,
+      "atk": 140,
+      "def": 130,
+      "spa": 64,
+      "spd": 106,
+      "spe": 88
+    },
+    "abilities": {
+      "0": "toughclaws"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "barbaracle",
+    "requiredItemSlug": "barbaracite",
+    "weightKg": 100
+  },
+  {
+    "slug": "basculegion",
+    "name": "Basculegion",
+    "nationalDex": 902,
+    "types": [
+      "Water",
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 120,
+      "atk": 112,
+      "def": 65,
+      "spa": 80,
+      "spd": 75,
+      "spe": 78
+    },
+    "abilities": {
+      "0": "swiftswim",
+      "1": "adaptability",
+      "H": "moldbreaker"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 110
+  },
+  {
+    "slug": "basculegionf",
+    "name": "Basculegion-F",
+    "nationalDex": 902,
+    "types": [
+      "Water",
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 120,
+      "atk": 92,
+      "def": 65,
+      "spa": 100,
+      "spd": 75,
+      "spe": 78
+    },
+    "abilities": {
+      "0": "swiftswim",
+      "1": "adaptability",
+      "H": "moldbreaker"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "basculegion",
+    "requiredItemSlug": null,
+    "weightKg": 110
+  },
+  {
+    "slug": "bastiodon",
+    "name": "Bastiodon",
+    "nationalDex": 411,
+    "types": [
+      "Rock",
+      "Steel"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 52,
+      "def": 168,
+      "spa": 47,
+      "spd": 138,
+      "spe": 30
+    },
+    "abilities": {
+      "0": "sturdy",
+      "H": "soundproof"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 149.5
+  },
+  {
+    "slug": "baxcalibur",
+    "name": "Baxcalibur",
+    "nationalDex": 998,
+    "types": [
+      "Dragon",
+      "Ice"
+    ],
+    "baseStats": {
+      "hp": 115,
+      "atk": 145,
+      "def": 92,
+      "spa": 75,
+      "spd": 86,
+      "spe": 87
+    },
+    "abilities": {
+      "0": "thermalexchange",
+      "H": "icebody"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 210
+  },
+  {
+    "slug": "baxcaliburmega",
+    "name": "Baxcalibur-Mega",
+    "nationalDex": 998,
+    "types": [
+      "Dragon",
+      "Ice"
+    ],
+    "baseStats": {
+      "hp": 115,
+      "atk": 175,
+      "def": 117,
+      "spa": 105,
+      "spd": 101,
+      "spe": 87
+    },
+    "abilities": {
+      "0": "thermalexchange"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "baxcalibur",
+    "requiredItemSlug": "baxcalibrite",
+    "weightKg": 315
+  },
+  {
+    "slug": "beartic",
+    "name": "Beartic",
+    "nationalDex": 614,
+    "types": [
+      "Ice"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 130,
+      "def": 80,
+      "spa": 70,
+      "spd": 80,
+      "spe": 50
+    },
+    "abilities": {
+      "0": "snowcloak",
+      "1": "slushrush",
+      "H": "swiftswim"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 260
+  },
+  {
+    "slug": "beedrill",
+    "name": "Beedrill",
+    "nationalDex": 15,
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 90,
+      "def": 40,
+      "spa": 45,
+      "spd": 80,
+      "spe": 75
+    },
+    "abilities": {
+      "0": "swarm",
+      "H": "sniper"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 29.5
+  },
+  {
+    "slug": "beedrillmega",
+    "name": "Beedrill-Mega",
+    "nationalDex": 15,
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 150,
+      "def": 40,
+      "spa": 15,
+      "spd": 80,
+      "spe": 145
+    },
+    "abilities": {
+      "0": "adaptability"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "beedrill",
+    "requiredItemSlug": "beedrillite",
+    "weightKg": 40.5
+  },
+  {
+    "slug": "bellibolt",
+    "name": "Bellibolt",
+    "nationalDex": 939,
+    "types": [
+      "Electric"
+    ],
+    "baseStats": {
+      "hp": 109,
+      "atk": 64,
+      "def": 91,
+      "spa": 103,
+      "spd": 83,
+      "spe": 45
+    },
+    "abilities": {
+      "0": "electromorphosis",
+      "1": "static",
+      "H": "damp"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 113
+  },
+  {
+    "slug": "blastoise",
+    "name": "Blastoise",
+    "nationalDex": 9,
+    "types": [
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 79,
+      "atk": 83,
+      "def": 100,
+      "spa": 85,
+      "spd": 105,
+      "spe": 78
+    },
+    "abilities": {
+      "0": "torrent",
+      "H": "raindish"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 85.5
+  },
+  {
+    "slug": "blastoisemega",
+    "name": "Blastoise-Mega",
+    "nationalDex": 9,
+    "types": [
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 79,
+      "atk": 103,
+      "def": 120,
+      "spa": 135,
+      "spd": 115,
+      "spe": 78
+    },
+    "abilities": {
+      "0": "megalauncher"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "blastoise",
+    "requiredItemSlug": "blastoisinite",
+    "weightKg": 101.1
+  },
+  {
+    "slug": "blaziken",
+    "name": "Blaziken",
+    "nationalDex": 257,
+    "types": [
+      "Fire",
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 120,
+      "def": 70,
+      "spa": 110,
+      "spd": 70,
+      "spe": 80
+    },
+    "abilities": {
+      "0": "blaze",
+      "H": "speedboost"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 52
+  },
+  {
+    "slug": "blazikenmega",
+    "name": "Blaziken-Mega",
+    "nationalDex": 257,
+    "types": [
+      "Fire",
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 160,
+      "def": 80,
+      "spa": 130,
+      "spd": 80,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "speedboost"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "blaziken",
+    "requiredItemSlug": "blazikenite",
+    "weightKg": 52
+  },
+  {
+    "slug": "camerupt",
+    "name": "Camerupt",
+    "nationalDex": 323,
+    "types": [
+      "Fire",
+      "Ground"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 100,
+      "def": 70,
+      "spa": 105,
+      "spd": 75,
+      "spe": 40
+    },
+    "abilities": {
+      "0": "magmaarmor",
+      "1": "solidrock",
+      "H": "angerpoint"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 220
+  },
+  {
+    "slug": "cameruptmega",
+    "name": "Camerupt-Mega",
+    "nationalDex": 323,
+    "types": [
+      "Fire",
+      "Ground"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 120,
+      "def": 100,
+      "spa": 145,
+      "spd": 105,
+      "spe": 20
+    },
+    "abilities": {
+      "0": "sheerforce"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "camerupt",
+    "requiredItemSlug": "cameruptite",
+    "weightKg": 320.5
+  },
+  {
+    "slug": "castform",
+    "name": "Castform",
+    "nationalDex": 351,
+    "types": [
+      "Normal"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 70,
+      "def": 70,
+      "spa": 70,
+      "spd": 70,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "forecast"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 0.8
+  },
+  {
+    "slug": "castformrainy",
+    "name": "Castform-Rainy",
+    "nationalDex": 351,
+    "types": [
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 70,
+      "def": 70,
+      "spa": 70,
+      "spd": 70,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "forecast"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "castform",
+    "requiredItemSlug": null,
+    "weightKg": 0.8
+  },
+  {
+    "slug": "castformsnowy",
+    "name": "Castform-Snowy",
+    "nationalDex": 351,
+    "types": [
+      "Ice"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 70,
+      "def": 70,
+      "spa": 70,
+      "spd": 70,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "forecast"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "castform",
+    "requiredItemSlug": null,
+    "weightKg": 0.8
+  },
+  {
+    "slug": "castformsunny",
+    "name": "Castform-Sunny",
+    "nationalDex": 351,
+    "types": [
+      "Fire"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 70,
+      "def": 70,
+      "spa": 70,
+      "spd": 70,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "forecast"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "castform",
+    "requiredItemSlug": null,
+    "weightKg": 0.8
+  },
+  {
+    "slug": "ceruledge",
+    "name": "Ceruledge",
+    "nationalDex": 937,
+    "types": [
+      "Fire",
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 125,
+      "def": 80,
+      "spa": 60,
+      "spd": 100,
+      "spe": 85
+    },
+    "abilities": {
+      "0": "flashfire",
+      "H": "weakarmor"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 62
+  },
+  {
+    "slug": "chandelure",
+    "name": "Chandelure",
+    "nationalDex": 609,
+    "types": [
+      "Ghost",
+      "Fire"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 55,
+      "def": 90,
+      "spa": 145,
+      "spd": 90,
+      "spe": 80
+    },
+    "abilities": {
+      "0": "flashfire",
+      "1": "flamebody",
+      "H": "infiltrator"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 34.3
+  },
+  {
+    "slug": "chandeluremega",
+    "name": "Chandelure-Mega",
+    "nationalDex": 609,
+    "types": [
+      "Ghost",
+      "Fire"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 75,
+      "def": 110,
+      "spa": 175,
+      "spd": 110,
+      "spe": 90
+    },
+    "abilities": {
+      "0": "infiltrator"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "chandelure",
+    "requiredItemSlug": "chandelurite",
+    "weightKg": 69.6
+  },
+  {
+    "slug": "charizard",
+    "name": "Charizard",
+    "nationalDex": 6,
+    "types": [
+      "Fire",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 78,
+      "atk": 84,
+      "def": 78,
+      "spa": 109,
+      "spd": 85,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "blaze",
+      "H": "solarpower"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 90.5
+  },
+  {
+    "slug": "charizardmegax",
+    "name": "Charizard-Mega-X",
+    "nationalDex": 6,
+    "types": [
+      "Fire",
+      "Dragon"
+    ],
+    "baseStats": {
+      "hp": 78,
+      "atk": 130,
+      "def": 111,
+      "spa": 130,
+      "spd": 85,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "toughclaws"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "charizard",
+    "requiredItemSlug": "charizarditex",
+    "weightKg": 110.5
+  },
+  {
+    "slug": "charizardmegay",
+    "name": "Charizard-Mega-Y",
+    "nationalDex": 6,
+    "types": [
+      "Fire",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 78,
+      "atk": 104,
+      "def": 78,
+      "spa": 159,
+      "spd": 115,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "drought"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "charizard",
+    "requiredItemSlug": "charizarditey",
+    "weightKg": 100.5
+  },
+  {
+    "slug": "chesnaught",
+    "name": "Chesnaught",
+    "nationalDex": 652,
+    "types": [
+      "Grass",
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 88,
+      "atk": 107,
+      "def": 122,
+      "spa": 74,
+      "spd": 75,
+      "spe": 64
+    },
+    "abilities": {
+      "0": "overgrow",
+      "H": "bulletproof"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 90
+  },
+  {
+    "slug": "chesnaughtmega",
+    "name": "Chesnaught-Mega",
+    "nationalDex": 652,
+    "types": [
+      "Grass",
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 88,
+      "atk": 137,
+      "def": 172,
+      "spa": 74,
+      "spd": 115,
+      "spe": 44
+    },
+    "abilities": {
+      "0": "bulletproof"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "chesnaught",
+    "requiredItemSlug": "chesnaughtite",
+    "weightKg": 90
+  },
+  {
+    "slug": "chimecho",
+    "name": "Chimecho",
+    "nationalDex": 358,
+    "types": [
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 50,
+      "def": 80,
+      "spa": 95,
+      "spd": 90,
+      "spe": 65
+    },
+    "abilities": {
+      "0": "levitate"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 1
+  },
+  {
+    "slug": "chimechomega",
+    "name": "Chimecho-Mega",
+    "nationalDex": 358,
+    "types": [
+      "Psychic",
+      "Steel"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 50,
+      "def": 110,
+      "spa": 135,
+      "spd": 120,
+      "spe": 65
+    },
+    "abilities": {
+      "0": "levitate"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "chimecho",
+    "requiredItemSlug": "chimechite",
+    "weightKg": 8
+  },
+  {
+    "slug": "cinderace",
+    "name": "Cinderace",
+    "nationalDex": 815,
+    "types": [
+      "Fire"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 116,
+      "def": 75,
+      "spa": 65,
+      "spd": 75,
+      "spe": 119
+    },
+    "abilities": {
+      "0": "blaze",
+      "H": "libero"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 33
+  },
+  {
+    "slug": "clawitzer",
+    "name": "Clawitzer",
+    "nationalDex": 693,
+    "types": [
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 71,
+      "atk": 73,
+      "def": 88,
+      "spa": 120,
+      "spd": 89,
+      "spe": 59
+    },
+    "abilities": {
+      "0": "megalauncher"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 35.3
+  },
+  {
+    "slug": "clefable",
+    "name": "Clefable",
+    "nationalDex": 36,
+    "types": [
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 70,
+      "def": 73,
+      "spa": 95,
+      "spd": 90,
+      "spe": 60
+    },
+    "abilities": {
+      "0": "cutecharm",
+      "1": "magicguard",
+      "H": "unaware"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 40
+  },
+  {
+    "slug": "clefablemega",
+    "name": "Clefable-Mega",
+    "nationalDex": 36,
+    "types": [
+      "Fairy",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 80,
+      "def": 93,
+      "spa": 135,
+      "spd": 110,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "magicbounce"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "clefable",
+    "requiredItemSlug": "clefablite",
+    "weightKg": 42.3
+  },
+  {
+    "slug": "cofagrigus",
+    "name": "Cofagrigus",
+    "nationalDex": 563,
+    "types": [
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 58,
+      "atk": 50,
+      "def": 145,
+      "spa": 95,
+      "spd": 105,
+      "spe": 30
+    },
+    "abilities": {
+      "0": "mummy"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 76.5
+  },
+  {
+    "slug": "conkeldurr",
+    "name": "Conkeldurr",
+    "nationalDex": 534,
+    "types": [
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 105,
+      "atk": 140,
+      "def": 95,
+      "spa": 55,
+      "spd": 65,
+      "spe": 45
+    },
+    "abilities": {
+      "0": "guts",
+      "1": "sheerforce",
+      "H": "ironfist"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 87
+  },
+  {
+    "slug": "corviknight",
+    "name": "Corviknight",
+    "nationalDex": 823,
+    "types": [
+      "Flying",
+      "Steel"
+    ],
+    "baseStats": {
+      "hp": 98,
+      "atk": 87,
+      "def": 105,
+      "spa": 53,
+      "spd": 85,
+      "spe": 67
+    },
+    "abilities": {
+      "0": "pressure",
+      "1": "unnerve",
+      "H": "mirrorarmor"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 75
+  },
+  {
+    "slug": "crabominable",
+    "name": "Crabominable",
+    "nationalDex": 740,
+    "types": [
+      "Fighting",
+      "Ice"
+    ],
+    "baseStats": {
+      "hp": 97,
+      "atk": 132,
+      "def": 77,
+      "spa": 62,
+      "spd": 67,
+      "spe": 43
+    },
+    "abilities": {
+      "0": "hypercutter",
+      "1": "ironfist",
+      "H": "angerpoint"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 180
+  },
+  {
+    "slug": "crabominablemega",
+    "name": "Crabominable-Mega",
+    "nationalDex": 740,
+    "types": [
+      "Fighting",
+      "Ice"
+    ],
+    "baseStats": {
+      "hp": 97,
+      "atk": 157,
+      "def": 122,
+      "spa": 62,
+      "spd": 107,
+      "spe": 33
+    },
+    "abilities": {
+      "0": "ironfist"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "crabominable",
+    "requiredItemSlug": "crabominite",
+    "weightKg": 252.8
+  },
+  {
+    "slug": "cramorant",
+    "name": "Cramorant",
+    "nationalDex": 845,
+    "types": [
+      "Flying",
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 85,
+      "def": 55,
+      "spa": 85,
+      "spd": 95,
+      "spe": 85
+    },
+    "abilities": {
+      "0": "gulpmissile"
+    },
+    "isMega": false,
+    "isBuildable": false,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 18
+  },
+  {
+    "slug": "cramorantgorging",
+    "name": "Cramorant-Gorging",
+    "nationalDex": 845,
+    "types": [
+      "Flying",
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 85,
+      "def": 55,
+      "spa": 85,
+      "spd": 95,
+      "spe": 85
+    },
+    "abilities": {
+      "0": "gulpmissile"
+    },
+    "isMega": false,
+    "isBuildable": false,
+    "baseFormSlug": "cramorant",
+    "requiredItemSlug": null,
+    "weightKg": 18
+  },
+  {
+    "slug": "cramorantgulping",
+    "name": "Cramorant-Gulping",
+    "nationalDex": 845,
+    "types": [
+      "Flying",
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 85,
+      "def": 55,
+      "spa": 85,
+      "spd": 95,
+      "spe": 85
+    },
+    "abilities": {
+      "0": "gulpmissile"
+    },
+    "isMega": false,
+    "isBuildable": false,
+    "baseFormSlug": "cramorant",
+    "requiredItemSlug": null,
+    "weightKg": 18
+  },
+  {
+    "slug": "decidueye",
+    "name": "Decidueye",
+    "nationalDex": 724,
+    "types": [
+      "Grass",
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 78,
+      "atk": 107,
+      "def": 75,
+      "spa": 100,
+      "spd": 100,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "overgrow",
+      "H": "longreach"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 36.6
+  },
+  {
+    "slug": "decidueyehisui",
+    "name": "Decidueye-Hisui",
+    "nationalDex": 724,
+    "types": [
+      "Grass",
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 88,
+      "atk": 112,
+      "def": 80,
+      "spa": 95,
+      "spd": 95,
+      "spe": 60
+    },
+    "abilities": {
+      "0": "overgrow",
+      "H": "scrappy"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "decidueye",
+    "requiredItemSlug": null,
+    "weightKg": 37
+  },
+  {
+    "slug": "dedenne",
+    "name": "Dedenne",
+    "nationalDex": 702,
+    "types": [
+      "Electric",
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 67,
+      "atk": 58,
+      "def": 57,
+      "spa": 81,
+      "spd": 67,
+      "spe": 101
+    },
+    "abilities": {
+      "0": "cheekpouch",
+      "1": "pickup",
+      "H": "plus"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 2.2
+  },
+  {
+    "slug": "delphox",
+    "name": "Delphox",
+    "nationalDex": 655,
+    "types": [
+      "Fire",
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 69,
+      "def": 72,
+      "spa": 114,
+      "spd": 100,
+      "spe": 104
+    },
+    "abilities": {
+      "0": "blaze",
+      "H": "magician"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 39
+  },
+  {
+    "slug": "delphoxmega",
+    "name": "Delphox-Mega",
+    "nationalDex": 655,
+    "types": [
+      "Fire",
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 69,
+      "def": 72,
+      "spa": 159,
+      "spd": 125,
+      "spe": 134
+    },
+    "abilities": {
+      "0": "levitate"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "delphox",
+    "requiredItemSlug": "delphoxite",
+    "weightKg": 39
+  },
+  {
+    "slug": "diggersby",
+    "name": "Diggersby",
+    "nationalDex": 660,
+    "types": [
+      "Normal",
+      "Ground"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 56,
+      "def": 77,
+      "spa": 50,
+      "spd": 77,
+      "spe": 78
+    },
+    "abilities": {
+      "0": "pickup",
+      "1": "cheekpouch",
+      "H": "hugepower"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 42.4
+  },
+  {
+    "slug": "ditto",
+    "name": "Ditto",
+    "nationalDex": 132,
+    "types": [
+      "Normal"
+    ],
+    "baseStats": {
+      "hp": 48,
+      "atk": 48,
+      "def": 48,
+      "spa": 48,
+      "spd": 48,
+      "spe": 48
+    },
+    "abilities": {
+      "0": "limber",
+      "H": "imposter"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 4
+  },
+  {
+    "slug": "dragalge",
+    "name": "Dragalge",
+    "nationalDex": 691,
+    "types": [
+      "Poison",
+      "Dragon"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 75,
+      "def": 90,
+      "spa": 97,
+      "spd": 123,
+      "spe": 44
+    },
+    "abilities": {
+      "0": "poisonpoint",
+      "1": "poisontouch",
+      "H": "adaptability"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 81.5
+  },
+  {
+    "slug": "dragalgemega",
+    "name": "Dragalge-Mega",
+    "nationalDex": 691,
+    "types": [
+      "Poison",
+      "Dragon"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 85,
+      "def": 105,
+      "spa": 132,
+      "spd": 163,
+      "spe": 44
+    },
+    "abilities": {
+      "0": "regenerator"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "dragalge",
+    "requiredItemSlug": "dragalgite",
+    "weightKg": 100.3
+  },
+  {
+    "slug": "dragapult",
+    "name": "Dragapult",
+    "nationalDex": 887,
+    "types": [
+      "Dragon",
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 88,
+      "atk": 120,
+      "def": 75,
+      "spa": 100,
+      "spd": 75,
+      "spe": 142
+    },
+    "abilities": {
+      "0": "clearbody",
+      "1": "infiltrator",
+      "H": "cursedbody"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 50
+  },
+  {
+    "slug": "dragonite",
+    "name": "Dragonite",
+    "nationalDex": 149,
+    "types": [
+      "Dragon",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 91,
+      "atk": 134,
+      "def": 95,
+      "spa": 100,
+      "spd": 100,
+      "spe": 80
+    },
+    "abilities": {
+      "0": "innerfocus",
+      "H": "multiscale"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 210
+  },
+  {
+    "slug": "dragonitemega",
+    "name": "Dragonite-Mega",
+    "nationalDex": 149,
+    "types": [
+      "Dragon",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 91,
+      "atk": 124,
+      "def": 115,
+      "spa": 145,
+      "spd": 125,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "multiscale"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "dragonite",
+    "requiredItemSlug": "dragoninite",
+    "weightKg": 290
+  },
+  {
+    "slug": "drampa",
+    "name": "Drampa",
+    "nationalDex": 780,
+    "types": [
+      "Normal",
+      "Dragon"
+    ],
+    "baseStats": {
+      "hp": 78,
+      "atk": 60,
+      "def": 85,
+      "spa": 135,
+      "spd": 91,
+      "spe": 36
+    },
+    "abilities": {
+      "0": "berserk",
+      "1": "sapsipper",
+      "H": "cloudnine"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 185
+  },
+  {
+    "slug": "drampamega",
+    "name": "Drampa-Mega",
+    "nationalDex": 780,
+    "types": [
+      "Normal",
+      "Dragon"
+    ],
+    "baseStats": {
+      "hp": 78,
+      "atk": 85,
+      "def": 110,
+      "spa": 160,
+      "spd": 116,
+      "spe": 36
+    },
+    "abilities": {
+      "0": "berserk"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "drampa",
+    "requiredItemSlug": "drampanite",
+    "weightKg": 240.5
+  },
+  {
+    "slug": "eelektross",
+    "name": "Eelektross",
+    "nationalDex": 604,
+    "types": [
+      "Electric"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 115,
+      "def": 80,
+      "spa": 105,
+      "spd": 80,
+      "spe": 50
+    },
+    "abilities": {
+      "0": "levitate"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 80.5
+  },
+  {
+    "slug": "eelektrossmega",
+    "name": "Eelektross-Mega",
+    "nationalDex": 604,
+    "types": [
+      "Electric"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 145,
+      "def": 80,
+      "spa": 135,
+      "spd": 90,
+      "spe": 80
+    },
+    "abilities": {
+      "0": "eelevate"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "eelektross",
+    "requiredItemSlug": "eelektrossite",
+    "weightKg": 180
+  },
+  {
+    "slug": "eiscue",
+    "name": "Eiscue",
+    "nationalDex": 875,
+    "types": [
+      "Ice"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 80,
+      "def": 110,
+      "spa": 65,
+      "spd": 90,
+      "spe": 50
+    },
+    "abilities": {
+      "0": "iceface"
+    },
+    "isMega": false,
+    "isBuildable": false,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 89
+  },
+  {
+    "slug": "eiscuenoice",
+    "name": "Eiscue-Noice",
+    "nationalDex": 875,
+    "types": [
+      "Ice"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 80,
+      "def": 70,
+      "spa": 65,
+      "spd": 50,
+      "spe": 130
+    },
+    "abilities": {
+      "0": "iceface"
+    },
+    "isMega": false,
+    "isBuildable": false,
+    "baseFormSlug": "eiscue",
+    "requiredItemSlug": null,
+    "weightKg": 89
+  },
+  {
+    "slug": "emboar",
+    "name": "Emboar",
+    "nationalDex": 500,
+    "types": [
+      "Fire",
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 110,
+      "atk": 123,
+      "def": 65,
+      "spa": 100,
+      "spd": 65,
+      "spe": 65
+    },
+    "abilities": {
+      "0": "blaze",
+      "H": "reckless"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 150
+  },
+  {
+    "slug": "emboarmega",
+    "name": "Emboar-Mega",
+    "nationalDex": 500,
+    "types": [
+      "Fire",
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 110,
+      "atk": 148,
+      "def": 75,
+      "spa": 110,
+      "spd": 110,
+      "spe": 75
+    },
+    "abilities": {
+      "0": "moldbreaker"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "emboar",
+    "requiredItemSlug": "emboarite",
+    "weightKg": 180.3
+  },
+  {
+    "slug": "emolga",
+    "name": "Emolga",
+    "nationalDex": 587,
+    "types": [
+      "Electric",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 55,
+      "atk": 75,
+      "def": 60,
+      "spa": 75,
+      "spd": 60,
+      "spe": 103
+    },
+    "abilities": {
+      "0": "static",
+      "H": "motordrive"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 5
+  },
+  {
+    "slug": "empoleon",
+    "name": "Empoleon",
+    "nationalDex": 395,
+    "types": [
+      "Water",
+      "Steel"
+    ],
+    "baseStats": {
+      "hp": 84,
+      "atk": 86,
+      "def": 88,
+      "spa": 111,
+      "spd": 101,
+      "spe": 60
+    },
+    "abilities": {
+      "0": "torrent",
+      "H": "competitive"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 84.5
+  },
+  {
+    "slug": "espathra",
+    "name": "Espathra",
+    "nationalDex": 956,
+    "types": [
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 60,
+      "def": 60,
+      "spa": 101,
+      "spd": 60,
+      "spe": 105
+    },
+    "abilities": {
+      "0": "opportunist",
+      "1": "frisk",
+      "H": "speedboost"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 90
+  },
+  {
+    "slug": "espeon",
+    "name": "Espeon",
+    "nationalDex": 196,
+    "types": [
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 65,
+      "def": 60,
+      "spa": 130,
+      "spd": 95,
+      "spe": 110
+    },
+    "abilities": {
+      "0": "synchronize",
+      "H": "magicbounce"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 26.5
+  },
+  {
+    "slug": "excadrill",
+    "name": "Excadrill",
+    "nationalDex": 530,
+    "types": [
+      "Ground",
+      "Steel"
+    ],
+    "baseStats": {
+      "hp": 110,
+      "atk": 135,
+      "def": 60,
+      "spa": 50,
+      "spd": 65,
+      "spe": 88
+    },
+    "abilities": {
+      "0": "sandrush",
+      "1": "sandforce",
+      "H": "moldbreaker"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 40.4
+  },
+  {
+    "slug": "excadrillmega",
+    "name": "Excadrill-Mega",
+    "nationalDex": 530,
+    "types": [
+      "Ground",
+      "Steel"
+    ],
+    "baseStats": {
+      "hp": 110,
+      "atk": 165,
+      "def": 100,
+      "spa": 65,
+      "spd": 65,
+      "spe": 103
+    },
+    "abilities": {
+      "0": "piercingdrill"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "excadrill",
+    "requiredItemSlug": "excadrite",
+    "weightKg": 60
+  },
+  {
+    "slug": "falinks",
+    "name": "Falinks",
+    "nationalDex": 870,
+    "types": [
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 100,
+      "def": 100,
+      "spa": 70,
+      "spd": 60,
+      "spe": 75
+    },
+    "abilities": {
+      "0": "battlearmor",
+      "H": "defiant"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 62
+  },
+  {
+    "slug": "falinksmega",
+    "name": "Falinks-Mega",
+    "nationalDex": 870,
+    "types": [
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 135,
+      "def": 135,
+      "spa": 70,
+      "spd": 65,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "defiant"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "falinks",
+    "requiredItemSlug": "falinksite",
+    "weightKg": 99
+  },
+  {
+    "slug": "farfetchd",
+    "name": "Farfetch’d",
+    "nationalDex": 83,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 52,
+      "atk": 90,
+      "def": 55,
+      "spa": 58,
+      "spd": 62,
+      "spe": 60
+    },
+    "abilities": {
+      "0": "keeneye",
+      "1": "innerfocus",
+      "H": "defiant"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 15
+  },
+  {
+    "slug": "farigiraf",
+    "name": "Farigiraf",
+    "nationalDex": 981,
+    "types": [
+      "Normal",
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 120,
+      "atk": 90,
+      "def": 70,
+      "spa": 110,
+      "spd": 70,
+      "spe": 60
+    },
+    "abilities": {
+      "0": "cudchew",
+      "1": "armortail",
+      "H": "sapsipper"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 160
+  },
+  {
+    "slug": "feraligatr",
+    "name": "Feraligatr",
+    "nationalDex": 160,
+    "types": [
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 105,
+      "def": 100,
+      "spa": 79,
+      "spd": 83,
+      "spe": 78
+    },
+    "abilities": {
+      "0": "torrent",
+      "H": "sheerforce"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 88.8
+  },
+  {
+    "slug": "feraligatrmega",
+    "name": "Feraligatr-Mega",
+    "nationalDex": 160,
+    "types": [
+      "Water",
+      "Dragon"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 160,
+      "def": 125,
+      "spa": 89,
+      "spd": 93,
+      "spe": 78
+    },
+    "abilities": {
+      "0": "dragonize"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "feraligatr",
+    "requiredItemSlug": "feraligite",
+    "weightKg": 108.8
+  },
+  {
+    "slug": "flapple",
+    "name": "Flapple",
+    "nationalDex": 841,
+    "types": [
+      "Grass",
+      "Dragon"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 110,
+      "def": 80,
+      "spa": 95,
+      "spd": 60,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "ripen",
+      "1": "gluttony",
+      "H": "hustle"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 1
+  },
+  {
+    "slug": "flareon",
+    "name": "Flareon",
+    "nationalDex": 136,
+    "types": [
+      "Fire"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 130,
+      "def": 60,
+      "spa": 95,
+      "spd": 110,
+      "spe": 65
+    },
+    "abilities": {
+      "0": "flashfire",
+      "H": "guts"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 25
+  },
+  {
+    "slug": "floette",
+    "name": "Floette",
+    "nationalDex": 670,
+    "types": [
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 54,
+      "atk": 45,
+      "def": 47,
+      "spa": 75,
+      "spd": 98,
+      "spe": 52
+    },
+    "abilities": {
+      "0": "flowerveil",
+      "H": "symbiosis"
+    },
+    "isMega": false,
+    "isBuildable": false,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 0.9
+  },
+  {
+    "slug": "floetteeternal",
+    "name": "Floette-Eternal",
+    "nationalDex": 670,
+    "types": [
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 74,
+      "atk": 65,
+      "def": 67,
+      "spa": 125,
+      "spd": 128,
+      "spe": 92
+    },
+    "abilities": {
+      "0": "flowerveil",
+      "H": "symbiosis"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "floette",
+    "requiredItemSlug": null,
+    "weightKg": 0.9
+  },
+  {
+    "slug": "floettemega",
+    "name": "Floette-Mega",
+    "nationalDex": 670,
+    "types": [
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 74,
+      "atk": 85,
+      "def": 87,
+      "spa": 155,
+      "spd": 148,
+      "spe": 102
+    },
+    "abilities": {
+      "0": "fairyaura"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "floette",
+    "requiredItemSlug": "floettite",
+    "weightKg": 100.8
+  },
+  {
+    "slug": "florges",
+    "name": "Florges",
+    "nationalDex": 671,
+    "types": [
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 78,
+      "atk": 65,
+      "def": 68,
+      "spa": 112,
+      "spd": 154,
+      "spe": 75
+    },
+    "abilities": {
+      "0": "flowerveil",
+      "H": "symbiosis"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 10
+  },
+  {
+    "slug": "forretress",
+    "name": "Forretress",
+    "nationalDex": 205,
+    "types": [
+      "Bug",
+      "Steel"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 90,
+      "def": 140,
+      "spa": 60,
+      "spd": 60,
+      "spe": 40
+    },
+    "abilities": {
+      "0": "sturdy",
+      "H": "overcoat"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 125.8
+  },
+  {
+    "slug": "froslass",
+    "name": "Froslass",
+    "nationalDex": 478,
+    "types": [
+      "Ice",
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 80,
+      "def": 70,
+      "spa": 80,
+      "spd": 70,
+      "spe": 110
+    },
+    "abilities": {
+      "0": "snowcloak",
+      "H": "cursedbody"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 26.6
+  },
+  {
+    "slug": "froslassmega",
+    "name": "Froslass-Mega",
+    "nationalDex": 478,
+    "types": [
+      "Ice",
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 80,
+      "def": 70,
+      "spa": 140,
+      "spd": 100,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "snowwarning"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "froslass",
+    "requiredItemSlug": "froslassite",
+    "weightKg": 29.6
+  },
+  {
+    "slug": "furfrou",
+    "name": "Furfrou",
+    "nationalDex": 676,
+    "types": [
+      "Normal"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 80,
+      "def": 60,
+      "spa": 65,
+      "spd": 90,
+      "spe": 102
+    },
+    "abilities": {
+      "0": "furcoat"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 28
+  },
+  {
+    "slug": "gallade",
+    "name": "Gallade",
+    "nationalDex": 475,
+    "types": [
+      "Psychic",
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 68,
+      "atk": 125,
+      "def": 65,
+      "spa": 65,
+      "spd": 115,
+      "spe": 80
+    },
+    "abilities": {
+      "0": "steadfast",
+      "1": "sharpness",
+      "H": "justified"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 52
+  },
+  {
+    "slug": "gallademega",
+    "name": "Gallade-Mega",
+    "nationalDex": 475,
+    "types": [
+      "Psychic",
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 68,
+      "atk": 165,
+      "def": 95,
+      "spa": 65,
+      "spd": 115,
+      "spe": 110
+    },
+    "abilities": {
+      "0": "innerfocus"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "gallade",
+    "requiredItemSlug": "galladite",
+    "weightKg": 56.4
+  },
+  {
+    "slug": "garbodor",
+    "name": "Garbodor",
+    "nationalDex": 569,
+    "types": [
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 95,
+      "def": 82,
+      "spa": 60,
+      "spd": 82,
+      "spe": 75
+    },
+    "abilities": {
+      "0": "stench",
+      "1": "weakarmor",
+      "H": "aftermath"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 107.3
+  },
+  {
+    "slug": "garchomp",
+    "name": "Garchomp",
+    "nationalDex": 445,
+    "types": [
+      "Dragon",
+      "Ground"
+    ],
+    "baseStats": {
+      "hp": 108,
+      "atk": 130,
+      "def": 95,
+      "spa": 80,
+      "spd": 85,
+      "spe": 102
+    },
+    "abilities": {
+      "0": "sandveil",
+      "H": "roughskin"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 95
+  },
+  {
+    "slug": "garchompmega",
+    "name": "Garchomp-Mega",
+    "nationalDex": 445,
+    "types": [
+      "Dragon",
+      "Ground"
+    ],
+    "baseStats": {
+      "hp": 108,
+      "atk": 170,
+      "def": 115,
+      "spa": 120,
+      "spd": 95,
+      "spe": 92
+    },
+    "abilities": {
+      "0": "sandforce"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "garchomp",
+    "requiredItemSlug": "garchompite",
+    "weightKg": 95
+  },
+  {
+    "slug": "garchompmegaz",
+    "name": "Garchomp-Mega-Z",
+    "nationalDex": 445,
+    "types": [
+      "Dragon"
+    ],
+    "baseStats": {
+      "hp": 108,
+      "atk": 130,
+      "def": 85,
+      "spa": 141,
+      "spd": 85,
+      "spe": 151
+    },
+    "abilities": {
+      "0": "levitate"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "garchomp",
+    "requiredItemSlug": "garchompitez",
+    "weightKg": 99
+  },
+  {
+    "slug": "gardevoir",
+    "name": "Gardevoir",
+    "nationalDex": 282,
+    "types": [
+      "Psychic",
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 68,
+      "atk": 65,
+      "def": 65,
+      "spa": 125,
+      "spd": 115,
+      "spe": 80
+    },
+    "abilities": {
+      "0": "synchronize",
+      "1": "trace",
+      "H": "telepathy"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 48.4
+  },
+  {
+    "slug": "gardevoirmega",
+    "name": "Gardevoir-Mega",
+    "nationalDex": 282,
+    "types": [
+      "Psychic",
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 68,
+      "atk": 85,
+      "def": 65,
+      "spa": 165,
+      "spd": 135,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "pixilate"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "gardevoir",
+    "requiredItemSlug": "gardevoirite",
+    "weightKg": 48.4
+  },
+  {
+    "slug": "garganacl",
+    "name": "Garganacl",
+    "nationalDex": 934,
+    "types": [
+      "Rock"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 100,
+      "def": 130,
+      "spa": 45,
+      "spd": 90,
+      "spe": 35
+    },
+    "abilities": {
+      "0": "purifyingsalt",
+      "1": "sturdy",
+      "H": "clearbody"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 240
+  },
+  {
+    "slug": "gengar",
+    "name": "Gengar",
+    "nationalDex": 94,
+    "types": [
+      "Ghost",
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 65,
+      "def": 60,
+      "spa": 130,
+      "spd": 75,
+      "spe": 110
+    },
+    "abilities": {
+      "0": "cursedbody"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 40.5
+  },
+  {
+    "slug": "gengarmega",
+    "name": "Gengar-Mega",
+    "nationalDex": 94,
+    "types": [
+      "Ghost",
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 65,
+      "def": 80,
+      "spa": 170,
+      "spd": 95,
+      "spe": 130
+    },
+    "abilities": {
+      "0": "shadowtag"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "gengar",
+    "requiredItemSlug": "gengarite",
+    "weightKg": 40.5
+  },
+  {
+    "slug": "gholdengo",
+    "name": "Gholdengo",
+    "nationalDex": 1000,
+    "types": [
+      "Steel",
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 87,
+      "atk": 60,
+      "def": 95,
+      "spa": 133,
+      "spd": 91,
+      "spe": 84
+    },
+    "abilities": {
+      "0": "goodasgold"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 30
+  },
+  {
+    "slug": "glaceon",
+    "name": "Glaceon",
+    "nationalDex": 471,
+    "types": [
+      "Ice"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 60,
+      "def": 110,
+      "spa": 130,
+      "spd": 95,
+      "spe": 65
+    },
+    "abilities": {
+      "0": "snowcloak",
+      "H": "icebody"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 25.9
+  },
+  {
+    "slug": "glalie",
+    "name": "Glalie",
+    "nationalDex": 362,
+    "types": [
+      "Ice"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 80,
+      "def": 80,
+      "spa": 80,
+      "spd": 80,
+      "spe": 80
+    },
+    "abilities": {
+      "0": "innerfocus",
+      "1": "icebody",
+      "H": "moody"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 256.5
+  },
+  {
+    "slug": "glaliemega",
+    "name": "Glalie-Mega",
+    "nationalDex": 362,
+    "types": [
+      "Ice"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 120,
+      "def": 80,
+      "spa": 120,
+      "spd": 80,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "refrigerate"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "glalie",
+    "requiredItemSlug": "glalitite",
+    "weightKg": 350.2
+  },
+  {
+    "slug": "glimmora",
+    "name": "Glimmora",
+    "nationalDex": 970,
+    "types": [
+      "Rock",
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 83,
+      "atk": 55,
+      "def": 90,
+      "spa": 130,
+      "spd": 81,
+      "spe": 86
+    },
+    "abilities": {
+      "0": "toxicdebris",
+      "H": "corrosion"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 45
+  },
+  {
+    "slug": "glimmoramega",
+    "name": "Glimmora-Mega",
+    "nationalDex": 970,
+    "types": [
+      "Rock",
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 83,
+      "atk": 90,
+      "def": 105,
+      "spa": 150,
+      "spd": 96,
+      "spe": 101
+    },
+    "abilities": {
+      "0": "adaptability"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "glimmora",
+    "requiredItemSlug": "glimmoranite",
+    "weightKg": 77
+  },
+  {
+    "slug": "gliscor",
+    "name": "Gliscor",
+    "nationalDex": 472,
+    "types": [
+      "Ground",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 95,
+      "def": 125,
+      "spa": 45,
+      "spd": 75,
+      "spe": 95
+    },
+    "abilities": {
+      "0": "hypercutter",
+      "1": "sandveil",
+      "H": "poisonheal"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 42.5
+  },
+  {
+    "slug": "gogoat",
+    "name": "Gogoat",
+    "nationalDex": 673,
+    "types": [
+      "Grass"
+    ],
+    "baseStats": {
+      "hp": 123,
+      "atk": 100,
+      "def": 62,
+      "spa": 97,
+      "spd": 81,
+      "spe": 68
+    },
+    "abilities": {
+      "0": "sapsipper",
+      "H": "grasspelt"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 91
+  },
+  {
+    "slug": "golisopod",
+    "name": "Golisopod",
+    "nationalDex": 768,
+    "types": [
+      "Bug",
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 125,
+      "def": 140,
+      "spa": 60,
+      "spd": 90,
+      "spe": 40
+    },
+    "abilities": {
+      "0": "emergencyexit"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 108
+  },
+  {
+    "slug": "golisopodmega",
+    "name": "Golisopod-Mega",
+    "nationalDex": 768,
+    "types": [
+      "Bug",
+      "Steel"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 150,
+      "def": 175,
+      "spa": 70,
+      "spd": 120,
+      "spe": 40
+    },
+    "abilities": {
+      "0": "toughclaws"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "golisopod",
+    "requiredItemSlug": "golisopite",
+    "weightKg": 148
+  },
+  {
+    "slug": "golurk",
+    "name": "Golurk",
+    "nationalDex": 623,
+    "types": [
+      "Ground",
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 89,
+      "atk": 124,
+      "def": 80,
+      "spa": 55,
+      "spd": 80,
+      "spe": 55
+    },
+    "abilities": {
+      "0": "ironfist",
+      "1": "klutz",
+      "H": "noguard"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 330
+  },
+  {
+    "slug": "golurkmega",
+    "name": "Golurk-Mega",
+    "nationalDex": 623,
+    "types": [
+      "Ground",
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 89,
+      "atk": 159,
+      "def": 105,
+      "spa": 70,
+      "spd": 105,
+      "spe": 55
+    },
+    "abilities": {
+      "0": "unseenfist"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "golurk",
+    "requiredItemSlug": "golurkite",
+    "weightKg": 330
+  },
+  {
+    "slug": "goodra",
+    "name": "Goodra",
+    "nationalDex": 706,
+    "types": [
+      "Dragon"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "atk": 100,
+      "def": 70,
+      "spa": 110,
+      "spd": 150,
+      "spe": 80
+    },
+    "abilities": {
+      "0": "sapsipper",
+      "1": "hydration",
+      "H": "gooey"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 150.5
+  },
+  {
+    "slug": "goodrahisui",
+    "name": "Goodra-Hisui",
+    "nationalDex": 706,
+    "types": [
+      "Steel",
+      "Dragon"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 100,
+      "def": 100,
+      "spa": 110,
+      "spd": 150,
+      "spe": 60
+    },
+    "abilities": {
+      "0": "sapsipper",
+      "1": "shellarmor",
+      "H": "gooey"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "goodra",
+    "requiredItemSlug": null,
+    "weightKg": 334.1
+  },
+  {
+    "slug": "gourgeist",
+    "name": "Gourgeist",
+    "nationalDex": 711,
+    "types": [
+      "Ghost",
+      "Grass"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 90,
+      "def": 122,
+      "spa": 58,
+      "spd": 75,
+      "spe": 84
+    },
+    "abilities": {
+      "0": "pickup",
+      "1": "frisk",
+      "H": "insomnia"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 12.5
+  },
+  {
+    "slug": "gourgeistlarge",
+    "name": "Gourgeist-Large",
+    "nationalDex": 711,
+    "types": [
+      "Ghost",
+      "Grass"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 95,
+      "def": 122,
+      "spa": 58,
+      "spd": 75,
+      "spe": 69
+    },
+    "abilities": {
+      "0": "pickup",
+      "1": "frisk",
+      "H": "insomnia"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "gourgeist",
+    "requiredItemSlug": null,
+    "weightKg": 14
+  },
+  {
+    "slug": "gourgeistsmall",
+    "name": "Gourgeist-Small",
+    "nationalDex": 711,
+    "types": [
+      "Ghost",
+      "Grass"
+    ],
+    "baseStats": {
+      "hp": 55,
+      "atk": 85,
+      "def": 122,
+      "spa": 58,
+      "spd": 75,
+      "spe": 99
+    },
+    "abilities": {
+      "0": "pickup",
+      "1": "frisk",
+      "H": "insomnia"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "gourgeist",
+    "requiredItemSlug": null,
+    "weightKg": 9.5
+  },
+  {
+    "slug": "gourgeistsuper",
+    "name": "Gourgeist-Super",
+    "nationalDex": 711,
+    "types": [
+      "Ghost",
+      "Grass"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 100,
+      "def": 122,
+      "spa": 58,
+      "spd": 75,
+      "spe": 54
+    },
+    "abilities": {
+      "0": "pickup",
+      "1": "frisk",
+      "H": "insomnia"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "gourgeist",
+    "requiredItemSlug": null,
+    "weightKg": 39
+  },
+  {
+    "slug": "grapploct",
+    "name": "Grapploct",
+    "nationalDex": 853,
+    "types": [
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 118,
+      "def": 90,
+      "spa": 70,
+      "spd": 80,
+      "spe": 42
+    },
+    "abilities": {
+      "0": "limber",
+      "H": "technician"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 39
+  },
+  {
+    "slug": "greninja",
+    "name": "Greninja",
+    "nationalDex": 658,
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 72,
+      "atk": 95,
+      "def": 67,
+      "spa": 103,
+      "spd": 71,
+      "spe": 122
+    },
+    "abilities": {
+      "0": "torrent",
+      "H": "protean",
+      "S": "battlebond"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 40
+  },
+  {
+    "slug": "greninjamega",
+    "name": "Greninja-Mega",
+    "nationalDex": 658,
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 72,
+      "atk": 125,
+      "def": 77,
+      "spa": 133,
+      "spd": 81,
+      "spe": 142
+    },
+    "abilities": {
+      "0": "protean"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "greninja",
+    "requiredItemSlug": "greninjite",
+    "weightKg": 40
+  },
+  {
+    "slug": "grimmsnarl",
+    "name": "Grimmsnarl",
+    "nationalDex": 861,
+    "types": [
+      "Dark",
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 120,
+      "def": 65,
+      "spa": 95,
+      "spd": 75,
+      "spe": 60
+    },
+    "abilities": {
+      "0": "prankster",
+      "1": "frisk",
+      "H": "pickpocket"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 61
+  },
+  {
+    "slug": "gyarados",
+    "name": "Gyarados",
+    "nationalDex": 130,
+    "types": [
+      "Water",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 125,
+      "def": 79,
+      "spa": 60,
+      "spd": 100,
+      "spe": 81
+    },
+    "abilities": {
+      "0": "intimidate",
+      "H": "moxie"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 235
+  },
+  {
+    "slug": "gyaradosmega",
+    "name": "Gyarados-Mega",
+    "nationalDex": 130,
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 155,
+      "def": 109,
+      "spa": 70,
+      "spd": 130,
+      "spe": 81
+    },
+    "abilities": {
+      "0": "moldbreaker"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "gyarados",
+    "requiredItemSlug": "gyaradosite",
+    "weightKg": 305
+  },
+  {
+    "slug": "hatterene",
+    "name": "Hatterene",
+    "nationalDex": 858,
+    "types": [
+      "Psychic",
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 57,
+      "atk": 90,
+      "def": 95,
+      "spa": 136,
+      "spd": 103,
+      "spe": 29
+    },
+    "abilities": {
+      "0": "healer",
+      "1": "anticipation",
+      "H": "magicbounce"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 5.1
+  },
+  {
+    "slug": "hawlucha",
+    "name": "Hawlucha",
+    "nationalDex": 701,
+    "types": [
+      "Fighting",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 78,
+      "atk": 92,
+      "def": 75,
+      "spa": 74,
+      "spd": 63,
+      "spe": 118
+    },
+    "abilities": {
+      "0": "limber",
+      "1": "unburden",
+      "H": "moldbreaker"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 21.5
+  },
+  {
+    "slug": "hawluchamega",
+    "name": "Hawlucha-Mega",
+    "nationalDex": 701,
+    "types": [
+      "Fighting",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 78,
+      "atk": 137,
+      "def": 100,
+      "spa": 74,
+      "spd": 93,
+      "spe": 118
+    },
+    "abilities": {
+      "0": "noguard"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "hawlucha",
+    "requiredItemSlug": "hawluchanite",
+    "weightKg": 25
+  },
+  {
+    "slug": "heliolisk",
+    "name": "Heliolisk",
+    "nationalDex": 695,
+    "types": [
+      "Electric",
+      "Normal"
+    ],
+    "baseStats": {
+      "hp": 62,
+      "atk": 55,
+      "def": 52,
+      "spa": 109,
+      "spd": 94,
+      "spe": 109
+    },
+    "abilities": {
+      "0": "dryskin",
+      "1": "sandveil",
+      "H": "solarpower"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 21
+  },
+  {
+    "slug": "heracross",
+    "name": "Heracross",
+    "nationalDex": 214,
+    "types": [
+      "Bug",
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 125,
+      "def": 75,
+      "spa": 40,
+      "spd": 95,
+      "spe": 85
+    },
+    "abilities": {
+      "0": "swarm",
+      "1": "guts",
+      "H": "moxie"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 54
+  },
+  {
+    "slug": "heracrossmega",
+    "name": "Heracross-Mega",
+    "nationalDex": 214,
+    "types": [
+      "Bug",
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 185,
+      "def": 115,
+      "spa": 40,
+      "spd": 105,
+      "spe": 75
+    },
+    "abilities": {
+      "0": "skilllink"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "heracross",
+    "requiredItemSlug": "heracronite",
+    "weightKg": 62.5
+  },
+  {
+    "slug": "hippowdon",
+    "name": "Hippowdon",
+    "nationalDex": 450,
+    "types": [
+      "Ground"
+    ],
+    "baseStats": {
+      "hp": 108,
+      "atk": 112,
+      "def": 118,
+      "spa": 68,
+      "spd": 72,
+      "spe": 47
+    },
+    "abilities": {
+      "0": "sandstream",
+      "H": "sandforce"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 300
+  },
+  {
+    "slug": "houndoom",
+    "name": "Houndoom",
+    "nationalDex": 229,
+    "types": [
+      "Dark",
+      "Fire"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 90,
+      "def": 50,
+      "spa": 110,
+      "spd": 80,
+      "spe": 95
+    },
+    "abilities": {
+      "0": "earlybird",
+      "1": "flashfire",
+      "H": "unnerve"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 35
+  },
+  {
+    "slug": "houndoommega",
+    "name": "Houndoom-Mega",
+    "nationalDex": 229,
+    "types": [
+      "Dark",
+      "Fire"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 90,
+      "def": 90,
+      "spa": 140,
+      "spd": 90,
+      "spe": 115
+    },
+    "abilities": {
+      "0": "solarpower"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "houndoom",
+    "requiredItemSlug": "houndoominite",
+    "weightKg": 49.5
+  },
+  {
+    "slug": "houndstone",
+    "name": "Houndstone",
+    "nationalDex": 972,
+    "types": [
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 72,
+      "atk": 101,
+      "def": 100,
+      "spa": 50,
+      "spd": 97,
+      "spe": 68
+    },
+    "abilities": {
+      "0": "sandrush",
+      "H": "fluffy"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 15
+  },
+  {
+    "slug": "hydrapple",
+    "name": "Hydrapple",
+    "nationalDex": 1019,
+    "types": [
+      "Grass",
+      "Dragon"
+    ],
+    "baseStats": {
+      "hp": 106,
+      "atk": 80,
+      "def": 110,
+      "spa": 120,
+      "spd": 80,
+      "spe": 44
+    },
+    "abilities": {
+      "0": "supersweetsyrup",
+      "1": "regenerator",
+      "H": "stickyhold"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 93
+  },
+  {
+    "slug": "hydreigon",
+    "name": "Hydreigon",
+    "nationalDex": 635,
+    "types": [
+      "Dark",
+      "Dragon"
+    ],
+    "baseStats": {
+      "hp": 92,
+      "atk": 105,
+      "def": 90,
+      "spa": 125,
+      "spd": 90,
+      "spe": 98
+    },
+    "abilities": {
+      "0": "levitate"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 160
+  },
+  {
+    "slug": "incineroar",
+    "name": "Incineroar",
+    "nationalDex": 727,
+    "types": [
+      "Fire",
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 115,
+      "def": 90,
+      "spa": 80,
+      "spd": 90,
+      "spe": 60
+    },
+    "abilities": {
+      "0": "blaze",
+      "H": "intimidate"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 83
+  },
+  {
+    "slug": "indeedee",
+    "name": "Indeedee",
+    "nationalDex": 876,
+    "types": [
+      "Psychic",
+      "Normal"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 65,
+      "def": 55,
+      "spa": 105,
+      "spd": 95,
+      "spe": 95
+    },
+    "abilities": {
+      "0": "innerfocus",
+      "1": "synchronize",
+      "H": "psychicsurge"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 28
+  },
+  {
+    "slug": "indeedeef",
+    "name": "Indeedee-F",
+    "nationalDex": 876,
+    "types": [
+      "Psychic",
+      "Normal"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 55,
+      "def": 65,
+      "spa": 95,
+      "spd": 105,
+      "spe": 85
+    },
+    "abilities": {
+      "0": "owntempo",
+      "1": "synchronize",
+      "H": "psychicsurge"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "indeedee",
+    "requiredItemSlug": null,
+    "weightKg": 28
+  },
+  {
+    "slug": "infernape",
+    "name": "Infernape",
+    "nationalDex": 392,
+    "types": [
+      "Fire",
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 76,
+      "atk": 104,
+      "def": 71,
+      "spa": 104,
+      "spd": 71,
+      "spe": 108
+    },
+    "abilities": {
+      "0": "blaze",
+      "H": "ironfist"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 55
+  },
+  {
+    "slug": "inteleon",
+    "name": "Inteleon",
+    "nationalDex": 818,
+    "types": [
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 85,
+      "def": 65,
+      "spa": 125,
+      "spd": 65,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "torrent",
+      "H": "sniper"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 45.2
+  },
+  {
+    "slug": "jolteon",
+    "name": "Jolteon",
+    "nationalDex": 135,
+    "types": [
+      "Electric"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 65,
+      "def": 60,
+      "spa": 110,
+      "spd": 95,
+      "spe": 130
+    },
+    "abilities": {
+      "0": "voltabsorb",
+      "H": "quickfeet"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 24.5
+  },
+  {
+    "slug": "kangaskhan",
+    "name": "Kangaskhan",
+    "nationalDex": 115,
+    "types": [
+      "Normal"
+    ],
+    "baseStats": {
+      "hp": 105,
+      "atk": 95,
+      "def": 80,
+      "spa": 40,
+      "spd": 80,
+      "spe": 90
+    },
+    "abilities": {
+      "0": "earlybird",
+      "1": "scrappy",
+      "H": "innerfocus"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 80
+  },
+  {
+    "slug": "kangaskhanmega",
+    "name": "Kangaskhan-Mega",
+    "nationalDex": 115,
+    "types": [
+      "Normal"
+    ],
+    "baseStats": {
+      "hp": 105,
+      "atk": 125,
+      "def": 100,
+      "spa": 60,
+      "spd": 100,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "parentalbond"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "kangaskhan",
+    "requiredItemSlug": "kangaskhanite",
+    "weightKg": 100
+  },
+  {
+    "slug": "kingambit",
+    "name": "Kingambit",
+    "nationalDex": 983,
+    "types": [
+      "Dark",
+      "Steel"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 135,
+      "def": 120,
+      "spa": 60,
+      "spd": 85,
+      "spe": 50
+    },
+    "abilities": {
+      "0": "defiant",
+      "1": "supremeoverlord",
+      "H": "pressure"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 120
+  },
+  {
+    "slug": "kleavor",
+    "name": "Kleavor",
+    "nationalDex": 900,
+    "types": [
+      "Bug",
+      "Rock"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 135,
+      "def": 95,
+      "spa": 45,
+      "spd": 70,
+      "spe": 85
+    },
+    "abilities": {
+      "0": "swarm",
+      "1": "sheerforce",
+      "H": "sharpness"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 89
+  },
+  {
+    "slug": "klefki",
+    "name": "Klefki",
+    "nationalDex": 707,
+    "types": [
+      "Steel",
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 57,
+      "atk": 80,
+      "def": 91,
+      "spa": 80,
+      "spd": 87,
+      "spe": 75
+    },
+    "abilities": {
+      "0": "prankster",
+      "H": "magician"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 3
+  },
+  {
+    "slug": "kommoo",
+    "name": "Kommo-o",
+    "nationalDex": 784,
+    "types": [
+      "Dragon",
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 110,
+      "def": 125,
+      "spa": 100,
+      "spd": 105,
+      "spe": 85
+    },
+    "abilities": {
+      "0": "bulletproof",
+      "1": "soundproof",
+      "H": "overcoat"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 78.2
+  },
+  {
+    "slug": "krookodile",
+    "name": "Krookodile",
+    "nationalDex": 553,
+    "types": [
+      "Ground",
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 117,
+      "def": 80,
+      "spa": 65,
+      "spd": 70,
+      "spe": 92
+    },
+    "abilities": {
+      "0": "intimidate",
+      "1": "moxie",
+      "H": "angerpoint"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 96.3
+  },
+  {
+    "slug": "leafeon",
+    "name": "Leafeon",
+    "nationalDex": 470,
+    "types": [
+      "Grass"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 110,
+      "def": 130,
+      "spa": 60,
+      "spd": 65,
+      "spe": 95
+    },
+    "abilities": {
+      "0": "leafguard",
+      "H": "chlorophyll"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 25.5
+  },
+  {
+    "slug": "liepard",
+    "name": "Liepard",
+    "nationalDex": 510,
+    "types": [
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 64,
+      "atk": 88,
+      "def": 50,
+      "spa": 88,
+      "spd": 50,
+      "spe": 106
+    },
+    "abilities": {
+      "0": "limber",
+      "1": "unburden",
+      "H": "prankster"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 37.5
+  },
+  {
+    "slug": "lopunny",
+    "name": "Lopunny",
+    "nationalDex": 428,
+    "types": [
+      "Normal"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 76,
+      "def": 84,
+      "spa": 54,
+      "spd": 96,
+      "spe": 105
+    },
+    "abilities": {
+      "0": "cutecharm",
+      "1": "klutz",
+      "H": "limber"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 33.3
+  },
+  {
+    "slug": "lopunnymega",
+    "name": "Lopunny-Mega",
+    "nationalDex": 428,
+    "types": [
+      "Normal",
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 136,
+      "def": 94,
+      "spa": 54,
+      "spd": 96,
+      "spe": 135
+    },
+    "abilities": {
+      "0": "scrappy"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "lopunny",
+    "requiredItemSlug": "lopunnite",
+    "weightKg": 28.3
+  },
+  {
+    "slug": "lucario",
+    "name": "Lucario",
+    "nationalDex": 448,
+    "types": [
+      "Fighting",
+      "Steel"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 110,
+      "def": 70,
+      "spa": 115,
+      "spd": 70,
+      "spe": 90
+    },
+    "abilities": {
+      "0": "steadfast",
+      "1": "innerfocus",
+      "H": "justified"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 54
+  },
+  {
+    "slug": "lucariomega",
+    "name": "Lucario-Mega",
+    "nationalDex": 448,
+    "types": [
+      "Fighting",
+      "Steel"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 145,
+      "def": 88,
+      "spa": 140,
+      "spd": 70,
+      "spe": 112
+    },
+    "abilities": {
+      "0": "adaptability"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "lucario",
+    "requiredItemSlug": "lucarionite",
+    "weightKg": 57.5
+  },
+  {
+    "slug": "lucariomegaz",
+    "name": "Lucario-Mega-Z",
+    "nationalDex": 448,
+    "types": [
+      "Fighting",
+      "Steel"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 100,
+      "def": 70,
+      "spa": 164,
+      "spd": 70,
+      "spe": 151
+    },
+    "abilities": {
+      "0": "auraguard"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "lucario",
+    "requiredItemSlug": "lucarionitez",
+    "weightKg": 49.4
+  },
+  {
+    "slug": "luxray",
+    "name": "Luxray",
+    "nationalDex": 405,
+    "types": [
+      "Electric"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 120,
+      "def": 79,
+      "spa": 95,
+      "spd": 79,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "rivalry",
+      "1": "intimidate",
+      "H": "guts"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 42
+  },
+  {
+    "slug": "lycanroc",
+    "name": "Lycanroc",
+    "nationalDex": 745,
+    "types": [
+      "Rock"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 115,
+      "def": 65,
+      "spa": 55,
+      "spd": 65,
+      "spe": 112
+    },
+    "abilities": {
+      "0": "keeneye",
+      "1": "sandrush",
+      "H": "steadfast"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 25
+  },
+  {
+    "slug": "lycanrocdusk",
+    "name": "Lycanroc-Dusk",
+    "nationalDex": 745,
+    "types": [
+      "Rock"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 117,
+      "def": 65,
+      "spa": 55,
+      "spd": 65,
+      "spe": 110
+    },
+    "abilities": {
+      "0": "toughclaws"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "lycanroc",
+    "requiredItemSlug": null,
+    "weightKg": 25
+  },
+  {
+    "slug": "lycanrocmidnight",
+    "name": "Lycanroc-Midnight",
+    "nationalDex": 745,
+    "types": [
+      "Rock"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 115,
+      "def": 75,
+      "spa": 55,
+      "spd": 75,
+      "spe": 82
+    },
+    "abilities": {
+      "0": "keeneye",
+      "1": "vitalspirit",
+      "H": "noguard"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "lycanroc",
+    "requiredItemSlug": null,
+    "weightKg": 25
+  },
+  {
+    "slug": "mabosstiff",
+    "name": "Mabosstiff",
+    "nationalDex": 943,
+    "types": [
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 120,
+      "def": 90,
+      "spa": 60,
+      "spd": 70,
+      "spe": 85
+    },
+    "abilities": {
+      "0": "intimidate",
+      "1": "guarddog",
+      "H": "stakeout"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 61
+  },
+  {
+    "slug": "machamp",
+    "name": "Machamp",
+    "nationalDex": 68,
+    "types": [
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "atk": 130,
+      "def": 80,
+      "spa": 65,
+      "spd": 85,
+      "spe": 55
+    },
+    "abilities": {
+      "0": "guts",
+      "1": "noguard",
+      "H": "steadfast"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 130
+  },
+  {
+    "slug": "malamar",
+    "name": "Malamar",
+    "nationalDex": 687,
+    "types": [
+      "Dark",
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 86,
+      "atk": 92,
+      "def": 88,
+      "spa": 68,
+      "spd": 75,
+      "spe": 73
+    },
+    "abilities": {
+      "0": "contrary",
+      "1": "suctioncups",
+      "H": "infiltrator"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 47
+  },
+  {
+    "slug": "malamarmega",
+    "name": "Malamar-Mega",
+    "nationalDex": 687,
+    "types": [
+      "Dark",
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 86,
+      "atk": 102,
+      "def": 88,
+      "spa": 98,
+      "spd": 120,
+      "spe": 88
+    },
+    "abilities": {
+      "0": "contrary"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "malamar",
+    "requiredItemSlug": "malamarite",
+    "weightKg": 69.8
+  },
+  {
+    "slug": "mamoswine",
+    "name": "Mamoswine",
+    "nationalDex": 473,
+    "types": [
+      "Ice",
+      "Ground"
+    ],
+    "baseStats": {
+      "hp": 110,
+      "atk": 130,
+      "def": 80,
+      "spa": 70,
+      "spd": 60,
+      "spe": 80
+    },
+    "abilities": {
+      "0": "oblivious",
+      "1": "snowcloak",
+      "H": "thickfat"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 291
+  },
+  {
+    "slug": "manectric",
+    "name": "Manectric",
+    "nationalDex": 310,
+    "types": [
+      "Electric"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 75,
+      "def": 60,
+      "spa": 105,
+      "spd": 60,
+      "spe": 105
+    },
+    "abilities": {
+      "0": "static",
+      "1": "lightningrod",
+      "H": "minus"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 40.2
+  },
+  {
+    "slug": "manectricmega",
+    "name": "Manectric-Mega",
+    "nationalDex": 310,
+    "types": [
+      "Electric"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 75,
+      "def": 80,
+      "spa": 135,
+      "spd": 80,
+      "spe": 135
+    },
+    "abilities": {
+      "0": "intimidate"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "manectric",
+    "requiredItemSlug": "manectite",
+    "weightKg": 44
+  },
+  {
+    "slug": "maushold",
+    "name": "Maushold",
+    "nationalDex": 925,
+    "types": [
+      "Normal"
+    ],
+    "baseStats": {
+      "hp": 74,
+      "atk": 75,
+      "def": 70,
+      "spa": 65,
+      "spd": 75,
+      "spe": 111
+    },
+    "abilities": {
+      "0": "friendguard",
+      "1": "cheekpouch",
+      "H": "technician"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 2.3
+  },
+  {
+    "slug": "mausholdfour",
+    "name": "Maushold-Four",
+    "nationalDex": 925,
+    "types": [
+      "Normal"
+    ],
+    "baseStats": {
+      "hp": 74,
+      "atk": 75,
+      "def": 70,
+      "spa": 65,
+      "spd": 75,
+      "spe": 111
+    },
+    "abilities": {
+      "0": "friendguard",
+      "1": "cheekpouch",
+      "H": "technician"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "maushold",
+    "requiredItemSlug": null,
+    "weightKg": 2.8
+  },
+  {
+    "slug": "mawile",
+    "name": "Mawile",
+    "nationalDex": 303,
+    "types": [
+      "Steel",
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "atk": 85,
+      "def": 85,
+      "spa": 55,
+      "spd": 55,
+      "spe": 50
+    },
+    "abilities": {
+      "0": "hypercutter",
+      "1": "intimidate",
+      "H": "sheerforce"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 11.5
+  },
+  {
+    "slug": "mawilemega",
+    "name": "Mawile-Mega",
+    "nationalDex": 303,
+    "types": [
+      "Steel",
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "atk": 105,
+      "def": 125,
+      "spa": 55,
+      "spd": 95,
+      "spe": 50
+    },
+    "abilities": {
+      "0": "hugepower"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "mawile",
+    "requiredItemSlug": "mawilite",
+    "weightKg": 23.5
+  },
+  {
+    "slug": "medicham",
+    "name": "Medicham",
+    "nationalDex": 308,
+    "types": [
+      "Fighting",
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 60,
+      "def": 75,
+      "spa": 60,
+      "spd": 75,
+      "spe": 80
+    },
+    "abilities": {
+      "0": "purepower",
+      "H": "telepathy"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 31.5
+  },
+  {
+    "slug": "medichammega",
+    "name": "Medicham-Mega",
+    "nationalDex": 308,
+    "types": [
+      "Fighting",
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 100,
+      "def": 85,
+      "spa": 80,
+      "spd": 85,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "purepower"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "medicham",
+    "requiredItemSlug": "medichamite",
+    "weightKg": 31.5
+  },
+  {
+    "slug": "meganium",
+    "name": "Meganium",
+    "nationalDex": 154,
+    "types": [
+      "Grass"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 82,
+      "def": 100,
+      "spa": 83,
+      "spd": 100,
+      "spe": 80
+    },
+    "abilities": {
+      "0": "overgrow",
+      "H": "leafguard"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 100.5
+  },
+  {
+    "slug": "meganiummega",
+    "name": "Meganium-Mega",
+    "nationalDex": 154,
+    "types": [
+      "Grass",
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 92,
+      "def": 115,
+      "spa": 143,
+      "spd": 115,
+      "spe": 80
+    },
+    "abilities": {
+      "0": "megasol"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "meganium",
+    "requiredItemSlug": "meganiumite",
+    "weightKg": 201
+  },
+  {
+    "slug": "meloetta",
+    "name": "Meloetta",
+    "nationalDex": 648,
+    "types": [
+      "Normal",
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 77,
+      "def": 77,
+      "spa": 128,
+      "spd": 128,
+      "spe": 90
+    },
+    "abilities": {
+      "0": "serenegrace"
+    },
+    "isMega": false,
+    "isBuildable": false,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 6.5
+  },
+  {
+    "slug": "meloettapirouette",
+    "name": "Meloetta-Pirouette",
+    "nationalDex": 648,
+    "types": [
+      "Normal",
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 128,
+      "def": 90,
+      "spa": 77,
+      "spd": 77,
+      "spe": 128
+    },
+    "abilities": {
+      "0": "serenegrace"
+    },
+    "isMega": false,
+    "isBuildable": false,
+    "baseFormSlug": "meloetta",
+    "requiredItemSlug": null,
+    "weightKg": 6.5
+  },
+  {
+    "slug": "meowscarada",
+    "name": "Meowscarada",
+    "nationalDex": 908,
+    "types": [
+      "Grass",
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 76,
+      "atk": 110,
+      "def": 70,
+      "spa": 81,
+      "spd": 70,
+      "spe": 123
+    },
+    "abilities": {
+      "0": "overgrow",
+      "H": "protean"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 31.2
+  },
+  {
+    "slug": "meowstic",
+    "name": "Meowstic",
+    "nationalDex": 678,
+    "types": [
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 74,
+      "atk": 48,
+      "def": 76,
+      "spa": 83,
+      "spd": 81,
+      "spe": 104
+    },
+    "abilities": {
+      "0": "keeneye",
+      "1": "infiltrator",
+      "H": "prankster"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 8.5
+  },
+  {
+    "slug": "meowsticf",
+    "name": "Meowstic-F",
+    "nationalDex": 678,
+    "types": [
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 74,
+      "atk": 48,
+      "def": 76,
+      "spa": 83,
+      "spd": 81,
+      "spe": 104
+    },
+    "abilities": {
+      "0": "keeneye",
+      "1": "infiltrator",
+      "H": "competitive"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "meowstic",
+    "requiredItemSlug": null,
+    "weightKg": 8.5
+  },
+  {
+    "slug": "meowsticfmega",
+    "name": "Meowstic-F-Mega",
+    "nationalDex": 678,
+    "types": [
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 74,
+      "atk": 48,
+      "def": 76,
+      "spa": 143,
+      "spd": 101,
+      "spe": 124
+    },
+    "abilities": {
+      "0": "trace"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "meowstic",
+    "requiredItemSlug": "meowsticite",
+    "weightKg": 10.1
+  },
+  {
+    "slug": "meowsticmmega",
+    "name": "Meowstic-M-Mega",
+    "nationalDex": 678,
+    "types": [
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 74,
+      "atk": 48,
+      "def": 76,
+      "spa": 143,
+      "spd": 101,
+      "spe": 124
+    },
+    "abilities": {
+      "0": "trace"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "meowstic",
+    "requiredItemSlug": "meowsticite",
+    "weightKg": 10.1
+  },
+  {
+    "slug": "metagross",
+    "name": "Metagross",
+    "nationalDex": 376,
+    "types": [
+      "Steel",
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 135,
+      "def": 130,
+      "spa": 95,
+      "spd": 90,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "clearbody",
+      "H": "lightmetal"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 550
+  },
+  {
+    "slug": "metagrossmega",
+    "name": "Metagross-Mega",
+    "nationalDex": 376,
+    "types": [
+      "Steel",
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 145,
+      "def": 150,
+      "spa": 105,
+      "spd": 110,
+      "spe": 110
+    },
+    "abilities": {
+      "0": "toughclaws"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "metagross",
+    "requiredItemSlug": "metagrossite",
+    "weightKg": 942.9
+  },
+  {
+    "slug": "milotic",
+    "name": "Milotic",
+    "nationalDex": 350,
+    "types": [
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 60,
+      "def": 79,
+      "spa": 100,
+      "spd": 125,
+      "spe": 81
+    },
+    "abilities": {
+      "0": "marvelscale",
+      "1": "competitive",
+      "H": "cutecharm"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 162
+  },
+  {
+    "slug": "mimikyu",
+    "name": "Mimikyu",
+    "nationalDex": 778,
+    "types": [
+      "Ghost",
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 55,
+      "atk": 90,
+      "def": 80,
+      "spa": 50,
+      "spd": 105,
+      "spe": 96
+    },
+    "abilities": {
+      "0": "disguise"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 0.7
+  },
+  {
+    "slug": "mimikyubusted",
+    "name": "Mimikyu-Busted",
+    "nationalDex": 778,
+    "types": [
+      "Ghost",
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 55,
+      "atk": 90,
+      "def": 80,
+      "spa": 50,
+      "spd": 105,
+      "spe": 96
+    },
+    "abilities": {
+      "0": "disguise"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "mimikyu",
+    "requiredItemSlug": null,
+    "weightKg": 0.7
+  },
+  {
+    "slug": "minior",
+    "name": "Minior",
+    "nationalDex": 774,
+    "types": [
+      "Rock",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 100,
+      "def": 60,
+      "spa": 100,
+      "spd": 60,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "shieldsdown"
+    },
+    "isMega": false,
+    "isBuildable": false,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 0.3
+  },
+  {
+    "slug": "miniormeteor",
+    "name": "Minior-Meteor",
+    "nationalDex": 774,
+    "types": [
+      "Rock",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 60,
+      "def": 100,
+      "spa": 60,
+      "spd": 100,
+      "spe": 60
+    },
+    "abilities": {
+      "0": "shieldsdown"
+    },
+    "isMega": false,
+    "isBuildable": false,
+    "baseFormSlug": "minior",
+    "requiredItemSlug": null,
+    "weightKg": 40
+  },
+  {
+    "slug": "morpeko",
+    "name": "Morpeko",
+    "nationalDex": 877,
+    "types": [
+      "Electric",
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 58,
+      "atk": 95,
+      "def": 58,
+      "spa": 70,
+      "spd": 58,
+      "spe": 97
+    },
+    "abilities": {
+      "0": "hungerswitch"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 3
+  },
+  {
+    "slug": "morpekohangry",
+    "name": "Morpeko-Hangry",
+    "nationalDex": 877,
+    "types": [
+      "Electric",
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 58,
+      "atk": 95,
+      "def": 58,
+      "spa": 70,
+      "spd": 58,
+      "spe": 97
+    },
+    "abilities": {
+      "0": "hungerswitch"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "morpeko",
+    "requiredItemSlug": null,
+    "weightKg": 3
+  },
+  {
+    "slug": "mrmime",
+    "name": "Mr. Mime",
+    "nationalDex": 122,
+    "types": [
+      "Psychic",
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 40,
+      "atk": 45,
+      "def": 65,
+      "spa": 100,
+      "spd": 120,
+      "spe": 90
+    },
+    "abilities": {
+      "0": "soundproof",
+      "1": "filter",
+      "H": "technician"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 54.5
+  },
+  {
+    "slug": "mrrime",
+    "name": "Mr. Rime",
+    "nationalDex": 866,
+    "types": [
+      "Ice",
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 85,
+      "def": 75,
+      "spa": 110,
+      "spd": 100,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "tangledfeet",
+      "1": "screencleaner",
+      "H": "icebody"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 58.2
+  },
+  {
+    "slug": "mudsdale",
+    "name": "Mudsdale",
+    "nationalDex": 750,
+    "types": [
+      "Ground"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 125,
+      "def": 100,
+      "spa": 55,
+      "spd": 85,
+      "spe": 35
+    },
+    "abilities": {
+      "0": "owntempo",
+      "1": "stamina",
+      "H": "innerfocus"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 920
+  },
+  {
+    "slug": "musharna",
+    "name": "Musharna",
+    "nationalDex": 518,
+    "types": [
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 116,
+      "atk": 55,
+      "def": 85,
+      "spa": 107,
+      "spd": 95,
+      "spe": 29
+    },
+    "abilities": {
+      "0": "forewarn",
+      "1": "synchronize",
+      "H": "telepathy"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 60.5
+  },
+  {
+    "slug": "ninetales",
+    "name": "Ninetales",
+    "nationalDex": 38,
+    "types": [
+      "Fire"
+    ],
+    "baseStats": {
+      "hp": 73,
+      "atk": 76,
+      "def": 75,
+      "spa": 81,
+      "spd": 100,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "flashfire",
+      "H": "drought"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 19.9
+  },
+  {
+    "slug": "ninetalesalola",
+    "name": "Ninetales-Alola",
+    "nationalDex": 38,
+    "types": [
+      "Ice",
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 73,
+      "atk": 67,
+      "def": 75,
+      "spa": 81,
+      "spd": 100,
+      "spe": 109
+    },
+    "abilities": {
+      "0": "snowcloak",
+      "H": "snowwarning"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "ninetales",
+    "requiredItemSlug": null,
+    "weightKg": 19.9
+  },
+  {
+    "slug": "noivern",
+    "name": "Noivern",
+    "nationalDex": 715,
+    "types": [
+      "Flying",
+      "Dragon"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 70,
+      "def": 80,
+      "spa": 97,
+      "spd": 80,
+      "spe": 123
+    },
+    "abilities": {
+      "0": "frisk",
+      "1": "infiltrator",
+      "H": "telepathy"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 85
+  },
+  {
+    "slug": "ogerpon",
+    "name": "Ogerpon",
+    "nationalDex": 1017,
+    "types": [
+      "Grass"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 120,
+      "def": 84,
+      "spa": 60,
+      "spd": 96,
+      "spe": 110
+    },
+    "abilities": {
+      "0": "defiant"
+    },
+    "isMega": false,
+    "isBuildable": false,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 39.8
+  },
+  {
+    "slug": "ogerponcornerstonetera",
+    "name": "Ogerpon-Cornerstone-Tera",
+    "nationalDex": 1017,
+    "types": [
+      "Grass",
+      "Rock"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 120,
+      "def": 84,
+      "spa": 60,
+      "spd": 96,
+      "spe": 110
+    },
+    "abilities": {
+      "0": "embodyaspectcornerstone"
+    },
+    "isMega": false,
+    "isBuildable": false,
+    "baseFormSlug": "ogerpon",
+    "requiredItemSlug": "cornerstonemask",
+    "weightKg": 39.8
+  },
+  {
+    "slug": "ogerponhearthflametera",
+    "name": "Ogerpon-Hearthflame-Tera",
+    "nationalDex": 1017,
+    "types": [
+      "Grass",
+      "Fire"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 120,
+      "def": 84,
+      "spa": 60,
+      "spd": 96,
+      "spe": 110
+    },
+    "abilities": {
+      "0": "embodyaspecthearthflame"
+    },
+    "isMega": false,
+    "isBuildable": false,
+    "baseFormSlug": "ogerpon",
+    "requiredItemSlug": "hearthflamemask",
+    "weightKg": 39.8
+  },
+  {
+    "slug": "ogerpontealtera",
+    "name": "Ogerpon-Teal-Tera",
+    "nationalDex": 1017,
+    "types": [
+      "Grass"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 120,
+      "def": 84,
+      "spa": 60,
+      "spd": 96,
+      "spe": 110
+    },
+    "abilities": {
+      "0": "embodyaspectteal"
+    },
+    "isMega": false,
+    "isBuildable": false,
+    "baseFormSlug": "ogerpon",
+    "requiredItemSlug": null,
+    "weightKg": 39.8
+  },
+  {
+    "slug": "ogerponwellspringtera",
+    "name": "Ogerpon-Wellspring-Tera",
+    "nationalDex": 1017,
+    "types": [
+      "Grass",
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 120,
+      "def": 84,
+      "spa": 60,
+      "spd": 96,
+      "spe": 110
+    },
+    "abilities": {
+      "0": "embodyaspectwellspring"
+    },
+    "isMega": false,
+    "isBuildable": false,
+    "baseFormSlug": "ogerpon",
+    "requiredItemSlug": "wellspringmask",
+    "weightKg": 39.8
+  },
+  {
+    "slug": "oranguru",
+    "name": "Oranguru",
+    "nationalDex": 765,
+    "types": [
+      "Normal",
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "atk": 60,
+      "def": 80,
+      "spa": 90,
+      "spd": 110,
+      "spe": 60
+    },
+    "abilities": {
+      "0": "innerfocus",
+      "1": "telepathy",
+      "H": "symbiosis"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 76
+  },
+  {
+    "slug": "orthworm",
+    "name": "Orthworm",
+    "nationalDex": 968,
+    "types": [
+      "Steel"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 85,
+      "def": 145,
+      "spa": 60,
+      "spd": 55,
+      "spe": 65
+    },
+    "abilities": {
+      "0": "eartheater",
+      "H": "sandveil"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 310
+  },
+  {
+    "slug": "overqwil",
+    "name": "Overqwil",
+    "nationalDex": 904,
+    "types": [
+      "Dark",
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 115,
+      "def": 95,
+      "spa": 65,
+      "spd": 65,
+      "spe": 85
+    },
+    "abilities": {
+      "0": "poisonpoint",
+      "1": "swiftswim",
+      "H": "intimidate"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 60.5
+  },
+  {
+    "slug": "palafin",
+    "name": "Palafin",
+    "nationalDex": 964,
+    "types": [
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 70,
+      "def": 72,
+      "spa": 53,
+      "spd": 62,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "zerotohero"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 60.2
+  },
+  {
+    "slug": "palafinhero",
+    "name": "Palafin-Hero",
+    "nationalDex": 964,
+    "types": [
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 160,
+      "def": 97,
+      "spa": 106,
+      "spd": 87,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "zerotohero"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "palafin",
+    "requiredItemSlug": null,
+    "weightKg": 97.4
+  },
+  {
+    "slug": "pangoro",
+    "name": "Pangoro",
+    "nationalDex": 675,
+    "types": [
+      "Fighting",
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 124,
+      "def": 78,
+      "spa": 69,
+      "spd": 71,
+      "spe": 58
+    },
+    "abilities": {
+      "0": "ironfist",
+      "1": "moldbreaker",
+      "H": "scrappy"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 136
+  },
+  {
+    "slug": "passimian",
+    "name": "Passimian",
+    "nationalDex": 766,
+    "types": [
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 120,
+      "def": 90,
+      "spa": 40,
+      "spd": 60,
+      "spe": 80
+    },
+    "abilities": {
+      "0": "receiver",
+      "H": "defiant"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 82.8
+  },
+  {
+    "slug": "pawmot",
+    "name": "Pawmot",
+    "nationalDex": 923,
+    "types": [
+      "Electric",
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 115,
+      "def": 70,
+      "spa": 70,
+      "spd": 60,
+      "spe": 105
+    },
+    "abilities": {
+      "0": "voltabsorb",
+      "1": "naturalcure",
+      "H": "ironfist"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 41
+  },
+  {
+    "slug": "pelipper",
+    "name": "Pelipper",
+    "nationalDex": 279,
+    "types": [
+      "Water",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 50,
+      "def": 100,
+      "spa": 95,
+      "spd": 70,
+      "spe": 65
+    },
+    "abilities": {
+      "0": "keeneye",
+      "1": "drizzle",
+      "H": "raindish"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 28
+  },
+  {
+    "slug": "perrserker",
+    "name": "Perrserker",
+    "nationalDex": 863,
+    "types": [
+      "Steel"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 110,
+      "def": 100,
+      "spa": 50,
+      "spd": 60,
+      "spe": 50
+    },
+    "abilities": {
+      "0": "battlearmor",
+      "1": "toughclaws",
+      "H": "steelyspirit"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 28
+  },
+  {
+    "slug": "persian",
+    "name": "Persian",
+    "nationalDex": 53,
+    "types": [
+      "Normal"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 70,
+      "def": 60,
+      "spa": 65,
+      "spd": 65,
+      "spe": 115
+    },
+    "abilities": {
+      "0": "limber",
+      "1": "technician",
+      "H": "unnerve"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 32
+  },
+  {
+    "slug": "persianalola",
+    "name": "Persian-Alola",
+    "nationalDex": 53,
+    "types": [
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 60,
+      "def": 60,
+      "spa": 75,
+      "spd": 65,
+      "spe": 115
+    },
+    "abilities": {
+      "0": "furcoat",
+      "1": "technician",
+      "H": "rattled"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "persian",
+    "requiredItemSlug": null,
+    "weightKg": 33
+  },
+  {
+    "slug": "pidgeot",
+    "name": "Pidgeot",
+    "nationalDex": 18,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 83,
+      "atk": 80,
+      "def": 75,
+      "spa": 70,
+      "spd": 70,
+      "spe": 101
+    },
+    "abilities": {
+      "0": "keeneye",
+      "1": "tangledfeet",
+      "H": "bigpecks"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 39.5
+  },
+  {
+    "slug": "pidgeotmega",
+    "name": "Pidgeot-Mega",
+    "nationalDex": 18,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 83,
+      "atk": 80,
+      "def": 80,
+      "spa": 135,
+      "spd": 80,
+      "spe": 121
+    },
+    "abilities": {
+      "0": "noguard"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "pidgeot",
+    "requiredItemSlug": "pidgeotite",
+    "weightKg": 50.5
+  },
+  {
+    "slug": "pikachu",
+    "name": "Pikachu",
+    "nationalDex": 25,
+    "types": [
+      "Electric"
+    ],
+    "baseStats": {
+      "hp": 35,
+      "atk": 55,
+      "def": 40,
+      "spa": 50,
+      "spd": 50,
+      "spe": 90
+    },
+    "abilities": {
+      "0": "static",
+      "H": "lightningrod"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 6
+  },
+  {
+    "slug": "pincurchin",
+    "name": "Pincurchin",
+    "nationalDex": 871,
+    "types": [
+      "Electric"
+    ],
+    "baseStats": {
+      "hp": 48,
+      "atk": 101,
+      "def": 95,
+      "spa": 91,
+      "spd": 85,
+      "spe": 15
+    },
+    "abilities": {
+      "0": "lightningrod",
+      "H": "electricsurge"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 1
+  },
+  {
+    "slug": "pinsir",
+    "name": "Pinsir",
+    "nationalDex": 127,
+    "types": [
+      "Bug"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 125,
+      "def": 100,
+      "spa": 55,
+      "spd": 70,
+      "spe": 85
+    },
+    "abilities": {
+      "0": "hypercutter",
+      "1": "moldbreaker",
+      "H": "moxie"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 55
+  },
+  {
+    "slug": "pinsirmega",
+    "name": "Pinsir-Mega",
+    "nationalDex": 127,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 155,
+      "def": 120,
+      "spa": 65,
+      "spd": 90,
+      "spe": 105
+    },
+    "abilities": {
+      "0": "aerilate"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "pinsir",
+    "requiredItemSlug": "pinsirite",
+    "weightKg": 59
+  },
+  {
+    "slug": "politoed",
+    "name": "Politoed",
+    "nationalDex": 186,
+    "types": [
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "atk": 75,
+      "def": 75,
+      "spa": 90,
+      "spd": 100,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "waterabsorb",
+      "1": "damp",
+      "H": "drizzle"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 33.9
+  },
+  {
+    "slug": "polteageist",
+    "name": "Polteageist",
+    "nationalDex": 855,
+    "types": [
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 65,
+      "def": 65,
+      "spa": 134,
+      "spd": 114,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "weakarmor",
+      "H": "cursedbody"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 0.4
+  },
+  {
+    "slug": "polteageistantique",
+    "name": "Polteageist-Antique",
+    "nationalDex": 855,
+    "types": [
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 65,
+      "def": 65,
+      "spa": 134,
+      "spd": 114,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "weakarmor",
+      "H": "cursedbody"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "polteageist",
+    "requiredItemSlug": null,
+    "weightKg": 0.4
+  },
+  {
+    "slug": "primarina",
+    "name": "Primarina",
+    "nationalDex": 730,
+    "types": [
+      "Water",
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 74,
+      "def": 74,
+      "spa": 126,
+      "spd": 116,
+      "spe": 60
+    },
+    "abilities": {
+      "0": "torrent",
+      "H": "liquidvoice"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 44
+  },
+  {
+    "slug": "pyroar",
+    "name": "Pyroar",
+    "nationalDex": 668,
+    "types": [
+      "Fire",
+      "Normal"
+    ],
+    "baseStats": {
+      "hp": 86,
+      "atk": 68,
+      "def": 72,
+      "spa": 109,
+      "spd": 66,
+      "spe": 106
+    },
+    "abilities": {
+      "0": "rivalry",
+      "1": "unnerve",
+      "H": "moxie"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 81.5
+  },
+  {
+    "slug": "pyroarmega",
+    "name": "Pyroar-Mega",
+    "nationalDex": 668,
+    "types": [
+      "Fire",
+      "Normal"
+    ],
+    "baseStats": {
+      "hp": 86,
+      "atk": 88,
+      "def": 92,
+      "spa": 129,
+      "spd": 86,
+      "spe": 126
+    },
+    "abilities": {
+      "0": "firemane"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "pyroar",
+    "requiredItemSlug": "pyroarite",
+    "weightKg": 93.3
+  },
+  {
+    "slug": "quaquaval",
+    "name": "Quaquaval",
+    "nationalDex": 914,
+    "types": [
+      "Water",
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 120,
+      "def": 80,
+      "spa": 85,
+      "spd": 75,
+      "spe": 85
+    },
+    "abilities": {
+      "0": "torrent",
+      "H": "moxie"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 61.9
+  },
+  {
+    "slug": "qwilfish",
+    "name": "Qwilfish",
+    "nationalDex": 211,
+    "types": [
+      "Water",
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 95,
+      "def": 85,
+      "spa": 55,
+      "spd": 55,
+      "spe": 85
+    },
+    "abilities": {
+      "0": "poisonpoint",
+      "1": "swiftswim",
+      "H": "intimidate"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 3.9
+  },
+  {
+    "slug": "raichu",
+    "name": "Raichu",
+    "nationalDex": 26,
+    "types": [
+      "Electric"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 90,
+      "def": 55,
+      "spa": 90,
+      "spd": 80,
+      "spe": 110
+    },
+    "abilities": {
+      "0": "static",
+      "H": "lightningrod"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 30
+  },
+  {
+    "slug": "raichualola",
+    "name": "Raichu-Alola",
+    "nationalDex": 26,
+    "types": [
+      "Electric",
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 85,
+      "def": 50,
+      "spa": 95,
+      "spd": 85,
+      "spe": 110
+    },
+    "abilities": {
+      "0": "surgesurfer"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "raichu",
+    "requiredItemSlug": null,
+    "weightKg": 21
+  },
+  {
+    "slug": "raichumegax",
+    "name": "Raichu-Mega-X",
+    "nationalDex": 26,
+    "types": [
+      "Electric"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 135,
+      "def": 95,
+      "spa": 90,
+      "spd": 95,
+      "spe": 110
+    },
+    "abilities": {
+      "0": "electricsurge"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "raichu",
+    "requiredItemSlug": "raichunitex",
+    "weightKg": 38
+  },
+  {
+    "slug": "raichumegay",
+    "name": "Raichu-Mega-Y",
+    "nationalDex": 26,
+    "types": [
+      "Electric"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 100,
+      "def": 55,
+      "spa": 160,
+      "spd": 80,
+      "spe": 130
+    },
+    "abilities": {
+      "0": "noguard"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "raichu",
+    "requiredItemSlug": "raichunitey",
+    "weightKg": 26
+  },
+  {
+    "slug": "rampardos",
+    "name": "Rampardos",
+    "nationalDex": 409,
+    "types": [
+      "Rock"
+    ],
+    "baseStats": {
+      "hp": 97,
+      "atk": 165,
+      "def": 60,
+      "spa": 65,
+      "spd": 50,
+      "spe": 58
+    },
+    "abilities": {
+      "0": "moldbreaker",
+      "H": "sheerforce"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 102.5
+  },
+  {
+    "slug": "reuniclus",
+    "name": "Reuniclus",
+    "nationalDex": 579,
+    "types": [
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 110,
+      "atk": 65,
+      "def": 75,
+      "spa": 125,
+      "spd": 85,
+      "spe": 30
+    },
+    "abilities": {
+      "0": "overcoat",
+      "1": "magicguard",
+      "H": "regenerator"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 20.1
+  },
+  {
+    "slug": "rhyperior",
+    "name": "Rhyperior",
+    "nationalDex": 464,
+    "types": [
+      "Ground",
+      "Rock"
+    ],
+    "baseStats": {
+      "hp": 115,
+      "atk": 140,
+      "def": 130,
+      "spa": 55,
+      "spd": 55,
+      "spe": 40
+    },
+    "abilities": {
+      "0": "lightningrod",
+      "1": "solidrock",
+      "H": "reckless"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 282.8
+  },
+  {
+    "slug": "rillaboom",
+    "name": "Rillaboom",
+    "nationalDex": 812,
+    "types": [
+      "Grass"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 125,
+      "def": 90,
+      "spa": 60,
+      "spd": 70,
+      "spe": 85
+    },
+    "abilities": {
+      "0": "overgrow",
+      "H": "grassysurge"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 90
+  },
+  {
+    "slug": "roserade",
+    "name": "Roserade",
+    "nationalDex": 407,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 70,
+      "def": 65,
+      "spa": 125,
+      "spd": 105,
+      "spe": 90
+    },
+    "abilities": {
+      "0": "naturalcure",
+      "1": "poisonpoint",
+      "H": "technician"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 14.5
+  },
+  {
+    "slug": "rotom",
+    "name": "Rotom",
+    "nationalDex": 479,
+    "types": [
+      "Electric",
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "atk": 50,
+      "def": 77,
+      "spa": 95,
+      "spd": 77,
+      "spe": 91
+    },
+    "abilities": {
+      "0": "levitate"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 0.3
+  },
+  {
+    "slug": "rotomfan",
+    "name": "Rotom-Fan",
+    "nationalDex": 479,
+    "types": [
+      "Electric",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 107,
+      "spa": 105,
+      "spd": 107,
+      "spe": 86
+    },
+    "abilities": {
+      "0": "levitate"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "rotom",
+    "requiredItemSlug": null,
+    "weightKg": 0.3
+  },
+  {
+    "slug": "rotomfrost",
+    "name": "Rotom-Frost",
+    "nationalDex": 479,
+    "types": [
+      "Electric",
+      "Ice"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 107,
+      "spa": 105,
+      "spd": 107,
+      "spe": 86
+    },
+    "abilities": {
+      "0": "levitate"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "rotom",
+    "requiredItemSlug": null,
+    "weightKg": 0.3
+  },
+  {
+    "slug": "rotomheat",
+    "name": "Rotom-Heat",
+    "nationalDex": 479,
+    "types": [
+      "Electric",
+      "Fire"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 107,
+      "spa": 105,
+      "spd": 107,
+      "spe": 86
+    },
+    "abilities": {
+      "0": "levitate"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "rotom",
+    "requiredItemSlug": null,
+    "weightKg": 0.3
+  },
+  {
+    "slug": "rotommow",
+    "name": "Rotom-Mow",
+    "nationalDex": 479,
+    "types": [
+      "Electric",
+      "Grass"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 107,
+      "spa": 105,
+      "spd": 107,
+      "spe": 86
+    },
+    "abilities": {
+      "0": "levitate"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "rotom",
+    "requiredItemSlug": null,
+    "weightKg": 0.3
+  },
+  {
+    "slug": "rotomwash",
+    "name": "Rotom-Wash",
+    "nationalDex": 479,
+    "types": [
+      "Electric",
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 107,
+      "spa": 105,
+      "spd": 107,
+      "spe": 86
+    },
+    "abilities": {
+      "0": "levitate"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "rotom",
+    "requiredItemSlug": null,
+    "weightKg": 0.3
+  },
+  {
+    "slug": "runerigus",
+    "name": "Runerigus",
+    "nationalDex": 867,
+    "types": [
+      "Ground",
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 58,
+      "atk": 95,
+      "def": 145,
+      "spa": 50,
+      "spd": 105,
+      "spe": 30
+    },
+    "abilities": {
+      "0": "wanderingspirit"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 66.6
+  },
+  {
+    "slug": "sableye",
+    "name": "Sableye",
+    "nationalDex": 302,
+    "types": [
+      "Dark",
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "atk": 75,
+      "def": 75,
+      "spa": 65,
+      "spd": 65,
+      "spe": 50
+    },
+    "abilities": {
+      "0": "keeneye",
+      "1": "stall",
+      "H": "prankster"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 11
+  },
+  {
+    "slug": "sableyemega",
+    "name": "Sableye-Mega",
+    "nationalDex": 302,
+    "types": [
+      "Dark",
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "atk": 85,
+      "def": 125,
+      "spa": 85,
+      "spd": 115,
+      "spe": 20
+    },
+    "abilities": {
+      "0": "magicbounce"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "sableye",
+    "requiredItemSlug": "sablenite",
+    "weightKg": 161
+  },
+  {
+    "slug": "salamence",
+    "name": "Salamence",
+    "nationalDex": 373,
+    "types": [
+      "Dragon",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 135,
+      "def": 80,
+      "spa": 110,
+      "spd": 80,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "intimidate",
+      "H": "moxie"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 102.6
+  },
+  {
+    "slug": "salamencemega",
+    "name": "Salamence-Mega",
+    "nationalDex": 373,
+    "types": [
+      "Dragon",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 145,
+      "def": 130,
+      "spa": 120,
+      "spd": 90,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "aerilate"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "salamence",
+    "requiredItemSlug": "salamencite",
+    "weightKg": 112.6
+  },
+  {
+    "slug": "salazzle",
+    "name": "Salazzle",
+    "nationalDex": 758,
+    "types": [
+      "Poison",
+      "Fire"
+    ],
+    "baseStats": {
+      "hp": 68,
+      "atk": 64,
+      "def": 60,
+      "spa": 111,
+      "spd": 60,
+      "spe": 117
+    },
+    "abilities": {
+      "0": "corrosion",
+      "H": "oblivious"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 22.2
+  },
+  {
+    "slug": "samurott",
+    "name": "Samurott",
+    "nationalDex": 503,
+    "types": [
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 100,
+      "def": 85,
+      "spa": 108,
+      "spd": 70,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "torrent",
+      "H": "shellarmor"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 94.6
+  },
+  {
+    "slug": "samurotthisui",
+    "name": "Samurott-Hisui",
+    "nationalDex": 503,
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "atk": 108,
+      "def": 80,
+      "spa": 100,
+      "spd": 65,
+      "spe": 85
+    },
+    "abilities": {
+      "0": "torrent",
+      "H": "sharpness"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "samurott",
+    "requiredItemSlug": null,
+    "weightKg": 58.2
+  },
+  {
+    "slug": "sandaconda",
+    "name": "Sandaconda",
+    "nationalDex": 844,
+    "types": [
+      "Ground"
+    ],
+    "baseStats": {
+      "hp": 72,
+      "atk": 107,
+      "def": 125,
+      "spa": 65,
+      "spd": 70,
+      "spe": 71
+    },
+    "abilities": {
+      "0": "sandspit",
+      "1": "shedskin",
+      "H": "sandveil"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 65.5
+  },
+  {
+    "slug": "sceptile",
+    "name": "Sceptile",
+    "nationalDex": 254,
+    "types": [
+      "Grass"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 85,
+      "def": 65,
+      "spa": 105,
+      "spd": 85,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "overgrow",
+      "H": "unburden"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 52.2
+  },
+  {
+    "slug": "sceptilemega",
+    "name": "Sceptile-Mega",
+    "nationalDex": 254,
+    "types": [
+      "Grass",
+      "Dragon"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 110,
+      "def": 75,
+      "spa": 145,
+      "spd": 85,
+      "spe": 145
+    },
+    "abilities": {
+      "0": "lightningrod"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "sceptile",
+    "requiredItemSlug": "sceptilite",
+    "weightKg": 55.2
+  },
+  {
+    "slug": "scizor",
+    "name": "Scizor",
+    "nationalDex": 212,
+    "types": [
+      "Bug",
+      "Steel"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 130,
+      "def": 100,
+      "spa": 55,
+      "spd": 80,
+      "spe": 65
+    },
+    "abilities": {
+      "0": "swarm",
+      "1": "technician",
+      "H": "lightmetal"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 118
+  },
+  {
+    "slug": "scizormega",
+    "name": "Scizor-Mega",
+    "nationalDex": 212,
+    "types": [
+      "Bug",
+      "Steel"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 150,
+      "def": 140,
+      "spa": 65,
+      "spd": 100,
+      "spe": 75
+    },
+    "abilities": {
+      "0": "technician"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "scizor",
+    "requiredItemSlug": "scizorite",
+    "weightKg": 125
+  },
+  {
+    "slug": "scolipede",
+    "name": "Scolipede",
+    "nationalDex": 545,
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 100,
+      "def": 89,
+      "spa": 55,
+      "spd": 69,
+      "spe": 112
+    },
+    "abilities": {
+      "0": "poisonpoint",
+      "1": "swarm",
+      "H": "speedboost"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 200.5
+  },
+  {
+    "slug": "scolipedemega",
+    "name": "Scolipede-Mega",
+    "nationalDex": 545,
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 140,
+      "def": 149,
+      "spa": 75,
+      "spd": 99,
+      "spe": 62
+    },
+    "abilities": {
+      "0": "shellarmor"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "scolipede",
+    "requiredItemSlug": "scolipite",
+    "weightKg": 230.5
+  },
+  {
+    "slug": "scovillain",
+    "name": "Scovillain",
+    "nationalDex": 952,
+    "types": [
+      "Grass",
+      "Fire"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 108,
+      "def": 65,
+      "spa": 108,
+      "spd": 65,
+      "spe": 75
+    },
+    "abilities": {
+      "0": "chlorophyll",
+      "1": "insomnia",
+      "H": "moody"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 15
+  },
+  {
+    "slug": "scovillainmega",
+    "name": "Scovillain-Mega",
+    "nationalDex": 952,
+    "types": [
+      "Grass",
+      "Fire"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 138,
+      "def": 85,
+      "spa": 138,
+      "spd": 85,
+      "spe": 75
+    },
+    "abilities": {
+      "0": "spicyspray"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "scovillain",
+    "requiredItemSlug": "scovillainite",
+    "weightKg": 22
+  },
+  {
+    "slug": "scrafty",
+    "name": "Scrafty",
+    "nationalDex": 560,
+    "types": [
+      "Dark",
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 90,
+      "def": 115,
+      "spa": 45,
+      "spd": 115,
+      "spe": 58
+    },
+    "abilities": {
+      "0": "shedskin",
+      "1": "moxie",
+      "H": "intimidate"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 30
+  },
+  {
+    "slug": "scraftymega",
+    "name": "Scrafty-Mega",
+    "nationalDex": 560,
+    "types": [
+      "Dark",
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 130,
+      "def": 135,
+      "spa": 55,
+      "spd": 135,
+      "spe": 68
+    },
+    "abilities": {
+      "0": "intimidate"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "scrafty",
+    "requiredItemSlug": "scraftinite",
+    "weightKg": 31
+  },
+  {
+    "slug": "serperior",
+    "name": "Serperior",
+    "nationalDex": 497,
+    "types": [
+      "Grass"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 75,
+      "def": 95,
+      "spa": 75,
+      "spd": 95,
+      "spe": 113
+    },
+    "abilities": {
+      "0": "overgrow",
+      "H": "contrary"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 63
+  },
+  {
+    "slug": "sharpedo",
+    "name": "Sharpedo",
+    "nationalDex": 319,
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 120,
+      "def": 40,
+      "spa": 95,
+      "spd": 40,
+      "spe": 95
+    },
+    "abilities": {
+      "0": "roughskin",
+      "H": "speedboost"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 88.8
+  },
+  {
+    "slug": "sharpedomega",
+    "name": "Sharpedo-Mega",
+    "nationalDex": 319,
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 140,
+      "def": 70,
+      "spa": 110,
+      "spd": 65,
+      "spe": 105
+    },
+    "abilities": {
+      "0": "strongjaw"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "sharpedo",
+    "requiredItemSlug": "sharpedonite",
+    "weightKg": 130.3
+  },
+  {
+    "slug": "simipour",
+    "name": "Simipour",
+    "nationalDex": 516,
+    "types": [
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 98,
+      "def": 63,
+      "spa": 98,
+      "spd": 63,
+      "spe": 101
+    },
+    "abilities": {
+      "0": "gluttony",
+      "H": "torrent"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 29
+  },
+  {
+    "slug": "simisage",
+    "name": "Simisage",
+    "nationalDex": 512,
+    "types": [
+      "Grass"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 98,
+      "def": 63,
+      "spa": 98,
+      "spd": 63,
+      "spe": 101
+    },
+    "abilities": {
+      "0": "gluttony",
+      "H": "overgrow"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 30.5
+  },
+  {
+    "slug": "simisear",
+    "name": "Simisear",
+    "nationalDex": 514,
+    "types": [
+      "Fire"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 98,
+      "def": 63,
+      "spa": 98,
+      "spd": 63,
+      "spe": 101
+    },
+    "abilities": {
+      "0": "gluttony",
+      "H": "blaze"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 28
+  },
+  {
+    "slug": "sinistcha",
+    "name": "Sinistcha",
+    "nationalDex": 1013,
+    "types": [
+      "Grass",
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 71,
+      "atk": 60,
+      "def": 106,
+      "spa": 121,
+      "spd": 80,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "hospitality",
+      "H": "heatproof"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 2.2
+  },
+  {
+    "slug": "sinistchamasterpiece",
+    "name": "Sinistcha-Masterpiece",
+    "nationalDex": 1013,
+    "types": [
+      "Grass",
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 71,
+      "atk": 60,
+      "def": 106,
+      "spa": 121,
+      "spd": 80,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "hospitality",
+      "H": "heatproof"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "sinistcha",
+    "requiredItemSlug": null,
+    "weightKg": 2.2
+  },
+  {
+    "slug": "sirfetchd",
+    "name": "Sirfetch’d",
+    "nationalDex": 865,
+    "types": [
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 62,
+      "atk": 135,
+      "def": 95,
+      "spa": 68,
+      "spd": 82,
+      "spe": 65
+    },
+    "abilities": {
+      "0": "steadfast",
+      "H": "scrappy"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 117
+  },
+  {
+    "slug": "skarmory",
+    "name": "Skarmory",
+    "nationalDex": 227,
+    "types": [
+      "Steel",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 80,
+      "def": 140,
+      "spa": 40,
+      "spd": 70,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "keeneye",
+      "1": "sturdy",
+      "H": "weakarmor"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 50.5
+  },
+  {
+    "slug": "skarmorymega",
+    "name": "Skarmory-Mega",
+    "nationalDex": 227,
+    "types": [
+      "Steel",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 140,
+      "def": 110,
+      "spa": 40,
+      "spd": 100,
+      "spe": 110
+    },
+    "abilities": {
+      "0": "stalwart"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "skarmory",
+    "requiredItemSlug": "skarmorite",
+    "weightKg": 40.4
+  },
+  {
+    "slug": "skeledirge",
+    "name": "Skeledirge",
+    "nationalDex": 911,
+    "types": [
+      "Fire",
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 104,
+      "atk": 75,
+      "def": 100,
+      "spa": 110,
+      "spd": 75,
+      "spe": 66
+    },
+    "abilities": {
+      "0": "blaze",
+      "H": "unaware"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 326.5
+  },
+  {
+    "slug": "slowbro",
+    "name": "Slowbro",
+    "nationalDex": 80,
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 75,
+      "def": 110,
+      "spa": 100,
+      "spd": 80,
+      "spe": 30
+    },
+    "abilities": {
+      "0": "oblivious",
+      "1": "owntempo",
+      "H": "regenerator"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 78.5
+  },
+  {
+    "slug": "slowbrogalar",
+    "name": "Slowbro-Galar",
+    "nationalDex": 80,
+    "types": [
+      "Poison",
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 100,
+      "def": 95,
+      "spa": 100,
+      "spd": 70,
+      "spe": 30
+    },
+    "abilities": {
+      "0": "quickdraw",
+      "1": "owntempo",
+      "H": "regenerator"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "slowbro",
+    "requiredItemSlug": null,
+    "weightKg": 70.5
+  },
+  {
+    "slug": "slowbromega",
+    "name": "Slowbro-Mega",
+    "nationalDex": 80,
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 75,
+      "def": 180,
+      "spa": 130,
+      "spd": 80,
+      "spe": 30
+    },
+    "abilities": {
+      "0": "shellarmor"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "slowbro",
+    "requiredItemSlug": "slowbronite",
+    "weightKg": 120
+  },
+  {
+    "slug": "slowking",
+    "name": "Slowking",
+    "nationalDex": 199,
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 75,
+      "def": 80,
+      "spa": 100,
+      "spd": 110,
+      "spe": 30
+    },
+    "abilities": {
+      "0": "oblivious",
+      "1": "owntempo",
+      "H": "regenerator"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 79.5
+  },
+  {
+    "slug": "slowkinggalar",
+    "name": "Slowking-Galar",
+    "nationalDex": 199,
+    "types": [
+      "Poison",
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 65,
+      "def": 80,
+      "spa": 110,
+      "spd": 110,
+      "spe": 30
+    },
+    "abilities": {
+      "0": "curiousmedicine",
+      "1": "owntempo",
+      "H": "regenerator"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "slowking",
+    "requiredItemSlug": null,
+    "weightKg": 79.5
+  },
+  {
+    "slug": "slurpuff",
+    "name": "Slurpuff",
+    "nationalDex": 685,
+    "types": [
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 82,
+      "atk": 80,
+      "def": 86,
+      "spa": 85,
+      "spd": 75,
+      "spe": 72
+    },
+    "abilities": {
+      "0": "sweetveil",
+      "H": "unburden"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 5
+  },
+  {
+    "slug": "sneasler",
+    "name": "Sneasler",
+    "nationalDex": 903,
+    "types": [
+      "Fighting",
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 130,
+      "def": 60,
+      "spa": 40,
+      "spd": 80,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "pressure",
+      "1": "unburden",
+      "H": "poisontouch"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 43
+  },
+  {
+    "slug": "snorlax",
+    "name": "Snorlax",
+    "nationalDex": 143,
+    "types": [
+      "Normal"
+    ],
+    "baseStats": {
+      "hp": 160,
+      "atk": 110,
+      "def": 65,
+      "spa": 65,
+      "spd": 110,
+      "spe": 30
+    },
+    "abilities": {
+      "0": "immunity",
+      "1": "thickfat",
+      "H": "gluttony"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 460
+  },
+  {
+    "slug": "spiritomb",
+    "name": "Spiritomb",
+    "nationalDex": 442,
+    "types": [
+      "Ghost",
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "atk": 92,
+      "def": 108,
+      "spa": 92,
+      "spd": 108,
+      "spe": 35
+    },
+    "abilities": {
+      "0": "pressure",
+      "H": "infiltrator"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 108
+  },
+  {
+    "slug": "squawkabilly",
+    "name": "Squawkabilly",
+    "nationalDex": 931,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 82,
+      "atk": 96,
+      "def": 51,
+      "spa": 45,
+      "spd": 51,
+      "spe": 92
+    },
+    "abilities": {
+      "0": "intimidate",
+      "1": "hustle",
+      "H": "guts"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 2.4
+  },
+  {
+    "slug": "squawkabillyblue",
+    "name": "Squawkabilly-Blue",
+    "nationalDex": 931,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 82,
+      "atk": 96,
+      "def": 51,
+      "spa": 45,
+      "spd": 51,
+      "spe": 92
+    },
+    "abilities": {
+      "0": "intimidate",
+      "1": "hustle",
+      "H": "guts"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "squawkabilly",
+    "requiredItemSlug": null,
+    "weightKg": 2.4
+  },
+  {
+    "slug": "squawkabillywhite",
+    "name": "Squawkabilly-White",
+    "nationalDex": 931,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 82,
+      "atk": 96,
+      "def": 51,
+      "spa": 45,
+      "spd": 51,
+      "spe": 92
+    },
+    "abilities": {
+      "0": "intimidate",
+      "1": "hustle",
+      "H": "sheerforce"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "squawkabilly",
+    "requiredItemSlug": null,
+    "weightKg": 2.4
+  },
+  {
+    "slug": "squawkabillyyellow",
+    "name": "Squawkabilly-Yellow",
+    "nationalDex": 931,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 82,
+      "atk": 96,
+      "def": 51,
+      "spa": 45,
+      "spd": 51,
+      "spe": 92
+    },
+    "abilities": {
+      "0": "intimidate",
+      "1": "hustle",
+      "H": "sheerforce"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "squawkabilly",
+    "requiredItemSlug": null,
+    "weightKg": 2.4
+  },
+  {
+    "slug": "staraptor",
+    "name": "Staraptor",
+    "nationalDex": 398,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 120,
+      "def": 70,
+      "spa": 50,
+      "spd": 60,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "intimidate",
+      "H": "reckless"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 24.9
+  },
+  {
+    "slug": "staraptormega",
+    "name": "Staraptor-Mega",
+    "nationalDex": 398,
+    "types": [
+      "Fighting",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 140,
+      "def": 100,
+      "spa": 60,
+      "spd": 90,
+      "spe": 110
+    },
+    "abilities": {
+      "0": "contrary"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "staraptor",
+    "requiredItemSlug": "staraptite",
+    "weightKg": 50
+  },
+  {
+    "slug": "starmie",
+    "name": "Starmie",
+    "nationalDex": 121,
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 75,
+      "def": 85,
+      "spa": 100,
+      "spd": 85,
+      "spe": 115
+    },
+    "abilities": {
+      "0": "illuminate",
+      "1": "naturalcure",
+      "H": "analytic"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 80
+  },
+  {
+    "slug": "starmiemega",
+    "name": "Starmie-Mega",
+    "nationalDex": 121,
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 100,
+      "def": 105,
+      "spa": 130,
+      "spd": 105,
+      "spe": 120
+    },
+    "abilities": {
+      "0": "hugepower"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "starmie",
+    "requiredItemSlug": "starminite",
+    "weightKg": 80
+  },
+  {
+    "slug": "steelix",
+    "name": "Steelix",
+    "nationalDex": 208,
+    "types": [
+      "Steel",
+      "Ground"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 85,
+      "def": 200,
+      "spa": 55,
+      "spd": 65,
+      "spe": 30
+    },
+    "abilities": {
+      "0": "rockhead",
+      "1": "sturdy",
+      "H": "sheerforce"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 400
+  },
+  {
+    "slug": "steelixmega",
+    "name": "Steelix-Mega",
+    "nationalDex": 208,
+    "types": [
+      "Steel",
+      "Ground"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 125,
+      "def": 230,
+      "spa": 55,
+      "spd": 95,
+      "spe": 30
+    },
+    "abilities": {
+      "0": "sandforce"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "steelix",
+    "requiredItemSlug": "steelixite",
+    "weightKg": 740
+  },
+  {
+    "slug": "stunfisk",
+    "name": "Stunfisk",
+    "nationalDex": 618,
+    "types": [
+      "Ground",
+      "Electric"
+    ],
+    "baseStats": {
+      "hp": 109,
+      "atk": 66,
+      "def": 84,
+      "spa": 81,
+      "spd": 99,
+      "spe": 32
+    },
+    "abilities": {
+      "0": "static",
+      "1": "limber",
+      "H": "sandveil"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 11
+  },
+  {
+    "slug": "stunfiskgalar",
+    "name": "Stunfisk-Galar",
+    "nationalDex": 618,
+    "types": [
+      "Ground",
+      "Steel"
+    ],
+    "baseStats": {
+      "hp": 109,
+      "atk": 81,
+      "def": 99,
+      "spa": 66,
+      "spd": 84,
+      "spe": 32
+    },
+    "abilities": {
+      "0": "mimicry"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "stunfisk",
+    "requiredItemSlug": null,
+    "weightKg": 20.5
+  },
+  {
+    "slug": "swalot",
+    "name": "Swalot",
+    "nationalDex": 317,
+    "types": [
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 73,
+      "def": 83,
+      "spa": 73,
+      "spd": 83,
+      "spe": 55
+    },
+    "abilities": {
+      "0": "liquidooze",
+      "1": "stickyhold",
+      "H": "gluttony"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 80
+  },
+  {
+    "slug": "swampert",
+    "name": "Swampert",
+    "nationalDex": 260,
+    "types": [
+      "Water",
+      "Ground"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 110,
+      "def": 90,
+      "spa": 85,
+      "spd": 90,
+      "spe": 60
+    },
+    "abilities": {
+      "0": "torrent",
+      "H": "damp"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 81.9
+  },
+  {
+    "slug": "swampertmega",
+    "name": "Swampert-Mega",
+    "nationalDex": 260,
+    "types": [
+      "Water",
+      "Ground"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 150,
+      "def": 110,
+      "spa": 95,
+      "spd": 110,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "swiftswim"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "swampert",
+    "requiredItemSlug": "swampertite",
+    "weightKg": 102
+  },
+  {
+    "slug": "sylveon",
+    "name": "Sylveon",
+    "nationalDex": 700,
+    "types": [
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 65,
+      "def": 65,
+      "spa": 110,
+      "spd": 130,
+      "spe": 60
+    },
+    "abilities": {
+      "0": "cutecharm",
+      "H": "pixilate"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 23.5
+  },
+  {
+    "slug": "talonflame",
+    "name": "Talonflame",
+    "nationalDex": 663,
+    "types": [
+      "Fire",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 78,
+      "atk": 81,
+      "def": 71,
+      "spa": 74,
+      "spd": 69,
+      "spe": 126
+    },
+    "abilities": {
+      "0": "flamebody",
+      "H": "galewings"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 24.5
+  },
+  {
+    "slug": "tauros",
+    "name": "Tauros",
+    "nationalDex": 128,
+    "types": [
+      "Normal"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 100,
+      "def": 95,
+      "spa": 40,
+      "spd": 70,
+      "spe": 110
+    },
+    "abilities": {
+      "0": "intimidate",
+      "1": "angerpoint",
+      "H": "sheerforce"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 88.4
+  },
+  {
+    "slug": "taurospaldeaaqua",
+    "name": "Tauros-Paldea-Aqua",
+    "nationalDex": 128,
+    "types": [
+      "Fighting",
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 110,
+      "def": 105,
+      "spa": 30,
+      "spd": 70,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "intimidate",
+      "1": "angerpoint",
+      "H": "cudchew"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "tauros",
+    "requiredItemSlug": null,
+    "weightKg": 110
+  },
+  {
+    "slug": "taurospaldeablaze",
+    "name": "Tauros-Paldea-Blaze",
+    "nationalDex": 128,
+    "types": [
+      "Fighting",
+      "Fire"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 110,
+      "def": 105,
+      "spa": 30,
+      "spd": 70,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "intimidate",
+      "1": "angerpoint",
+      "H": "cudchew"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "tauros",
+    "requiredItemSlug": null,
+    "weightKg": 85
+  },
+  {
+    "slug": "taurospaldeacombat",
+    "name": "Tauros-Paldea-Combat",
+    "nationalDex": 128,
+    "types": [
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 110,
+      "def": 105,
+      "spa": 30,
+      "spd": 70,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "intimidate",
+      "1": "angerpoint",
+      "H": "cudchew"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "tauros",
+    "requiredItemSlug": null,
+    "weightKg": 115
+  },
+  {
+    "slug": "terapagos",
+    "name": "Terapagos",
+    "nationalDex": 1024,
+    "types": [
+      "Normal"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "atk": 65,
+      "def": 85,
+      "spa": 65,
+      "spd": 85,
+      "spe": 60
+    },
+    "abilities": {
+      "0": "terashift"
+    },
+    "isMega": false,
+    "isBuildable": false,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 6.5
+  },
+  {
+    "slug": "terapagosterastal",
+    "name": "Terapagos-Terastal",
+    "nationalDex": 1024,
+    "types": [
+      "Normal"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 95,
+      "def": 110,
+      "spa": 105,
+      "spd": 110,
+      "spe": 85
+    },
+    "abilities": {
+      "0": "terashell"
+    },
+    "isMega": false,
+    "isBuildable": false,
+    "baseFormSlug": "terapagos",
+    "requiredItemSlug": null,
+    "weightKg": 16
+  },
+  {
+    "slug": "thievul",
+    "name": "Thievul",
+    "nationalDex": 828,
+    "types": [
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 58,
+      "def": 58,
+      "spa": 87,
+      "spd": 92,
+      "spe": 90
+    },
+    "abilities": {
+      "0": "runaway",
+      "1": "unburden",
+      "H": "stakeout"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 19.9
+  },
+  {
+    "slug": "tinkaton",
+    "name": "Tinkaton",
+    "nationalDex": 959,
+    "types": [
+      "Fairy",
+      "Steel"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 75,
+      "def": 77,
+      "spa": 70,
+      "spd": 105,
+      "spe": 94
+    },
+    "abilities": {
+      "0": "moldbreaker",
+      "1": "owntempo",
+      "H": "pickpocket"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 112.8
+  },
+  {
+    "slug": "torkoal",
+    "name": "Torkoal",
+    "nationalDex": 324,
+    "types": [
+      "Fire"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 85,
+      "def": 140,
+      "spa": 85,
+      "spd": 70,
+      "spe": 20
+    },
+    "abilities": {
+      "0": "whitesmoke",
+      "1": "drought",
+      "H": "shellarmor"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 80.4
+  },
+  {
+    "slug": "torterra",
+    "name": "Torterra",
+    "nationalDex": 389,
+    "types": [
+      "Grass",
+      "Ground"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 109,
+      "def": 105,
+      "spa": 75,
+      "spd": 85,
+      "spe": 56
+    },
+    "abilities": {
+      "0": "overgrow",
+      "H": "shellarmor"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 310
+  },
+  {
+    "slug": "toucannon",
+    "name": "Toucannon",
+    "nationalDex": 733,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 120,
+      "def": 75,
+      "spa": 75,
+      "spd": 75,
+      "spe": 60
+    },
+    "abilities": {
+      "0": "keeneye",
+      "1": "skilllink",
+      "H": "sheerforce"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 26
+  },
+  {
+    "slug": "toxapex",
+    "name": "Toxapex",
+    "nationalDex": 748,
+    "types": [
+      "Poison",
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "atk": 63,
+      "def": 152,
+      "spa": 53,
+      "spd": 142,
+      "spe": 35
+    },
+    "abilities": {
+      "0": "merciless",
+      "1": "limber",
+      "H": "regenerator"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 14.5
+  },
+  {
+    "slug": "toxicroak",
+    "name": "Toxicroak",
+    "nationalDex": 454,
+    "types": [
+      "Poison",
+      "Fighting"
+    ],
+    "baseStats": {
+      "hp": 83,
+      "atk": 106,
+      "def": 65,
+      "spa": 86,
+      "spd": 65,
+      "spe": 85
+    },
+    "abilities": {
+      "0": "anticipation",
+      "1": "dryskin",
+      "H": "poisontouch"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 44.4
+  },
+  {
+    "slug": "toxtricity",
+    "name": "Toxtricity",
+    "nationalDex": 849,
+    "types": [
+      "Electric",
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 98,
+      "def": 70,
+      "spa": 114,
+      "spd": 70,
+      "spe": 75
+    },
+    "abilities": {
+      "0": "punkrock",
+      "1": "plus",
+      "H": "technician"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 40
+  },
+  {
+    "slug": "toxtricitylowkey",
+    "name": "Toxtricity-Low-Key",
+    "nationalDex": 849,
+    "types": [
+      "Electric",
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 98,
+      "def": 70,
+      "spa": 114,
+      "spd": 70,
+      "spe": 75
+    },
+    "abilities": {
+      "0": "punkrock",
+      "1": "minus",
+      "H": "technician"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "toxtricity",
+    "requiredItemSlug": null,
+    "weightKg": 40
+  },
+  {
+    "slug": "trevenant",
+    "name": "Trevenant",
+    "nationalDex": 709,
+    "types": [
+      "Ghost",
+      "Grass"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 110,
+      "def": 76,
+      "spa": 65,
+      "spd": 82,
+      "spe": 56
+    },
+    "abilities": {
+      "0": "naturalcure",
+      "1": "frisk",
+      "H": "harvest"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 71
+  },
+  {
+    "slug": "tsareena",
+    "name": "Tsareena",
+    "nationalDex": 763,
+    "types": [
+      "Grass"
+    ],
+    "baseStats": {
+      "hp": 72,
+      "atk": 120,
+      "def": 98,
+      "spa": 50,
+      "spd": 98,
+      "spe": 72
+    },
+    "abilities": {
+      "0": "leafguard",
+      "1": "queenlymajesty",
+      "H": "sweetveil"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 21.4
+  },
+  {
+    "slug": "typhlosion",
+    "name": "Typhlosion",
+    "nationalDex": 157,
+    "types": [
+      "Fire"
+    ],
+    "baseStats": {
+      "hp": 78,
+      "atk": 84,
+      "def": 78,
+      "spa": 109,
+      "spd": 85,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "blaze",
+      "H": "flashfire"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 79.5
+  },
+  {
+    "slug": "typhlosionhisui",
+    "name": "Typhlosion-Hisui",
+    "nationalDex": 157,
+    "types": [
+      "Fire",
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 73,
+      "atk": 84,
+      "def": 78,
+      "spa": 119,
+      "spd": 85,
+      "spe": 95
+    },
+    "abilities": {
+      "0": "blaze",
+      "H": "frisk"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "typhlosion",
+    "requiredItemSlug": null,
+    "weightKg": 69.8
+  },
+  {
+    "slug": "tyranitar",
+    "name": "Tyranitar",
+    "nationalDex": 248,
+    "types": [
+      "Rock",
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 134,
+      "def": 110,
+      "spa": 95,
+      "spd": 100,
+      "spe": 61
+    },
+    "abilities": {
+      "0": "sandstream",
+      "H": "unnerve"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 202
+  },
+  {
+    "slug": "tyranitarmega",
+    "name": "Tyranitar-Mega",
+    "nationalDex": 248,
+    "types": [
+      "Rock",
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 164,
+      "def": 150,
+      "spa": 95,
+      "spd": 120,
+      "spe": 71
+    },
+    "abilities": {
+      "0": "sandstream"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "tyranitar",
+    "requiredItemSlug": "tyranitarite",
+    "weightKg": 255
+  },
+  {
+    "slug": "tyrantrum",
+    "name": "Tyrantrum",
+    "nationalDex": 697,
+    "types": [
+      "Rock",
+      "Dragon"
+    ],
+    "baseStats": {
+      "hp": 82,
+      "atk": 121,
+      "def": 119,
+      "spa": 69,
+      "spd": 59,
+      "spe": 71
+    },
+    "abilities": {
+      "0": "strongjaw",
+      "H": "rockhead"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 270
+  },
+  {
+    "slug": "umbreon",
+    "name": "Umbreon",
+    "nationalDex": 197,
+    "types": [
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 65,
+      "def": 110,
+      "spa": 60,
+      "spd": 130,
+      "spe": 65
+    },
+    "abilities": {
+      "0": "synchronize",
+      "H": "innerfocus"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 27
+  },
+  {
+    "slug": "vanilluxe",
+    "name": "Vanilluxe",
+    "nationalDex": 584,
+    "types": [
+      "Ice"
+    ],
+    "baseStats": {
+      "hp": 71,
+      "atk": 95,
+      "def": 85,
+      "spa": 110,
+      "spd": 95,
+      "spe": 79
+    },
+    "abilities": {
+      "0": "icebody",
+      "1": "snowwarning",
+      "H": "weakarmor"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 57.5
+  },
+  {
+    "slug": "vaporeon",
+    "name": "Vaporeon",
+    "nationalDex": 134,
+    "types": [
+      "Water"
+    ],
+    "baseStats": {
+      "hp": 130,
+      "atk": 65,
+      "def": 60,
+      "spa": 110,
+      "spd": 95,
+      "spe": 65
+    },
+    "abilities": {
+      "0": "waterabsorb",
+      "H": "hydration"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 29
+  },
+  {
+    "slug": "venusaur",
+    "name": "Venusaur",
+    "nationalDex": 3,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 82,
+      "def": 83,
+      "spa": 100,
+      "spd": 100,
+      "spe": 80
+    },
+    "abilities": {
+      "0": "overgrow",
+      "H": "chlorophyll"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 100
+  },
+  {
+    "slug": "venusaurmega",
+    "name": "Venusaur-Mega",
+    "nationalDex": 3,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 100,
+      "def": 123,
+      "spa": 122,
+      "spd": 120,
+      "spe": 80
+    },
+    "abilities": {
+      "0": "thickfat"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "venusaur",
+    "requiredItemSlug": "venusaurite",
+    "weightKg": 155.5
+  },
+  {
+    "slug": "victreebel",
+    "name": "Victreebel",
+    "nationalDex": 71,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 105,
+      "def": 65,
+      "spa": 100,
+      "spd": 70,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "chlorophyll",
+      "H": "gluttony"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 15.5
+  },
+  {
+    "slug": "victreebelmega",
+    "name": "Victreebel-Mega",
+    "nationalDex": 71,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 125,
+      "def": 85,
+      "spa": 135,
+      "spd": 95,
+      "spe": 70
+    },
+    "abilities": {
+      "0": "innardsout"
+    },
+    "isMega": true,
+    "isBuildable": true,
+    "baseFormSlug": "victreebel",
+    "requiredItemSlug": "victreebelite",
+    "weightKg": 125.5
+  },
+  {
+    "slug": "vileplume",
+    "name": "Vileplume",
+    "nationalDex": 45,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 80,
+      "def": 85,
+      "spa": 110,
+      "spd": 90,
+      "spe": 50
+    },
+    "abilities": {
+      "0": "chlorophyll",
+      "H": "effectspore"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 18.6
+  },
+  {
+    "slug": "vivillon",
+    "name": "Vivillon",
+    "nationalDex": 666,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 52,
+      "def": 50,
+      "spa": 90,
+      "spd": 50,
+      "spe": 89
+    },
+    "abilities": {
+      "0": "shielddust",
+      "1": "compoundeyes",
+      "H": "friendguard"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 17
+  },
+  {
+    "slug": "vivillonarchipelago",
+    "name": "Vivillon-Archipelago",
+    "nationalDex": 666,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 52,
+      "def": 50,
+      "spa": 90,
+      "spd": 50,
+      "spe": 89
+    },
+    "abilities": {
+      "0": "shielddust",
+      "1": "compoundeyes",
+      "H": "friendguard"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "vivillon",
+    "requiredItemSlug": null,
+    "weightKg": 17
+  },
+  {
+    "slug": "vivilloncontinental",
+    "name": "Vivillon-Continental",
+    "nationalDex": 666,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 52,
+      "def": 50,
+      "spa": 90,
+      "spd": 50,
+      "spe": 89
+    },
+    "abilities": {
+      "0": "shielddust",
+      "1": "compoundeyes",
+      "H": "friendguard"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "vivillon",
+    "requiredItemSlug": null,
+    "weightKg": 17
+  },
+  {
+    "slug": "vivillonelegant",
+    "name": "Vivillon-Elegant",
+    "nationalDex": 666,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 52,
+      "def": 50,
+      "spa": 90,
+      "spd": 50,
+      "spe": 89
+    },
+    "abilities": {
+      "0": "shielddust",
+      "1": "compoundeyes",
+      "H": "friendguard"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "vivillon",
+    "requiredItemSlug": null,
+    "weightKg": 17
+  },
+  {
+    "slug": "vivillonfancy",
+    "name": "Vivillon-Fancy",
+    "nationalDex": 666,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 52,
+      "def": 50,
+      "spa": 90,
+      "spd": 50,
+      "spe": 89
+    },
+    "abilities": {
+      "0": "shielddust",
+      "1": "compoundeyes",
+      "H": "friendguard"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "vivillon",
+    "requiredItemSlug": null,
+    "weightKg": 17
+  },
+  {
+    "slug": "vivillongarden",
+    "name": "Vivillon-Garden",
+    "nationalDex": 666,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 52,
+      "def": 50,
+      "spa": 90,
+      "spd": 50,
+      "spe": 89
+    },
+    "abilities": {
+      "0": "shielddust",
+      "1": "compoundeyes",
+      "H": "friendguard"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "vivillon",
+    "requiredItemSlug": null,
+    "weightKg": 17
+  },
+  {
+    "slug": "vivillonhighplains",
+    "name": "Vivillon-High Plains",
+    "nationalDex": 666,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 52,
+      "def": 50,
+      "spa": 90,
+      "spd": 50,
+      "spe": 89
+    },
+    "abilities": {
+      "0": "shielddust",
+      "1": "compoundeyes",
+      "H": "friendguard"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "vivillon",
+    "requiredItemSlug": null,
+    "weightKg": 17
+  },
+  {
+    "slug": "vivillonicysnow",
+    "name": "Vivillon-Icy Snow",
+    "nationalDex": 666,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 52,
+      "def": 50,
+      "spa": 90,
+      "spd": 50,
+      "spe": 89
+    },
+    "abilities": {
+      "0": "shielddust",
+      "1": "compoundeyes",
+      "H": "friendguard"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "vivillon",
+    "requiredItemSlug": null,
+    "weightKg": 17
+  },
+  {
+    "slug": "vivillonjungle",
+    "name": "Vivillon-Jungle",
+    "nationalDex": 666,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 52,
+      "def": 50,
+      "spa": 90,
+      "spd": 50,
+      "spe": 89
+    },
+    "abilities": {
+      "0": "shielddust",
+      "1": "compoundeyes",
+      "H": "friendguard"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "vivillon",
+    "requiredItemSlug": null,
+    "weightKg": 17
+  },
+  {
+    "slug": "vivillonmarine",
+    "name": "Vivillon-Marine",
+    "nationalDex": 666,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 52,
+      "def": 50,
+      "spa": 90,
+      "spd": 50,
+      "spe": 89
+    },
+    "abilities": {
+      "0": "shielddust",
+      "1": "compoundeyes",
+      "H": "friendguard"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "vivillon",
+    "requiredItemSlug": null,
+    "weightKg": 17
+  },
+  {
+    "slug": "vivillonmodern",
+    "name": "Vivillon-Modern",
+    "nationalDex": 666,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 52,
+      "def": 50,
+      "spa": 90,
+      "spd": 50,
+      "spe": 89
+    },
+    "abilities": {
+      "0": "shielddust",
+      "1": "compoundeyes",
+      "H": "friendguard"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "vivillon",
+    "requiredItemSlug": null,
+    "weightKg": 17
+  },
+  {
+    "slug": "vivillonmonsoon",
+    "name": "Vivillon-Monsoon",
+    "nationalDex": 666,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 52,
+      "def": 50,
+      "spa": 90,
+      "spd": 50,
+      "spe": 89
+    },
+    "abilities": {
+      "0": "shielddust",
+      "1": "compoundeyes",
+      "H": "friendguard"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "vivillon",
+    "requiredItemSlug": null,
+    "weightKg": 17
+  },
+  {
+    "slug": "vivillonocean",
+    "name": "Vivillon-Ocean",
+    "nationalDex": 666,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 52,
+      "def": 50,
+      "spa": 90,
+      "spd": 50,
+      "spe": 89
+    },
+    "abilities": {
+      "0": "shielddust",
+      "1": "compoundeyes",
+      "H": "friendguard"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "vivillon",
+    "requiredItemSlug": null,
+    "weightKg": 17
+  },
+  {
+    "slug": "vivillonpokeball",
+    "name": "Vivillon-Pokeball",
+    "nationalDex": 666,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 52,
+      "def": 50,
+      "spa": 90,
+      "spd": 50,
+      "spe": 89
+    },
+    "abilities": {
+      "0": "shielddust",
+      "1": "compoundeyes",
+      "H": "friendguard"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "vivillon",
+    "requiredItemSlug": null,
+    "weightKg": 17
+  },
+  {
+    "slug": "vivillonpolar",
+    "name": "Vivillon-Polar",
+    "nationalDex": 666,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 52,
+      "def": 50,
+      "spa": 90,
+      "spd": 50,
+      "spe": 89
+    },
+    "abilities": {
+      "0": "shielddust",
+      "1": "compoundeyes",
+      "H": "friendguard"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "vivillon",
+    "requiredItemSlug": null,
+    "weightKg": 17
+  },
+  {
+    "slug": "vivillonriver",
+    "name": "Vivillon-River",
+    "nationalDex": 666,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 52,
+      "def": 50,
+      "spa": 90,
+      "spd": 50,
+      "spe": 89
+    },
+    "abilities": {
+      "0": "shielddust",
+      "1": "compoundeyes",
+      "H": "friendguard"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "vivillon",
+    "requiredItemSlug": null,
+    "weightKg": 17
+  },
+  {
+    "slug": "vivillonsandstorm",
+    "name": "Vivillon-Sandstorm",
+    "nationalDex": 666,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 52,
+      "def": 50,
+      "spa": 90,
+      "spd": 50,
+      "spe": 89
+    },
+    "abilities": {
+      "0": "shielddust",
+      "1": "compoundeyes",
+      "H": "friendguard"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "vivillon",
+    "requiredItemSlug": null,
+    "weightKg": 17
+  },
+  {
+    "slug": "vivillonsavanna",
+    "name": "Vivillon-Savanna",
+    "nationalDex": 666,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 52,
+      "def": 50,
+      "spa": 90,
+      "spd": 50,
+      "spe": 89
+    },
+    "abilities": {
+      "0": "shielddust",
+      "1": "compoundeyes",
+      "H": "friendguard"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "vivillon",
+    "requiredItemSlug": null,
+    "weightKg": 17
+  },
+  {
+    "slug": "vivillonsun",
+    "name": "Vivillon-Sun",
+    "nationalDex": 666,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 52,
+      "def": 50,
+      "spa": 90,
+      "spd": 50,
+      "spe": 89
+    },
+    "abilities": {
+      "0": "shielddust",
+      "1": "compoundeyes",
+      "H": "friendguard"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "vivillon",
+    "requiredItemSlug": null,
+    "weightKg": 17
+  },
+  {
+    "slug": "vivillontundra",
+    "name": "Vivillon-Tundra",
+    "nationalDex": 666,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 52,
+      "def": 50,
+      "spa": 90,
+      "spd": 50,
+      "spe": 89
+    },
+    "abilities": {
+      "0": "shielddust",
+      "1": "compoundeyes",
+      "H": "friendguard"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "vivillon",
+    "requiredItemSlug": null,
+    "weightKg": 17
+  },
+  {
+    "slug": "volcarona",
+    "name": "Volcarona",
+    "nationalDex": 637,
+    "types": [
+      "Bug",
+      "Fire"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 60,
+      "def": 65,
+      "spa": 135,
+      "spd": 105,
+      "spe": 100
+    },
+    "abilities": {
+      "0": "flamebody",
+      "H": "swarm"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 46
+  },
+  {
+    "slug": "watchog",
+    "name": "Watchog",
+    "nationalDex": 505,
+    "types": [
+      "Normal"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 85,
+      "def": 69,
+      "spa": 60,
+      "spd": 69,
+      "spe": 77
+    },
+    "abilities": {
+      "0": "illuminate",
+      "1": "keeneye",
+      "H": "analytic"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 27
+  },
+  {
+    "slug": "weavile",
+    "name": "Weavile",
+    "nationalDex": 461,
+    "types": [
+      "Dark",
+      "Ice"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 120,
+      "def": 65,
+      "spa": 45,
+      "spd": 85,
+      "spe": 125
+    },
+    "abilities": {
+      "0": "pressure",
+      "H": "pickpocket"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 34
+  },
+  {
+    "slug": "whimsicott",
+    "name": "Whimsicott",
+    "nationalDex": 547,
+    "types": [
+      "Grass",
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 67,
+      "def": 85,
+      "spa": 77,
+      "spd": 75,
+      "spe": 116
+    },
+    "abilities": {
+      "0": "prankster",
+      "1": "infiltrator",
+      "H": "chlorophyll"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 6.6
+  },
+  {
+    "slug": "wigglytuff",
+    "name": "Wigglytuff",
+    "nationalDex": 40,
+    "types": [
+      "Normal",
+      "Fairy"
+    ],
+    "baseStats": {
+      "hp": 140,
+      "atk": 70,
+      "def": 45,
+      "spa": 85,
+      "spd": 50,
+      "spe": 45
+    },
+    "abilities": {
+      "0": "cutecharm",
+      "1": "competitive",
+      "H": "frisk"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 12
+  },
+  {
+    "slug": "wyrdeer",
+    "name": "Wyrdeer",
+    "nationalDex": 899,
+    "types": [
+      "Normal",
+      "Psychic"
+    ],
+    "baseStats": {
+      "hp": 103,
+      "atk": 105,
+      "def": 72,
+      "spa": 105,
+      "spd": 75,
+      "spe": 65
+    },
+    "abilities": {
+      "0": "intimidate",
+      "1": "frisk",
+      "H": "sapsipper"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 95.1
+  },
+  {
+    "slug": "zoroark",
+    "name": "Zoroark",
+    "nationalDex": 571,
+    "types": [
+      "Dark"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 105,
+      "def": 60,
+      "spa": 120,
+      "spd": 60,
+      "spe": 105
+    },
+    "abilities": {
+      "0": "illusion"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": null,
+    "requiredItemSlug": null,
+    "weightKg": 81.1
+  },
+  {
+    "slug": "zoroarkhisui",
+    "name": "Zoroark-Hisui",
+    "nationalDex": 571,
+    "types": [
+      "Normal",
+      "Ghost"
+    ],
+    "baseStats": {
+      "hp": 55,
+      "atk": 100,
+      "def": 60,
+      "spa": 125,
+      "spd": 60,
+      "spe": 110
+    },
+    "abilities": {
+      "0": "illusion"
+    },
+    "isMega": false,
+    "isBuildable": true,
+    "baseFormSlug": "zoroark",
+    "requiredItemSlug": null,
+    "weightKg": 73
+  }
+]

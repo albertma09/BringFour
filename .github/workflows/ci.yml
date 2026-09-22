@@ -1,0 +1,84 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: turnzero_test
+          POSTGRES_USER: turnzero
+          POSTGRES_PASSWORD: turnzero
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U turnzero"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      DB_CONNECTION: pgsql
+      DB_HOST: 127.0.0.1
+      DB_PORT: 5432
+      DB_DATABASE: turnzero_test
+      DB_USERNAME: turnzero
+      DB_PASSWORD: turnzero
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: pdo_pgsql, pgsql, mbstring, intl, zip
+          coverage: none
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Instalar dependencias PHP
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Preparar entorno
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      - name: Instalar dependencias de ingesta
+        working-directory: ingest
+        run: npm install --no-audit --no-fund
+
+      - name: Construir Pokemon Showdown
+        working-directory: ingest/node_modules/pokemon-showdown
+        run: node build
+
+      - name: Regenerar datos y validar esquema de la fuente
+        working-directory: ingest
+        run: node showdown-data.mjs
+
+      - name: Comprobar que los datos commiteados estan al dia
+        run: |
+          if ! git diff --quiet -- data/; then
+            echo "Los JSON de data/ no coinciden con la fuente de Showdown."
+            echo "Ejecuta: node ingest/showdown-data.mjs y commitea el resultado."
+            git diff --stat -- data/
+            exit 1
+          fi
+
+      - name: Migrar y sincronizar
+        run: |
+          php artisan migrate --no-interaction --force
+          php artisan data:sync
+
+      - name: Tests
+        run: php artisan test

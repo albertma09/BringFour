@@ -1,0 +1,152 @@
+[
+  {
+    "slug": "adamant",
+    "name": "Adamant",
+    "plusStat": "atk",
+    "minusStat": "spa"
+  },
+  {
+    "slug": "bashful",
+    "name": "Bashful",
+    "plusStat": null,
+    "minusStat": null
+  },
+  {
+    "slug": "bold",
+    "name": "Bold",
+    "plusStat": "def",
+    "minusStat": "atk"
+  },
+  {
+    "slug": "brave",
+    "name": "Brave",
+    "plusStat": "atk",
+    "minusStat": "spe"
+  },
+  {
+    "slug": "calm",
+    "name": "Calm",
+    "plusStat": "spd",
+    "minusStat": "atk"
+  },
+  {
+    "slug": "careful",
+    "name": "Careful",
+    "plusStat": "spd",
+    "minusStat": "spa"
+  },
+  {
+    "slug": "docile",
+    "name": "Docile",
+    "plusStat": null,
+    "minusStat": null
+  },
+  {
+    "slug": "gentle",
+    "name": "Gentle",
+    "plusStat": "spd",
+    "minusStat": "def"
+  },
+  {
+    "slug": "hardy",
+    "name": "Hardy",
+    "plusStat": null,
+    "minusStat": null
+  },
+  {
+    "slug": "hasty",
+    "name": "Hasty",
+    "plusStat": "spe",
+    "minusStat": "def"
+  },
+  {
+    "slug": "impish",
+    "name": "Impish",
+    "plusStat": "def",
+    "minusStat": "spa"
+  },
+  {
+    "slug": "jolly",
+    "name": "Jolly",
+    "plusStat": "spe",
+    "minusStat": "spa"
+  },
+  {
+    "slug": "lax",
+    "name": "Lax",
+    "plusStat": "def",
+    "minusStat": "spd"
+  },
+  {
+    "slug": "lonely",
+    "name": "Lonely",
+    "plusStat": "atk",
+    "minusStat": "def"
+  },
+  {
+    "slug": "mild",
+    "name": "Mild",
+    "plusStat": "spa",
+    "minusStat": "def"
+  },
+  {
+    "slug": "modest",
+    "name": "Modest",
+    "plusStat": "spa",
+    "minusStat": "atk"
+  },
+  {
+    "slug": "naive",
+    "name": "Naive",
+    "plusStat": "spe",
+    "minusStat": "spd"
+  },
+  {
+    "slug": "naughty",
+    "name": "Naughty",
+    "plusStat": "atk",
+    "minusStat": "spd"
+  },
+  {
+    "slug": "quiet",
+    "name": "Quiet",
+    "plusStat": "spa",
+    "minusStat": "spe"
+  },
+  {
+    "slug": "quirky",
+    "name": "Quirky",
+    "plusStat": null,
+    "minusStat": null
+  },
+  {
+    "slug": "rash",
+    "name": "Rash",
+    "plusStat": "spa",
+    "minusStat": "spd"
+  },
+  {
+    "slug": "relaxed",
+    "name": "Relaxed",
+    "plusStat": "def",
+    "minusStat": "spe"
+  },
+  {
+    "slug": "sassy",
+    "name": "Sassy",
+    "plusStat": "spd",
+    "minusStat": "spe"
+  },
+  {
+    "slug": "serious",
+    "name": "Serious",
+    "plusStat": null,
+    "minusStat": null
+  },
+  {
+    "slug": "timid",
+    "name": "Timid",
+    "plusStat": "spe",
+    "minusStat": "atk"
+  }
+]

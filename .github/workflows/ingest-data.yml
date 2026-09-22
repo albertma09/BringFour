@@ -1,0 +1,50 @@
+name: Regenerar datos de Showdown
+
+on:
+  schedule:
+    - cron: '0 4 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Instalar dependencias
+        working-directory: ingest
+        run: npm install --no-audit --no-fund
+
+      - name: Construir Pokemon Showdown
+        working-directory: ingest/node_modules/pokemon-showdown
+        run: node build
+
+      - name: Regenerar datos
+        working-directory: ingest
+        run: node showdown-data.mjs
+
+      - name: Abrir PR si hay cambios
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: data/showdown-sync
+          title: 'Datos: sincronizar con Pokemon Showdown'
+          commit-message: 'Datos: sincronizar catalogo y legalidad desde Showdown'
+          body: |
+            Regeneracion automatica de `data/` desde los mods de Pokemon Showdown.
+
+            Revisa el diff antes de mergear. Un cambio grande en el numero de
+            especies o movimientos suele significar que ha entrado una regulacion
+            nueva: en ese caso hay que actualizar `ingest/config.mjs` antes de mergear,
+            porque el mod base `champions` pasa a ser la regulacion nueva y la
+            anterior se congela en su propio mod.
+          add-paths: data/
+          delete-branch: true

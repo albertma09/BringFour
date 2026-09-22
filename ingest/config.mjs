@@ -1,0 +1,96 @@
+export const USER_AGENT = 'turn-zero-ingest/0.1 (+https://github.com/albertma09/turn-zero)';
+
+export const ELO_BUCKETS = [0, 1500, 1630, 1760];
+
+export const MIN_SAMPLE_SIZE = 30;
+
+export const REGULATIONS = [
+  {
+    code: 'M-C',
+    name: 'Regulation M-C',
+    mod: 'champions',
+    isActive: true,
+    startsAt: '2026-09-09',
+    endsAt: '2026-12-02',
+    formats: [
+      {
+        slug: 'doubles',
+        showdownId: 'gen9championsvgc2026regmc',
+        battleType: 'doubles',
+        teamSizeMin: 4,
+        teamSizeMax: 6,
+        bringCount: 4,
+        bestOfThree: false,
+        collectReplays: true,
+        processReplays: true,
+      },
+      {
+        slug: 'doubles-bo3',
+        showdownId: 'gen9championsvgc2026regmcbo3',
+        battleType: 'doubles',
+        teamSizeMin: 4,
+        teamSizeMax: 6,
+        bringCount: 4,
+        bestOfThree: true,
+        collectReplays: true,
+        processReplays: true,
+      },
+      {
+        slug: 'bss',
+        showdownId: 'gen9championsbssregmc',
+        battleType: 'singles',
+        teamSizeMin: 3,
+        teamSizeMax: 6,
+        bringCount: 3,
+        bestOfThree: false,
+        collectReplays: true,
+        processReplays: false,
+      },
+      {
+        slug: 'ou',
+        showdownId: 'gen9championsou',
+        battleType: 'singles',
+        teamSizeMin: 6,
+        teamSizeMax: 6,
+        bringCount: 6,
+        bestOfThree: false,
+        collectReplays: true,
+        processReplays: false,
+      },
+    ],
+  },
+  {
+    code: 'M-B',
+    name: 'Regulation M-B',
+    mod: 'championsregmb',
+    isActive: false,
+    startsAt: null,
+    endsAt: '2026-09-08',
+    formats: [
+      {
+        slug: 'doubles',
+        showdownId: 'gen9championsvgc2026regmb',
+        battleType: 'doubles',
+        teamSizeMin: 4,
+        teamSizeMax: 6,
+        bringCount: 4,
+        bestOfThree: false,
+        collectReplays: true,
+        processReplays: true,
+      },
+      {
+        slug: 'doubles-bo3',
+        showdownId: 'gen9championsvgc2026regmbbo3',
+        battleType: 'doubles',
+        teamSizeMin: 4,
+        teamSizeMax: 6,
+        bringCount: 4,
+        bestOfThree: true,
+        collectReplays: true,
+        processReplays: true,
+      },
+    ],
+  },
+];
+
+export const ACTIVE_REGULATION = REGULATIONS.find((r) => r.isActive);
