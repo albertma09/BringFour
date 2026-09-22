@@ -221,3 +221,75 @@ Los **Replica Team codes** de Champions son diez caracteres opacos que resuelve 
 - La interfaz sigue sin revisarse en un navegador desde este entorno: compila, pasa tipos y traducciones, y todas las rutas responden, pero el resultado visual lo juzga el usuario.
 - El Constructor guarda en `localStorage`, sin cuentas ni compartir equipos.
 - El selector de ELO existe pero solo el tramo 0 tiene datos: el ladder de Champions en Showdown no pasa de 1622.
+
+---
+
+# Fase 4 — Recomendaciones en el Constructor (22-sep-2026)
+
+## Un fallo que habría salido a la cara del usuario
+
+La primera consulta de habilidades reveladas devolvía esto:
+
+```
+Rillaboom   Intimidate  272
+Sneasler    Intimidate  121
+```
+
+Ninguno de los dos tiene Intimidación. El parser enganchaba la revelación a la **última acción del hueco**, y en un cambio el actor de la acción es **el que sale**, no el que entra. Así que una línea como:
+
+```
+|switch|p1a: Staraptor|Staraptor, L50, M|100/100
+|-ability|p1a: Staraptor|Intimidate|boost
+```
+
+acababa atribuyendo la Intimidación de Staraptor al Pokémon que Staraptor acababa de relevar.
+
+**Arreglo:** las revelaciones dejan de colgar de una acción y pasan a tabla propia (`replay_reveals`), atribuidas a **la especie que ocupa el hueco en ese instante** según el estado de combate. Eso además recupera las revelaciones del turno 0 (las habilidades de los iniciales, que son las más informativas), que antes se perdían enteras porque todavía no había turno abierto al que colgarlas.
+
+**Ganancia colateral:** ahora también se leen las habilidades que solo aparecen como etiqueta en otra línea:
+
+```
+|-fail|p2a: Oranguru|unboost|atk|[from] ability: Inner Focus|[of] p2a: Oranguru
+```
+
+El dueño es el que indica `[of]`. Con eso las revelaciones de habilidad pasan de **2.948 a 10.001**.
+
+**Casos que se descartan a propósito**, porque el objeto o la habilidad no son de quien parece:
+
+- `[from] move: Trick` / `Switcheroo` / `Thief` — el objeto acaba de cambiar de dueño.
+- `[from] ability: Trace` / `Receiver` / `Power of Alchemy` — la habilidad mostrada es copiada; la copiadora sí se atribuye a quien copia.
+- `Frisk` y `Pickpocket` sí se aceptan: revelan el objeto real del Pokémon señalado.
+
+Se cuenta **una revelación de cada tipo por especie y partida**, no cada activación. Contar activaciones inflaría Intimidación (salta en cada cambio) frente a una habilidad de un solo disparo.
+
+## Compañeros: afinidad, no frecuencia
+
+Ordenar compañeros por veces que coaparecen da siempre el mismo resultado inútil: arriba el Pokémon que está en todos los equipos. Para Rillaboom, el más repetido es Incineroar (769 veces) — pero Incineroar está en el 24 % de **todos** los equipos, así que no dice nada.
+
+La métrica es `P(Y|X) / P(Y)`. Con ella Incineroar cae al octavo puesto y arriba sale Floette-Eternal, que va con Rillaboom 2,13 veces más de lo que le tocaría por su cuenta.
+
+Para ordenar no se usa la afinidad cruda sino la calculada sobre el **suelo del intervalo de Wilson** de `P(Y|X)`. Así una pareja con N=31 y afinidad aparente altísima no adelanta a una con N=213 y afinidad algo menor. Se enseñan las dos cifras: el porcentaje bruto, que se entiende, y el múltiplo, que es el que informa.
+
+## Lo que no se puede sacar de los datos: los SP
+
+**Los replays de Showdown nunca exponen las estadísticas.** La vida se muestra en porcentaje y no hay EVs ni SP en el protocolo. No es difícil: el dato no está.
+
+La alternativa es un motor determinista (`SpreadAdvisor`) **etiquetado como regla en la propia pantalla**, nunca presentado como lo que hace la gente. La restricción real manda sobre el diseño: con 66 puntos y tope de 32, solo caben **dos cosas al máximo**. El reparto es por tanto una elección entre tres pares, decidida por el papel (ofensivo/apoyo) y el ritmo (rápido/medio/lento).
+
+El alineamiento que elige el usuario **manda sobre las estadísticas base**: si baja velocidad, el Pokémon se trata como lento aunque su base sea alta. La herramienta responde a la decisión del usuario en vez de dictarla. Cada punto repartido lleva su motivo.
+
+## Sesgos que se declaran en pantalla
+
+- **El objeto solo se revela si se activa.** Una Baya Zidra se ve cuando baja la vida; unas Gafas Especiales no se ven nunca. Los objetos consumibles salen sobredimensionados y eso se avisa bajo la sugerencia.
+- **Los movimientos se cuentan sobre partidas, no sobre usos**, para que un Protección repetido cinco veces no tape al resto. El denominador son las partidas en las que esa especie llegó a mover.
+- Que Rillaboom lleve Protección solo en el 3,5 % de sus partidas no es un fallo: lleva Sorpresa en su lugar. Protección es el movimiento más usado de toda la base (7.659 acciones) y aun así es minoritario en ese Pokémon concreto.
+
+## Corrección de paso: las habilidades se mostraban en crudo
+
+La columna `species.abilities` guarda slugs (`grassysurge`), y tanto el desplegable del Constructor como la ficha de la Pokédex los pintaban tal cual. Se resuelven ahora contra la tabla `abilities` y salen con su nombre traducido.
+
+## Limitaciones que quedan
+
+- Las revelaciones de una Mega se guardan bajo la forma Mega. Las consultas de conjunto agrupan la familia (especie + sus formas), pero cualquier otra consulta que vaya por especie exacta verá las dos separadas.
+- `Frisk` revela el objeto del rival y se acepta; si en alguna regulación futura entra una habilidad parecida habrá que añadirla a la lista.
+- El reparto de SP no conoce el equipo: no ajusta velocidad para adelantar a un rival concreto ni reparte pensando en un ataque que se quiera aguantar.

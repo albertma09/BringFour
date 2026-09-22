@@ -5,6 +5,7 @@ import { comunes } from '@/ajustes';
 import { api, type Alineamiento, type Especie, type FilaBringRate } from '@/api/cliente';
 import BehaviorPanel from '@/components/BehaviorPanel.vue';
 import Cargando from '@/components/Cargando.vue';
+import PartnerSuggest from '@/components/PartnerSuggest.vue';
 import Rotulo from '@/components/Rotulo.vue';
 import SlotEditor, { type Hueco } from '@/components/SlotEditor.vue';
 import SpeciesSprite from '@/components/SpeciesSprite.vue';
@@ -95,6 +96,19 @@ function nombre(fila: { name: string; name_es: string | null }): string {
 
 const elegidos = computed(() => huecos.value.filter((h) => h.slug !== null));
 
+const slugsElegidos = computed(() => elegidos.value.map((h) => h.slug as string));
+
+const primerLibre = computed(() => huecos.value.findIndex((h) => h.slug === null));
+
+function anadir(slug: string): void {
+    const indice = primerLibre.value;
+
+    if (indice < 0) return;
+
+    huecos.value[indice] = { ...huecoVacio(), slug };
+    enfoque.value = indice;
+}
+
 const enfocado = computed(() => {
     if (enfoque.value === null) return null;
 
@@ -177,6 +191,15 @@ const pegado = computed(() =>
                     @quitar="quitar(indice)"
                 />
             </div>
+
+            <section v-if="slugsElegidos.length > 0" class="mb-14">
+                <Rotulo :texto="$t('sugerencia.companeros')" />
+                <PartnerSuggest
+                    :elegidos="slugsElegidos"
+                    :hueco-libre="primerLibre >= 0"
+                    @anadir="anadir"
+                />
+            </section>
 
             <section v-if="datosMeta.length > 0" class="mb-14">
                 <Rotulo :texto="$t('constructor.que_hace_la_gente')" />

@@ -2,8 +2,10 @@
 import { computed, ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { comunes } from '@/ajustes';
-import { api, type Alineamiento, type Especie, type Movimiento, type ObjetoBuilder } from '@/api/cliente';
+import { api, type Alineamiento, type Especie, type Habilidad, type Movimiento, type ObjetoBuilder } from '@/api/cliente';
+import SetSuggest from '@/components/SetSuggest.vue';
 import SpeciesSprite from '@/components/SpeciesSprite.vue';
+import SpreadSuggest from '@/components/SpreadSuggest.vue';
 import TypeTag from '@/components/TypeTag.vue';
 import { restantes, SP_TOPE, SP_TOTAL, valorFinal, type Reparto } from '@/design/stats';
 import { STAT_EN, STAT_ES, STATS, type Stat } from '@/design/types';
@@ -23,7 +25,8 @@ const emit = defineEmits<{ cambiar: [Hueco]; quitar: [] }>();
 const { locale } = useI18n();
 
 const busqueda = ref('');
-const opciones = ref<{ movimientos: Movimiento[]; objetos: ObjetoBuilder[]; abilities: string[] } | null>(null);
+const ayuda = ref(false);
+const opciones = ref<{ movimientos: Movimiento[]; objetos: ObjetoBuilder[]; abilities: Habilidad[] } | null>(null);
 const buscarMovimiento = ref('');
 
 function nombre(fila: { name: string; name_es: string | null }): string {
@@ -115,6 +118,21 @@ function alternarMovimiento(slug: string): void {
 }
 
 const sobran = computed(() => restantes(props.hueco.sp));
+
+function aplicarConjunto(conjunto: { habilidad: string | null; objeto: string | null; movimientos: string[] }): void {
+    const disponibles = (opciones.value?.abilities ?? []).map((h) => h.slug);
+    const habilidad = conjunto.habilidad && disponibles.includes(conjunto.habilidad) ? conjunto.habilidad : props.hueco.habilidad;
+
+    actualizar({
+        habilidad,
+        objeto: conjunto.objeto ?? props.hueco.objeto,
+        movimientos: conjunto.movimientos.slice(0, 4),
+    });
+}
+
+function aplicarReparto(sp: Reparto): void {
+    actualizar({ sp });
+}
 </script>
 
 <template>
@@ -181,7 +199,9 @@ const sobran = computed(() => restantes(props.hueco.sp));
                         @change="actualizar({ habilidad: ($event.target as HTMLSelectElement).value || null })"
                     >
                         <option value="">—</option>
-                        <option v-for="h in opciones?.abilities ?? []" :key="h" :value="h">{{ h }}</option>
+                        <option v-for="h in opciones?.abilities ?? []" :key="h.slug" :value="h.slug">
+                            {{ nombre(h) }}
+                        </option>
                     </select>
                 </label>
 
@@ -250,6 +270,34 @@ const sobran = computed(() => restantes(props.hueco.sp));
                             )
                         }}
                     </span>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <button
+                    type="button"
+                    class="flex w-full items-center justify-between rounded-lg border border-line-soft px-3 py-2 text-left text-[11px] text-fog transition-colors hover:border-amber hover:text-amber"
+                    :aria-expanded="ayuda"
+                    @click="ayuda = !ayuda"
+                >
+                    <span>{{ $t('sugerencia.no_lo_tengo_claro') }}</span>
+                    <span aria-hidden="true">{{ ayuda ? '−' : '+' }}</span>
+                </button>
+
+                <div v-if="ayuda" class="mt-3 space-y-4 rounded-lg border border-line-soft bg-night/40 p-3">
+                    <section>
+                        <p class="rotulo mb-2">{{ $t('sugerencia.lo_que_se_ve') }}</p>
+                        <SetSuggest :slug="especie.slug" @aplicar="aplicarConjunto" />
+                    </section>
+
+                    <section class="border-t border-line-soft pt-3">
+                        <p class="rotulo mb-2">{{ $t('sugerencia.reparto_por_reglas') }}</p>
+                        <SpreadSuggest
+                            :slug="especie.slug"
+                            :alineamiento="hueco.alineamiento"
+                            @aplicar="aplicarReparto"
+                        />
+                    </section>
                 </div>
             </div>
 

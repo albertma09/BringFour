@@ -63,7 +63,7 @@ class SpeciesController extends ApiController
 
         return response()->json([
             'especie' => $this->payload($species) + [
-                'abilities' => json_decode($species->abilities, true),
+                'abilities' => $this->habilidades($species),
                 'national_dex' => $species->national_dex,
                 'weight_kg' => $species->weight_kg,
                 'legal' => $legal,

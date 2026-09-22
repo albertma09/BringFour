@@ -16,8 +16,6 @@ class ParsedAction
         public ?string $switchInSlug = null,
         public bool $forced = false,
         public ?string $reason = null,
-        public ?string $revealedItemSlug = null,
-        public ?string $revealedAbilitySlug = null,
     ) {}
 
     public function isDecision(): bool

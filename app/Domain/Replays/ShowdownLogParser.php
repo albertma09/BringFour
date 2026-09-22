@@ -4,11 +4,15 @@ namespace App\Domain\Replays;
 
 class ShowdownLogParser
 {
-    public const VERSION = '2.0.0';
+    public const VERSION = '2.1.0';
 
     private const SWITCH_DIRECTIVES = ['switch', 'drag', 'replace'];
 
     private const MAX_DECISION_SECONDS = 1800;
+
+    private const COPIER_ABILITIES = ['trace', 'receiver', 'poweralchemy'];
+
+    private const OWN_ITEM_SOURCES = ['frisk', 'pickpocket'];
 
     private ParsedReplay $result;
 
@@ -45,7 +49,10 @@ class ShowdownLogParser
                 continue;
             }
 
-            $this->dispatch(explode('|', substr($line, 1)));
+            $parts = explode('|', substr($line, 1));
+
+            $this->readTaggedAbility($parts);
+            $this->dispatch($parts);
         }
 
         $this->closeTurn();
@@ -330,30 +337,79 @@ class ShowdownLogParser
     private function readReveal(array $parts, string $kind): void
     {
         $slot = $this->slotOf($parts[1] ?? '');
-
-        if ($slot === null || $this->turn === null) {
-            return;
-        }
-
-        $action = $this->turn->lastFor($slot);
-
-        if ($action === null) {
-            return;
-        }
-
         $slug = self::toId($parts[2] ?? '');
+
+        if ($slot === null || $slug === '') {
+            return;
+        }
+
+        $source = $this->tagValue($parts, '[from]');
+
+        if ($source !== null && ! $this->sourceKeepsOwnership($source, $kind)) {
+            return;
+        }
+
+        $this->record($slot, $kind, $slug);
+    }
+
+    private function readTaggedAbility(array $parts): void
+    {
+        if (in_array($parts[0] ?? '', self::SWITCH_DIRECTIVES, true)) {
+            return;
+        }
+
+        $source = $this->tagValue($parts, '[from]');
+
+        if ($source === null || ! str_starts_with($source, 'ability:')) {
+            return;
+        }
+
+        $slug = self::toId(substr($source, 8));
 
         if ($slug === '') {
             return;
         }
 
-        if ($kind === 'ability') {
-            $action->revealedAbilitySlug ??= $slug;
+        $owner = in_array($slug, self::COPIER_ABILITIES, true)
+            ? $this->slotOf($parts[1] ?? '')
+            : ($this->slotOf($this->tagValue($parts, '[of]') ?? '') ?? $this->slotOf($parts[1] ?? ''));
 
+        if ($owner !== null) {
+            $this->record($owner, 'ability', $slug);
+        }
+    }
+
+    private function sourceKeepsOwnership(string $source, string $kind): bool
+    {
+        if ($kind !== 'item' || ! str_starts_with($source, 'ability:')) {
+            return false;
+        }
+
+        return in_array(self::toId(substr($source, 8)), self::OWN_ITEM_SOURCES, true);
+    }
+
+    private function record(string $slot, string $kind, string $slug): void
+    {
+        $species = $this->state->speciesAt($slot);
+
+        if ($species === null) {
             return;
         }
 
-        $action->revealedItemSlug ??= $slug;
+        $this->result->reveal(substr($slot, 0, 2), $species, $kind, $slug, $this->turn?->number);
+    }
+
+    private function tagValue(array $parts, string $tag): ?string
+    {
+        foreach (array_slice($parts, 2) as $part) {
+            $part = trim($part);
+
+            if (str_starts_with($part, $tag)) {
+                return strtolower(trim(substr($part, strlen($tag))));
+            }
+        }
+
+        return null;
     }
 
     private function slotOf(string $reference): ?string

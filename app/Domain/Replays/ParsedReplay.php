@@ -22,6 +22,8 @@ class ParsedReplay
 
     public array $turns = [];
 
+    public array $reveals = [];
+
     public int $turnCount = 0;
 
     public ?string $winnerName = null;
@@ -55,6 +57,13 @@ class ParsedReplay
                 return;
             }
         }
+    }
+
+    public function reveal(string $side, string $speciesSlug, string $kind, string $valueSlug, ?int $turnNo): void
+    {
+        $reveal = new ParsedReveal($side, $speciesSlug, $kind, $valueSlug, $turnNo);
+
+        $this->reveals[$reveal->key()] ??= $reveal;
     }
 
     public function broughtSlugs(string $side): array

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Domain\Meta\PartnerQuery;
+use App\Domain\Meta\SetQuery;
+use App\Domain\Stats\SpreadAdvisor;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -53,7 +56,7 @@ class BuilderController extends ApiController
                 'name_es' => $species->name_es,
                 'types' => json_decode($species->types, true),
                 'base_stats' => json_decode($species->base_stats, true),
-                'abilities' => json_decode($species->abilities, true),
+                'abilities' => $this->habilidades($species),
                 'sprite' => $species->sprite_file,
                 'sprite_stone' => $species->sprite_stone_slug,
             ],
@@ -76,6 +79,67 @@ class BuilderController extends ApiController
                 'name_es' => $fila->name_es,
                 'mega' => $this->megaDe($fila, $species->slug),
             ])->all(),
+        ]);
+    }
+
+    public function partners(Request $request, PartnerQuery $query): JsonResponse
+    {
+        $slugs = array_slice(array_filter(explode(',', (string) $request->query('species', ''))), 0, 5);
+
+        foreach ($slugs as $slug) {
+            $this->species($slug);
+        }
+
+        $resultado = $query->forSlugs(
+            $this->formatId($request),
+            $this->elo($request),
+            $slugs,
+            $this->min($request),
+            $this->top($request, 8, 24),
+        );
+
+        return response()->json($resultado + [
+            'elegidos' => $slugs,
+            'muestra' => ['min_sample' => $this->min($request)],
+        ]);
+    }
+
+    public function set(Request $request, SetQuery $query, string $slug): JsonResponse
+    {
+        $species = $this->species($slug);
+
+        $resultado = $query->forSpecies(
+            (int) $species->id,
+            $this->formatId($request),
+            $this->elo($request),
+            $this->min($request),
+            $this->top($request, 8, 24),
+        );
+
+        return response()->json($resultado + [
+            'especie' => $species->slug,
+            'muestra' => ['min_sample' => $this->min($request)],
+        ]);
+    }
+
+    public function spread(Request $request, SpreadAdvisor $advisor, string $slug): JsonResponse
+    {
+        $species = $this->species($slug);
+        $alineamiento = (string) $request->query('alignment', '');
+        $fila = $alineamiento === ''
+            ? null
+            : DB::table('alignments')->where('slug', $alineamiento)->first();
+
+        $reparto = $advisor->suggest(
+            json_decode((string) $species->base_stats, true) ?: [],
+            $fila->plus_stat ?? null,
+            $fila->minus_stat ?? null,
+        );
+
+        return response()->json($reparto + [
+            'especie' => $species->slug,
+            'alineamiento' => $fila->slug ?? null,
+            'tope' => SpreadAdvisor::TOPE,
         ]);
     }
 

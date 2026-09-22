@@ -140,7 +140,7 @@ const pestanas = [
                 <div>
                     <Rotulo :texto="$t('ficha.habilidades')" />
                     <ul class="space-y-1 text-sm text-mist">
-                        <li v-for="habilidad in especie.abilities" :key="habilidad">{{ habilidad }}</li>
+                        <li v-for="habilidad in especie.abilities" :key="habilidad.slug">{{ nombre(habilidad) }}</li>
                     </ul>
                 </div>
             </section>

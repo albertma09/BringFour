@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Domain\Meta\SpeciesLookup;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Routing\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -36,6 +37,23 @@ abstract class ApiController extends Controller
         }
 
         return $species;
+    }
+
+    protected function habilidades(object $species): array
+    {
+        $slugs = array_values(json_decode((string) $species->abilities, true) ?: []);
+
+        if ($slugs === []) {
+            return [];
+        }
+
+        $filas = DB::table('abilities')->whereIn('slug', $slugs)->get(['slug', 'name', 'name_es'])->keyBy('slug');
+
+        return array_values(array_map(fn (string $slug) => [
+            'slug' => $slug,
+            'name' => $filas[$slug]->name ?? $slug,
+            'name_es' => $filas[$slug]->name_es ?? null,
+        ], $slugs));
     }
 
     protected function elo(Request $request): int

@@ -17,4 +17,7 @@ Route::get('/teams', [TeamController::class, 'index']);
 Route::get('/teams/cores', [TeamController::class, 'cores']);
 Route::get('/teams/{id}', [TeamController::class, 'show']);
 Route::get('/builder/alignments', [BuilderController::class, 'alignments']);
+Route::get('/builder/partners', [BuilderController::class, 'partners']);
 Route::get('/builder/species/{slug}', [BuilderController::class, 'options']);
+Route::get('/builder/species/{slug}/set', [BuilderController::class, 'set']);
+Route::get('/builder/species/{slug}/spread', [BuilderController::class, 'spread']);

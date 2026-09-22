@@ -210,6 +210,7 @@ class ReplaysImport extends Command
 
             $this->storeTeams($replayId, $parsed);
             $this->storeTurns($replayId, $parsed);
+            $this->storeReveals($replayId, $parsed);
         });
     }
 
@@ -217,6 +218,7 @@ class ReplaysImport extends Command
     {
         DB::transaction(function () use ($replayId, $parsed) {
             DB::table('replay_turns')->where('replay_id', $replayId)->delete();
+            DB::table('replay_reveals')->where('replay_id', $replayId)->delete();
 
             DB::table('replays')->where('id', $replayId)->update([
                 'turn_count' => $parsed->turnCount,
@@ -226,7 +228,38 @@ class ReplaysImport extends Command
             ]);
 
             $this->storeTurns($replayId, $parsed);
+            $this->storeReveals($replayId, $parsed);
         });
+    }
+
+    private function storeReveals(int $replayId, ParsedReplay $parsed): void
+    {
+        $rows = [];
+
+        foreach ($parsed->reveals as $reveal) {
+            $speciesId = $this->lookup($this->speciesIds, $reveal->speciesSlug);
+            $valueId = $reveal->kind === 'ability'
+                ? $this->lookup($this->abilityIds, $reveal->valueSlug)
+                : $this->lookup($this->itemIds, $reveal->valueSlug);
+
+            if ($speciesId === null || $valueId === null) {
+                continue;
+            }
+
+            $rows[] = [
+                'replay_id' => $replayId,
+                'side' => $reveal->side,
+                'species_id' => $speciesId,
+                'kind' => $reveal->kind,
+                'ability_id' => $reveal->kind === 'ability' ? $valueId : null,
+                'item_id' => $reveal->kind === 'item' ? $valueId : null,
+                'turn_no' => $reveal->turnNo,
+            ];
+        }
+
+        if ($rows !== []) {
+            DB::table('replay_reveals')->insert($rows);
+        }
     }
 
     private function storeTeams(int $replayId, ParsedReplay $parsed): void
@@ -307,8 +340,6 @@ class ReplaysImport extends Command
                     'move_id' => $this->lookup($this->moveIds, $action->moveSlug),
                     'target_side' => $action->targetSide,
                     'target_slot' => $action->targetSlot,
-                    'revealed_item_id' => $this->lookup($this->itemIds, $action->revealedItemSlug),
-                    'revealed_ability_id' => $this->lookup($this->abilityIds, $action->revealedAbilitySlug),
                     'created_at' => $now,
                     'updated_at' => $now,
                 ];

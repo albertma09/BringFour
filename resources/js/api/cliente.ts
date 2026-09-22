@@ -21,8 +21,14 @@ export interface Especie {
     is_mega?: boolean;
 }
 
+export interface Habilidad {
+    slug: string;
+    name: string;
+    name_es: string | null;
+}
+
 export interface FichaEspecie extends Especie {
-    abilities: string[];
+    abilities: Habilidad[];
     legal: boolean;
     national_dex: number | null;
     megapiedra: { slug: string; name: string; name_es: string | null } | null;
@@ -131,6 +137,72 @@ export interface ObjetoBuilder {
     mega: string | null;
 }
 
+export interface Companero extends Especie {
+    n: number;
+    juntos_pct: number;
+    general_pct: number;
+    veces: number | null;
+    afinidad: number;
+}
+
+export interface Companeros {
+    n: number;
+    equipos: number;
+    elegidos: string[];
+    companeros: Companero[];
+    muestra: { min_sample: number };
+}
+
+export interface MovimientoVisto {
+    slug: string;
+    name: string;
+    name_es: string | null;
+    type: string;
+    category: string;
+    power: number | null;
+    n: number;
+    base: number;
+    pct: number;
+}
+
+export interface RevelacionVista {
+    slug: string;
+    name: string;
+    name_es: string | null;
+    n: number;
+    reveladas: number;
+    traidas: number;
+    pct: number;
+}
+
+export interface ConjuntoVisto {
+    especie: string;
+    traidas: number;
+    movimientos: MovimientoVisto[];
+    habilidades: RevelacionVista[];
+    objetos: RevelacionVista[];
+    muestra: { min_sample: number };
+}
+
+export interface RazonReparto {
+    stat: string;
+    clave: string;
+    sp: number;
+}
+
+export interface RepartoSugerido {
+    especie: string;
+    sp: Record<string, number>;
+    total: number;
+    papel: string;
+    ritmo: string;
+    ofensiva: string;
+    defensa: string;
+    razones: RazonReparto[];
+    alineamiento: string | null;
+    tope: number;
+}
+
 async function get<T>(ruta: string, params: Record<string, string | number> = {}): Promise<T> {
     const query = new URLSearchParams();
 
@@ -186,8 +258,19 @@ export const api = {
 
     alineamientos: () => get<{ alineamientos: Alineamiento[] }>('/builder/alignments'),
 
+    companeros: (c: Comunes, slugs: string[], top = 8) =>
+        get<Companeros>('/builder/partners', { ...c, species: slugs.join(','), top }),
+
+    conjunto: (slug: string, c: Comunes) => get<ConjuntoVisto>(`/builder/species/${slug}/set`, c),
+
+    reparto: (slug: string, c: Comunes, alignment: string | null) =>
+        get<RepartoSugerido>(`/builder/species/${slug}/spread`, {
+            format: c.format,
+            alignment: alignment ?? '',
+        }),
+
     opciones: (slug: string, c: Comunes) =>
-        get<{ especie: Especie & { abilities: string[] }; movimientos: Movimiento[]; objetos: ObjetoBuilder[] }>(
+        get<{ especie: Especie & { abilities: Habilidad[] }; movimientos: Movimiento[]; objetos: ObjetoBuilder[] }>(
             `/builder/species/${slug}`,
             { format: c.format },
         ),
