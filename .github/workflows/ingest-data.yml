@@ -33,7 +33,7 @@ jobs:
 
       - name: Regenerar datos
         working-directory: ingest
-        run: node showdown-data.mjs
+        run: node showdown-data.mjs --update-baseline
 
       - name: Abrir PR si hay cambios
         uses: peter-evans/create-pull-request@v7
@@ -43,6 +43,10 @@ jobs:
           commit-message: 'Datos: sincronizar catalogo y legalidad desde Showdown'
           body: |
             Regeneracion automatica de `data/` desde los mods de Pokemon Showdown.
+
+            **Mira primero `data/baseline.json`.** Resume en 12 lineas que ha
+            cambiado: si los conteos de una regulacion se mueven, el diff lo
+            dice ahi sin tener que leer miles de lineas de legality.json.
 
             Revisa el diff antes de mergear. Un cambio grande en el numero de
             especies o movimientos suele significar que ha entrado una regulacion

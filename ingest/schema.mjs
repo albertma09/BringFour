@@ -16,6 +16,8 @@ const MIN_REGULATION = {
   items: 100,
 };
 
+export class BaselineDriftError extends Error {}
+
 class SchemaError extends Error {}
 
 function fail(message) {
@@ -126,4 +128,51 @@ export function validateRegulation({ regulation, legality, learnsets }, catalogu
   if (empty > 0) fail(`${code} learnsets: ${empty} especies sin movimientos. La extraccion esta rota`);
 
   return { ok: true };
+}
+
+export function checkBaseline(observed, baseline) {
+  if (!baseline) return { ok: true, firstRun: true };
+
+  const drift = [];
+
+  for (const [code, counts] of Object.entries(observed)) {
+    const previous = baseline[code];
+
+    if (!previous) {
+      drift.push(`${code}: regulacion nueva, no estaba en la linea base`);
+      continue;
+    }
+
+    for (const [key, value] of Object.entries(counts)) {
+      if (previous[key] !== value) {
+        drift.push(`${code}.${key}: ${previous[key]} -> ${value}`);
+      }
+    }
+  }
+
+  for (const code of Object.keys(baseline)) {
+    if (!observed[code]) drift.push(`${code}: desaparecio de la config`);
+  }
+
+  if (drift.length === 0) return { ok: true, firstRun: false };
+
+  throw new BaselineDriftError(
+    [
+      'Los datos han cambiado respecto a la linea base:',
+      ...drift.map((line) => `  ${line}`),
+      '',
+      'Esto es NORMAL si ha entrado un parche o una regulacion nueva.',
+      'Pero antes de aceptarlo, comprueba una cosa:',
+      '',
+      '  El mod base "champions" ES SIEMPRE la regulacion activa.',
+      '  Cuando entra una regulacion nueva, la anterior se congela en su',
+      '  propio mod (championsregmc, championsregmd...) y "champions" pasa',
+      '  a ser la nueva. Si eso ha pasado y no has actualizado',
+      '  ingest/config.mjs, estas a punto de guardar los datos de la',
+      '  regulacion nueva etiquetados con el codigo de la vieja.',
+      '',
+      'Si el cambio es correcto, acepta la nueva linea base con:',
+      '  node showdown-data.mjs --update-baseline',
+    ].join(String.fromCharCode(10)),
+  );
 }

@@ -1,0 +1,16 @@
+{
+  "M-C": {
+    "mod": "champions",
+    "species": 382,
+    "moves": 515,
+    "abilities": 317,
+    "items": 166
+  },
+  "M-B": {
+    "mod": "championsregmb",
+    "species": 347,
+    "moves": 515,
+    "abilities": 316,
+    "items": 148
+  }
+}

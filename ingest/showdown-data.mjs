@@ -1,16 +1,19 @@
 import { createRequire } from 'node:module';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import ps from 'pokemon-showdown';
 import { REGULATIONS } from './config.mjs';
-import { validateCatalogue, validateRegulation } from './schema.mjs';
+import { checkBaseline, validateCatalogue, validateRegulation } from './schema.mjs';
 
 const { Dex } = ps;
 const require = createRequire(import.meta.url);
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA_DIR = join(ROOT, 'data');
 const TEXT_MOD = 'champions';
+const BASELINE_PATH = join(dirname(fileURLToPath(import.meta.url)), '..', 'data', 'baseline.json');
+const UPDATE_BASELINE = process.argv.includes('--update-baseline');
 const LOCALES = ['es'];
 
 const available = (entry) => entry.exists && entry.isNonstandard === null;
@@ -229,6 +232,41 @@ async function main() {
 
   validateCatalogue({ species, moves, abilities, items, alignments });
 
+  const catalogueSlugs = {
+    species: new Set(species.map((s) => s.slug)),
+    moves: new Set(moves.map((m) => m.slug)),
+    abilities: new Set(abilities.map((a) => a.slug)),
+    items: new Set(items.map((i) => i.slug)),
+  };
+
+  const observed = {};
+
+  for (const entry of perRegulation) {
+    validateRegulation(entry, catalogueSlugs);
+    observed[entry.regulation.code] = {
+      mod: entry.regulation.mod,
+      species: entry.legality.species.length,
+      moves: entry.legality.moves.length,
+      abilities: entry.legality.abilities.length,
+      items: entry.legality.items.length,
+    };
+  }
+
+  const baseline = existsSync(BASELINE_PATH)
+    ? JSON.parse(await readFile(BASELINE_PATH, 'utf8'))
+    : null;
+
+  if (UPDATE_BASELINE) {
+    await writeJson(BASELINE_PATH, observed);
+    console.log('Linea base actualizada.');
+  } else {
+    checkBaseline(observed, baseline);
+    if (!baseline) {
+      await writeJson(BASELINE_PATH, observed);
+      console.log('Linea base creada.');
+    }
+  }
+
   await writeJson(join(DATA_DIR, 'species.json'), species);
   await writeJson(join(DATA_DIR, 'moves.json'), moves);
   await writeJson(join(DATA_DIR, 'abilities.json'), abilities);
@@ -265,15 +303,7 @@ async function main() {
     })),
   );
 
-  const catalogueSlugs = {
-    species: new Set(species.map((s) => s.slug)),
-    moves: new Set(moves.map((m) => m.slug)),
-    abilities: new Set(abilities.map((a) => a.slug)),
-    items: new Set(items.map((i) => i.slug)),
-  };
-
   for (const entry of perRegulation) {
-    validateRegulation(entry, catalogueSlugs);
     const dir = join(DATA_DIR, entry.regulation.code);
     await writeJson(join(dir, 'legality.json'), entry.legality);
     await writeJson(join(dir, 'learnsets.json'), entry.learnsets);
