@@ -1,29 +1,6 @@
 <?php
 
-use App\Domain\Replays\ShowdownLogParser;
 use Illuminate\Support\Facades\DB;
-
-function replayFixture(string $name): array
-{
-    return json_decode(file_get_contents(base_path("tests/Fixtures/replays/{$name}.json")), true);
-}
-
-function parseFixture(string $name)
-{
-    return (new ShowdownLogParser())->parse(replayFixture($name)['log']);
-}
-
-function fixtureDir(array $records): string
-{
-    $root = sys_get_temp_dir().'/bringfour-test-'.bin2hex(random_bytes(4));
-    $dir = $root.'/gen9championsvgc2026regmc';
-    mkdir($dir, 0777, true);
-
-    $lines = array_map(fn ($r) => json_encode($r), $records);
-    file_put_contents($dir.'/2026-09-22.jsonl', implode("\n", $lines)."\n");
-
-    return $root;
-}
 
 it('lee el Team Preview completo de ambos lados', function () {
     $parsed = parseFixture('normal');
@@ -128,11 +105,3 @@ it('nunca guarda el nombre del jugador en claro', function () {
         ->and($row->p2_hash)->not->toBe($nombres[1])
         ->and($row->p1_hash)->toBe(hash('sha256', $nombres[0]));
 });
-
-function importFixtures(array $records): array
-{
-    $root = fixtureDir($records);
-    test()->artisan('replays:import', ['--path' => $root])->assertSuccessful();
-
-    return DB::table('replays')->pluck('id', 'showdown_id')->all();
-}

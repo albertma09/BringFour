@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Domain\Meta\SideQuery;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
@@ -28,21 +29,8 @@ class MetaBringRates extends Command
         $min = (int) $this->option('min');
         $elo = (int) $this->option('elo');
 
-        $rows = DB::select('
-            with lados as (
-                select r.id as replay_id,
-                       t.side,
-                       case t.side when \'p1\' then r.p1_team_size else r.p2_team_size end as declarado,
-                       count(*) filter (where t.brought) as visto
-                from replays r
-                join replay_teams t on t.replay_id = r.id
-                where r.format_id = ?
-                  and coalesce(r.elo_bucket, 0) >= ?
-                group by r.id, t.side, r.p1_team_size, r.p2_team_size
-            ),
-            completos as (
-                select replay_id, side from lados where declarado is not null and visto = declarado
-            )
+        $rows = DB::select(
+            'with '.SideQuery::SIDES.', '.SideQuery::COMPLETE.'
             select s.name,
                    count(*) as n,
                    count(*) filter (where t.brought) as traido,
@@ -54,23 +42,17 @@ class MetaBringRates extends Command
             group by s.name
             having count(*) >= ?
             order by count(*) desc
-            limit ?
-        ', [$formatId, $elo, $min, (int) $this->option('top')]);
+            limit ?',
+            [$formatId, $elo, $min, (int) $this->option('top')],
+        );
 
-        $universo = DB::selectOne('
-            with lados as (
-                select r.id as replay_id, t.side,
-                       case t.side when \'p1\' then r.p1_team_size else r.p2_team_size end as declarado,
-                       count(*) filter (where t.brought) as visto
-                from replays r
-                join replay_teams t on t.replay_id = r.id
-                where r.format_id = ? and coalesce(r.elo_bucket, 0) >= ?
-                group by r.id, t.side, r.p1_team_size, r.p2_team_size
-            )
+        $universo = DB::selectOne(
+            'with '.SideQuery::SIDES.'
             select count(*) as total,
                    count(*) filter (where declarado is not null and visto = declarado) as completos
-            from lados
-        ', [$formatId, $elo]);
+            from lados',
+            [$formatId, $elo],
+        );
 
         $descartados = $universo->total - $universo->completos;
 
