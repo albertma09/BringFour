@@ -34,7 +34,7 @@ jobs:
       DB_PASSWORD: bringfour
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - uses: shivammathur/setup-php@v2
         with:
@@ -42,7 +42,7 @@ jobs:
           extensions: pdo_pgsql, pgsql, mbstring, intl, zip
           coverage: none
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: '22'
 
@@ -78,14 +78,6 @@ jobs:
             exit 1
           fi
 
-      - name: Migrar y sincronizar
-        run: |
-          php artisan migrate --no-interaction --force
-          php artisan data:sync
-
-      - name: Tests
-        run: php artisan test
-
       - name: Instalar dependencias del front
         run: npm ci --no-audit --no-fund
 
@@ -94,3 +86,11 @@ jobs:
 
       - name: Construir el front
         run: npm run build
+
+      - name: Migrar y sincronizar
+        run: |
+          php artisan migrate --no-interaction --force
+          php artisan data:sync
+
+      - name: Tests
+        run: php artisan test
