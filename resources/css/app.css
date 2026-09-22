@@ -1,9 +1,70 @@
 @import 'tailwindcss';
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --color-carbon-900: #0d0e10;
+    --color-carbon-800: #151719;
+    --color-carbon-700: #1c1f22;
+    --color-carbon-600: #23272b;
+    --color-carbon-500: #2c3137;
+    --color-bone: #e8e6e3;
+    --color-ash: #8a8f96;
+    --color-ash-dim: #5f656c;
+    --color-sand: #d9b382;
+    --color-sand-dim: #8c7452;
+    --color-moss: #6f9e6b;
+    --color-clay: #b5675f;
+
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+    color-scheme: dark;
+}
+
+html,
+body {
+    background-color: var(--color-carbon-900);
+    color: var(--color-bone);
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+.cifra {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum' 1;
+}
+
+.sprite {
+    image-rendering: pixelated;
+}
+
+::selection {
+    background-color: var(--color-sand-dim);
+    color: var(--color-bone);
+}
+
+*:focus-visible {
+    outline: 2px solid var(--color-sand);
+    outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-carbon-900);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-carbon-600);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-carbon-500);
 }

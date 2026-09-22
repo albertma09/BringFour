@@ -139,3 +139,41 @@ El flag vive en `ingest/config.mjs` → `data/regulations.json` → tabla `forma
 - **`fase` se calcula por número de turno, no por turnos desde que el Pokémon entró al campo.** Un Rillaboom que entra en el turno 4 y usa Amago aparece como `medio`. Sería más informativo contar desde su entrada.
 - **Los priors no distinguen el objetivo elegido en dobles**, ni la vida como parte del contexto: con 3.100 replays fragmentaría la muestra hasta dejarla inservible.
 - **Todo cae en el bucket de ELO 0.** El ladder de Champions en Showdown no pasa de 1622, así que los cortes de Smogon (1500/1630/1760) todavía no separan nada.
+
+---
+
+# FASE 2 — META EXPLORER (API + PRIMERA PANTALLA)
+
+**Fecha:** 22-sep-2026
+
+## Recolección
+
+- **Rama huérfana `replay-archive`** para el archivo de replays, decidida por el usuario. Cron diario a las 04:17 UTC. El workflow hace **dos checkouts**: el código desde `main` y el archivo desde `replay-archive`, porque la rama del archivo no tiene `ingest/`. El collector acepta `BF_RAW_DIR` para escribir fuera del repo de código.
+- **Reintento con espera creciente (1 s, 4 s, 16 s) ante fallo de red**, y un formato que agota los reintentos ya no aborta los demás: se guarda su estado y se sigue. El proceso termina con error si alguno falló, para que CI lo vea. El backfill se murió con un `fetch failed` porque el `try` solo cubría respuestas HTTP, no excepciones de `fetch`.
+- `.gitattributes` con `* -text` en la rama del archivo: sin eso Git convertiría los saltos de línea de los `.jsonl` en Windows.
+
+## Sprites
+
+- **388 de 399 especies tienen sprite propio en Showdown.** Solo 11 megas recientes (Staraptor, Raichu-X/Y, Pyroar, Falinks, Malamar, Scrafty, Scolipede, Barbaracle, Dragalge, Eelektross) no lo tienen y usan el apaño de sprite base + megapiedra. La creencia anterior de que hacían falta las 80 era falsa.
+- Los iconos de objeto vienen de la hoja `itemicons-sheet.png` (89 KB, 384×1152, 16 columnas de 24 px). El desplazamiento sale de `spritenum`, que se ha añadido a la ingesta.
+- **Alojados en `public/sprites/` (1,9 MB), no enlazados al CDN de Showdown.** Pendiente de revisar con el usuario por el tema de derechos.
+
+## API
+
+- Consultas extraídas a `app/Domain/Meta/*Query.php`, usadas por el comando y por el controlador. Misma razón que `SideQuery`: dos copias del SQL acaban dando números distintos.
+- **El mínimo de 30 se impone en la API** (`max(30, ...)`), no en el cliente: desde la terminal se puede bajar para depurar, pero por HTTP no sale un porcentaje con N pequeño ni manipulando la URL.
+- Los cortes de ELO que no son uno de los tramos de Smogon se ignoran y caen a 0, en vez de aceptar cualquier número.
+- Sin autenticación ni versionado de la API: un solo mantenedor, ningún consumidor externo.
+
+## Frontend
+
+- Vue 3 + TypeScript + vue-router + vue-i18n. SPA sobre una sola vista Blade; `routes/web.php` excluye `api`, `up` y `sprites`.
+- **Español e inglés desde el principio**, con el idioma guardado en `localStorage` y envuelto en `try/catch` porque el navegador puede tenerlo bloqueado.
+- Diseño oscuro sin neón: carbón por elevación, arena apagada como único acento, y los colores de tipo desaturados haciendo el trabajo cromático. Números tabulares en todas las tablas.
+- **`vue-tsc` no funciona con TypeScript 7**, que es lo que instala npm por defecto. Fijado a TypeScript 5.9.
+- **`artisan serve` no sirve en este entorno**: lanza un proceso hijo que no hereda `-c php.ini`, así que se queda sin `pdo_pgsql`. Se usa `./dev.ps1 serve`, que arranca el servidor embebido con el ini del proyecto.
+
+## Limitaciones conocidas
+
+- La pantalla no se ha visto en un navegador: aquí no hay con qué abrirlo. Compila, pasa el comprobador de tipos y la API responde, pero el resultado visual está sin revisar.
+- El buscador filtra en cliente sobre las 200 filas que devuelve la API, no sobre las 382 especies.

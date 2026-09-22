@@ -1,6 +1,8 @@
 name: Recolectar replays
 
 on:
+  schedule:
+    - cron: '17 4 * * *'
   workflow_dispatch:
     inputs:
       max_pages:
@@ -25,9 +27,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Codigo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Archivo
+        uses: actions/checkout@v4
         with:
           ref: replay-archive
+          path: archivo
           fetch-depth: 1
 
       - uses: actions/setup-node@v4
@@ -37,11 +46,13 @@ jobs:
       - name: Recolectar
         working-directory: ingest
         env:
-          BF_MAX_PAGES: ${{ inputs.max_pages }}
+          BF_RAW_DIR: ${{ github.workspace }}/archivo
+          BF_MAX_PAGES: ${{ inputs.max_pages || '40' }}
           BF_BACKFILL: ${{ inputs.backfill && '1' || '0' }}
         run: node replay-collector.mjs
 
       - name: Commit del archivo
+        working-directory: archivo
         run: |
           git config user.name 'bringfour-bot'
           git config user.email 'bringfour-bot@users.noreply.github.com'

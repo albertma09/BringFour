@@ -7,10 +7,13 @@ import { createGzip } from 'node:zlib';
 import { REGULATIONS, USER_AGENT } from './config.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const RAW_DIR = join(ROOT, 'data', 'raw', 'replays');
+const RAW_DIR = process.env.BF_RAW_DIR
+  ? join(process.env.BF_RAW_DIR, 'data', 'raw', 'replays')
+  : join(ROOT, 'data', 'raw', 'replays');
 const SEARCH_URL = 'https://replay.pokemonshowdown.com/search.json';
 const PAGE_SIZE = 51;
 const REQUEST_DELAY_MS = 350;
+const RETRY_DELAYS_MS = [1000, 4000, 16000];
 
 const MAX_PAGES = Number(process.env.BF_MAX_PAGES ?? 40);
 const BACKFILL = process.env.BF_BACKFILL === '1';
@@ -18,14 +21,22 @@ const BACKFILL = process.env.BF_BACKFILL === '1';
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function fetchJson(url) {
-  for (let attempt = 1; attempt <= 4; attempt += 1) {
-    const response = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
-    if (response.ok) return response.json();
-    if (response.status === 404) return null;
-    if (attempt === 4) throw new Error(`${response.status} ${response.statusText} en ${url}`);
-    await sleep(REQUEST_DELAY_MS * 2 ** attempt);
+  let lastError = null;
+
+  for (let attempt = 0; attempt < RETRY_DELAYS_MS.length + 1; attempt += 1) {
+    if (attempt > 0) await sleep(RETRY_DELAYS_MS[attempt - 1]);
+
+    try {
+      const response = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
+      if (response.ok) return response.json();
+      if (response.status === 404) return null;
+      lastError = new Error(`${response.status} ${response.statusText} en ${url}`);
+    } catch (error) {
+      lastError = new Error(`${error.message ?? error} en ${url}`);
+    }
   }
-  return null;
+
+  throw lastError;
 }
 
 async function loadState() {
@@ -147,17 +158,32 @@ async function collectFormat(regulation, format, state) {
 async function main() {
   const state = await loadState();
   const results = [];
+  const failures = [];
 
   for (const regulation of REGULATIONS) {
     for (const format of regulation.formats) {
       if (!format.collectReplays) continue;
-      results.push(await collectFormat(regulation, format, state));
+
+      try {
+        results.push(await collectFormat(regulation, format, state));
+      } catch (error) {
+        failures.push({ formatId: format.showdownId, message: String(error.message ?? error) });
+      }
+
       await saveState(state);
     }
   }
 
   for (const row of results) {
     console.log(`${row.formatId.padEnd(32)} nuevos=${String(row.candidates).padStart(4)} guardados=${String(row.stored).padStart(4)}`);
+  }
+
+  for (const row of failures) {
+    console.error(`${row.formatId.padEnd(32)} FALLO: ${row.message}`);
+  }
+
+  if (failures.length > 0) {
+    throw new Error(`${failures.length} formato(s) sin recolectar; el estado de los demas si se ha guardado`);
   }
 }
 

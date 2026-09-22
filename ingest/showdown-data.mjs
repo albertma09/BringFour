@@ -112,6 +112,7 @@ function mapItem(dex, item) {
   return {
     slug: item.id,
     name: item.name,
+    spriteNum: item.spritenum ?? null,
     description: describe('items', item.id),
     effect: {
       naturalGift: item.naturalGift ?? null,

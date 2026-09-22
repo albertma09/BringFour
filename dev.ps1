@@ -16,6 +16,7 @@ if ($Args.Count -eq 0) {
     Write-Host "  composer <...>   composer con PHP 8.3"
     Write-Host "  test             suite de Pest"
     Write-Host "  php <...>        php directo"
+    Write-Host "  serve            servidor en http://127.0.0.1:8000"
     Write-Host "  up / down        arranca o para PostgreSQL"
     Write-Host "  psql             consola de PostgreSQL"
     exit 0
@@ -29,6 +30,7 @@ switch ($cmd) {
     'composer' { & $php -c $ini $composer @rest }
     'test'     { & $php -c $ini (Join-Path $root 'vendor\bin\pest') @rest }
     'php'      { & $php -c $ini @rest }
+    'serve'    { & $php -c $ini -S 127.0.0.1:8000 -t (Join-Path $root 'public') }
     'up'       { docker compose -f (Join-Path $root 'docker-compose.yml') up -d }
     'down'     { docker compose -f (Join-Path $root 'docker-compose.yml') down }
     'psql'     { docker exec -it bringfour-db psql -U bringfour -d bringfour @rest }

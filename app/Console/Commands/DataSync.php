@@ -27,6 +27,8 @@ class DataSync extends Command
 
         DB::transaction(function () {
             $this->syncCatalogue();
+            $this->syncSpanishNames();
+            $this->syncSprites();
             $this->syncRegulations();
         });
 
@@ -56,6 +58,67 @@ class DataSync extends Command
     private function now(): string
     {
         return now()->toDateTimeString();
+    }
+
+    private function syncSprites(): void
+    {
+        $sprites = $this->read('sprites.json');
+        $values = [];
+        $bindings = [];
+
+        foreach ($sprites as $slug => $entry) {
+            $values[] = '(?, ?, ?)';
+            $bindings[] = $slug;
+            $bindings[] = $entry['sprite'];
+            $bindings[] = $entry['stone'] ?? null;
+        }
+
+        foreach (array_chunk($values, 400) as $index => $chunk) {
+            $slice = array_slice($bindings, $index * 400 * 3, count($chunk) * 3);
+
+            DB::statement(
+                'update species as t
+                 set sprite_file = v.sprite_file, sprite_stone_slug = v.stone
+                 from (values '.implode(', ', $chunk).') as v(slug, sprite_file, stone)
+                 where t.slug = v.slug',
+                $slice,
+            );
+        }
+
+        $this->line('sprites: '.count($sprites));
+    }
+
+    private function syncSpanishNames(): void
+    {
+        $names = $this->read('names.es.json');
+
+        foreach (['species', 'moves', 'abilities', 'items'] as $table) {
+            $pairs = $names[$table] ?? [];
+
+            if ($pairs === []) {
+                continue;
+            }
+
+            foreach (array_chunk($pairs, 400, true) as $chunk) {
+                $values = [];
+                $bindings = [];
+
+                foreach ($chunk as $slug => $nameEs) {
+                    $values[] = '(?, ?)';
+                    $bindings[] = $slug;
+                    $bindings[] = $nameEs;
+                }
+
+                DB::statement(
+                    "update {$table} as t set name_es = v.name_es
+                     from (values ".implode(', ', $values).') as v(slug, name_es)
+                     where t.slug = v.slug',
+                    $bindings,
+                );
+            }
+
+            $this->line("{$table} en espanol: ".count($pairs));
+        }
     }
 
     private function syncCatalogue(): void

@@ -2,6 +2,7 @@
   {
     "slug": "abomasite",
     "name": "Abomasite",
+    "spriteNum": 575,
     "description": "If held by an Abomasnow, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -19,6 +20,7 @@
   {
     "slug": "absolite",
     "name": "Absolite",
+    "spriteNum": 576,
     "description": "If held by an Absol, this item allows it to Mega Evolve into Mega Absol in battle.",
     "effect": {
       "naturalGift": null,
@@ -36,6 +38,7 @@
   {
     "slug": "absolitez",
     "name": "Absolite Z",
+    "spriteNum": 499,
     "description": "If held by an Absol, this item allows it to Mega Evolve into Mega Absol Z in battle.",
     "effect": {
       "naturalGift": null,
@@ -53,6 +56,7 @@
   {
     "slug": "aerodactylite",
     "name": "Aerodactylite",
+    "spriteNum": 577,
     "description": "If held by an Aerodactyl, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -70,6 +74,7 @@
   {
     "slug": "aggronite",
     "name": "Aggronite",
+    "spriteNum": 578,
     "description": "If held by an Aggron, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -87,6 +92,7 @@
   {
     "slug": "airballoon",
     "name": "Air Balloon",
+    "spriteNum": 6,
     "description": "Holder is immune to Ground-type attacks. Pops when holder is hit.",
     "effect": {
       "naturalGift": null,
@@ -102,6 +108,7 @@
   {
     "slug": "alakazite",
     "name": "Alakazite",
+    "spriteNum": 579,
     "description": "If held by an Alakazam, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -119,6 +126,7 @@
   {
     "slug": "altarianite",
     "name": "Altarianite",
+    "spriteNum": 615,
     "description": "If held by an Altaria, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -136,6 +144,7 @@
   {
     "slug": "ampharosite",
     "name": "Ampharosite",
+    "spriteNum": 580,
     "description": "If held by an Ampharos, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -153,6 +162,7 @@
   {
     "slug": "aspearberry",
     "name": "Aspear Berry",
+    "spriteNum": 13,
     "description": "Holder is cured if it is frozen. Single use.",
     "effect": {
       "naturalGift": {
@@ -171,6 +181,7 @@
   {
     "slug": "audinite",
     "name": "Audinite",
+    "spriteNum": 617,
     "description": "If held by an Audino, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -188,6 +199,7 @@
   {
     "slug": "babiriberry",
     "name": "Babiri Berry",
+    "spriteNum": 17,
     "description": "Halves damage taken from a supereffective Steel-type attack. Single use.",
     "effect": {
       "naturalGift": {
@@ -206,6 +218,7 @@
   {
     "slug": "banettite",
     "name": "Banettite",
+    "spriteNum": 582,
     "description": "If held by a Banette, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -223,6 +236,7 @@
   {
     "slug": "barbaracite",
     "name": "Barbaracite",
+    "spriteNum": 564,
     "description": "If held by a Barbaracle, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -240,6 +254,7 @@
   {
     "slug": "baxcalibrite",
     "name": "Baxcalibrite",
+    "spriteNum": 514,
     "description": "If held by a Baxcalibur, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -257,6 +272,7 @@
   {
     "slug": "beedrillite",
     "name": "Beedrillite",
+    "spriteNum": 628,
     "description": "If held by a Beedrill, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -274,6 +290,7 @@
   {
     "slug": "bigroot",
     "name": "Big Root",
+    "spriteNum": 29,
     "description": "Holder gains 1.3× HP from draining/Aqua Ring/Ingrain/Leech Seed/Strength Sap.",
     "effect": {
       "naturalGift": null,
@@ -289,6 +306,7 @@
   {
     "slug": "bindingband",
     "name": "Binding Band",
+    "spriteNum": 31,
     "description": "Holder's partial-trapping moves deal 1/6 max HP per turn instead of 1/8.",
     "effect": {
       "naturalGift": null,
@@ -304,6 +322,7 @@
   {
     "slug": "blackbelt",
     "name": "Black Belt",
+    "spriteNum": 32,
     "description": "Holder's Fighting-type attacks have 1.2× power.",
     "effect": {
       "naturalGift": null,
@@ -319,6 +338,7 @@
   {
     "slug": "blackglasses",
     "name": "Black Glasses",
+    "spriteNum": 35,
     "description": "Holder's Dark-type attacks have 1.2× power.",
     "effect": {
       "naturalGift": null,
@@ -334,6 +354,7 @@
   {
     "slug": "blastoisinite",
     "name": "Blastoisinite",
+    "spriteNum": 583,
     "description": "If held by a Blastoise, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -351,6 +372,7 @@
   {
     "slug": "blazikenite",
     "name": "Blazikenite",
+    "spriteNum": 584,
     "description": "If held by a Blaziken, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -368,6 +390,7 @@
   {
     "slug": "brightpowder",
     "name": "Bright Powder",
+    "spriteNum": 51,
     "description": "The accuracy of attacks against the holder is 0.9×.",
     "effect": {
       "naturalGift": null,
@@ -383,6 +406,7 @@
   {
     "slug": "cameruptite",
     "name": "Cameruptite",
+    "spriteNum": 625,
     "description": "If held by a Camerupt, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -400,6 +424,7 @@
   {
     "slug": "chandelurite",
     "name": "Chandelurite",
+    "spriteNum": 557,
     "description": "If held by a Chandelure, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -417,6 +442,7 @@
   {
     "slug": "charcoal",
     "name": "Charcoal",
+    "spriteNum": 61,
     "description": "Holder's Fire-type attacks have 1.2× power.",
     "effect": {
       "naturalGift": null,
@@ -432,6 +458,7 @@
   {
     "slug": "charizarditex",
     "name": "Charizardite X",
+    "spriteNum": 585,
     "description": "If held by a Charizard, this item allows it to Mega Evolve into Mega Charizard X.",
     "effect": {
       "naturalGift": null,
@@ -449,6 +476,7 @@
   {
     "slug": "charizarditey",
     "name": "Charizardite Y",
+    "spriteNum": 586,
     "description": "If held by a Charizard, this item allows it to Mega Evolve into Mega Charizard Y.",
     "effect": {
       "naturalGift": null,
@@ -466,6 +494,7 @@
   {
     "slug": "chartiberry",
     "name": "Charti Berry",
+    "spriteNum": 62,
     "description": "Halves damage taken from a supereffective Rock-type attack. Single use.",
     "effect": {
       "naturalGift": {
@@ -484,6 +513,7 @@
   {
     "slug": "cheriberry",
     "name": "Cheri Berry",
+    "spriteNum": 63,
     "description": "Holder cures itself if it is paralyzed. Single use.",
     "effect": {
       "naturalGift": {
@@ -502,6 +532,7 @@
   {
     "slug": "chesnaughtite",
     "name": "Chesnaughtite",
+    "spriteNum": 558,
     "description": "If held by a Chesnaught, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -519,6 +550,7 @@
   {
     "slug": "chestoberry",
     "name": "Chesto Berry",
+    "spriteNum": 65,
     "description": "Holder wakes up if it is asleep. Single use.",
     "effect": {
       "naturalGift": {
@@ -537,6 +569,7 @@
   {
     "slug": "chilanberry",
     "name": "Chilan Berry",
+    "spriteNum": 66,
     "description": "Halves damage taken from a Normal-type attack. Single use.",
     "effect": {
       "naturalGift": {
@@ -555,6 +588,7 @@
   {
     "slug": "chimechite",
     "name": "Chimechite",
+    "spriteNum": 498,
     "description": "If held by a Chimecho, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -572,6 +606,7 @@
   {
     "slug": "choicescarf",
     "name": "Choice Scarf",
+    "spriteNum": 69,
     "description": "Holder's Speed is 1.5×, but it can only select the first move it executes.",
     "effect": {
       "naturalGift": null,
@@ -587,6 +622,7 @@
   {
     "slug": "chopleberry",
     "name": "Chople Berry",
+    "spriteNum": 71,
     "description": "Halves damage taken from a supereffective Fighting-type attack. Single use.",
     "effect": {
       "naturalGift": {
@@ -605,6 +641,7 @@
   {
     "slug": "clefablite",
     "name": "Clefablite",
+    "spriteNum": 544,
     "description": "If held by a Clefable, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -622,6 +659,7 @@
   {
     "slug": "cobaberry",
     "name": "Coba Berry",
+    "spriteNum": 76,
     "description": "Halves damage taken from a supereffective Flying-type attack. Single use.",
     "effect": {
       "naturalGift": {
@@ -640,6 +678,7 @@
   {
     "slug": "colburberry",
     "name": "Colbur Berry",
+    "spriteNum": 78,
     "description": "Halves damage taken from a supereffective Dark-type attack. Single use.",
     "effect": {
       "naturalGift": {
@@ -658,6 +697,7 @@
   {
     "slug": "cornerstonemask",
     "name": "Cornerstone Mask",
+    "spriteNum": 758,
     "description": "Ogerpon-Cornerstone: 1.2× power attacks; Terastallize to gain Embody Aspect.",
     "effect": {
       "naturalGift": null,
@@ -673,6 +713,7 @@
   {
     "slug": "crabominite",
     "name": "Crabominite",
+    "spriteNum": 507,
     "description": "If held by a Crabominable, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -690,6 +731,7 @@
   {
     "slug": "damprock",
     "name": "Damp Rock",
+    "spriteNum": 88,
     "description": "Holder's use of Rain Dance lasts 8 turns instead of 5.",
     "effect": {
       "naturalGift": null,
@@ -705,6 +747,7 @@
   {
     "slug": "delphoxite",
     "name": "Delphoxite",
+    "spriteNum": 559,
     "description": "If held by a Delphox, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -722,6 +765,7 @@
   {
     "slug": "dragalgite",
     "name": "Dragalgite",
+    "spriteNum": 565,
     "description": "If held by a Dragalge, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -739,6 +783,7 @@
   {
     "slug": "dragonfang",
     "name": "Dragon Fang",
+    "spriteNum": 106,
     "description": "Holder's Dragon-type attacks have 1.2× power.",
     "effect": {
       "naturalGift": null,
@@ -754,6 +799,7 @@
   {
     "slug": "dragoninite",
     "name": "Dragoninite",
+    "spriteNum": 547,
     "description": "If held by a Dragonite, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -771,6 +817,7 @@
   {
     "slug": "drampanite",
     "name": "Drampanite",
+    "spriteNum": 569,
     "description": "If held by a Drampa, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -788,6 +835,7 @@
   {
     "slug": "eelektrossite",
     "name": "Eelektrossite",
+    "spriteNum": 556,
     "description": "If held by an Eelektross, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -805,6 +853,7 @@
   {
     "slug": "ejectbutton",
     "name": "Eject Button",
+    "spriteNum": 118,
     "description": "If holder survives a hit, it immediately switches out to a chosen ally. Single use.",
     "effect": {
       "naturalGift": null,
@@ -820,6 +869,7 @@
   {
     "slug": "electricseed",
     "name": "Electric Seed",
+    "spriteNum": 664,
     "description": "If the terrain is Electric Terrain, raises holder's Defense by 1 stage. Single use.",
     "effect": {
       "naturalGift": null,
@@ -835,6 +885,7 @@
   {
     "slug": "emboarite",
     "name": "Emboarite",
+    "spriteNum": 552,
     "description": "If held by an Emboar, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -852,6 +903,7 @@
   {
     "slug": "excadrite",
     "name": "Excadrite",
+    "spriteNum": 553,
     "description": "If held by an Excadrill, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -869,6 +921,7 @@
   {
     "slug": "expertbelt",
     "name": "Expert Belt",
+    "spriteNum": 132,
     "description": "Holder's attacks that are super effective against the target do 1.2× damage.",
     "effect": {
       "naturalGift": null,
@@ -884,6 +937,7 @@
   {
     "slug": "fairyfeather",
     "name": "Fairy Feather",
+    "spriteNum": 754,
     "description": "Holder's Fairy-type attacks have 1.2× power.",
     "effect": {
       "naturalGift": null,
@@ -899,6 +953,7 @@
   {
     "slug": "falinksite",
     "name": "Falinksite",
+    "spriteNum": 570,
     "description": "If held by a Falinks, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -916,6 +971,7 @@
   {
     "slug": "feraligite",
     "name": "Feraligite",
+    "spriteNum": 549,
     "description": "If held by a Feraligatr, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -933,6 +989,7 @@
   {
     "slug": "floettite",
     "name": "Floettite",
+    "spriteNum": 562,
     "description": "If held by an Eternal Flower Floette, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -950,6 +1007,7 @@
   {
     "slug": "focusband",
     "name": "Focus Band",
+    "spriteNum": 150,
     "description": "Holder has a 10% chance to survive an attack that would KO it with 1 HP.",
     "effect": {
       "naturalGift": null,
@@ -965,6 +1023,7 @@
   {
     "slug": "focussash",
     "name": "Focus Sash",
+    "spriteNum": 151,
     "description": "If holder's HP is full, will survive an attack that would KO it with 1 HP. Single use.",
     "effect": {
       "naturalGift": null,
@@ -980,6 +1039,7 @@
   {
     "slug": "froslassite",
     "name": "Froslassite",
+    "spriteNum": 551,
     "description": "If held by a Froslass, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -997,6 +1057,7 @@
   {
     "slug": "galladite",
     "name": "Galladite",
+    "spriteNum": 616,
     "description": "If held by a Gallade, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -1014,6 +1075,7 @@
   {
     "slug": "garchompite",
     "name": "Garchompite",
+    "spriteNum": 573,
     "description": "If held by a Garchomp, this item allows it to Mega Evolve into Mega Garchomp.",
     "effect": {
       "naturalGift": null,
@@ -1031,6 +1093,7 @@
   {
     "slug": "garchompitez",
     "name": "Garchompite Z",
+    "spriteNum": 501,
     "description": "If held by a Garchomp, this item allows it to Mega Evolve into Mega Garchomp Z.",
     "effect": {
       "naturalGift": null,
@@ -1048,6 +1111,7 @@
   {
     "slug": "gardevoirite",
     "name": "Gardevoirite",
+    "spriteNum": 587,
     "description": "If held by a Gardevoir, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -1065,6 +1129,7 @@
   {
     "slug": "gengarite",
     "name": "Gengarite",
+    "spriteNum": 588,
     "description": "If held by a Gengar, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -1082,6 +1147,7 @@
   {
     "slug": "glalitite",
     "name": "Glalitite",
+    "spriteNum": 623,
     "description": "If held by a Glalie, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -1099,6 +1165,7 @@
   {
     "slug": "glimmoranite",
     "name": "Glimmoranite",
+    "spriteNum": 512,
     "description": "If held by a Glimmora, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -1116,6 +1183,7 @@
   {
     "slug": "golisopite",
     "name": "Golisopite",
+    "spriteNum": 508,
     "description": "If held by a Golisopod, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -1133,6 +1201,7 @@
   {
     "slug": "golurkite",
     "name": "Golurkite",
+    "spriteNum": 505,
     "description": "If held by a Golurk, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -1150,6 +1219,7 @@
   {
     "slug": "grassyseed",
     "name": "Grassy Seed",
+    "spriteNum": 667,
     "description": "If the terrain is Grassy Terrain, raises holder's Defense by 1 stage. Single use.",
     "effect": {
       "naturalGift": null,
@@ -1165,6 +1235,7 @@
   {
     "slug": "greninjite",
     "name": "Greninjite",
+    "spriteNum": 560,
     "description": "If held by a Greninja, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -1182,6 +1253,7 @@
   {
     "slug": "gyaradosite",
     "name": "Gyaradosite",
+    "spriteNum": 589,
     "description": "If held by a Gyarados, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -1199,6 +1271,7 @@
   {
     "slug": "habanberry",
     "name": "Haban Berry",
+    "spriteNum": 185,
     "description": "Halves damage taken from a supereffective Dragon-type attack. Single use.",
     "effect": {
       "naturalGift": {
@@ -1217,6 +1290,7 @@
   {
     "slug": "hardstone",
     "name": "Hard Stone",
+    "spriteNum": 187,
     "description": "Holder's Rock-type attacks have 1.2× power.",
     "effect": {
       "naturalGift": null,
@@ -1232,6 +1306,7 @@
   {
     "slug": "hawluchanite",
     "name": "Hawluchanite",
+    "spriteNum": 566,
     "description": "If held by a Hawlucha, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -1249,6 +1324,7 @@
   {
     "slug": "hearthflamemask",
     "name": "Hearthflame Mask",
+    "spriteNum": 760,
     "description": "Ogerpon-Hearthflame: 1.2× power attacks; Terastallize to gain Embody Aspect.",
     "effect": {
       "naturalGift": null,
@@ -1264,6 +1340,7 @@
   {
     "slug": "heatrock",
     "name": "Heat Rock",
+    "spriteNum": 193,
     "description": "Holder's use of Sunny Day lasts 8 turns instead of 5.",
     "effect": {
       "naturalGift": null,
@@ -1279,6 +1356,7 @@
   {
     "slug": "heracronite",
     "name": "Heracronite",
+    "spriteNum": 590,
     "description": "If held by a Heracross, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -1296,6 +1374,7 @@
   {
     "slug": "houndoominite",
     "name": "Houndoominite",
+    "spriteNum": 591,
     "description": "If held by a Houndoom, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -1313,6 +1392,7 @@
   {
     "slug": "icyrock",
     "name": "Icy Rock",
+    "spriteNum": 221,
     "description": "Holder's use of Snowscape lasts 8 turns instead of 5.",
     "effect": {
       "naturalGift": null,
@@ -1328,6 +1408,7 @@
   {
     "slug": "ironball",
     "name": "Iron Ball",
+    "spriteNum": 224,
     "description": "Holder is grounded, Speed halved. If Flying type, takes neutral Ground damage.",
     "effect": {
       "naturalGift": null,
@@ -1343,6 +1424,7 @@
   {
     "slug": "kangaskhanite",
     "name": "Kangaskhanite",
+    "spriteNum": 592,
     "description": "If held by a Kangaskhan, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -1360,6 +1442,7 @@
   {
     "slug": "kasibberry",
     "name": "Kasib Berry",
+    "spriteNum": 233,
     "description": "Halves damage taken from a supereffective Ghost-type attack. Single use.",
     "effect": {
       "naturalGift": {
@@ -1378,6 +1461,7 @@
   {
     "slug": "kebiaberry",
     "name": "Kebia Berry",
+    "spriteNum": 234,
     "description": "Halves damage taken from a supereffective Poison-type attack. Single use.",
     "effect": {
       "naturalGift": {
@@ -1396,6 +1480,7 @@
   {
     "slug": "kingsrock",
     "name": "King's Rock",
+    "spriteNum": 236,
     "description": "Holder's attacks without a chance to flinch gain a 10% chance to flinch.",
     "effect": {
       "naturalGift": null,
@@ -1412,6 +1497,7 @@
   {
     "slug": "leek",
     "name": "Leek",
+    "spriteNum": 475,
     "description": "If held by a Farfetch’d or Sirfetch’d, its critical hit ratio is raised by 2 stages.",
     "effect": {
       "naturalGift": null,
@@ -1427,6 +1513,7 @@
   {
     "slug": "leftovers",
     "name": "Leftovers",
+    "spriteNum": 242,
     "description": "At the end of every turn, holder restores 1/16 of its max HP.",
     "effect": {
       "naturalGift": null,
@@ -1442,6 +1529,7 @@
   {
     "slug": "leppaberry",
     "name": "Leppa Berry",
+    "spriteNum": 244,
     "description": "Restores 10 PP to the first of the holder's moves to reach 0 PP. Single use.",
     "effect": {
       "naturalGift": {
@@ -1460,6 +1548,7 @@
   {
     "slug": "lifeorb",
     "name": "Life Orb",
+    "spriteNum": 249,
     "description": "Holder's attacks do 1.3× damage, and it loses 1/10 its max HP after the attack.",
     "effect": {
       "naturalGift": null,
@@ -1475,6 +1564,7 @@
   {
     "slug": "lightball",
     "name": "Light Ball",
+    "spriteNum": 251,
     "description": "If held by a Pikachu, its Attack and Sp. Atk are doubled.",
     "effect": {
       "naturalGift": null,
@@ -1491,6 +1581,7 @@
   {
     "slug": "lightclay",
     "name": "Light Clay",
+    "spriteNum": 252,
     "description": "Holder's use of Aurora Veil, Light Screen, or Reflect lasts 8 turns instead of 5.",
     "effect": {
       "naturalGift": null,
@@ -1506,6 +1597,7 @@
   {
     "slug": "lopunnite",
     "name": "Lopunnite",
+    "spriteNum": 626,
     "description": "If held by a Lopunny, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -1523,6 +1615,7 @@
   {
     "slug": "lucarionite",
     "name": "Lucarionite",
+    "spriteNum": 594,
     "description": "If held by a Lucario, this item allows it to Mega Evolve into Mega Lucario in battle.",
     "effect": {
       "naturalGift": null,
@@ -1540,6 +1633,7 @@
   {
     "slug": "lucarionitez",
     "name": "Lucarionite Z",
+    "spriteNum": 502,
     "description": "If held by a Lucario, this item allows it to Mega Evolve into Mega Lucario Z in battle.",
     "effect": {
       "naturalGift": null,
@@ -1557,6 +1651,7 @@
   {
     "slug": "lumberry",
     "name": "Lum Berry",
+    "spriteNum": 262,
     "description": "Holder cures itself if it has a non-volatile status or is confused. Single use.",
     "effect": {
       "naturalGift": {
@@ -1575,6 +1670,7 @@
   {
     "slug": "magnet",
     "name": "Magnet",
+    "spriteNum": 273,
     "description": "Holder's Electric-type attacks have 1.2× power.",
     "effect": {
       "naturalGift": null,
@@ -1590,6 +1686,7 @@
   {
     "slug": "malamarite",
     "name": "Malamarite",
+    "spriteNum": 563,
     "description": "If held by a Malamar, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -1607,6 +1704,7 @@
   {
     "slug": "manectite",
     "name": "Manectite",
+    "spriteNum": 596,
     "description": "If held by a Manectric, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -1624,6 +1722,7 @@
   {
     "slug": "mawilite",
     "name": "Mawilite",
+    "spriteNum": 598,
     "description": "If held by a Mawile, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -1641,6 +1740,7 @@
   {
     "slug": "medichamite",
     "name": "Medichamite",
+    "spriteNum": 599,
     "description": "If held by a Medicham, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -1658,6 +1758,7 @@
   {
     "slug": "meganiumite",
     "name": "Meganiumite",
+    "spriteNum": 548,
     "description": "If held by a Meganium, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -1675,6 +1776,7 @@
   {
     "slug": "mentalherb",
     "name": "Mental Herb",
+    "spriteNum": 285,
     "description": "Cures holder of Attract, Disable, Encore, Heal Block, Taunt, Torment. Single use.",
     "effect": {
       "naturalGift": null,
@@ -1690,6 +1792,7 @@
   {
     "slug": "meowsticite",
     "name": "Meowsticite",
+    "spriteNum": 506,
     "description": "If held by a Meowstic, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -1708,6 +1811,7 @@
   {
     "slug": "metagrossite",
     "name": "Metagrossite",
+    "spriteNum": 618,
     "description": "If held by a Metagross, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -1725,6 +1829,7 @@
   {
     "slug": "metalcoat",
     "name": "Metal Coat",
+    "spriteNum": 286,
     "description": "Holder's Steel-type attacks have 1.2× power.",
     "effect": {
       "naturalGift": null,
@@ -1740,6 +1845,7 @@
   {
     "slug": "metronome",
     "name": "Metronome",
+    "spriteNum": 289,
     "description": "Damage of moves used on consecutive turns is increased. Max 2× after 5 turns.",
     "effect": {
       "naturalGift": null,
@@ -1755,6 +1861,7 @@
   {
     "slug": "miracleseed",
     "name": "Miracle Seed",
+    "spriteNum": 292,
     "description": "Holder's Grass-type attacks have 1.2× power.",
     "effect": {
       "naturalGift": null,
@@ -1770,6 +1877,7 @@
   {
     "slug": "mistyseed",
     "name": "Misty Seed",
+    "spriteNum": 666,
     "description": "If the terrain is Misty Terrain, raises holder's Sp. Def by 1 stage. Single use.",
     "effect": {
       "naturalGift": null,
@@ -1785,6 +1893,7 @@
   {
     "slug": "muscleband",
     "name": "Muscle Band",
+    "spriteNum": 297,
     "description": "Holder's physical attacks have 1.1× power.",
     "effect": {
       "naturalGift": null,
@@ -1800,6 +1909,7 @@
   {
     "slug": "mysticwater",
     "name": "Mystic Water",
+    "spriteNum": 300,
     "description": "Holder's Water-type attacks have 1.2× power.",
     "effect": {
       "naturalGift": null,
@@ -1815,6 +1925,7 @@
   {
     "slug": "nevermeltice",
     "name": "Never-Melt Ice",
+    "spriteNum": 305,
     "description": "Holder's Ice-type attacks have 1.2× power.",
     "effect": {
       "naturalGift": null,
@@ -1830,6 +1941,7 @@
   {
     "slug": "normalgem",
     "name": "Normal Gem",
+    "spriteNum": 307,
     "description": "Holder's first successful Normal-type attack will have 1.3× power. Single use.",
     "effect": {
       "naturalGift": null,
@@ -1843,6 +1955,7 @@
   {
     "slug": "occaberry",
     "name": "Occa Berry",
+    "spriteNum": 311,
     "description": "Halves damage taken from a supereffective Fire-type attack. Single use.",
     "effect": {
       "naturalGift": {
@@ -1861,6 +1974,7 @@
   {
     "slug": "oranberry",
     "name": "Oran Berry",
+    "spriteNum": 319,
     "description": "Restores 10 HP when at 1/2 max HP or less. Single use.",
     "effect": {
       "naturalGift": {
@@ -1879,6 +1993,7 @@
   {
     "slug": "passhoberry",
     "name": "Passho Berry",
+    "spriteNum": 329,
     "description": "Halves damage taken from a supereffective Water-type attack. Single use.",
     "effect": {
       "naturalGift": {
@@ -1897,6 +2012,7 @@
   {
     "slug": "payapaberry",
     "name": "Payapa Berry",
+    "spriteNum": 330,
     "description": "Halves damage taken from a supereffective Psychic-type attack. Single use.",
     "effect": {
       "naturalGift": {
@@ -1915,6 +2031,7 @@
   {
     "slug": "pechaberry",
     "name": "Pecha Berry",
+    "spriteNum": 333,
     "description": "Holder is cured if it is poisoned. Single use.",
     "effect": {
       "naturalGift": {
@@ -1933,6 +2050,7 @@
   {
     "slug": "persimberry",
     "name": "Persim Berry",
+    "spriteNum": 334,
     "description": "Holder is cured if it is confused. Single use.",
     "effect": {
       "naturalGift": {
@@ -1951,6 +2069,7 @@
   {
     "slug": "pidgeotite",
     "name": "Pidgeotite",
+    "spriteNum": 622,
     "description": "If held by a Pidgeot, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -1968,6 +2087,7 @@
   {
     "slug": "pinsirite",
     "name": "Pinsirite",
+    "spriteNum": 602,
     "description": "If held by a Pinsir, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -1985,6 +2105,7 @@
   {
     "slug": "poisonbarb",
     "name": "Poison Barb",
+    "spriteNum": 343,
     "description": "Holder's Poison-type attacks have 1.2× power.",
     "effect": {
       "naturalGift": null,
@@ -2001,6 +2122,7 @@
   {
     "slug": "psychicseed",
     "name": "Psychic Seed",
+    "spriteNum": 665,
     "description": "If the terrain is Psychic Terrain, raises holder's Sp. Def by 1 stage. Single use.",
     "effect": {
       "naturalGift": null,
@@ -2016,6 +2138,7 @@
   {
     "slug": "pyroarite",
     "name": "Pyroarite",
+    "spriteNum": 561,
     "description": "If held by a Pyroar, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -2033,6 +2156,7 @@
   {
     "slug": "quickclaw",
     "name": "Quick Claw",
+    "spriteNum": 373,
     "description": "Each turn, holder has a 20% chance to move first in its priority bracket.",
     "effect": {
       "naturalGift": null,
@@ -2048,6 +2172,7 @@
   {
     "slug": "raichunitex",
     "name": "Raichunite X",
+    "spriteNum": 496,
     "description": "If held by a Raichu, this item allows it to Mega Evolve into Mega Raichu X in battle.",
     "effect": {
       "naturalGift": null,
@@ -2065,6 +2190,7 @@
   {
     "slug": "raichunitey",
     "name": "Raichunite Y",
+    "spriteNum": 497,
     "description": "If held by a Raichu, this item allows it to Mega Evolve into Mega Raichu Y in battle.",
     "effect": {
       "naturalGift": null,
@@ -2082,6 +2208,7 @@
   {
     "slug": "rawstberry",
     "name": "Rawst Berry",
+    "spriteNum": 381,
     "description": "Holder is cured if it is burned. Single use.",
     "effect": {
       "naturalGift": {
@@ -2100,6 +2227,7 @@
   {
     "slug": "redcard",
     "name": "Red Card",
+    "spriteNum": 387,
     "description": "If holder survives a hit, attacker is forced to switch to a random ally. Single use.",
     "effect": {
       "naturalGift": null,
@@ -2115,6 +2243,7 @@
   {
     "slug": "rindoberry",
     "name": "Rindo Berry",
+    "spriteNum": 409,
     "description": "Halves damage taken from a supereffective Grass-type attack. Single use.",
     "effect": {
       "naturalGift": {
@@ -2133,6 +2262,7 @@
   {
     "slug": "rockyhelmet",
     "name": "Rocky Helmet",
+    "spriteNum": 417,
     "description": "If holder is hit by a contact move, the attacker loses 1/6 of its max HP.",
     "effect": {
       "naturalGift": null,
@@ -2148,6 +2278,7 @@
   {
     "slug": "roseliberry",
     "name": "Roseli Berry",
+    "spriteNum": 603,
     "description": "Halves damage taken from a supereffective Fairy-type attack. Single use.",
     "effect": {
       "naturalGift": {
@@ -2166,6 +2297,7 @@
   {
     "slug": "sablenite",
     "name": "Sablenite",
+    "spriteNum": 614,
     "description": "If held by a Sableye, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -2183,6 +2315,7 @@
   {
     "slug": "salamencite",
     "name": "Salamencite",
+    "spriteNum": 627,
     "description": "If held by a Salamence, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -2200,6 +2333,7 @@
   {
     "slug": "sceptilite",
     "name": "Sceptilite",
+    "spriteNum": 613,
     "description": "If held by a Sceptile, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -2217,6 +2351,7 @@
   {
     "slug": "scizorite",
     "name": "Scizorite",
+    "spriteNum": 605,
     "description": "If held by a Scizor, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -2234,6 +2369,7 @@
   {
     "slug": "scolipite",
     "name": "Scolipite",
+    "spriteNum": 554,
     "description": "If held by a Scolipede, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -2251,6 +2387,7 @@
   {
     "slug": "scopelens",
     "name": "Scope Lens",
+    "spriteNum": 429,
     "description": "Holder's critical hit ratio is raised by 1 stage.",
     "effect": {
       "naturalGift": null,
@@ -2266,6 +2403,7 @@
   {
     "slug": "scovillainite",
     "name": "Scovillainite",
+    "spriteNum": 511,
     "description": "If held by a Scovillain, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -2283,6 +2421,7 @@
   {
     "slug": "scraftinite",
     "name": "Scraftinite",
+    "spriteNum": 555,
     "description": "If held by a Scrafty, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -2300,6 +2439,7 @@
   {
     "slug": "sharpbeak",
     "name": "Sharp Beak",
+    "spriteNum": 436,
     "description": "Holder's Flying-type attacks have 1.2× power.",
     "effect": {
       "naturalGift": null,
@@ -2315,6 +2455,7 @@
   {
     "slug": "sharpedonite",
     "name": "Sharpedonite",
+    "spriteNum": 619,
     "description": "If held by a Sharpedo, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -2332,6 +2473,7 @@
   {
     "slug": "shedshell",
     "name": "Shed Shell",
+    "spriteNum": 437,
     "description": "Holder cannot be prevented from choosing to switch out by any effect.",
     "effect": {
       "naturalGift": null,
@@ -2347,6 +2489,7 @@
   {
     "slug": "shellbell",
     "name": "Shell Bell",
+    "spriteNum": 438,
     "description": "After an attack, holder gains 1/8 of the damage in HP dealt to other Pokemon.",
     "effect": {
       "naturalGift": null,
@@ -2362,6 +2505,7 @@
   {
     "slug": "shucaberry",
     "name": "Shuca Berry",
+    "spriteNum": 443,
     "description": "Halves damage taken from a supereffective Ground-type attack. Single use.",
     "effect": {
       "naturalGift": {
@@ -2380,6 +2524,7 @@
   {
     "slug": "silkscarf",
     "name": "Silk Scarf",
+    "spriteNum": 444,
     "description": "Holder's Normal-type attacks have 1.2× power.",
     "effect": {
       "naturalGift": null,
@@ -2395,6 +2540,7 @@
   {
     "slug": "silverpowder",
     "name": "Silver Powder",
+    "spriteNum": 447,
     "description": "Holder's Bug-type attacks have 1.2× power.",
     "effect": {
       "naturalGift": null,
@@ -2410,6 +2556,7 @@
   {
     "slug": "sitrusberry",
     "name": "Sitrus Berry",
+    "spriteNum": 448,
     "description": "Restores 1/4 max HP when at 1/2 max HP or less. Single use.",
     "effect": {
       "naturalGift": {
@@ -2428,6 +2575,7 @@
   {
     "slug": "skarmorite",
     "name": "Skarmorite",
+    "spriteNum": 550,
     "description": "If held by a Skarmory, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -2445,6 +2593,7 @@
   {
     "slug": "slowbronite",
     "name": "Slowbronite",
+    "spriteNum": 620,
     "description": "If held by a Slowbro (not Galarian Slowbro), this item allows it to Mega Evolve.",
     "effect": {
       "naturalGift": null,
@@ -2462,6 +2611,7 @@
   {
     "slug": "smoothrock",
     "name": "Smooth Rock",
+    "spriteNum": 453,
     "description": "Holder's use of Sandstorm lasts 8 turns instead of 5.",
     "effect": {
       "naturalGift": null,
@@ -2477,6 +2627,7 @@
   {
     "slug": "softsand",
     "name": "Soft Sand",
+    "spriteNum": 456,
     "description": "Holder's Ground-type attacks have 1.2× power.",
     "effect": {
       "naturalGift": null,
@@ -2492,6 +2643,7 @@
   {
     "slug": "spelltag",
     "name": "Spell Tag",
+    "spriteNum": 461,
     "description": "Holder's Ghost-type attacks have 1.2× power.",
     "effect": {
       "naturalGift": null,
@@ -2507,6 +2659,7 @@
   {
     "slug": "staraptite",
     "name": "Staraptite",
+    "spriteNum": 500,
     "description": "If held by a Staraptor, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -2524,6 +2677,7 @@
   {
     "slug": "starminite",
     "name": "Starminite",
+    "spriteNum": 546,
     "description": "If held by a Starmie, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -2541,6 +2695,7 @@
   {
     "slug": "steelixite",
     "name": "Steelixite",
+    "spriteNum": 621,
     "description": "If held by a Steelix, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -2558,6 +2713,7 @@
   {
     "slug": "swampertite",
     "name": "Swampertite",
+    "spriteNum": 612,
     "description": "If held by a Swampert, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -2575,6 +2731,7 @@
   {
     "slug": "tangaberry",
     "name": "Tanga Berry",
+    "spriteNum": 487,
     "description": "Halves damage taken from a supereffective Bug-type attack. Single use.",
     "effect": {
       "naturalGift": {
@@ -2593,6 +2750,7 @@
   {
     "slug": "terrainextender",
     "name": "Terrain Extender",
+    "spriteNum": 662,
     "description": "Holder's use of Electric/Grassy/Misty/Psychic Terrain lasts 8 turns instead of 5.",
     "effect": {
       "naturalGift": null,
@@ -2608,6 +2766,7 @@
   {
     "slug": "twistedspoon",
     "name": "Twisted Spoon",
+    "spriteNum": 520,
     "description": "Holder's Psychic-type attacks have 1.2× power.",
     "effect": {
       "naturalGift": null,
@@ -2623,6 +2782,7 @@
   {
     "slug": "tyranitarite",
     "name": "Tyranitarite",
+    "spriteNum": 607,
     "description": "If held by a Tyranitar, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -2640,6 +2800,7 @@
   {
     "slug": "venusaurite",
     "name": "Venusaurite",
+    "spriteNum": 608,
     "description": "If held by a Venusaur, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -2657,6 +2818,7 @@
   {
     "slug": "victreebelite",
     "name": "Victreebelite",
+    "spriteNum": 545,
     "description": "If held by a Victreebel, this item allows it to Mega Evolve in battle.",
     "effect": {
       "naturalGift": null,
@@ -2674,6 +2836,7 @@
   {
     "slug": "wacanberry",
     "name": "Wacan Berry",
+    "spriteNum": 526,
     "description": "Halves damage taken from a supereffective Electric-type attack. Single use.",
     "effect": {
       "naturalGift": {
@@ -2692,6 +2855,7 @@
   {
     "slug": "wellspringmask",
     "name": "Wellspring Mask",
+    "spriteNum": 759,
     "description": "Ogerpon-Wellspring: 1.2× power attacks; Terastallize to gain Embody Aspect.",
     "effect": {
       "naturalGift": null,
@@ -2707,6 +2871,7 @@
   {
     "slug": "whiteherb",
     "name": "White Herb",
+    "spriteNum": 535,
     "description": "Restores all lowered stat stages to 0 when one is less than 0. Single use.",
     "effect": {
       "naturalGift": null,
@@ -2722,6 +2887,7 @@
   {
     "slug": "widelens",
     "name": "Wide Lens",
+    "spriteNum": 537,
     "description": "The accuracy of attacks by the holder is 1.1×.",
     "effect": {
       "naturalGift": null,
@@ -2737,6 +2903,7 @@
   {
     "slug": "wiseglasses",
     "name": "Wise Glasses",
+    "spriteNum": 539,
     "description": "Holder's special attacks have 1.1× power.",
     "effect": {
       "naturalGift": null,
@@ -2752,6 +2919,7 @@
   {
     "slug": "yacheberry",
     "name": "Yache Berry",
+    "spriteNum": 567,
     "description": "Halves damage taken from a supereffective Ice-type attack. Single use.",
     "effect": {
       "naturalGift": {
@@ -2770,6 +2938,7 @@
   {
     "slug": "zoomlens",
     "name": "Zoom Lens",
+    "spriteNum": 574,
     "description": "The accuracy of attacks by the holder is 1.2× if it moves after its target.",
     "effect": {
       "naturalGift": null,
