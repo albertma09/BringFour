@@ -1,5 +1,5 @@
 {
-  "name": "turn-zero-ingest",
+  "name": "bringfour-ingest",
   "private": true,
   "type": "module",
   "version": "0.1.0",

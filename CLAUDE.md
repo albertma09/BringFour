@@ -1,8 +1,8 @@
-# Turn Zero
+# BringFour
 
 Herramienta educativa de competitivo para **Pokémon Champions**. Filosofía: *enseñar a jugar mejor, no jugar por el usuario*. Prioridad: `UNDERSTANDING > RECOMMENDATION`, `EXPLANATION > AUTOMATION`.
 
-El nombre viene del "turno cero": todo lo que pasa **antes** de que empiece la partida — construir el equipo, leer el Team Preview, preparar el plan. La herramienta trabaja ahí; no juega tus turnos.
+El nombre viene del Team Preview: ves 6 y **traes 4**. Esa es la decisión que la herramienta enseña, y el dato diferencial del proyecto (bring rates condicionados al matchup) es exactamente eso.
 
 ## ESTADO
 
@@ -31,7 +31,7 @@ Lee estos ficheros antes de hacer nada:
 | PHP | `C:/wamp64/bin/php/php8.3.6/php.exe -c php.ini` — el `php.ini` del proyecto activa `pdo_pgsql` |
 | Composer | `php.exe -c php.ini "C:/Users/Albert Mateos/AppData/Local/ComposerSetup/bin/composer.phar"` |
 | Atajo | `./dev.ps1 <artisan|composer|...>` |
-| PostgreSQL | Docker, contenedor `turnzero-db`, **puerto host 5434** (el 5433 lo ocupa `scoreboard-db`) |
+| PostgreSQL | Docker, contenedor `bringfour-db`, **puerto host 5434** (el 5433 lo ocupa `scoreboard-db`) |
 | Node | v22 local, solo para `ingest/` (build-time) |
 
 Laravel 13.32 · PHP 8.3.6 · PostgreSQL 16.
@@ -55,7 +55,7 @@ Laravel  →  REST API + RuleEngine (PHP, determinista) + LLM Gateway (opcional,
 - **No hay IVs** (todos actúan como 31). **No hay EVs.**
 - **Stat Points (SP): 66 totales, tope 32 por estadística.** 1 SP = +1 stat a nivel 50.
 - Nivel siempre **50** en combate.
-- Las naturalezas se llaman **Stat Alignments** (±10%). El número exacto está sin confirmar (21 vs 25).
+- Las naturalezas se llaman **Stat Alignments** (±10%). **Son 25, 5 de ellas neutras** (verificado contra `Dex.natures.all()`; el dato de "21" que circula es falso).
 - Fórmulas verificadas:
   - `HP = Base + 75 + SP`
   - `Resto = (Base + 20 + SP) × alignment`

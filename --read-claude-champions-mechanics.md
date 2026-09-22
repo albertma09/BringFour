@@ -237,7 +237,7 @@ Directivas vistas en una partida de 12 turnos: `move`, `switch`, `-damage`, `-he
 PHP        C:/wamp64/bin/php/php8.3.6/php.exe -c php.ini
 Composer   php.exe -c php.ini "$LOCALAPPDATA/ComposerSetup/bin/composer.phar"
 Atajo      ./dev.ps1 artisan|composer|test|php|up|down|psql
-PostgreSQL Docker, contenedor turnzero-db, puerto host 5434 (el 5433 lo usa scoreboard-db)
+PostgreSQL Docker, contenedor bringfour-db, puerto host 5434 (el 5433 lo usa scoreboard-db)
 Node       v22 local, solo build-time
 ```
 
@@ -245,7 +245,7 @@ Laravel 13.32 · PHP 8.3.6 · PostgreSQL 16.15 · Pest 4.7.
 
 **Pest 5 no se puede usar:** requiere PHP 8.4 y WAMP solo llega a 8.3.6.
 
-Base de datos de test aparte: `turnzero_test`, configurada en `phpunit.xml`. Los tests Feature usan `DatabaseTransactions`.
+Base de datos de test aparte: `bringfour_test`, configurada en `phpunit.xml`. Los tests Feature usan `DatabaseTransactions`.
 
 ```bash
 node ingest/showdown-data.mjs        # regenera data/

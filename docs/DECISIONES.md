@@ -32,19 +32,29 @@ El rule engine se diseña para dobles: Fake Out, Intimidate, redirección, Wide 
 
 Estructura i18n desde el día 1. **Contenido en EN primero, ES en paralelo.** Las plantillas de explicación del rule engine son claves i18n con parámetros desde el principio, nunca texto incrustado.
 
-## 4. Nombre — ✅ DELEGADO → propuesta: **Turn Zero**
+## 4. Nombre — ✅ CERRADO: **BringFour** (`bringfour.gg`)
 
-Propuesta principal: **Turn Zero** (`turnzero.gg`).
+Historial: la primera propuesta fue **Turn Zero**, descartada el 22-sep-2026 porque `turnzero.gg` ya lo usa una web de Warhammer 40K.
 
-Por qué encaja:
-- El "turno cero" es todo lo que ocurre **antes** de que empiece la partida: construir el equipo, leer el Team Preview, preparar el plan. Es literalmente el alcance del producto.
-- Refuerza la filosofía: la herramienta no juega tus turnos, trabaja en el turno cero.
-- Corto, pronunciable en ES y EN, sin "Pokémon" en la marca (mitigación legal de la sección 4).
-- No colisiona con ChampDex, ChampsDex, ChampTeams ni championslab.xyz.
+Candidatos verificados (DNS real + búsqueda de colisiones de marca):
 
-Alternativas si el dominio no está libre: `Outspeed`, `Open Sheet`, `Sixth Slot`, `Mindgame`.
+| Nombre | .gg | .com | .app | Colisión |
+|---|---|---|---|---|
+| Turn Zero | ❌ Warhammer 40K | — | — | — |
+| Outspeed | libre | registrado | libre | ❌ startup de IA financiada + marca de esports |
+| TeamShape | libre | ❌ ocupado | libre | ⚠️ software de RRHH holandés (2006) |
+| **BringFour** | ✅ libre | ✅ libre | ✅ libre | ✅ ninguna |
 
-> ⚠️ **Pendiente:** verificar disponibilidad real del dominio y que no haya marca registrada. No se ha comprobado.
+Por qué BringFour:
+- **Único libre en los tres TLD a la vez**, lo que da consistencia de marca completa.
+- Sin colisión de marca conocida.
+- En dobles VGC ves 6 en el Team Preview y **traes 4**: es la decisión que enseña el producto, y el dato diferencial (bring rates condicionados al matchup) es exactamente eso. Nombre y foso dicen lo mismo.
+- Sin "Pokémon" en la marca (mitigación legal de la sección 4 de la investigación).
+- No colisiona con ChampDex, ChampsDex, ChampTeams, championslab.xyz, VGC.tools, VGC Lite ni VGC Helper.
+
+Pega asumida: es específico de dobles. Si algún día se añade singles (BSS trae 3), el nombre queda algo torcido. Aceptable, porque la decisión 2 fijó dobles como formato del producto.
+
+> ⚠️ **Pendiente:** el dominio está libre por DNS pero **no se ha registrado**. Tampoco se ha hecho búsqueda formal en registros de marcas.
 
 ## 5. Repositorio — ✅ PÚBLICO, cuenta personal
 
@@ -91,7 +101,7 @@ Decisiones técnicas tomadas al implementar, con su motivo:
 - **PHP 8.3.6 de WAMP con un `php.ini` propio del proyecto**, en vez de instalar PHP o tocar la configuración global. El `php` del PATH es 7.4 y es el del proyecto del trabajo: no se toca.
 - **PostgreSQL en el puerto 5434**, porque `scoreboard-db` ya ocupa el 5433.
 - **PHPUnit + Pest 4.7.** Pest 5 exige PHP 8.4, que WAMP no tiene.
-- **Base de datos de test aparte (`turnzero_test`)** con `DatabaseTransactions`, en vez de sqlite en memoria: es un proyecto de capa de datos, testear contra sqlite no probaría nada.
+- **Base de datos de test aparte (`bringfour_test`)** con `DatabaseTransactions`, en vez de sqlite en memoria: es un proyecto de capa de datos, testear contra sqlite no probaría nada.
 - **Catálogo global + legalidad por regulación**, en vez de duplicar especies por regulación. Obligado por casos reales como Floette-Eternal (legal) con Floette (ilegal) como forma base.
 - **`items.mega_evolutions` como jsonb**, no un slug: en Champions `megaStone` es un mapa base→mega por la existencia de Z-Megas.
 - **Aritmética entera en las fórmulas de estadísticas.** Con floats aparecen errores de un punto.
@@ -101,4 +111,4 @@ Decisiones técnicas tomadas al implementar, con su motivo:
 ## Pendiente de decidir (no bloquea)
 
 - **Dónde vive el archivo de replays a largo plazo.** El workflow `collect-replays.yml` está en `workflow_dispatch` (sin cron) apuntando a una rama `replay-archive`. Con ~4.600 replays/día y compresión al 13%, el archivo crece **~90 MB/mes, ~1,1 GB/año**. Opciones: rama huérfana en este repo, repo de datos aparte, o disco del VPS. Hay que elegir antes de activar el cron. El backfill funciona, así que esperar unos días no pierde datos.
-- **Dominio y marca.** `turnzero.gg` sin verificar disponibilidad ni registro de marca.
+- **Dominio y marca.** `bringfour.gg` sin verificar disponibilidad ni registro de marca.

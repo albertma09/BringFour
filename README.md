@@ -1,8 +1,8 @@
-# Turn Zero
+# BringFour
 
 Laboratorio de competitivo para **Pokémon Champions**. Construye, analiza y entiende equipos — y aprende a decidir mejor.
 
-> El "turno cero" es todo lo que pasa antes de que empiece la partida: construir el equipo, leer el Team Preview, preparar el plan. La herramienta trabaja ahí. **No juega tus turnos.**
+> Ves 6 en el Team Preview y traes 4. Esa decisión, y el plan que hay detrás, es donde se gana la partida. BringFour trabaja ahí. **No juega tus turnos.**
 
 `UNDERSTANDING > RECOMMENDATION` · `EXPLANATION > AUTOMATION` · `LEARNING > OPTIMAL PLAY`
 

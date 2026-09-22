@@ -31,7 +31,7 @@ switch ($cmd) {
     'php'      { & $php -c $ini @rest }
     'up'       { docker compose -f (Join-Path $root 'docker-compose.yml') up -d }
     'down'     { docker compose -f (Join-Path $root 'docker-compose.yml') down }
-    'psql'     { docker exec -it turnzero-db psql -U turnzero -d turnzero @rest }
+    'psql'     { docker exec -it bringfour-db psql -U bringfour -d bringfour @rest }
     default    { & $php -c $ini (Join-Path $root 'artisan') @Args }
 }
 

@@ -12,8 +12,8 @@ const SEARCH_URL = 'https://replay.pokemonshowdown.com/search.json';
 const PAGE_SIZE = 51;
 const REQUEST_DELAY_MS = 350;
 
-const MAX_PAGES = Number(process.env.TZ_MAX_PAGES ?? 40);
-const BACKFILL = process.env.TZ_BACKFILL === '1';
+const MAX_PAGES = Number(process.env.BF_MAX_PAGES ?? 40);
+const BACKFILL = process.env.BF_BACKFILL === '1';
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 

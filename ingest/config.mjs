@@ -1,4 +1,4 @@
-export const USER_AGENT = 'turn-zero-ingest/0.1 (+https://github.com/albertma09/turn-zero)';
+export const USER_AGENT = 'bringfour-ingest/0.1 (+https://github.com/albertma09/bringfour)';
 
 export const ELO_BUCKETS = [0, 1500, 1630, 1760];
 

@@ -14,13 +14,13 @@ jobs:
       postgres:
         image: postgres:16-alpine
         env:
-          POSTGRES_DB: turnzero_test
-          POSTGRES_USER: turnzero
-          POSTGRES_PASSWORD: turnzero
+          POSTGRES_DB: bringfour_test
+          POSTGRES_USER: bringfour
+          POSTGRES_PASSWORD: bringfour
         ports:
           - 5432:5432
         options: >-
-          --health-cmd "pg_isready -U turnzero"
+          --health-cmd "pg_isready -U bringfour"
           --health-interval 5s
           --health-timeout 5s
           --health-retries 10
@@ -29,9 +29,9 @@ jobs:
       DB_CONNECTION: pgsql
       DB_HOST: 127.0.0.1
       DB_PORT: 5432
-      DB_DATABASE: turnzero_test
-      DB_USERNAME: turnzero
-      DB_PASSWORD: turnzero
+      DB_DATABASE: bringfour_test
+      DB_USERNAME: bringfour
+      DB_PASSWORD: bringfour
 
     steps:
       - uses: actions/checkout@v4
