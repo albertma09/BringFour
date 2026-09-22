@@ -13,6 +13,26 @@ it('devuelve los formatos procesables', function () {
         ->assertJsonStructure(['formatos' => [['showdown_id', 'regulacion', 'bring_count']]]);
 });
 
+it('dice cuantas partidas hay en cada corte de elo', function () {
+    importFixtures([replayFixture('normal'), replayFixture('con-mega')]);
+
+    $formato = collect($this->getJson('/api/formats')->assertOk()->json()['formatos'])
+        ->firstWhere('showdown_id', 'gen9championsvgc2026regmc');
+
+    expect($formato['cortes'])->toHaveKeys(['0', '1500', '1630', '1760'])
+        ->and($formato['cortes']['0'])->toBeGreaterThan(0);
+
+    $anterior = null;
+
+    foreach (['0', '1500', '1630', '1760'] as $corte) {
+        if ($anterior !== null) {
+            expect($formato['cortes'][$corte])->toBeLessThanOrEqual($anterior);
+        }
+
+        $anterior = $formato['cortes'][$corte];
+    }
+});
+
 it('acompana todo porcentaje de su muestra', function () {
     $respuesta = $this->getJson('/api/meta/bring-rates?min=1')->assertOk()->json();
 

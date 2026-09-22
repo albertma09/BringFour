@@ -128,6 +128,9 @@ export default {
         conducta_texto: 'Decisiones observadas con el último Pokémon que has tocado.',
     },
     sugerencia: {
+        companeros_corto: 'Quién va con lo que llevas elegido',
+        afinidad_corta: '×{veces} más de lo normal',
+        te_falta: 'Te falta cosas por decidir',
         companeros: 'Con quién suele ir',
         companeros_texto: 'Quién aparece en el mismo Team Preview que lo que llevas elegido. Ordenado por afinidad y no por frecuencia: si saliera por frecuencia, arriba estaría siempre el Pokémon que va en todos los equipos, que no te dice nada.',
         base: '{n} equipos con lo que llevas elegido, de {total} analizados',
@@ -177,6 +180,8 @@ export default {
         },
     },
     muestra: {
+        por_el_corte: 'Estás filtrando por ELO {elo}+, y ahí apenas hay partidas: el ladder de Champions en Showdown no pasa de 1663.',
+        quitar_corte: 'Quitar el filtro de ELO',
         insuficiente: 'Sin muestra suficiente',
         explicacion: 'Hacen falta al menos {min} observaciones para enseñar un porcentaje.',
         n: 'N = {n}',

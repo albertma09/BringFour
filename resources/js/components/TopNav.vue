@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { ajustes, CORTES_ELO } from '@/ajustes';
 import { api, type Formato } from '@/api/cliente';
@@ -17,6 +17,12 @@ const secciones = [
     { nombre: 'constructor', clave: 'nav.constructor' },
     { nombre: 'pokedex', clave: 'nav.pokedex' },
 ] as const;
+
+const cortes = computed(() => formatos.value.find((f) => f.showdown_id === ajustes.format)?.cortes ?? {});
+
+function muestraDe(corte: number): number {
+    return cortes.value[String(corte)] ?? 0;
+}
 
 onMounted(async () => {
     try {
@@ -63,8 +69,13 @@ onMounted(async () => {
                     class="rounded-md border border-line bg-surface px-2 py-1.5 text-xs text-mist"
                     :aria-label="$t('ajustes.elo')"
                 >
-                    <option v-for="corte in CORTES_ELO" :key="corte" :value="corte">
-                        {{ corte === 0 ? $t('ajustes.todos') : `${corte}+` }}
+                    <option
+                        v-for="corte in CORTES_ELO"
+                        :key="corte"
+                        :value="corte"
+                        :disabled="muestraDe(corte) === 0"
+                    >
+                        {{ corte === 0 ? $t('ajustes.todos') : `${corte}+` }} ({{ muestraDe(corte) }})
                     </option>
                 </select>
 

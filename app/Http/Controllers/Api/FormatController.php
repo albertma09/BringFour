@@ -7,8 +7,12 @@ use Illuminate\Support\Facades\DB;
 
 class FormatController extends ApiController
 {
+    private const CORTES = [0, 1500, 1630, 1760];
+
     public function index(): JsonResponse
     {
+        $cortes = $this->cortes();
+
         $rows = DB::table('formats as f')
             ->join('regulations as r', 'r.id', '=', 'f.regulation_id')
             ->where('f.process_replays', true)
@@ -27,7 +31,33 @@ class FormatController extends ApiController
                 'regulacion' => $row->regulacion,
                 'desde' => $row->starts_at,
                 'hasta' => $row->ends_at,
+                'cortes' => $cortes[$row->showdown_id] ?? array_fill_keys(self::CORTES, 0),
             ])->all(),
         ]);
+    }
+
+    private function cortes(): array
+    {
+        $campos = array_map(
+            fn (int $corte) => "count(r.id) filter (where coalesce(r.elo_bucket, 0) >= {$corte}) as c{$corte}",
+            self::CORTES,
+        );
+
+        $filas = DB::select('
+            select f.showdown_id, '.implode(', ', $campos).'
+            from formats f
+            left join replays r on r.format_id = f.id
+            group by f.showdown_id
+        ');
+
+        $salida = [];
+
+        foreach ($filas as $fila) {
+            foreach (self::CORTES as $corte) {
+                $salida[$fila->showdown_id][$corte] = (int) $fila->{'c'.$corte};
+            }
+        }
+
+        return $salida;
     }
 }

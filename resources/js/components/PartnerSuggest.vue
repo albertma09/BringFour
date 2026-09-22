@@ -5,7 +5,6 @@ import { comunes } from '@/ajustes';
 import { api, type Companeros } from '@/api/cliente';
 import EmptySample from '@/components/EmptySample.vue';
 import SpeciesSprite from '@/components/SpeciesSprite.vue';
-import TypeTag from '@/components/TypeTag.vue';
 
 const props = defineProps<{ elegidos: string[]; huecoLibre: boolean }>();
 const emit = defineEmits<{ anadir: [string] }>();
@@ -41,53 +40,51 @@ watch(() => [props.elegidos, comunes.value], cargar, { immediate: true, deep: tr
 </script>
 
 <template>
-    <div>
-        <p class="mb-5 max-w-2xl text-sm leading-relaxed text-fog">{{ $t('sugerencia.companeros_texto') }}</p>
+    <section class="mb-6 rounded-xl border border-line-soft bg-surface/60 p-4">
+        <header class="mb-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <h2 class="rotulo">{{ $t('sugerencia.companeros') }}</h2>
+            <p class="text-xs text-fog-dim">{{ $t('sugerencia.companeros_corto') }}</p>
+            <span v-if="datos" class="cifra ml-auto text-[11px] text-fog-dim">
+                {{ $t('sugerencia.base', { n: datos.n, total: datos.equipos }) }}
+            </span>
+        </header>
 
         <p v-if="cargando" class="text-sm text-fog">{{ $t('cargando') }}…</p>
 
         <EmptySample v-else-if="!datos || datos.companeros.length === 0" :min="datos?.muestra.min_sample ?? 30" />
 
-        <template v-else>
-            <p class="cifra mb-4 text-[11px] text-fog-dim">
-                {{ $t('sugerencia.base', { n: datos.n, total: datos.equipos }) }}
-            </p>
-
-            <ul class="grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
-                <li
-                    v-for="companero in datos.companeros"
-                    :key="companero.slug"
-                    class="superficie flex items-center gap-3 rounded-xl border border-line-soft px-3 py-2.5"
+        <ul v-else class="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1">
+            <li
+                v-for="companero in datos.companeros"
+                :key="companero.slug"
+                class="flex w-36 shrink-0 flex-col items-center gap-1 rounded-lg border border-line-soft bg-card px-2 py-2.5 text-center"
+            >
+                <SpeciesSprite
+                    :sprite="companero.sprite"
+                    :stone="companero.sprite_stone"
+                    :name="nombre(companero)"
+                    :size="44"
+                />
+                <span class="w-full truncate text-xs font-medium text-mist">{{ nombre(companero) }}</span>
+                <span class="cifra text-[11px] text-amber">
+                    {{ $t('sugerencia.afinidad_corta', { veces: companero.veces }) }}
+                </span>
+                <span class="cifra text-[10px] text-fog-dim">
+                    {{ $t('sugerencia.juntos', { pct: companero.juntos_pct }) }} · N&nbsp;{{ companero.n }}
+                </span>
+                <button
+                    v-if="huecoLibre"
+                    type="button"
+                    class="mt-1 w-full rounded border border-line px-2 py-1 text-[11px] text-fog transition-colors hover:border-amber hover:text-amber"
+                    @click="emit('anadir', companero.slug)"
                 >
-                    <SpeciesSprite
-                        :sprite="companero.sprite"
-                        :stone="companero.sprite_stone"
-                        :name="nombre(companero)"
-                        :size="40"
-                    />
-                    <span class="min-w-0 flex-1">
-                        <span class="flex items-center gap-1.5">
-                            <span class="truncate text-sm font-medium text-mist">{{ nombre(companero) }}</span>
-                            <TypeTag v-for="tipo in companero.types" :key="tipo" :type="tipo" />
-                        </span>
-                        <span class="cifra mt-0.5 block text-[11px] text-fog">
-                            {{ $t('sugerencia.juntos', { pct: companero.juntos_pct }) }}
-                        </span>
-                        <span class="cifra block text-[11px] text-fog-dim">
-                            {{ $t('sugerencia.afinidad', { veces: companero.veces, base: companero.general_pct }) }}
-                            · N&nbsp;{{ companero.n }}
-                        </span>
-                    </span>
-                    <button
-                        v-if="huecoLibre"
-                        type="button"
-                        class="shrink-0 rounded-lg border border-line px-2 py-1 text-[11px] text-fog transition-colors hover:border-amber hover:text-amber"
-                        @click="emit('anadir', companero.slug)"
-                    >
-                        {{ $t('sugerencia.anadir') }}
-                    </button>
-                </li>
-            </ul>
-        </template>
-    </div>
+                    {{ $t('sugerencia.anadir') }}
+                </button>
+            </li>
+        </ul>
+
+        <p v-if="datos && datos.companeros.length > 0" class="mt-3 text-[11px] leading-relaxed text-fog-dim">
+            {{ $t('sugerencia.companeros_texto') }}
+        </p>
+    </section>
 </template>

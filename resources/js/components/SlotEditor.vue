@@ -26,6 +26,7 @@ const { locale } = useI18n();
 
 const busqueda = ref('');
 const ayuda = ref(false);
+const ayudaTocada = ref(false);
 const opciones = ref<{ movimientos: Movimiento[]; objetos: ObjetoBuilder[]; abilities: Habilidad[] } | null>(null);
 const buscarMovimiento = ref('');
 
@@ -118,6 +119,30 @@ function alternarMovimiento(slug: string): void {
 }
 
 const sobran = computed(() => restantes(props.hueco.sp));
+
+const incompleto = computed(
+    () =>
+        props.hueco.slug !== null &&
+        (!props.hueco.habilidad || !props.hueco.objeto || props.hueco.movimientos.length < 4 || sobran.value > 0),
+);
+
+watch(
+    () => props.hueco.slug,
+    (slug) => {
+        ayudaTocada.value = false;
+        ayuda.value = slug !== null && incompleto.value;
+    },
+    { immediate: true },
+);
+
+watch(incompleto, (valor) => {
+    if (!ayudaTocada.value) ayuda.value = valor;
+});
+
+function alternarAyuda(): void {
+    ayudaTocada.value = true;
+    ayuda.value = !ayuda.value;
+}
 
 function aplicarConjunto(conjunto: { habilidad: string | null; objeto: string | null; movimientos: string[] }): void {
     const disponibles = (opciones.value?.abilities ?? []).map((h) => h.slug);
@@ -278,9 +303,9 @@ function aplicarReparto(sp: Reparto): void {
                     type="button"
                     class="flex w-full items-center justify-between rounded-lg border border-line-soft px-3 py-2 text-left text-[11px] text-fog transition-colors hover:border-amber hover:text-amber"
                     :aria-expanded="ayuda"
-                    @click="ayuda = !ayuda"
+                    @click="alternarAyuda"
                 >
-                    <span>{{ $t('sugerencia.no_lo_tengo_claro') }}</span>
+                    <span>{{ incompleto ? $t('sugerencia.te_falta') : $t('sugerencia.no_lo_tengo_claro') }}</span>
                     <span aria-hidden="true">{{ ayuda ? '−' : '+' }}</span>
                 </button>
 

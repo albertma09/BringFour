@@ -180,6 +180,13 @@ const pegado = computed(() =>
                 </button>
             </div>
 
+            <PartnerSuggest
+                v-if="slugsElegidos.length > 0"
+                :elegidos="slugsElegidos"
+                :hueco-libre="primerLibre >= 0"
+                @anadir="anadir"
+            />
+
             <div class="mb-14 grid gap-3 lg:grid-cols-2 xl:grid-cols-3">
                 <SlotEditor
                     v-for="(hueco, indice) in huecos"
@@ -191,15 +198,6 @@ const pegado = computed(() =>
                     @quitar="quitar(indice)"
                 />
             </div>
-
-            <section v-if="slugsElegidos.length > 0" class="mb-14">
-                <Rotulo :texto="$t('sugerencia.companeros')" />
-                <PartnerSuggest
-                    :elegidos="slugsElegidos"
-                    :hueco-libre="primerLibre >= 0"
-                    @anadir="anadir"
-                />
-            </section>
 
             <section v-if="datosMeta.length > 0" class="mb-14">
                 <Rotulo :texto="$t('constructor.que_hace_la_gente')" />

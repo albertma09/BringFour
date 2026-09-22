@@ -106,6 +106,7 @@ export interface Formato {
     regulacion: string;
     desde: string | null;
     hasta: string | null;
+    cortes: Record<string, number>;
 }
 
 export interface Alineamiento {

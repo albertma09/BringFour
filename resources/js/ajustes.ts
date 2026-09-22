@@ -31,6 +31,10 @@ export const ajustes = reactive<Ajustes>(guardados());
 
 export const comunes = computed(() => ({ format: ajustes.format, elo: ajustes.elo }));
 
+export function sinCorte(): void {
+    ajustes.elo = 0;
+}
+
 export function aplicarDesdeUrl(query: Record<string, unknown>): void {
     if (typeof query.format === 'string' && query.format !== '') ajustes.format = query.format;
 

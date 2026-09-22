@@ -293,3 +293,22 @@ La columna `species.abilities` guarda slugs (`grassysurge`), y tanto el desplega
 - Las revelaciones de una Mega se guardan bajo la forma Mega. Las consultas de conjunto agrupan la familia (especie + sus formas), pero cualquier otra consulta que vaya por especie exacta verá las dos separadas.
 - `Frisk` revela el objeto del rival y se acepta; si en alguna regulación futura entra una habilidad parecida habrá que añadirla a la lista.
 - El reparto de SP no conoce el equipo: no ajusta velocidad para adelantar a un rival concreto ni reparte pensando en un ataque que se quiera aguantar.
+
+## Corrección de usabilidad: las recomendaciones no se veían
+
+Tres cosas las escondían, y las tres eran de diseño y no de datos.
+
+**El corte de ELO vaciaba los paneles sin decir por qué.** El selector es global y se guarda, así que bastaba haberlo tocado en otra sección para que el Constructor arrastrase un filtro que deja la muestra en nada:
+
+```
+elo_bucket 0     → 3.112 replays
+elo_bucket 1500  →    32 replays
+elo_bucket 1630  →     0
+elo_bucket 1760  →     0
+```
+
+El rating más alto de toda la base es **1663**: por encima de 1630 no hay nada y nunca lo habrá mientras la fuente sea el ladder de Showdown. Ahora `/api/formats` devuelve el número de partidas de cada corte, el selector lo enseña entre paréntesis y deshabilita los tramos vacíos, y el aviso de muestra insuficiente explica que la causa es el filtro y ofrece quitarlo de un clic. Un filtro que te deja a ciegas en silencio es peor que no tenerlo.
+
+**El panel de compañeros estaba debajo de las seis tarjetas**, o sea fuera de pantalla. Pasa a tira horizontal compacta entre el equipo y los huecos.
+
+**Las sugerencias de conjunto y SP estaban plegadas.** Ahora se abren solas cuando al hueco le falta algo (habilidad, objeto, los cuatro movimientos o SP sin repartir) y se cierran solas al completarlo, salvo que el usuario haya tocado el desplegable, en cuyo caso manda su decisión hasta que cambie de Pokémon.

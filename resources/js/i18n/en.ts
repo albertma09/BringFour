@@ -128,6 +128,9 @@ export default {
         conducta_texto: 'Decisions observed with the last Pokémon you touched.',
     },
     sugerencia: {
+        companeros_corto: 'Who goes with what you picked',
+        afinidad_corta: '×{veces} more than usual',
+        te_falta: 'Still things to decide',
         companeros: 'Who it usually goes with',
         companeros_texto: 'Who shows up in the same Team Preview as what you have picked. Sorted by affinity, not by frequency: sorted by frequency the top would always be the Pokémon that is on every team, which tells you nothing.',
         base: '{n} teams with what you picked, out of {total} analysed',
@@ -177,6 +180,8 @@ export default {
         },
     },
     muestra: {
+        por_el_corte: 'You are filtering by ELO {elo}+, and there are barely any games up there: the Champions ladder on Showdown does not go past 1663.',
+        quitar_corte: 'Clear the ELO filter',
         insuficiente: 'Not enough data',
         explicacion: 'At least {min} observations are needed before showing a percentage.',
         n: 'N = {n}',
