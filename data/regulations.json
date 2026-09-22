@@ -27,7 +27,7 @@
         "bringCount": 4,
         "bestOfThree": true,
         "collectReplays": true,
-        "processReplays": true
+        "processReplays": false
       },
       {
         "slug": "bss",
@@ -81,7 +81,7 @@
         "bringCount": 4,
         "bestOfThree": true,
         "collectReplays": true,
-        "processReplays": true
+        "processReplays": false
       }
     ]
   }

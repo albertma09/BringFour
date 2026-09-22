@@ -20,6 +20,8 @@ class ParsedReplay
 
     public array $leads = ['p1' => [], 'p2' => []];
 
+    public array $turns = [];
+
     public int $turnCount = 0;
 
     public ?string $winnerName = null;

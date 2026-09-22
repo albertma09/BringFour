@@ -9,15 +9,29 @@ use Illuminate\Support\Facades\DB;
 
 class ReplaysImport extends Command
 {
-    protected $signature = 'replays:import {--format= : Showdown id de un formato concreto} {--limit=0 : Maximo de replays a importar} {--path= : Directorio de replays crudos}';
+    protected $signature = 'replays:import
+        {--format= : Showdown id de un formato concreto}
+        {--limit=0 : Maximo de replays a importar}
+        {--path= : Directorio de replays crudos}
+        {--reparse : Vuelve a parsear turnos y acciones de los replays ya importados}';
 
-    protected $description = 'Parsea los replays crudos y llena replays y replay_teams';
+    protected $description = 'Parsea los replays crudos y llena replays, replay_teams, replay_turns y replay_actions';
 
     private const ELO_BUCKETS = [1760, 1630, 1500, 0];
+
+    private const ACTION_CHUNK = 2000;
 
     private array $speciesIds = [];
 
     private array $baseFormSlug = [];
+
+    private array $moveIds = [];
+
+    private array $abilityIds = [];
+
+    private array $itemIds = [];
+
+    private array $actionBuffer = [];
 
     public function handle(): int
     {
@@ -29,7 +43,7 @@ class ReplaysImport extends Command
             return self::FAILURE;
         }
 
-        $this->loadSpecies();
+        $this->loadCatalogue();
 
         $formats = DB::table('formats')
             ->where('process_replays', true)
@@ -43,8 +57,9 @@ class ReplaysImport extends Command
         }
 
         $limit = (int) $this->option('limit');
+        $reparse = (bool) $this->option('reparse');
         $parser = new ShowdownLogParser();
-        $totals = ['leidos' => 0, 'importados' => 0, 'ya_estaban' => 0, 'descartados' => 0];
+        $totals = ['leidos' => 0, 'importados' => 0, 'reparseados' => 0, 'ya_estaban' => 0, 'descartados' => 0];
 
         foreach ($formats as $format) {
             $dir = $root.DIRECTORY_SEPARATOR.$format->showdown_id;
@@ -55,18 +70,19 @@ class ReplaysImport extends Command
 
             $known = DB::table('replays')
                 ->where('format_id', $format->id)
-                ->pluck('showdown_id')
-                ->flip();
+                ->pluck('id', 'showdown_id');
 
             foreach ($this->files($dir) as $file) {
                 foreach ($this->records($file) as $record) {
                     $totals['leidos']++;
 
-                    if ($limit > 0 && $totals['importados'] >= $limit) {
+                    if ($limit > 0 && $totals['importados'] + $totals['reparseados'] >= $limit) {
                         break 3;
                     }
 
-                    if ($known->has($record['id'])) {
+                    $existing = $known->get($record['id']);
+
+                    if ($existing !== null && ! $reparse) {
                         $totals['ya_estaban']++;
 
                         continue;
@@ -80,11 +96,24 @@ class ReplaysImport extends Command
                         continue;
                     }
 
-                    $this->store($format, $record, $parsed, basename($file));
-                    $totals['importados']++;
+                    if ($existing !== null) {
+                        $this->reparse((int) $existing, $parsed);
+                        $totals['reparseados']++;
+                    } else {
+                        $this->store($format, $record, $parsed, basename($file));
+                        $totals['importados']++;
+                    }
+
+                    $hechos = $totals['importados'] + $totals['reparseados'];
+
+                    if ($hechos > 0 && $hechos % 500 === 0) {
+                        $this->line("  {$hechos} replays procesados");
+                    }
                 }
             }
         }
+
+        $this->flushActions(true);
 
         $this->newLine();
         $this->table(array_keys($totals), [array_values($totals)]);
@@ -92,7 +121,7 @@ class ReplaysImport extends Command
         return self::SUCCESS;
     }
 
-    private function loadSpecies(): void
+    private function loadCatalogue(): void
     {
         $rows = DB::table('species as s')
             ->leftJoin('species as b', 'b.id', '=', 's.base_form_id')
@@ -103,6 +132,10 @@ class ReplaysImport extends Command
             $this->speciesIds[$row->slug] = $row->id;
             $this->baseFormSlug[$row->slug] = $row->base_slug;
         }
+
+        $this->moveIds = DB::table('moves')->pluck('id', 'slug')->all();
+        $this->abilityIds = DB::table('abilities')->pluck('id', 'slug')->all();
+        $this->itemIds = DB::table('items')->pluck('id', 'slug')->all();
     }
 
     private function files(string $dir): array
@@ -175,36 +208,136 @@ class ReplaysImport extends Command
                 'updated_at' => now(),
             ]);
 
-            $rows = [];
-
-            foreach (['p1', 'p2'] as $side) {
-                $brought = $parsed->broughtSlugs($side);
-                $leads = $parsed->leadSlugs($side);
-
-                foreach ($parsed->preview[$side] as $position => $slug) {
-                    $speciesId = $this->speciesIds[$slug] ?? null;
-
-                    if ($speciesId === null) {
-                        continue;
-                    }
-
-                    $rows[] = [
-                        'replay_id' => $replayId,
-                        'side' => $side,
-                        'species_id' => $speciesId,
-                        'preview_position' => $position,
-                        'brought' => $this->matches($slug, $brought),
-                        'lead' => $this->matches($slug, $leads),
-                        'created_at' => now(),
-                        'updated_at' => now(),
-                    ];
-                }
-            }
-
-            if ($rows !== []) {
-                DB::table('replay_teams')->insert($rows);
-            }
+            $this->storeTeams($replayId, $parsed);
+            $this->storeTurns($replayId, $parsed);
         });
+    }
+
+    private function reparse(int $replayId, ParsedReplay $parsed): void
+    {
+        DB::transaction(function () use ($replayId, $parsed) {
+            DB::table('replay_turns')->where('replay_id', $replayId)->delete();
+
+            DB::table('replays')->where('id', $replayId)->update([
+                'turn_count' => $parsed->turnCount,
+                'parsed_at' => now(),
+                'parser_version' => ShowdownLogParser::VERSION,
+                'updated_at' => now(),
+            ]);
+
+            $this->storeTurns($replayId, $parsed);
+        });
+    }
+
+    private function storeTeams(int $replayId, ParsedReplay $parsed): void
+    {
+        $rows = [];
+
+        foreach (['p1', 'p2'] as $side) {
+            $brought = $parsed->broughtSlugs($side);
+            $leads = $parsed->leadSlugs($side);
+
+            foreach ($parsed->preview[$side] as $position => $slug) {
+                $speciesId = $this->speciesIds[$slug] ?? null;
+
+                if ($speciesId === null) {
+                    continue;
+                }
+
+                $rows[] = [
+                    'replay_id' => $replayId,
+                    'side' => $side,
+                    'species_id' => $speciesId,
+                    'preview_position' => $position,
+                    'brought' => $this->matches($slug, $brought),
+                    'lead' => $this->matches($slug, $leads),
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ];
+            }
+        }
+
+        if ($rows !== []) {
+            DB::table('replay_teams')->insert($rows);
+        }
+    }
+
+    private function storeTurns(int $replayId, ParsedReplay $parsed): void
+    {
+        if ($parsed->turns === []) {
+            return;
+        }
+
+        $now = now();
+        $turnRows = [];
+
+        foreach ($parsed->turns as $turn) {
+            $turnRows[] = [
+                'replay_id' => $replayId,
+                'turn_no' => $turn->number,
+                'decision_seconds' => $turn->decisionSeconds,
+                'field_state' => json_encode($turn->fieldState, JSON_UNESCAPED_UNICODE),
+                'created_at' => $now,
+                'updated_at' => $now,
+            ];
+        }
+
+        DB::table('replay_turns')->insert($turnRows);
+
+        $turnIds = DB::table('replay_turns')->where('replay_id', $replayId)->pluck('id', 'turn_no');
+
+        foreach ($parsed->turns as $turn) {
+            $turnId = $turnIds->get($turn->number);
+
+            if ($turnId === null) {
+                continue;
+            }
+
+            foreach ($turn->actions as $action) {
+                $this->actionBuffer[] = [
+                    'replay_turn_id' => $turnId,
+                    'side' => $action->side,
+                    'slot' => $action->slot,
+                    'action_type' => $action->type,
+                    'forced' => $action->forced,
+                    'reason' => $action->reason,
+                    'actor_species_id' => $this->lookup($this->speciesIds, $action->actorSlug),
+                    'switch_in_species_id' => $this->lookup($this->speciesIds, $action->switchInSlug),
+                    'actor_hp_pct' => $action->actorHpPct,
+                    'move_id' => $this->lookup($this->moveIds, $action->moveSlug),
+                    'target_side' => $action->targetSide,
+                    'target_slot' => $action->targetSlot,
+                    'revealed_item_id' => $this->lookup($this->itemIds, $action->revealedItemSlug),
+                    'revealed_ability_id' => $this->lookup($this->abilityIds, $action->revealedAbilitySlug),
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ];
+            }
+        }
+
+        $this->flushActions(true);
+    }
+
+    private function flushActions(bool $force): void
+    {
+        if ($this->actionBuffer === [] || (! $force && count($this->actionBuffer) < self::ACTION_CHUNK)) {
+            return;
+        }
+
+        foreach (array_chunk($this->actionBuffer, self::ACTION_CHUNK) as $chunk) {
+            DB::table('replay_actions')->insert($chunk);
+        }
+
+        $this->actionBuffer = [];
+    }
+
+    private function lookup(array $map, ?string $slug): ?int
+    {
+        if ($slug === null || $slug === '') {
+            return null;
+        }
+
+        return $map[$slug] ?? null;
     }
 
     private function matches(string $previewSlug, array $actualSlugs): bool

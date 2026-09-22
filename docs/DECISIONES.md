@@ -112,3 +112,30 @@ Decisiones técnicas tomadas al implementar, con su motivo:
 
 - **Dónde vive el archivo de replays a largo plazo.** El workflow `collect-replays.yml` está en `workflow_dispatch` (sin cron) apuntando a una rama `replay-archive`. Con ~4.600 replays/día y compresión al 13%, el archivo crece **~90 MB/mes, ~1,1 GB/año**. Opciones: rama huérfana en este repo, repo de datos aparte, o disco del VPS. Hay que elegir antes de activar el cron. El backfill funciona, así que esperar unos días no pierde datos.
 - **Dominio y marca.** `bringfour.gg` sin verificar disponibilidad ni registro de marca.
+
+---
+
+# FASE 1.5 — PARSER TURNO A TURNO
+
+**Fecha:** 22-sep-2026
+
+- **La vida que se guarda en cada acción es la del principio del turno**, no la de después del daño. Es la única que el jugador tenía delante al elegir. Guardar la de después mezclaría la decisión con su resultado, y toda la herramienta va de explicar qué información existía al decidir.
+- **`decision_seconds` es del turno, no del jugador.** El reloj de Showdown corre para los dos a la vez y el log no permite separar quién tardó. Por eso la columna vive en `replay_turns`. Se calcula como la diferencia entre marcas `|t:|` consecutivas, de modo que el tiempo gastado en elegir un relevo obligado no se suma al turno siguiente. Se descarta cualquier valor por encima de 1800 s (desconexiones).
+- **El actor de una acción se resuelve por el hueco (`p1a`), nunca por la etiqueta del log.** La etiqueta es el mote del jugador o el nombre de la forma base: `|move|p1b: Samurott|` puede ser Samurott-Hisui. Sin el mapa de huecos el parser produciría datos falsos en silencio.
+- **La megaevolución se aplica al turno en que se declara.** Se elige a la vez que el movimiento, así que el actor y el estado del campo de ese turno usan ya la forma mega. Así actor y contexto no se contradicen dentro del mismo turno.
+- **Un `|cant|` solo cuenta si ese hueco no había hecho nada más ese turno.** Showdown emite `cant` también sobre quien *bloquea* el movimiento ajeno (Cola Armadura contra Amago), y ese Pokémon sí actuó.
+- **Los `cant` no entran en los priors.** Cuando no hay un `|move|` previo, sé que no actuó pero no sé qué había elegido.
+- **Los cambios forzados no son decisiones.** Un relevo tras debilitarse, un `drag` (Rugido) o un cambio con etiqueta `[from]` (Voltiocambio) se marcan `forced` y quedan fuera de los priors.
+- **Contexto de un prior: `{actor, rival, fase}`.** Una decisión cuenta una vez por cada rival activo: son probabilidades condicionadas distintas, no duplicados. `fase` separa el turno 1 del resto porque si no Amago domina la tabla.
+
+## Formatos Bo3
+
+Se comprobó sobre 540 replays de `gen9championsvgc2026regmcbo3`: **cada replay es una partida, no un set** (un `|teampreview|`, un `|start|`, un `|win|`). El riesgo no es mezclar partidas dentro de un log, sino que las 2-3 partidas de un mismo set comparten equipos y jugadores, y en la segunda y la tercera ya se conoce el equipo rival. Eso rompe la independencia de las observaciones, así que **se recolectan pero no se procesan**.
+
+El flag vive en `ingest/config.mjs` → `data/regulations.json` → tabla `formats`. Cambiar `config.mjs` no basta: hay que **regenerar `data/`** con `node ingest/showdown-data.mjs` y volver a lanzar `artisan data:sync`. Se detectó porque 3.060 replays Bo3 se habían importado con el flag viejo.
+
+## Limitaciones conocidas
+
+- **`fase` se calcula por número de turno, no por turnos desde que el Pokémon entró al campo.** Un Rillaboom que entra en el turno 4 y usa Amago aparece como `medio`. Sería más informativo contar desde su entrada.
+- **Los priors no distinguen el objetivo elegido en dobles**, ni la vida como parte del contexto: con 3.100 replays fragmentaría la muestra hasta dejarla inservible.
+- **Todo cae en el bucket de ELO 0.** El ladder de Champions en Showdown no pasa de 1622, así que los cortes de Smogon (1500/1630/1760) todavía no separan nada.
