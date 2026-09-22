@@ -22,9 +22,11 @@ return new class extends Migration
             $table->unsignedSmallInteger('elo_bucket')->nullable();
             $table->string('winner_side')->nullable();
             $table->unsignedSmallInteger('turn_count')->nullable();
+            $table->unsignedSmallInteger('p1_team_size')->nullable();
+            $table->unsignedSmallInteger('p2_team_size')->nullable();
             $table->boolean('rated')->default(false);
             $table->boolean('open_team_sheets')->default(false);
-            $table->binary('raw_log');
+            $table->string('source_file');
             $table->char('raw_log_sha256', 64);
             $table->timestampTz('parsed_at')->nullable();
             $table->string('parser_version')->nullable();

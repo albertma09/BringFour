@@ -33,7 +33,7 @@ export const REGULATIONS = [
         bringCount: 4,
         bestOfThree: true,
         collectReplays: true,
-        processReplays: true,
+        processReplays: false,
       },
       {
         slug: 'bss',
@@ -87,7 +87,7 @@ export const REGULATIONS = [
         bringCount: 4,
         bestOfThree: true,
         collectReplays: true,
-        processReplays: true,
+        processReplays: false,
       },
     ],
   },
