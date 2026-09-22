@@ -21,7 +21,16 @@ export interface Especie {
     is_mega?: boolean;
 }
 
+export interface FichaEspecie extends Especie {
+    abilities: string[];
+    legal: boolean;
+    national_dex: number | null;
+    megapiedra: { slug: string; name: string; name_es: string | null } | null;
+}
+
 export interface FilaBringRate extends Especie {
+    llevado: number;
+    usage_pct: number;
     n: number;
     traido: number;
     bring_pct: number;
@@ -59,8 +68,78 @@ export interface AccionConducta {
     intervalo: [number, number];
 }
 
-async function get<T>(ruta: string): Promise<T> {
-    const respuesta = await fetch(`/api${ruta}`, {
+export interface Core {
+    n: number;
+    miembros: Especie[];
+}
+
+export interface EquipoResumen {
+    id: string;
+    n: number;
+    miembros: Especie[];
+}
+
+export interface MiembroEquipo extends Especie {
+    n: number;
+    bring_pct: number;
+    lead_pct: number;
+}
+
+export interface EquipoDetalle {
+    id: string;
+    n: number;
+    completos: number;
+    miembros: MiembroEquipo[];
+}
+
+export interface Formato {
+    showdown_id: string;
+    slug: string;
+    battle_type: string;
+    bring_count: number | null;
+    regulacion: string;
+    desde: string | null;
+    hasta: string | null;
+}
+
+export interface Alineamiento {
+    slug: string;
+    name: string;
+    plus: string | null;
+    minus: string | null;
+    neutral: boolean;
+}
+
+export interface Movimiento {
+    slug: string;
+    name: string;
+    name_es: string | null;
+    type: string;
+    category: string;
+    power: number | null;
+    accuracy: number | null;
+    pp: number;
+    priority: number;
+    target: string;
+    description: string | null;
+}
+
+export interface ObjetoBuilder {
+    slug: string;
+    name: string;
+    name_es: string | null;
+    mega: string | null;
+}
+
+async function get<T>(ruta: string, params: Record<string, string | number> = {}): Promise<T> {
+    const query = new URLSearchParams();
+
+    for (const [clave, valor] of Object.entries(params)) {
+        if (valor !== '' && valor !== undefined && valor !== null) query.set(clave, String(valor));
+    }
+
+    const cadena = query.toString();
+    const respuesta = await fetch(`/api${ruta}${cadena ? `?${cadena}` : ''}`, {
         headers: { Accept: 'application/json' },
     });
 
@@ -71,23 +150,45 @@ async function get<T>(ruta: string): Promise<T> {
     return respuesta.json() as Promise<T>;
 }
 
+type Comunes = { format: string; elo: number };
+
 export const api = {
-    bringRates: (params = '') =>
-        get<{ muestra: Muestra; especies: FilaBringRate[] }>(`/meta/bring-rates${params}`),
+    formatos: () => get<{ formatos: Formato[] }>('/formats'),
 
-    especie: (slug: string) =>
-        get<{ especie: Especie & { abilities: string[]; legal: boolean; megapiedra: { slug: string; name: string; name_es: string | null } | null } }>(
-            `/species/${slug}`,
-        ),
+    bringRates: (c: Comunes, top = 200) =>
+        get<{ muestra: Muestra; especies: FilaBringRate[] }>('/meta/bring-rates', { ...c, top }),
 
-    matchups: (slug: string) =>
-        get<{ rival: Especie; muestra: Muestra; especies: FilaMatchup[] }>(`/meta/species/${slug}/matchups`),
+    catalogo: (c: Comunes, q = '') =>
+        get<{ total: number; especies: Especie[] }>('/species', { format: c.format, q }),
 
-    contextos: (slug: string) =>
-        get<{ contextos: ContextoConducta[] }>(`/meta/species/${slug}/behavior`),
+    especie: (slug: string, c: Comunes) => get<{ especie: FichaEspecie }>(`/species/${slug}`, { format: c.format }),
 
-    conducta: (slug: string, rival: string, fase: string) =>
-        get<{ muestra: Muestra; acciones: AccionConducta[] }>(
-            `/meta/species/${slug}/behavior?vs=${rival}&fase=${fase}`,
+    matchups: (slug: string, c: Comunes) =>
+        get<{ rival: Especie; muestra: Muestra; especies: FilaMatchup[] }>(`/meta/species/${slug}/matchups`, c),
+
+    contextos: (slug: string, c: Comunes) =>
+        get<{ contextos: ContextoConducta[] }>(`/meta/species/${slug}/behavior`, c),
+
+    conducta: (slug: string, rival: string, fase: string, c: Comunes) =>
+        get<{ muestra: Muestra; acciones: AccionConducta[] }>(`/meta/species/${slug}/behavior`, {
+            ...c,
+            vs: rival,
+            fase,
+        }),
+
+    cores: (c: Comunes, size: number, top = 24) =>
+        get<{ tamano: number; muestra: Muestra; cores: Core[] }>('/teams/cores', { ...c, size, top }),
+
+    equipos: (c: Comunes, top = 24) =>
+        get<{ muestra: Muestra; equipos: EquipoResumen[] }>('/teams', { ...c, top }),
+
+    equipo: (id: string, c: Comunes) => get<{ muestra: Muestra; equipo: EquipoDetalle }>(`/teams/${id}`, c),
+
+    alineamientos: () => get<{ alineamientos: Alineamiento[] }>('/builder/alignments'),
+
+    opciones: (slug: string, c: Comunes) =>
+        get<{ especie: Especie & { abilities: string[] }; movimientos: Movimiento[]; objetos: ObjetoBuilder[] }>(
+            `/builder/species/${slug}`,
+            { format: c.format },
         ),
 };

@@ -1,33 +1,26 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
-import {
-    api,
-    type AccionConducta,
-    type ContextoConducta,
-    type Especie,
-    type FilaMatchup,
-    type Muestra,
-} from '@/api/cliente';
+import { comunes } from '@/ajustes';
+import { api, type FichaEspecie, type FilaMatchup, type Muestra } from '@/api/cliente';
+import BehaviorPanel from '@/components/BehaviorPanel.vue';
+import Cargando from '@/components/Cargando.vue';
 import EmptySample from '@/components/EmptySample.vue';
 import PctBar from '@/components/PctBar.vue';
+import Rotulo from '@/components/Rotulo.vue';
 import SpeciesSprite from '@/components/SpeciesSprite.vue';
 import TypeTag from '@/components/TypeTag.vue';
+import { STAT_EN, STAT_ES, STATS, typeColor } from '@/design/types';
 
 const props = defineProps<{ slug: string }>();
 const { locale } = useI18n();
 
 const cargando = ref(true);
 const fallo = ref(false);
-const especie = ref<(Especie & { abilities: string[]; legal: boolean; megapiedra: { slug: string; name: string; name_es: string | null } | null }) | null>(null);
-const matchupMuestra = ref<Muestra | null>(null);
+const especie = ref<FichaEspecie | null>(null);
+const muestra = ref<Muestra | null>(null);
 const matchups = ref<FilaMatchup[]>([]);
-const contextos = ref<ContextoConducta[]>([]);
-const rivalElegido = ref<string | null>(null);
-const faseElegida = ref<'apertura' | 'medio'>('medio');
-const conducta = ref<{ muestra: Muestra; acciones: AccionConducta[] } | null>(null);
-
-const STATS = ['hp', 'atk', 'def', 'spa', 'spd', 'spe'] as const;
+const pestana = ref<'datos' | 'matchups' | 'conducta'>('datos');
 
 function nombre(fila: { name: string; name_es: string | null } | null): string {
     if (!fila) return '';
@@ -38,20 +31,17 @@ function nombre(fila: { name: string; name_es: string | null } | null): string {
 async function cargar(): Promise<void> {
     cargando.value = true;
     fallo.value = false;
-    conducta.value = null;
-    rivalElegido.value = null;
+    pestana.value = 'datos';
 
     try {
-        const [ficha, matchup, ctx] = await Promise.all([
-            api.especie(props.slug),
-            api.matchups(props.slug),
-            api.contextos(props.slug),
+        const [ficha, matchup] = await Promise.all([
+            api.especie(props.slug, comunes.value),
+            api.matchups(props.slug, comunes.value),
         ]);
 
         especie.value = ficha.especie;
-        matchupMuestra.value = matchup.muestra;
+        muestra.value = matchup.muestra;
         matchups.value = matchup.especies;
-        contextos.value = ctx.contextos;
     } catch {
         fallo.value = true;
     } finally {
@@ -59,138 +49,151 @@ async function cargar(): Promise<void> {
     }
 }
 
-async function verConducta(rival: string, fase: 'apertura' | 'medio'): Promise<void> {
-    rivalElegido.value = rival;
-    faseElegida.value = fase;
-    conducta.value = await api.conducta(props.slug, rival, fase);
-}
-
-onMounted(cargar);
-watch(() => props.slug, cargar);
+watch(() => [props.slug, comunes.value], cargar, { immediate: true, deep: true });
 
 const nombreEspecie = computed(() => nombre(especie.value));
+const canto = computed(() => typeColor(especie.value?.types[0] ?? ''));
+const etiquetaStat = computed(() => (locale.value === 'es' ? STAT_ES : STAT_EN));
 
-function nombreAccion(accion: AccionConducta): string {
-    if (accion.tipo === 'switch') return '';
-
-    return locale.value === 'es' ? (accion.move_name_es ?? accion.move_name ?? '') : (accion.move_name ?? '');
-}
+const pestanas = [
+    { clave: 'datos', etiqueta: 'ficha.pestana.datos' },
+    { clave: 'matchups', etiqueta: 'ficha.pestana.matchups' },
+    { clave: 'conducta', etiqueta: 'ficha.pestana.conducta' },
+] as const;
 </script>
 
 <template>
     <div>
-        <RouterLink :to="{ name: 'meta' }" class="mb-6 inline-block text-sm text-ash hover:text-sand">
-            ← {{ $t('ficha.volver') }}
-        </RouterLink>
+        <Cargando v-if="cargando" />
+        <p v-else-if="fallo || !especie" class="text-sm text-clay">{{ $t('error') }}</p>
 
-        <p v-if="cargando" class="text-sm text-ash">{{ $t('cargando') }}…</p>
-        <p v-else-if="fallo" class="text-sm text-clay">{{ $t('error') }}</p>
-
-        <template v-else-if="especie">
-            <header class="mb-8 flex items-start gap-5">
-                <SpeciesSprite
-                    :sprite="especie.sprite"
-                    :stone="especie.sprite_stone"
-                    :name="nombreEspecie"
-                    :size="96"
+        <template v-else>
+            <header
+                class="superficie relative mb-8 overflow-hidden rounded-2xl border border-line-soft px-6 py-6"
+            >
+                <span
+                    class="pointer-events-none absolute -top-16 -right-10 h-48 w-48 rounded-full opacity-[0.1] blur-3xl"
+                    :style="{ backgroundColor: canto }"
+                    aria-hidden="true"
                 />
-                <div>
-                    <h1 class="text-2xl font-semibold tracking-tight text-bone">{{ nombreEspecie }}</h1>
-                    <div class="mt-2 flex gap-1">
-                        <TypeTag v-for="tipo in especie.types" :key="tipo" :type="tipo" />
+                <div class="flex flex-wrap items-center gap-6">
+                    <SpeciesSprite
+                        :sprite="especie.sprite"
+                        :stone="especie.sprite_stone"
+                        :name="nombreEspecie"
+                        :size="104"
+                    />
+                    <div>
+                        <p v-if="especie.national_dex" class="cifra text-[11px] text-fog-dim">
+                            #{{ String(especie.national_dex).padStart(4, '0') }}
+                        </p>
+                        <h1 class="text-3xl font-bold tracking-tight text-mist">{{ nombreEspecie }}</h1>
+                        <div class="mt-2 flex gap-1">
+                            <TypeTag v-for="tipo in especie.types" :key="tipo" :type="tipo" />
+                        </div>
+                        <p v-if="!especie.legal" class="mt-2 text-sm text-clay">{{ $t('ficha.ilegal') }}</p>
+                        <p v-if="especie.megapiedra" class="mt-2 text-sm text-fog">
+                            {{ $t('ficha.megapiedra') }}: {{ nombre(especie.megapiedra) }}
+                        </p>
                     </div>
-                    <p v-if="!especie.legal" class="mt-2 text-sm text-clay">{{ $t('ficha.ilegal') }}</p>
-                    <p v-if="especie.megapiedra" class="mt-2 text-sm text-ash">
-                        {{ $t('ficha.megapiedra') }}: {{ nombre(especie.megapiedra) }}
-                    </p>
                 </div>
             </header>
 
-            <section class="mb-10 grid gap-8 sm:grid-cols-2">
+            <nav class="mb-8 flex gap-1 border-b border-line-soft">
+                <button
+                    v-for="p in pestanas"
+                    :key="p.clave"
+                    type="button"
+                    class="-mb-px border-b-2 px-4 py-2 text-sm font-medium transition-colors"
+                    :class="
+                        pestana === p.clave
+                            ? 'border-amber text-mist'
+                            : 'border-transparent text-fog hover:text-mist'
+                    "
+                    @click="pestana = p.clave"
+                >
+                    {{ $t(p.etiqueta) }}
+                </button>
+            </nav>
+
+            <section v-if="pestana === 'datos'" class="grid gap-10 sm:grid-cols-2">
                 <div>
-                    <h2 class="mb-3 text-xs font-medium tracking-wide text-ash uppercase">
-                        {{ $t('ficha.estadisticas') }}
-                    </h2>
-                    <dl class="space-y-1.5">
+                    <Rotulo :texto="$t('ficha.estadisticas')" />
+                    <dl class="space-y-2">
                         <div v-for="stat in STATS" :key="stat" class="flex items-center gap-3">
-                            <dt class="w-10 text-xs tracking-wide text-ash uppercase">{{ stat }}</dt>
-                            <dd class="cifra w-8 text-right text-sm text-bone">
+                            <dt class="w-20 text-xs text-fog">{{ etiquetaStat[stat] }}</dt>
+                            <dd class="cifra w-8 text-right text-sm font-semibold text-mist">
                                 {{ especie.base_stats?.[stat] ?? '—' }}
                             </dd>
-                            <dd class="h-1.5 w-full max-w-40 overflow-hidden rounded-full bg-carbon-600">
+                            <dd class="h-2 w-full max-w-48 overflow-hidden rounded-full bg-line-soft">
                                 <span
-                                    class="block h-full rounded-full bg-sand-dim"
-                                    :style="{ width: `${Math.min(100, ((especie.base_stats?.[stat] ?? 0) / 200) * 100)}%` }"
+                                    class="block h-full rounded-full"
+                                    :style="{
+                                        width: `${Math.min(100, ((especie.base_stats?.[stat] ?? 0) / 180) * 100)}%`,
+                                        backgroundColor: canto,
+                                    }"
                                 />
                             </dd>
                         </div>
                     </dl>
                 </div>
                 <div>
-                    <h2 class="mb-3 text-xs font-medium tracking-wide text-ash uppercase">
-                        {{ $t('ficha.habilidades') }}
-                    </h2>
-                    <ul class="space-y-1 text-sm text-bone">
+                    <Rotulo :texto="$t('ficha.habilidades')" />
+                    <ul class="space-y-1 text-sm text-mist">
                         <li v-for="habilidad in especie.abilities" :key="habilidad">{{ habilidad }}</li>
                     </ul>
                 </div>
             </section>
 
-            <section class="mb-10">
-                <h2 class="text-lg font-semibold text-bone">{{ $t('matchup.titulo') }}</h2>
-                <p class="mt-1 text-sm text-ash">{{ $t('matchup.entradilla') }}</p>
-                <p v-if="matchupMuestra" class="cifra mt-2 text-sm text-ash">
+            <section v-else-if="pestana === 'matchups'">
+                <p v-if="muestra" class="cifra mb-5 text-sm text-fog">
                     {{
                         $t('matchup.enfrentados', {
                             rival: nombreEspecie,
-                            enfrentados: matchupMuestra.enfrentados,
-                            completos: matchupMuestra.completos,
+                            enfrentados: muestra.enfrentados,
+                            completos: muestra.completos,
                         })
                     }}
                 </p>
 
-                <EmptySample
-                    v-if="matchups.length === 0"
-                    class="mt-4"
-                    :min="matchupMuestra?.min_sample ?? 30"
-                />
+                <EmptySample v-if="matchups.length === 0" :min="muestra?.min_sample ?? 30" />
 
-                <div v-else class="mt-4 overflow-hidden rounded-lg border border-carbon-600">
+                <div v-else class="overflow-x-auto rounded-xl border border-line-soft">
                     <table class="w-full border-collapse text-sm">
                         <thead>
-                            <tr class="bg-carbon-800 text-left text-xs tracking-wide text-ash uppercase">
-                                <th class="px-4 py-3 font-medium">{{ $t('meta.columna.pokemon') }}</th>
-                                <th class="px-4 py-3 font-medium">{{ $t('meta.columna.n') }}</th>
-                                <th class="px-4 py-3 font-medium">
+                            <tr class="bg-surface text-left">
+                                <th class="rotulo px-4 py-3">{{ $t('meta.columna.pokemon') }}</th>
+                                <th class="rotulo px-4 py-3">{{ $t('meta.columna.n') }}</th>
+                                <th class="rotulo px-4 py-3">
                                     {{ $t('matchup.columna.con', { rival: nombreEspecie }) }}
                                 </th>
-                                <th class="px-4 py-3 font-medium">{{ $t('matchup.columna.sin') }}</th>
-                                <th class="px-4 py-3 font-medium">{{ $t('matchup.columna.delta') }}</th>
+                                <th class="rotulo px-4 py-3">{{ $t('matchup.columna.sin') }}</th>
+                                <th class="rotulo px-4 py-3">{{ $t('matchup.columna.delta') }}</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr
                                 v-for="fila in matchups"
                                 :key="fila.slug"
-                                class="border-t border-carbon-700 hover:bg-carbon-800/60"
+                                class="border-t border-line-soft hover:bg-surface/60"
                             >
                                 <td class="px-4 py-2">
                                     <RouterLink
                                         :to="{ name: 'especie', params: { slug: fila.slug } }"
-                                        class="font-medium text-bone hover:text-sand"
+                                        class="font-medium text-mist hover:text-amber"
                                     >
                                         {{ nombre(fila) }}
                                     </RouterLink>
                                 </td>
-                                <td class="cifra px-4 py-2 text-ash">{{ fila.n }}</td>
-                                <td class="cifra px-4 py-2 text-bone">{{ fila.bring_pct.toFixed(1) }}%</td>
-                                <td class="cifra px-4 py-2 text-ash">{{ fila.bring_pct_sin.toFixed(1) }}%</td>
+                                <td class="cifra px-4 py-2 text-fog">{{ fila.n }}</td>
+                                <td class="cifra px-4 py-2 text-mist">{{ fila.bring_pct.toFixed(1) }}%</td>
+                                <td class="cifra px-4 py-2 text-fog">{{ fila.bring_pct_sin.toFixed(1) }}%</td>
                                 <td class="px-4 py-2">
                                     <span class="flex items-center gap-2">
                                         <PctBar :pct="fila.delta" tono="signo" />
                                         <span
                                             v-if="fila.significativo"
-                                            class="text-sand"
+                                            class="text-amber"
                                             :title="$t('matchup.significativo')"
                                             >*</span
                                         >
@@ -201,88 +204,17 @@ function nombreAccion(accion: AccionConducta): string {
                     </table>
                 </div>
 
-                <p v-if="matchupMuestra?.ocultas" class="mt-3 text-xs text-ash-dim">
-                    {{ $t('matchup.ocultas', { n: matchupMuestra.ocultas }) }}
-                </p>
-                <p class="mt-1 text-xs text-ash-dim">
+                <p class="mt-4 max-w-2xl text-xs text-fog-dim">
                     {{ $t('matchup.descriptivo', { rival: nombreEspecie }) }}
                 </p>
             </section>
 
-            <section>
-                <h2 class="text-lg font-semibold text-bone">{{ $t('conducta.titulo') }}</h2>
-                <p class="mt-1 text-sm text-ash">{{ $t('conducta.entradilla') }}</p>
-
-                <EmptySample v-if="contextos.length === 0" class="mt-4" :min="30" />
-
-                <div v-else class="mt-4 grid gap-6 lg:grid-cols-[18rem_1fr]">
-                    <ul class="space-y-1">
-                        <li v-for="contexto in contextos" :key="`${contexto.rival}-${contexto.fase}`">
-                            <button
-                                type="button"
-                                class="flex w-full items-center justify-between rounded-md border px-3 py-2 text-left text-sm transition-colors"
-                                :class="
-                                    rivalElegido === contexto.rival && faseElegida === contexto.fase
-                                        ? 'border-sand-dim bg-carbon-700 text-bone'
-                                        : 'border-carbon-600 bg-carbon-800 text-ash hover:border-carbon-500 hover:text-bone'
-                                "
-                                @click="verConducta(contexto.rival, contexto.fase as 'apertura' | 'medio')"
-                            >
-                                <span>
-                                    {{ nombre({ name: contexto.rival_name, name_es: contexto.rival_name_es }) }}
-                                    <span class="block text-xs text-ash-dim">
-                                        {{ $t(`conducta.${contexto.fase}`) }}
-                                    </span>
-                                </span>
-                                <span class="cifra text-xs text-ash">{{ contexto.n }}</span>
-                            </button>
-                        </li>
-                    </ul>
-
-                    <div v-if="conducta" class="overflow-hidden rounded-lg border border-carbon-600">
-                        <p class="cifra border-b border-carbon-700 bg-carbon-800 px-4 py-3 text-sm text-ash">
-                            {{ conducta.muestra.n }} {{ $t('conducta.decisiones') }}
-                        </p>
-                        <table class="w-full border-collapse text-sm">
-                            <thead>
-                                <tr class="text-left text-xs tracking-wide text-ash uppercase">
-                                    <th class="px-4 py-2 font-medium">{{ $t('conducta.columna.accion') }}</th>
-                                    <th class="px-4 py-2 font-medium">{{ $t('meta.columna.n') }}</th>
-                                    <th class="px-4 py-2 font-medium">%</th>
-                                    <th class="px-4 py-2 font-medium">{{ $t('conducta.columna.intervalo') }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr
-                                    v-for="accion in conducta.acciones"
-                                    :key="accion.action_key"
-                                    class="border-t border-carbon-700"
-                                >
-                                    <td class="px-4 py-2">
-                                        <span v-if="accion.tipo === 'switch'" class="text-ash italic">
-                                            {{ $t('conducta.cambiar') }}
-                                        </span>
-                                        <span v-else class="flex items-center gap-2">
-                                            <TypeTag v-if="accion.move_type" :type="accion.move_type" />
-                                            <span class="text-bone">{{ nombreAccion(accion) }}</span>
-                                        </span>
-                                    </td>
-                                    <td class="cifra px-4 py-2 text-ash">{{ accion.n }}</td>
-                                    <td class="px-4 py-2"><PctBar :pct="accion.pct" /></td>
-                                    <td class="cifra px-4 py-2 text-xs text-ash-dim">
-                                        {{ accion.intervalo[0].toFixed(1) }} – {{ accion.intervalo[1].toFixed(1) }}%
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p class="border-t border-carbon-700 px-4 py-3 text-xs text-ash-dim">
-                            {{ $t('conducta.solo_elegido') }}
-                        </p>
-                    </div>
-                </div>
+            <section v-else>
+                <p class="mb-5 max-w-2xl text-sm text-fog">
+                    {{ $t('conducta.entradilla_ficha', { especie: nombreEspecie }) }}
+                </p>
+                <BehaviorPanel :slug="slug" />
             </section>
-
-            <p class="mt-10 text-xs text-ash-dim">{{ $t('fuente') }}</p>
         </template>
     </div>
 </template>

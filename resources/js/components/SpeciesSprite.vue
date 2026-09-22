@@ -2,12 +2,7 @@
 import { computed, onMounted, ref } from 'vue';
 
 const props = withDefaults(
-    defineProps<{
-        sprite: string | null;
-        stone?: string | null;
-        name: string;
-        size?: number;
-    }>(),
+    defineProps<{ sprite: string | null; stone?: string | null; name: string; size?: number }>(),
     { stone: null, size: 48 },
 );
 
@@ -42,14 +37,13 @@ const offset = computed(() => (props.stone ? offsets.value[props.stone] : undefi
         />
         <span
             v-else
-            class="flex h-full w-full items-center justify-center rounded bg-carbon-700 text-[10px] text-ash-dim"
+            class="flex h-full w-full items-center justify-center rounded bg-surface text-[10px] text-fog-dim"
             aria-hidden="true"
+            >?</span
         >
-            ?
-        </span>
         <span
             v-if="offset"
-            class="absolute -right-0.5 -bottom-0.5 block rounded-full bg-carbon-900 ring-1 ring-carbon-600"
+            class="absolute -right-0.5 -bottom-0.5 block rounded-full bg-night ring-1 ring-line"
             :style="{
                 width: '20px',
                 height: '20px',

@@ -177,3 +177,47 @@ El flag vive en `ingest/config.mjs` → `data/regulations.json` → tabla `forma
 
 - La pantalla no se ha visto en un navegador: aquí no hay con qué abrirlo. Compila, pasa el comprobador de tipos y la API responde, pero el resultado visual está sin revisar.
 - El buscador filtra en cliente sobre las 200 filas que devuelve la API, no sobre las 382 especies.
+
+---
+
+# FASE 3 — REPLANTEAMIENTO: CINCO SECCIONES
+
+**Fecha:** 22-sep-2026
+
+## Lo que hay ya en el mercado (investigado el 22-sep-2026)
+
+El panorama cambió mucho desde la investigación de fase 0. Herramientas específicas de Champions ya en marcha:
+
+| Herramienta | Secciones | Fuente |
+|---|---|---|
+| op.gg/pokemon-champions | Pokédex, Tier, Replica Teams, Sample Builds, Wiki, Best Trainer, Tools | ladder del juego |
+| Pikalytics | Pokedex, Teams (top teams/usage/builder), Tournaments, Labs, Damage Calc | torneos + Showdown |
+| suckerpunch.gg | Rankings (incl. Matchups), Build Slots, Teams & Players, EV Optimizer, metodología | Limitless, Victory Road, circuito oficial |
+| champteams.gg | Tier List, Best Teams, Top Cores, Community Teams | torneos ponderados |
+| metavgc.com | Team Builder, Damage calc, Notepad, Team Finder, Forum | torneos (tema claro) |
+
+**Conclusión que manda sobre la arquitectura:** todas dicen *qué se usa* y varias tienen datos de torneo oficial que nosotros no tenemos ni vamos a tener. Ninguna dice *qué hace la gente*. Copiar su estructura sería competir donde somos más débiles, así que la navegación lleva las secciones esperadas pero el producto abre por el diferencial.
+
+## Arquitectura
+
+Cinco secciones: **Meta · Matchups · Equipos · Constructor · Pokédex**, con selector de formato y de corte de ELO globales en la cabecera y reflejados en la URL para poder compartir enlaces.
+
+- **Meta** separa dos métricas que ninguna otra herramienta distingue: cuánto se **lleva** (aparece en el Team Preview, sobre todos los lados) y cuánto se **trae** (entra al combate, solo sobre los lados completos). Las bandas de conducta se cortan por los cuartiles de la propia distribución, no por umbrales inventados.
+- **Equipos** sale de un hallazgo al mirar los datos: el mismo equipo de seis aparece hasta **138 veces**. La gente copia equipos, así que las compos tienen muestra de sobra. La ficha de equipo enseña qué cuatro de esos seis se traen, que es lo que no tiene nadie.
+- **Constructor** no recomienda: al elegir enseña qué hace la gente con ese Pokémon. Es la línea del proyecto y lo más difícil de copiar.
+
+## Decisiones técnicas
+
+- **El identificador de un equipo usa guion, no punto.** Con punto (`rillaboom.sneasler...`) el servidor lo toma por extensión de fichero y devuelve 404 antes de llegar a Laravel. Los slugs son alfanuméricos, así que el guion es seguro.
+- **Paleta pizarra azulada (`#181c25` base) en vez del casi negro anterior**, a petición del usuario. Acento ámbar apagado, **evitando el cian eléctrico de op.gg** para no parecer un clon. Colores de tipo recalibrados para el fondo nuevo.
+- **Comprobación automática de traducciones** (`npm run check:i18n`): verifica que toda clave usada en plantillas existe en español y en inglés, y que no hay claves huérfanas. Una clave que falte se ve como texto crudo en pantalla y no lo detectaba nada. Ya va en CI.
+
+## El código de copia del juego: no se puede
+
+Los **Replica Team codes** de Champions son diez caracteres opacos que resuelve el servidor de Nintendo. No se pueden generar ni descifrar desde fuera, así que la petición de "compos con su código de copia" no tiene solución técnica. Lo que se ofrece es el equipo en formato de texto de Showdown y los datos para montarlo a mano. El aviso aparece en la propia interfaz, no solo aquí.
+
+## Limitaciones conocidas
+
+- La interfaz sigue sin revisarse en un navegador desde este entorno: compila, pasa tipos y traducciones, y todas las rutas responden, pero el resultado visual lo juzga el usuario.
+- El Constructor guarda en `localStorage`, sin cuentas ni compartir equipos.
+- El selector de ELO existe pero solo el tramo 0 tiene datos: el ladder de Champions en Showdown no pasa de 1622.

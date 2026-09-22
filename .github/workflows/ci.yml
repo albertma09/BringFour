@@ -89,8 +89,8 @@ jobs:
       - name: Instalar dependencias del front
         run: npm ci --no-audit --no-fund
 
-      - name: Comprobar tipos
-        run: npx vue-tsc --noEmit
+      - name: Comprobar tipos y traducciones
+        run: npm run check
 
       - name: Construir el front
         run: npm run build
