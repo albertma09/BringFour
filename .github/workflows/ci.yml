@@ -54,9 +54,12 @@ jobs:
           cp .env.example .env
           php artisan key:generate
 
+      - name: Forzar https en dependencias git
+        run: git config --global url."https://github.com/".insteadOf ssh://git@github.com/
+
       - name: Instalar dependencias de ingesta
         working-directory: ingest
-        run: npm install --no-audit --no-fund
+        run: npm ci --no-audit --no-fund
 
       - name: Construir Pokemon Showdown
         working-directory: ingest/node_modules/pokemon-showdown
@@ -66,10 +69,10 @@ jobs:
         working-directory: ingest
         run: node showdown-data.mjs
 
-      - name: Comprobar que los datos commiteados estan al dia
+      - name: Comprobar que data/ coincide con la fuente fijada
         run: |
           if ! git diff --quiet -- data/; then
-            echo "Los JSON de data/ no coinciden con la fuente de Showdown."
+            echo "Los JSON de data/ no coinciden con la version fijada de Showdown."
             echo "Ejecuta: node ingest/showdown-data.mjs y commitea el resultado."
             git diff --stat -- data/
             exit 1

@@ -57,8 +57,20 @@ El tope de 32 hace **imposible** el clásico "252/252/4". El espacio de spreads 
 El paquete npm `pokemon-showdown` **va por detrás de master** (tenía `championsregma` cuando master ya iba por `championsregmb`). Hay que instalar desde GitHub y compilar:
 
 ```bash
-npm install github:smogon/pokemon-showdown     # ~50 s
-cd node_modules/pokemon-showdown && node build # ~10 s, genera dist/
+cd ingest
+npm ci                                         # ~30 s, commit fijado en package-lock
+node node_modules/pokemon-showdown/build       # ~10 s, genera dist/
+```
+
+**La fuente esta fijada a un commit concreto** en `ingest/package.json`, no a `master`. Motivo: si apuntara a master, cualquier cambio en Showdown rompería CI sin previo aviso y las builds no serian reproducibles.
+
+- `ci.yml` usa `npm ci`: fuente fijada, build reproducible.
+- `ingest-data.yml` (semanal) instala **master a proposito**, regenera los datos y abre un PR que incluye `package.json` y `package-lock.json`. **El pin avanza ahi, bajo revision.**
+
+⚠️ npm normaliza las URLs de GitHub a `git+ssh` en el lockfile pase lo que pase. En CI hay que añadir antes:
+
+```bash
+git config --global url."https://github.com/".insteadOf ssh://git@github.com/
 ```
 
 Sin `node build` no hay `dist/` y `require('pokemon-showdown')` falla con `MODULE_NOT_FOUND`.

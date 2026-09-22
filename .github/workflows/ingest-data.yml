@@ -20,9 +20,12 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Instalar dependencias
+      - name: Forzar https en dependencias git
+        run: git config --global url."https://github.com/".insteadOf ssh://git@github.com/
+
+      - name: Actualizar Pokemon Showdown a master
         working-directory: ingest
-        run: npm install --no-audit --no-fund
+        run: npm install "git+https://github.com/smogon/pokemon-showdown.git#master" --no-audit --no-fund
 
       - name: Construir Pokemon Showdown
         working-directory: ingest/node_modules/pokemon-showdown
@@ -46,5 +49,8 @@ jobs:
             nueva: en ese caso hay que actualizar `ingest/config.mjs` antes de mergear,
             porque el mod base `champions` pasa a ser la regulacion nueva y la
             anterior se congela en su propio mod.
-          add-paths: data/
+          add-paths: |
+            data/
+            ingest/package.json
+            ingest/package-lock.json
           delete-branch: true
