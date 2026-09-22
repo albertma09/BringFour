@@ -49,13 +49,20 @@ const sugerencias = computed(() => {
     return props.catalogo.filter((e) => nombre(e).toLowerCase().includes(texto)).slice(0, 8);
 });
 
+const seleccionados = computed(() =>
+    props.hueco.movimientos
+        .map((slug) => (opciones.value?.movimientos ?? []).find((m) => m.slug === slug))
+        .filter((m): m is Movimiento => m !== undefined),
+);
+
 const movimientosFiltrados = computed(() => {
     const texto = buscarMovimiento.value.trim().toLowerCase();
-    const lista = opciones.value?.movimientos ?? [];
+    const elegidos = props.hueco.movimientos;
 
-    if (texto === '') return lista.slice(0, 40);
-
-    return lista.filter((m) => nombre(m).toLowerCase().includes(texto)).slice(0, 40);
+    return (opciones.value?.movimientos ?? [])
+        .filter((m) => !elegidos.includes(m.slug))
+        .filter((m) => texto === '' || nombre(m).toLowerCase().includes(texto))
+        .sort((a, b) => nombre(a).localeCompare(nombre(b), locale.value));
 });
 
 async function cargarOpciones(): Promise<void> {
@@ -72,8 +79,28 @@ async function cargarOpciones(): Promise<void> {
             objetos: respuesta.objetos,
             abilities: respuesta.especie.abilities,
         };
+        podar();
     } catch {
         opciones.value = null;
+    }
+}
+
+function podar(): void {
+    if (!opciones.value) return;
+
+    const legales = new Set(opciones.value.movimientos.map((m) => m.slug));
+    const movimientos = props.hueco.movimientos.filter((slug) => legales.has(slug));
+    const objeto = opciones.value.objetos.some((o) => o.slug === props.hueco.objeto) ? props.hueco.objeto : null;
+    const habilidad = opciones.value.abilities.some((h) => h.slug === props.hueco.habilidad)
+        ? props.hueco.habilidad
+        : null;
+
+    if (
+        movimientos.length !== props.hueco.movimientos.length ||
+        objeto !== props.hueco.objeto ||
+        habilidad !== props.hueco.habilidad
+    ) {
+        actualizar({ movimientos, objeto, habilidad });
     }
 }
 
@@ -334,31 +361,56 @@ function aplicarReparto(sp: Reparto): void {
                     <span class="cifra text-xs text-fog">{{ hueco.movimientos.length }}/4</span>
                 </div>
 
-                <input
-                    v-model="buscarMovimiento"
-                    type="search"
-                    :placeholder="$t('constructor.buscar_movimiento')"
-                    class="mb-2 w-full rounded-lg border border-line bg-night px-2 py-1.5 text-xs text-mist placeholder:text-fog-dim"
-                />
-
-                <div class="max-h-40 overflow-y-auto pr-1">
-                    <button
-                        v-for="movimiento in movimientosFiltrados"
+                <ul v-if="seleccionados.length > 0" class="mb-2 space-y-1">
+                    <li
+                        v-for="movimiento in seleccionados"
                         :key="movimiento.slug"
-                        type="button"
-                        class="mb-1 flex w-full items-center gap-2 rounded px-2 py-1 text-left text-xs transition-colors"
-                        :class="
-                            hueco.movimientos.includes(movimiento.slug)
-                                ? 'bg-raised text-mist'
-                                : 'text-fog hover:bg-surface hover:text-mist'
-                        "
-                        @click="alternarMovimiento(movimiento.slug)"
+                        class="flex items-center gap-2 rounded bg-raised px-2 py-1 text-xs text-mist"
                     >
                         <TypeTag :type="movimiento.type" />
                         <span class="flex-1 truncate">{{ nombre(movimiento) }}</span>
                         <span v-if="movimiento.power" class="cifra text-fog-dim">{{ movimiento.power }}</span>
-                    </button>
-                </div>
+                        <button
+                            type="button"
+                            class="shrink-0 px-1 text-fog-dim hover:text-clay"
+                            :aria-label="$t('constructor.quitar_movimiento', { nombre: nombre(movimiento) })"
+                            @click="alternarMovimiento(movimiento.slug)"
+                        >
+                            ×
+                        </button>
+                    </li>
+                </ul>
+
+                <p v-if="seleccionados.length >= 4" class="text-[10px] leading-relaxed text-fog-dim">
+                    {{ $t('constructor.movimientos_llenos') }}
+                </p>
+
+                <template v-else>
+                    <input
+                        v-model="buscarMovimiento"
+                        type="search"
+                        :placeholder="$t('constructor.buscar_movimiento')"
+                        class="mb-2 w-full rounded-lg border border-line bg-night px-2 py-1.5 text-xs text-mist placeholder:text-fog-dim"
+                    />
+
+                    <div class="max-h-40 overflow-y-auto pr-1">
+                        <button
+                            v-for="movimiento in movimientosFiltrados"
+                            :key="movimiento.slug"
+                            type="button"
+                            class="mb-1 flex w-full items-center gap-2 rounded px-2 py-1 text-left text-xs text-fog transition-colors hover:bg-surface hover:text-mist"
+                            @click="alternarMovimiento(movimiento.slug)"
+                        >
+                            <TypeTag :type="movimiento.type" />
+                            <span class="flex-1 truncate">{{ nombre(movimiento) }}</span>
+                            <span v-if="movimiento.power" class="cifra text-fog-dim">{{ movimiento.power }}</span>
+                        </button>
+
+                        <p v-if="movimientosFiltrados.length === 0" class="px-2 py-1 text-[11px] text-fog-dim">
+                            {{ $t('constructor.sin_movimientos') }}
+                        </p>
+                    </div>
+                </template>
             </div>
         </template>
     </div>

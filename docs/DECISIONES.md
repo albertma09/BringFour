@@ -368,3 +368,22 @@ Sin coapariciones no hay costumbre que medir, así que se propone por estructura
 - **No se modelan terrenos ni climas.** Por eso a Rillaboom no se le propone Hierba Parásita: su prioridad +1 depende del Campo de Hierba que él mismo pone, y eso el modelo no lo sabe.
 - Las habilidades condicionales (Espesura, Mar Llamas y compañía, que solo actúan a poca vida) no se cuentan.
 - El conjunto propuesto no conoce el resto del equipo: no ajusta la cobertura a lo que ya llevan los otros cinco.
+
+## El selector de movimientos no enseñaba lo elegido
+
+La lista de movimientos del Constructor cortaba en **40** y venía ordenada por el nombre **en inglés**, aunque en pantalla se muestre el nombre traducido. Con Rillaboom, que tiene 67 movimientos legales, eso significaba:
+
+```
+Mazazo          posicion 65  -> no se ve nunca
+Ida y Vuelta    posicion 63  -> no se ve nunca
+```
+
+El flujo era: buscas el movimiento, lo marcas, borras la búsqueda — y desaparece de la vista. **Se guardaba bien, pero no había forma de verlo**, así que parecía que no. El único indicio era el contador `x/4`.
+
+Arreglado en tres partes:
+
+- Los movimientos elegidos salen en **su propia lista arriba, siempre visible**, cada uno con su botón de quitar.
+- Se acabó el corte de 40: la lista es desplazable y muestra todo el repertorio legal, **ordenado por el nombre del idioma activo**.
+- Al llegar a cuatro, la búsqueda se sustituye por un aviso de que hay que quitar uno para cambiarlo. Antes el clic simplemente no hacía nada, sin explicación.
+
+De paso, al cambiar de formato ahora se **podan** el movimiento, el objeto y la habilidad que dejen de ser legales en la regulación nueva. Antes se quedaban guardados en el equipo pero no se pintaban, así que el contador decía cuatro y se veían tres.
