@@ -202,6 +202,88 @@ export interface RepartoSugerido {
     razones: RazonReparto[];
     alineamiento: string | null;
     tope: number;
+    medido: boolean;
+    velocidad: { base: number; percentil: number; ritmo: string; muestra: number } | null;
+}
+
+export interface MovimientoTaller {
+    slug: string;
+    name: string;
+    name_es: string | null;
+    type: string;
+    category: string;
+    power: number | null;
+    accuracy: number | null;
+    target: string;
+    motivo: string;
+    efectiva?: number;
+    por_objetivo?: number;
+    stab?: boolean;
+    habilidad?: string | null;
+    area?: boolean;
+    golpea_aliado?: boolean;
+    infalible?: boolean;
+    funcion?: string;
+}
+
+export interface Cobertura {
+    pct: number;
+    resisten: { slug: string; name: string; name_es: string | null; x: number }[];
+}
+
+export interface Analisis {
+    especie: FichaEspecie;
+    velocidad: { base: number; percentil: number; ritmo: string; muestra: number };
+    conjunto: {
+        categoria: string;
+        habilidad: string | null;
+        movimientos: MovimientoTaller[];
+        alternativas: MovimientoTaller[];
+        utilidad: MovimientoTaller[];
+        cobertura: Cobertura;
+    };
+    meta: { especies: number; traidas: number };
+    deducido: boolean;
+}
+
+export interface Amenaza extends Especie {
+    tipos: string[];
+    peso: number;
+    movimiento: string;
+    movimiento_es: string | null;
+    tipo_golpe: string;
+    x: number;
+    antes: boolean;
+    n: number | null;
+}
+
+export interface Amenazas {
+    especie: string;
+    velocidad_base: number;
+    debilidades: Record<string, number>;
+    resistencias: Record<string, number>;
+    confirmadas: Amenaza[];
+    posibles: Amenaza[];
+    meta: { especies: number };
+}
+
+export interface RazonEstructural {
+    clave: string;
+    tipos?: string[];
+    movimientos?: string[];
+}
+
+export interface CompaneroEstructural extends Especie {
+    tipos: string[];
+    peso: number;
+    razones: RazonEstructural[];
+    encaje: number;
+}
+
+export interface CompanerosEstructurales {
+    especie: string;
+    ritmo: string;
+    companeros: CompaneroEstructural[];
 }
 
 async function get<T>(ruta: string, params: Record<string, string | number> = {}): Promise<T> {
@@ -269,6 +351,13 @@ export const api = {
             format: c.format,
             alignment: alignment ?? '',
         }),
+
+    analisis: (slug: string, c: Comunes) => get<Analisis>(`/build/species/${slug}/analysis`, c),
+
+    amenazas: (slug: string, c: Comunes) => get<Amenazas>(`/build/species/${slug}/threats`, c),
+
+    estructurales: (slug: string, c: Comunes) =>
+        get<CompanerosEstructurales>(`/build/species/${slug}/structural-partners`, c),
 
     opciones: (slug: string, c: Comunes) =>
         get<{ especie: Especie & { abilities: Habilidad[] }; movimientos: Movimiento[]; objetos: ObjetoBuilder[] }>(

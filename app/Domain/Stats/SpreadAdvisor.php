@@ -23,11 +23,11 @@ final class SpreadAdvisor
         'apoyo_lento' => ['hp' => 32, 'defensa' => 32, 'spe' => 2],
     ];
 
-    public function suggest(array $baseStats, ?string $plus = null, ?string $minus = null): array
+    public function suggest(array $baseStats, ?string $plus = null, ?string $minus = null, ?string $medido = null): array
     {
         $ofensiva = $this->ofensiva($baseStats, $plus, $minus);
         $papel = max((int) ($baseStats['atk'] ?? 0), (int) ($baseStats['spa'] ?? 0)) >= self::OFENSIVO ? 'ofensivo' : 'apoyo';
-        $ritmo = $this->ritmo($baseStats, $plus, $minus);
+        $ritmo = $this->ritmo($baseStats, $plus, $minus, $medido);
         $defensa = ((int) ($baseStats['def'] ?? 0)) <= ((int) ($baseStats['spd'] ?? 0)) ? 'def' : 'spd';
 
         $sp = ['hp' => 0, 'atk' => 0, 'def' => 0, 'spa' => 0, 'spd' => 0, 'spe' => 0];
@@ -52,6 +52,7 @@ final class SpreadAdvisor
             'ofensiva' => $ofensiva,
             'defensa' => $defensa,
             'razones' => $razones,
+            'medido' => $medido !== null,
         ];
     }
 
@@ -68,7 +69,7 @@ final class SpreadAdvisor
         return ((int) ($baseStats['spa'] ?? 0)) > ((int) ($baseStats['atk'] ?? 0)) ? 'spa' : 'atk';
     }
 
-    private function ritmo(array $baseStats, ?string $plus, ?string $minus): string
+    private function ritmo(array $baseStats, ?string $plus, ?string $minus, ?string $medido): string
     {
         if ($minus === 'spe') {
             return 'lento';
@@ -76,6 +77,10 @@ final class SpreadAdvisor
 
         if ($plus === 'spe') {
             return 'rapido';
+        }
+
+        if ($medido !== null) {
+            return $medido;
         }
 
         $base = (int) ($baseStats['spe'] ?? 0);

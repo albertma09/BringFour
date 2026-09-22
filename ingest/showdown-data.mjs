@@ -134,6 +134,24 @@ function mapAlignment(nature) {
   };
 }
 
+const EFECTO = { 0: 1, 1: 2, 2: 0.5, 3: 0 };
+
+function mapTypes(dex) {
+  const tipos = dex.types.all().filter((tipo) => tipo.exists && tipo.name !== '???' && tipo.name !== 'Stellar');
+  const nombres = tipos.map((tipo) => tipo.name);
+
+  return nombres.map((defensor) => ({
+    slug: defensor.toLowerCase(),
+    name: defensor,
+    recibe: Object.fromEntries(
+      nombres.map((atacante) => [
+        atacante.toLowerCase(),
+        EFECTO[dex.types.get(defensor).damageTaken[atacante] ?? 0] ?? 1,
+      ]),
+    ),
+  }));
+}
+
 function collectLearnset(dex, slug, legalMoves) {
   const collected = new Set();
   const seen = new Set();
@@ -273,6 +291,7 @@ async function main() {
   await writeJson(join(DATA_DIR, 'abilities.json'), abilities);
   await writeJson(join(DATA_DIR, 'items.json'), items);
   await writeJson(join(DATA_DIR, 'alignments.json'), alignments);
+  await writeJson(join(DATA_DIR, 'types.json'), mapTypes(Dex.mod(REGULATIONS[0].mod)));
 
   for (const locale of LOCALES) {
     const names = { species: {}, moves: {}, abilities: {}, items: {} };

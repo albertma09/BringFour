@@ -62,6 +62,14 @@ function aplicar(): void {
                 {{ $t('sugerencia.usar_reparto') }}
             </button>
 
+            <p v-if="datos.velocidad" class="mt-2 text-[10px] leading-relaxed text-fog-dim">
+                {{
+                    $t('sugerencia.velocidad_medida', {
+                        base: datos.velocidad.base,
+                        pct: (100 - datos.velocidad.percentil).toFixed(0),
+                    })
+                }}
+            </p>
             <p class="mt-2 text-[10px] leading-relaxed text-fog-dim">{{ $t('sugerencia.regla') }}</p>
         </template>
     </div>

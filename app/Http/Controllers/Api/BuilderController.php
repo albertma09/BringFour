@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Domain\Build\MetaRoster;
+use App\Domain\Build\SpeedContext;
 use App\Domain\Meta\PartnerQuery;
 use App\Domain\Meta\SetQuery;
 use App\Domain\Stats\SpreadAdvisor;
@@ -122,24 +124,35 @@ class BuilderController extends ApiController
         ]);
     }
 
-    public function spread(Request $request, SpreadAdvisor $advisor, string $slug): JsonResponse
-    {
+    public function spread(
+        Request $request,
+        SpreadAdvisor $advisor,
+        SpeedContext $speed,
+        MetaRoster $roster,
+        string $slug,
+    ): JsonResponse {
         $species = $this->species($slug);
         $alineamiento = (string) $request->query('alignment', '');
         $fila = $alineamiento === ''
             ? null
             : DB::table('alignments')->where('slug', $alineamiento)->first();
 
+        $baseStats = json_decode((string) $species->base_stats, true) ?: [];
+        $meta = $roster->brought($this->formatId($request), $this->elo($request));
+        $ritmo = $meta === [] ? null : $speed->forSpecies($baseStats, $meta);
+
         $reparto = $advisor->suggest(
-            json_decode((string) $species->base_stats, true) ?: [],
+            $baseStats,
             $fila->plus_stat ?? null,
             $fila->minus_stat ?? null,
+            $ritmo['ritmo'] ?? null,
         );
 
         return response()->json($reparto + [
             'especie' => $species->slug,
             'alineamiento' => $fila->slug ?? null,
             'tope' => SpreadAdvisor::TOPE,
+            'velocidad' => $ritmo,
         ]);
     }
 

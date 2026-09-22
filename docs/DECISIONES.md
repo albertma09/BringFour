@@ -312,3 +312,59 @@ El rating más alto de toda la base es **1663**: por encima de 1630 no hay nada 
 **El panel de compañeros estaba debajo de las seis tarjetas**, o sea fuera de pantalla. Pasa a tira horizontal compacta entre el equipo y los huecos.
 
 **Las sugerencias de conjunto y SP estaban plegadas.** Ahora se abren solas cuando al hueco le falta algo (habilidad, objeto, los cuatro movimientos o SP sin repartir) y se cierran solas al completarlo, salvo que el usuario haya tocado el desplegable, en cuyo caso manda su decisión hasta que cambie de Pokémon.
+
+---
+
+# Fase 5 — Taller para Pokémon sin datos (22-sep-2026)
+
+## El hueco que ninguna herramienta cubre
+
+Todas las herramientas del sector son *usage-driven*: dicen qué se usa. Fuera del meta se quedan mudas, y ahí es justo donde un jugador necesita ayuda. Si eliges Clawitzer no hay registros, y no hay nadie que te diga qué ataques ponerle.
+
+**La asimetría que lo hace viable:** el Pokémon raro no tiene datos, pero **lo que se va a encontrar enfrente sí los tiene**. Lo deducido y lo medido se combinan, y en pantalla se distinguen siempre.
+
+## Lo que sale de la mecánica, no del uso
+
+Ordenar los ataques de Clawitzer por potencia bruta da Giga Impacto e Hiperrayo, que son basura. La respuesta correcta sale de cruzar el flag `pulse` de los movimientos con su habilidad **Megadisparador**, que multiplica por 1,5 los movimientos pulso:
+
+| Movimiento | Base | Con la habilidad |
+|---|---|---|
+| Pulso Dragón | 85 | 127 |
+| Esfera Aural | 80 | 120 (y no falla nunca) |
+| Pulso Umbrío | 80 | 120 |
+| Hidropulso | 60 | 90 → 135 con STAB |
+
+Los multiplicadores de habilidad **salen de los flags, no de una lista de casos especiales**: `pulse`→Megadisparador, `punch`→Puño Férreo, `bite`→Mandíbula Fuerte, `slicing`→Cortante, `sound`→Punk Rock, potencia ≤60→Experto. Si Showdown añade un movimiento pulso nuevo, entra solo.
+
+## Cuatro reglas que salieron de probar y ver fallos
+
+Cada una se añadió porque la anterior daba un resultado malo con un Pokémon real:
+
+1. **Los ataques de área que pegan al compañero no entran en el conjunto propuesto.** Con Surf a 202,5 de potencia efectiva, Clawitzer lo elegía por encima de Hidropulso — ignorando que Surf también revienta a tu propio compañero. Quedan como alternativa, avisando.
+2. **Umbral de viabilidad.** El algoritmo metía Disparo Lodo (52 de potencia efectiva) porque sumaba cobertura, aunque no hiciera nada. Solo se consideran ataques que lleguen al 60 % del mejor.
+3. **El umbral se mide por objetivo, no por daño total.** Con Gholdengo, Tesoro Ambicioso (área, 256,5) hacía que ningún ataque normal pareciera viable y el conjunto se llenaba de pantallas. Comparando por objetivo entra Bola Sombra, que es lo correcto.
+4. **Fuera los ataques de prioridad ≤ −3.** Metía Puño Certero a Rillaboom y a Incineroar: técnicamente está en su repertorio, pero falla si te pegan antes.
+
+## La honestidad de las amenazas
+
+La primera versión decía *"a Clawitzer le jode Garchomp con Colmillo Rayo"*. Está en el repertorio de Garchomp, pero **nadie lo lleva**. Eso es inventarse una amenaza.
+
+Ahora se cruza con `replay_actions`, que sí es dato observado, y se separa en dos listas:
+
+- **Confirmadas** — se ha visto usar el golpe: Rillaboom con Hierba Parásita (792 veces), Archaludon con Disparo Eléctrico (715). Eso es una amenaza de verdad.
+- **Posibles** — lo aprenden pero no se ha visto a nadie llevarlo. Se muestran aparte y en gris.
+
+## La velocidad deja de ser una opinión
+
+El `SpreadAdvisor` de la fase anterior decidía rápido/lento con unos umbrales 80/55 inventados. Ahora se mide el **percentil de velocidad contra lo que se trae de verdad**, pesando cada especie por cuánto se juega. Clawitzer con 59 de base está en el percentil 8,9: le gana el 91 % de lo que se va a encontrar. Eso ya no es criterio, es cuenta. El alineamiento que elige el usuario sigue mandando sobre todo lo demás.
+
+## Compañeros por encaje
+
+Sin coapariciones no hay costumbre que medir, así que se propone por estructura, con tres criterios y cada uno explicado: quién **tapa** sus debilidades, quién le **da el turno** (Viento Afín, Espacio Raro, Viento Hielo…) si su velocidad lo pide, y quién **llega** a lo que él no alcanza. Los candidatos salen siempre de lo que sí se juega, para que la sugerencia sea montable.
+
+## Limitaciones conocidas
+
+- **No se calcula daño real.** Se ordena por potencia efectiva, que es otra cosa. El cálculo exacto sigue siendo `@smogon/calc` en el navegador.
+- **No se modelan terrenos ni climas.** Por eso a Rillaboom no se le propone Hierba Parásita: su prioridad +1 depende del Campo de Hierba que él mismo pone, y eso el modelo no lo sabe.
+- Las habilidades condicionales (Espesura, Mar Llamas y compañía, que solo actúan a poca vida) no se cuentan.
+- El conjunto propuesto no conoce el resto del equipo: no ajusta la cobertura a lo que ya llevan los otros cinco.

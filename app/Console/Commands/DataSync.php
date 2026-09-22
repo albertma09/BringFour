@@ -36,7 +36,7 @@ class DataSync extends Command
         $this->info('Sincronizacion completada.');
         $this->table(
             ['tabla', 'filas'],
-            collect(['species', 'moves', 'abilities', 'items', 'alignments', 'regulations', 'formats', 'legality', 'learnsets'])
+            collect(['species', 'moves', 'abilities', 'items', 'alignments', 'types', 'regulations', 'formats', 'legality', 'learnsets'])
                 ->map(fn (string $table) => [$table, DB::table($table)->count()])
                 ->all(),
         );
@@ -225,6 +225,28 @@ class DataSync extends Command
             ['name', 'plus_stat', 'minus_stat', 'updated_at'],
         );
         $this->line('alignments: '.count($alignments));
+
+        $types = $this->read('types.json');
+        DB::table('types')->upsert(
+            collect($types)->map(fn (array $row) => ['slug' => $row['slug'], 'name' => $row['name']])->all(),
+            ['slug'],
+            ['name'],
+        );
+
+        $efectividad = [];
+
+        foreach ($types as $row) {
+            foreach ($row['recibe'] as $atacante => $multiplicador) {
+                $efectividad[] = [
+                    'attacker' => $atacante,
+                    'defender' => $row['slug'],
+                    'multiplier' => $multiplicador,
+                ];
+            }
+        }
+
+        DB::table('type_effectiveness')->upsert($efectividad, ['attacker', 'defender'], ['multiplier']);
+        $this->line('types: '.count($types).' ('.count($efectividad).' cruces)');
     }
 
     private function syncRegulations(): void

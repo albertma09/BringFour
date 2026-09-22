@@ -3,6 +3,7 @@ import { computed, ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { comunes } from '@/ajustes';
 import { api, type ConjuntoVisto } from '@/api/cliente';
+import NoDataWorkshop from '@/components/NoDataWorkshop.vue';
 import TypeTag from '@/components/TypeTag.vue';
 
 const props = defineProps<{ slug: string }>();
@@ -52,9 +53,12 @@ function aplicar(): void {
     <div>
         <p v-if="cargando" class="text-[11px] text-fog-dim">{{ $t('cargando') }}…</p>
 
-        <p v-else-if="!hayAlgo" class="text-[11px] leading-relaxed text-fog-dim">
-            {{ $t('sugerencia.sin_conjunto', { min: datos?.muestra.min_sample ?? 30 }) }}
-        </p>
+        <template v-else-if="!hayAlgo">
+            <p class="mb-3 text-[11px] leading-relaxed text-fog-dim">
+                {{ $t('sugerencia.sin_conjunto', { min: datos?.muestra.min_sample ?? 30 }) }}
+            </p>
+            <NoDataWorkshop :slug="slug" aplicable @aplicar="emit('aplicar', { ...$event, objeto: null })" />
+        </template>
 
         <template v-else-if="datos">
             <p class="cifra mb-3 text-[11px] text-fog-dim">

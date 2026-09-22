@@ -4,6 +4,7 @@ import { useI18n } from 'vue-i18n';
 import { comunes } from '@/ajustes';
 import { api, type FichaEspecie, type FilaMatchup, type Muestra } from '@/api/cliente';
 import BehaviorPanel from '@/components/BehaviorPanel.vue';
+import NoDataWorkshop from '@/components/NoDataWorkshop.vue';
 import Cargando from '@/components/Cargando.vue';
 import EmptySample from '@/components/EmptySample.vue';
 import PctBar from '@/components/PctBar.vue';
@@ -20,7 +21,7 @@ const fallo = ref(false);
 const especie = ref<FichaEspecie | null>(null);
 const muestra = ref<Muestra | null>(null);
 const matchups = ref<FilaMatchup[]>([]);
-const pestana = ref<'datos' | 'matchups' | 'conducta'>('datos');
+const pestana = ref<'datos' | 'matchups' | 'conducta' | 'taller'>('datos');
 
 function nombre(fila: { name: string; name_es: string | null } | null): string {
     if (!fila) return '';
@@ -59,6 +60,7 @@ const pestanas = [
     { clave: 'datos', etiqueta: 'ficha.pestana.datos' },
     { clave: 'matchups', etiqueta: 'ficha.pestana.matchups' },
     { clave: 'conducta', etiqueta: 'ficha.pestana.conducta' },
+    { clave: 'taller', etiqueta: 'ficha.pestana.taller' },
 ] as const;
 </script>
 
@@ -209,11 +211,16 @@ const pestanas = [
                 </p>
             </section>
 
-            <section v-else>
+            <section v-else-if="pestana === 'conducta'">
                 <p class="mb-5 max-w-2xl text-sm text-fog">
                     {{ $t('conducta.entradilla_ficha', { especie: nombreEspecie }) }}
                 </p>
                 <BehaviorPanel :slug="slug" />
+            </section>
+
+            <section v-else>
+                <p class="mb-5 max-w-2xl text-sm leading-relaxed text-fog">{{ $t('taller.entradilla') }}</p>
+                <NoDataWorkshop :slug="slug" />
             </section>
         </template>
     </div>

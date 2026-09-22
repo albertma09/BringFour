@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\BuildController;
 use App\Http\Controllers\Api\BuilderController;
 use App\Http\Controllers\Api\FormatController;
 use App\Http\Controllers\Api\MetaController;
@@ -21,3 +22,6 @@ Route::get('/builder/partners', [BuilderController::class, 'partners']);
 Route::get('/builder/species/{slug}', [BuilderController::class, 'options']);
 Route::get('/builder/species/{slug}/set', [BuilderController::class, 'set']);
 Route::get('/builder/species/{slug}/spread', [BuilderController::class, 'spread']);
+Route::get('/build/species/{slug}/analysis', [BuildController::class, 'analysis']);
+Route::get('/build/species/{slug}/threats', [BuildController::class, 'threats']);
+Route::get('/build/species/{slug}/structural-partners', [BuildController::class, 'structuralPartners']);
