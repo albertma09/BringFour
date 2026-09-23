@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Domain\Build\FieldEffects;
 use App\Domain\Build\MetaRoster;
 use App\Domain\Build\RoleClassifier;
 use App\Domain\Build\SetBuilder;
@@ -12,6 +13,7 @@ use App\Domain\Build\TeamAnalyzer;
 use App\Domain\Build\TypeUsage;
 use App\Domain\Build\ThreatQuery;
 use App\Domain\Meta\ClosingQuery;
+use App\Domain\Meta\FieldQuery;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -34,7 +36,14 @@ class BuildController extends ApiController
         $meta = $roster->brought($formatId, $elo);
 
         $conjunto = $builder->build($species, $regulationId, $meta);
-        $ritmo = $speed->forSpecies(json_decode((string) $species->base_stats, true) ?: [], $meta);
+        $habilidades = array_values(json_decode((string) $species->abilities, true) ?: []);
+        $contexto = app(FieldEffects::class)->context($habilidades);
+        $ritmo = $speed->forSpecies(
+            json_decode((string) $species->base_stats, true) ?: [],
+            $meta,
+            $habilidades,
+            $contexto['clima'],
+        );
 
         return response()->json([
             'especie' => $this->ficha($species),
@@ -105,6 +114,7 @@ class BuildController extends ApiController
         TypeUsage $usage,
         RoleClassifier $roles,
         ClosingQuery $cierre,
+        FieldQuery $campos,
     ): JsonResponse {
         [$especies, $formatId, $elo, $regulationId] = $this->equipo($request);
         $meta = $roster->brought($formatId, $elo);
@@ -117,6 +127,7 @@ class BuildController extends ApiController
         return response()->json($analisis + [
             'cambio' => $swap->advise($analisis, $meta, $papeles, $cierres, $pesos, $this->top($request, 4, 12)),
             'pesos' => $pesos,
+            'campos_vistos' => $campos->shares($formatId, $elo),
         ]);
     }
 

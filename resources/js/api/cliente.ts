@@ -224,6 +224,9 @@ export interface MovimientoTaller {
     golpea_aliado?: boolean;
     infalible?: boolean;
     funcion?: string;
+    campo?: string | null;
+    prioridad_campo?: number;
+    tipo_real?: string;
 }
 
 export interface Cobertura {
@@ -233,11 +236,20 @@ export interface Cobertura {
 
 export interface Analisis {
     especie: FichaEspecie;
-    velocidad: { base: number; percentil: number; ritmo: string; muestra: number };
+    velocidad: {
+        base: number;
+        efectiva: number;
+        percentil: number;
+        ritmo: string;
+        muestra: number;
+        doblada: string | null;
+        necesita_clima: string | null;
+    };
     papel: Papel;
     cierre: TasaCierre | null;
     conjunto: {
         categoria: string;
+        campo: { tipo: string; campo: string; habilidad: string } | null;
         habilidad: string | null;
         movimientos: MovimientoTaller[];
         alternativas: MovimientoTaller[];
@@ -359,7 +371,25 @@ export interface Cambio {
     } | null;
 }
 
+export interface CampoEquipo {
+    clima: string | null;
+    clima_quien: string | null;
+    terreno: string | null;
+    terreno_quien: string | null;
+    choques: { tipo: string; quienes: string[] }[];
+    huerfanos: { quien: string; necesita: string }[];
+    aprovechan: { quien: string; bonus: { clave: string; habilidad?: string; tipo?: string; campo?: string }[] }[];
+    bloquea_prioridad: boolean;
+}
+
+export interface CamposVistos {
+    partidas: number;
+    campos: { campo: string; clase: string; turnos: number; partidas: number; pct: number }[];
+}
+
 export interface AnalisisEquipo {
+    campo: CampoEquipo;
+    campos_vistos: CamposVistos;
     miembros: MiembroEquipoAnalisis[];
     papeles: { tiene: string[]; faltan: string[] };
     reparto: { fisicos: number; especiales: number; sesgado: string | null };

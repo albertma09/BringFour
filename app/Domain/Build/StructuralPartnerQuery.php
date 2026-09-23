@@ -10,7 +10,7 @@ final class StructuralPartnerQuery
 
     private const REDIRECCION = ['followme', 'ragepowder'];
 
-    public function __construct(private TypeChart $chart, private RoleClassifier $roles) {}
+    public function __construct(private TypeChart $chart, private RoleClassifier $roles, private FieldEffects $field) {}
 
     public function forSpecies(
         object $species,
@@ -69,17 +69,25 @@ final class StructuralPartnerQuery
         $sinResistir = array_column($analisis['sin_resistir'], 'peso', 'tipo');
         $faltan = $analisis['papeles']['faltan'];
         $necesita = $analisis['velocidad']['sin_control'] ? self::CONTROL : [];
+        $campo = $analisis['campo'] ?? ['clima' => null, 'terreno' => null, 'huerfanos' => []];
 
         $candidatos = array_values(array_filter($meta, fn (array $r) => ! in_array($r['slug'], $dentro, true)));
         $slugs = array_column($candidatos, 'slug');
         $papeles = $this->roles->forMany($slugs, $regulationId);
         $aportes = $this->aportes($slugs, $regulationId, [...self::CONTROL, ...self::REDIRECCION]);
+        $habilidades = $this->habilidades($slugs);
 
         $cubos = array_fill_keys(RoleClassifier::CUBOS, []);
 
         foreach ($candidatos as $rival) {
             $papel = $papeles[$rival['slug']] ?? ['eje' => 'apoyo', 'etiquetas' => [], 'cubos' => ['apoyo']];
             $razones = $this->razonesDeEquipo($rival, $papel, $compartidas, $sinResistir, $faltan, $necesita, $aportes);
+            $suCampo = $this->porCampo($rival, $habilidades[$rival['slug']] ?? [], $campo);
+
+            if ($suCampo !== null) {
+                $razones['lista'][] = $suCampo;
+                $razones['valor'] += 4;
+            }
 
             $ficha = [
                 'slug' => $rival['slug'],
@@ -102,6 +110,46 @@ final class StructuralPartnerQuery
         }
 
         return $this->repartir($cubos, $porCubo);
+    }
+
+    private function porCampo(array $rival, array $habilidades, array $campo): ?array
+    {
+        $doble = $this->field->speedMultiplier($habilidades, $campo['clima'] ?? null);
+
+        if ($doble['x'] > 1.0) {
+            return ['clave' => 'campo_velocidad', 'movimientos' => [$doble['habilidad']]];
+        }
+
+        foreach (array_filter([$campo['clima'] ?? null, $campo['terreno'] ?? null]) as $activo) {
+            foreach ($rival['tipos'] as $tipo) {
+                if ($this->field->boosts($activo, $tipo)) {
+                    return ['clave' => 'campo_golpe', 'tipos' => [$activo]];
+                }
+            }
+        }
+
+        foreach ($campo['huerfanos'] ?? [] as $huerfano) {
+            $puesto = $this->field->sets($habilidades);
+
+            if (($puesto['campo'] ?? null) === $huerfano['necesita']) {
+                return ['clave' => 'campo_pone', 'tipos' => [$huerfano['necesita']]];
+            }
+        }
+
+        return null;
+    }
+
+    private function habilidades(array $slugs): array
+    {
+        if ($slugs === []) {
+            return [];
+        }
+
+        return DB::table('species')
+            ->whereIn('slug', $slugs)
+            ->pluck('abilities', 'slug')
+            ->map(fn ($json) => array_values(json_decode((string) $json, true) ?: []))
+            ->all();
     }
 
     private function razonesDeEquipo(array $rival, array $papel, array $compartidas, array $sinResistir, array $faltan, array $necesita, array $aportes): array

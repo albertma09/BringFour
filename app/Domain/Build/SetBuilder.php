@@ -17,23 +17,28 @@ final class SetBuilder
 
     private const VIABLE = 0.6;
 
-    public function __construct(private MovePower $power, private TypeChart $chart) {}
+    private const PRIORITARIO = 0.4;
+
+    private const EMPATE = 10;
+
+    public function __construct(private MovePower $power, private TypeChart $chart, private FieldEffects $field) {}
 
     public function build(object $species, int $regulationId, array $meta): array
     {
         $tipos = json_decode((string) $species->types, true) ?: [];
         $baseStats = json_decode((string) $species->base_stats, true) ?: [];
         $habilidades = array_values(json_decode((string) $species->abilities, true) ?: []);
-        $categoria = $this->power->category($baseStats);
-
+        $contexto = $this->field->context($habilidades);
         $repertorio = $this->repertorio((int) $species->id, $regulationId);
-        $ataques = $this->ataques($repertorio, $tipos, $habilidades, $categoria);
+        $categoria = $this->categoria($baseStats, $repertorio, $tipos, $habilidades, $contexto);
+        $ataques = $this->ataques($repertorio, $tipos, $habilidades, $categoria, $contexto);
         $utilidad = $this->utilidad($repertorio);
 
         $elegidos = $this->elegir($ataques, $utilidad, $meta);
 
         return [
             'categoria' => $categoria,
+            'campo' => $this->field->sets($habilidades),
             'habilidad' => $habilidades[0] ?? null,
             'movimientos' => $elegidos,
             'alternativas' => array_slice(array_values(array_filter(
@@ -43,6 +48,29 @@ final class SetBuilder
             'utilidad' => $utilidad,
             'cobertura' => $this->cobertura($elegidos, $meta),
         ];
+    }
+
+    private function categoria(array $baseStats, array $repertorio, array $tipos, array $habilidades, array $contexto): string
+    {
+        $fisico = (int) ($baseStats['atk'] ?? 0);
+        $especial = (int) ($baseStats['spa'] ?? 0);
+
+        if (abs($fisico - $especial) > self::EMPATE) {
+            return $especial > $fisico ? 'Special' : 'Physical';
+        }
+
+        $mejor = ['Physical' => 0.0, 'Special' => 0.0];
+
+        foreach ($repertorio as $move) {
+            if (! isset($mejor[$move->category])) {
+                continue;
+            }
+
+            $nota = $this->power->score($move, $tipos, $habilidades, $contexto['clima'], $contexto['terreno']);
+            $mejor[$move->category] = max($mejor[$move->category], $nota['por_objetivo'] ?? 0.0);
+        }
+
+        return $mejor['Special'] > $mejor['Physical'] ? 'Special' : 'Physical';
     }
 
     private function repertorio(int $speciesId, int $regulationId): array
@@ -56,7 +84,7 @@ final class SetBuilder
         ', [$speciesId, $regulationId]);
     }
 
-    private function ataques(array $repertorio, array $tipos, array $habilidades, string $categoria): array
+    private function ataques(array $repertorio, array $tipos, array $habilidades, string $categoria, array $contexto): array
     {
         $salida = [];
 
@@ -65,13 +93,13 @@ final class SetBuilder
                 continue;
             }
 
-            $nota = $this->power->score($move, $tipos, $habilidades);
+            $nota = $this->power->score($move, $tipos, $habilidades, $contexto['clima'], $contexto['terreno']);
 
             if ($nota === null) {
                 continue;
             }
 
-            $salida[] = $this->fila($move) + $nota;
+            $salida[] = ['type' => $nota['tipo_real']] + $this->fila($move) + $nota;
         }
 
         usort($salida, fn (array $a, array $b) => $b['efectiva'] <=> $a['efectiva']);
@@ -113,6 +141,12 @@ final class SetBuilder
             $elegidos[] = $stab[0] + ['motivo' => 'stab'];
         }
 
+        $rapido = $this->prioritario($limpios, $elegidos);
+
+        if ($rapido !== null) {
+            $elegidos[] = $rapido + ['motivo' => 'prioridad'];
+        }
+
         $viables = $this->viables($limpios);
 
         while (count($elegidos) < 4) {
@@ -140,15 +174,48 @@ final class SetBuilder
         return $elegidos;
     }
 
+    private function prioritario(array $ataques, array $elegidos): ?array
+    {
+        $yaEstan = array_column($elegidos, 'slug');
+        $techo = $ataques === [] ? 0.0 : max(array_column($ataques, 'por_objetivo'));
+
+        foreach ($ataques as $ataque) {
+            if (in_array($ataque['slug'], $yaEstan, true) || ($ataque['prioridad'] ?? 0) <= 0) {
+                continue;
+            }
+
+            if ($ataque['por_objetivo'] >= $techo * self::PRIORITARIO) {
+                return $ataque;
+            }
+        }
+
+        return null;
+    }
+
+    private function repetido(array $ataque, array $elegidos): bool
+    {
+        foreach ($elegidos as $puesto) {
+            if (($puesto['type'] ?? null) !== $ataque['type']) {
+                continue;
+            }
+
+            if (in_array($puesto['target'] ?? '', MovePower::AREA, true) === in_array($ataque['target'], MovePower::AREA, true)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     private function viables(array $ataques): array
     {
         if ($ataques === []) {
             return [];
         }
 
-        $techo = max(array_column($ataques, 'por_objetivo'));
+        $techo = max(array_column($ataques, 'sin_campo'));
 
-        return array_values(array_filter($ataques, fn (array $m) => $m['por_objetivo'] >= $techo * self::VIABLE));
+        return array_values(array_filter($ataques, fn (array $m) => $m['sin_campo'] >= $techo * self::VIABLE));
     }
 
     private function mejorCobertura(array $ataques, array $elegidos, array $meta): ?array
@@ -160,7 +227,7 @@ final class SetBuilder
         $mejorGanancia = -1.0;
 
         foreach ($ataques as $ataque) {
-            if (in_array($ataque['slug'], $yaEstan, true) || in_array($ataque['type'], $tiposPuestos, true)) {
+            if (in_array($ataque['slug'], $yaEstan, true) || $this->repetido($ataque, $elegidos)) {
                 continue;
             }
 

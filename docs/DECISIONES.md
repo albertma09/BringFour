@@ -536,3 +536,66 @@ Si se retoma, el diseño correcto es: **solo confirmación positiva** (*"a mí m
 Los equipos que enseña BringFour salen de **replays de Showdown**, y esos jugadores no juegan a Champions: sus equipos no tienen código ni lo tendrán. Cualquier código que apareciese sería de alguien que haya montado esas seis especies por su cuenta.
 
 Además, el identificador de equipo son **las seis especies ordenadas**, no una configuración: un código sería "de *un* equipo con estos seis", con otros objetos y otro reparto de SP. Eso habría que decirlo en pantalla.
+
+---
+
+# Fase 8 — Climas y terrenos (23-sep-2026)
+
+## No es un detalle de nicho
+
+Contando los `field_state` de los turnos ya guardados:
+
+| | Partidas | |
+|---|---|---|
+| Con terreno | 2.125 / 3.134 | **68 %** |
+| Con clima | 1.752 / 3.134 | **56 %** |
+
+Campo de Hierba (50,9 % de las partidas) y Campo Psíquico (54,8 %) dominan; Campo Eléctrico es residual (6,5 %) y el de Niebla anecdótico (0,7 %). En clima: lluvia 33,6 %, sol 23,1 %, arena 20,9 %, nevada 13,5 %. Estas frecuencias son **dato medido** y salen etiquetadas como tal.
+
+## El origen del fallo
+
+**Hierba Parásita está guardada con prioridad 0.** Su +1 es lógica condicional dentro del código de Showdown, no un campo del JSON. Igual pasa con Voltio Cruel (dobla en Campo Eléctrico), Vasta Fuerza (sube en Campo Psíquico), Bola Clima y Pulso de Campo (doblan y cambian de tipo).
+
+Por eso hay una **tabla escrita a mano** de ~15 movimientos condicionales. Es una diferencia importante respecto a los multiplicadores de habilidad, que salían de los flags y se mantienen solos: **esta hay que actualizarla** si Showdown añade movimientos de campo.
+
+## El campo se autoactiva
+
+La decisión que hace esto útil: **la habilidad del propio Pokémon pone su campo**, así que se analiza con él puesto. Rillaboom se calcula con Campo de Hierba, Pelipper con lluvia, Torkoal con sol.
+
+Resultados, todos coincidiendo con lo que se juega de verdad:
+
+```
+Rillaboom  Protección · Mazazo (234) · Hierba Parásita (+1 prio) · Fuerza Bruta
+Pelipper   Protección · Agua Lodosa (258) · Vendaval (165, no falla con lluvia)
+Torkoal    Protección · Erupción (506) · Sofoco (263)
+Ninetales-A  Ventisca (247, no falla con nevada)
+```
+
+## Tres reglas que hubo que añadir
+
+1. **Hueco para la prioridad.** Hierba Parásita tiene 107 de potencia efectiva contra los 234 de Mazazo, así que por potencia nunca entraba. Pero pegar antes vale un hueco en dobles, así que un ataque prioritario con al menos el 40 % de la potencia del mejor se lleva sitio propio. El número de potencia **no se infla**: la prioridad se valora aparte y se muestra aparte.
+
+2. **El umbral de viabilidad se mide sin el campo.** El ×1,5 del sol sobre Erupción disparaba el techo y dejaba fuera todo lo demás, llenando el conjunto de movimientos de estado. Se compara con la potencia sin campo y se ordena con ella.
+
+3. **Se permite repetir tipo si cambia el alcance.** Un ataque de área y uno de objetivo único del mismo tipo hacen cosas distintas en dobles. Sin esto, Pelipper no podía llevar Agua Lodosa e Hidrobomba, que es su conjunto real.
+
+## Un fallo que destapó el sol
+
+Torkoal salía como atacante **físico**: tiene 85 de Ataque y 85 de Especial, y el desempate elegía físico a ciegas. Ahora, cuando la diferencia es de 10 o menos, **se decide mirando qué movimientos tiene de verdad en cada lado**. Torkoal pasa a especial y recibe Erupción, que es lo correcto.
+
+## A nivel de equipo
+
+- Quién pone clima y quién pone terreno, con su frecuencia real al lado.
+- **Quién lo aprovecha**: Excadrill con Ímpetu Arena dobla velocidad si llevas Tyranitar.
+- **Huérfanos**: alguien con Clorofila y nadie que ponga sol es un aviso.
+- **Choques**: dos que ponen climas distintos se pisan.
+- **Campo Psíquico anula la prioridad**, también la tuya, y eso se dice.
+- Razón nueva para compañeros: **aprovecha el campo que ya pones**.
+
+El reparto de SP se entera por la cadena: un Nado Rápido con lluvia deja de ser «lento» y no gasta puntos en correr.
+
+## Limitaciones conocidas
+
+- **El campo del rival no se modela.** Si el rival pone Campo Psíquico, tu Hierba Parásita pierde la prioridad. Eso es dinámica de combate, no de construcción.
+- Los climas duran 5 turnos (8 con roca); aquí se tratan como permanentes, que es lo razonable cuando los pone una habilidad.
+- Sigue sin calcularse daño real: un ×1,3 sobre potencia efectiva no es un cálculo de daño.

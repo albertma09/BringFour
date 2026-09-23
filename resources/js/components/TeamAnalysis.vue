@@ -2,6 +2,7 @@
 import { ref, watch } from 'vue';
 import { comunes } from '@/ajustes';
 import { api, type AnalisisEquipo } from '@/api/cliente';
+import FieldPanel from '@/components/FieldPanel.vue';
 import SwapHint from '@/components/SwapHint.vue';
 import TeamGaps from '@/components/TeamGaps.vue';
 
@@ -60,6 +61,8 @@ defineExpose({ recargar: cargar });
                     {{ datos.papeles.faltan.map((p) => $t(`papel.cubo.${p}`)).join(' · ') }}
                 </span>
             </p>
+
+            <FieldPanel :campo="datos.campo" :vistos="datos.campos_vistos" class="mb-8" />
 
             <TeamGaps :analisis="datos" class="mb-8" />
 

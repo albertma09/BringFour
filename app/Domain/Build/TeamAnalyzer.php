@@ -12,17 +12,24 @@ final class TeamAnalyzer
 
     private const SESGO = 0.75;
 
-    public function __construct(private TypeChart $chart, private RoleClassifier $roles, private SpeedContext $speed) {}
+    public function __construct(
+        private TypeChart $chart,
+        private RoleClassifier $roles,
+        private SpeedContext $speed,
+        private FieldEffects $field,
+    ) {}
 
     public function analyse(array $especies, int $formatId, int $elo, int $regulationId, array $meta, array $pesos, array $cierres): array
     {
         $miembros = $this->miembros($especies, $regulationId, $cierres, $meta);
+        $campo = $this->campo($miembros);
 
         return [
             'miembros' => $miembros,
             'papeles' => $this->papeles($miembros),
             'reparto' => $this->reparto($miembros),
-            'velocidad' => $this->velocidad($miembros, $meta),
+            'campo' => $campo,
+            'velocidad' => $this->velocidad($miembros, $meta, $campo['clima']),
             'compartidas' => $this->compartidas($miembros, $pesos),
             'sin_resistir' => $this->sinResistir($miembros, $pesos),
             'amenazas' => $this->amenazas($miembros, $formatId, $elo, $meta),
@@ -44,6 +51,7 @@ final class TeamAnalyzer
                 'slug' => $especie->slug,
                 'name' => $especie->name,
                 'name_es' => $especie->name_es,
+                'habilidades' => array_values(json_decode((string) $especie->abilities, true) ?: []),
                 'sprite' => $especie->sprite_file,
                 'sprite_stone' => $especie->sprite_stone_slug,
                 'tipos' => $tipos,
@@ -100,9 +108,92 @@ final class TeamAnalyzer
         ];
     }
 
-    private function velocidad(array $miembros, array $meta): array
+    private function campo(array $miembros): array
     {
-        $percentiles = array_map(fn (array $m) => $this->speed->forSpecies($m['stats'], $meta)['percentil'], $miembros);
+        $ponen = [];
+
+        foreach ($miembros as $miembro) {
+            $puesto = $this->field->sets($miembro['habilidades']);
+
+            if ($puesto !== null) {
+                $ponen[] = $puesto + ['quien' => $miembro['name']];
+            }
+        }
+
+        $clima = collect($ponen)->firstWhere('tipo', 'clima');
+        $terreno = collect($ponen)->firstWhere('tipo', 'terreno');
+
+        $huerfanos = [];
+
+        foreach ($miembros as $miembro) {
+            $necesita = $this->field->needsWeather($miembro['habilidades']);
+
+            if ($necesita !== null && $necesita !== ($clima['campo'] ?? null)) {
+                $huerfanos[] = ['quien' => $miembro['name'], 'necesita' => $necesita];
+            }
+        }
+
+        return [
+            'clima' => $clima['campo'] ?? null,
+            'clima_quien' => $clima['quien'] ?? null,
+            'terreno' => $terreno['campo'] ?? null,
+            'terreno_quien' => $terreno['quien'] ?? null,
+            'choques' => $this->choques($ponen),
+            'huerfanos' => $huerfanos,
+            'aprovechan' => $this->aprovechan($miembros, $clima['campo'] ?? null, $terreno['campo'] ?? null),
+            'bloquea_prioridad' => $this->field->blocksPriority($terreno['campo'] ?? null),
+        ];
+    }
+
+    private function choques(array $ponen): array
+    {
+        $salida = [];
+
+        foreach (['clima', 'terreno'] as $clase) {
+            $mismos = array_values(array_filter($ponen, fn (array $p) => $p['tipo'] === $clase));
+
+            if (count($mismos) > 1) {
+                $salida[] = ['tipo' => $clase, 'quienes' => array_column($mismos, 'quien')];
+            }
+        }
+
+        return $salida;
+    }
+
+    private function aprovechan(array $miembros, ?string $clima, ?string $terreno): array
+    {
+        $salida = [];
+
+        foreach ($miembros as $miembro) {
+            $doble = $this->field->speedMultiplier($miembro['habilidades'], $clima);
+            $bonus = [];
+
+            if ($doble['x'] > 1.0) {
+                $bonus[] = ['clave' => 'velocidad', 'habilidad' => $doble['habilidad']];
+            }
+
+            foreach (array_filter([$clima, $terreno]) as $campo) {
+                foreach ($miembro['tipos'] as $tipo) {
+                    if ($this->field->boosts($campo, $tipo)) {
+                        $bonus[] = ['clave' => 'golpe', 'tipo' => $tipo, 'campo' => $campo];
+                    }
+                }
+            }
+
+            if ($bonus !== []) {
+                $salida[] = ['quien' => $miembro['name'], 'bonus' => $bonus];
+            }
+        }
+
+        return $salida;
+    }
+
+    private function velocidad(array $miembros, array $meta, ?string $clima): array
+    {
+        $percentiles = array_map(
+            fn (array $m) => $this->speed->forSpecies($m['stats'], $meta, $m['habilidades'], $clima)['percentil'],
+            $miembros,
+        );
         $media = $percentiles === [] ? 50.0 : round(array_sum($percentiles) / count($percentiles), 1);
 
         $conControl = array_filter($miembros, fn (array $m) => in_array('velocidad', $m['etiquetas'], true));

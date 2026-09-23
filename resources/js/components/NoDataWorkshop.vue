@@ -46,6 +46,7 @@ function etiquetas(movimiento: MovimientoTaller): string[] {
     if (movimiento.habilidad) salida.push(movimiento.habilidad);
     if (movimiento.area) salida.push('área');
     if (movimiento.infalible) salida.push('100%');
+    if (movimiento.prioridad_campo) salida.push(`+${movimiento.prioridad_campo}`);
 
     return salida;
 }
@@ -90,6 +91,9 @@ function aplicar(): void {
 
             <section class="mb-6">
                 <p class="rotulo mb-2">{{ $t('taller.conjunto') }}</p>
+                <p v-if="analisis.conjunto.campo" class="mb-3 text-[11px] leading-relaxed text-amber">
+                    {{ $t('campo.calculado', { campo: $t(`campos.${analisis.conjunto.campo.campo}`) }) }}
+                </p>
 
                 <ul class="mb-3 space-y-1.5">
                     <li

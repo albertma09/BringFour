@@ -28,35 +28,49 @@ final class MovePower
 
     private const PRIORIDAD_MINIMA = -2;
 
-    public function __construct(private TypeChart $chart) {}
+    public function __construct(private TypeChart $chart, private FieldEffects $field) {}
 
-    public function score(object $move, array $tipos, array $habilidades): ?array
+    public function score(object $move, array $tipos, array $habilidades, ?string $clima = null, ?string $terreno = null): ?array
     {
         $base = (int) ($move->power ?? 0);
 
-        if ($base <= 0 || $this->descartado($move) || (int) ($move->priority ?? 0) < self::PRIORIDAD_MINIMA) {
+        if ($base <= 0 || (int) ($move->priority ?? 0) < self::PRIORIDAD_MINIMA) {
+            return null;
+        }
+
+        $campo = $this->field->apply($move, $tipos, $habilidades, $clima, $terreno);
+
+        if ($this->descartado($move, $campo['sin_carga'])) {
             return null;
         }
 
         $flags = $this->flags($move);
-        $stab = in_array($move->type, $tipos, true)
+        $tipoReal = $campo['tipo'] ?? $move->type;
+        $stab = in_array($tipoReal, $tipos, true)
             ? (in_array('adaptability', $habilidades, true) ? 2.0 : 1.5)
             : 1.0;
 
         [$habilidad, $porHabilidad] = $this->porHabilidad($move, $flags, $base, $habilidades);
         $area = in_array($move->target, self::AREA, true) ? 1.5 : 1.0;
-        $precision = $move->accuracy === null ? 1.0 : ((int) $move->accuracy) / 100;
+        $exacta = $campo['precision'] ?? $move->accuracy;
+        $precision = $exacta === null ? 1.0 : ((int) $exacta) / 100;
+        $conCampo = $porHabilidad * $campo['x'];
 
         return [
             'base' => $base,
-            'potencia' => (int) round($base * $porHabilidad),
-            'efectiva' => round($base * $stab * $porHabilidad * $area * $precision, 1),
-            'por_objetivo' => round($base * $stab * $porHabilidad * $precision, 1),
+            'potencia' => (int) round($base * $conCampo),
+            'efectiva' => round($base * $stab * $conCampo * $area * $precision, 1),
+            'por_objetivo' => round($base * $stab * $conCampo * $precision, 1),
+            'sin_campo' => round($base * $stab * $porHabilidad * $precision, 1),
+            'prioridad' => (int) ($move->priority ?? 0) + $campo['prioridad'],
             'stab' => $stab > 1.0,
             'habilidad' => $habilidad,
             'area' => $area > 1.0,
             'golpea_aliado' => $move->target === 'allAdjacent',
-            'infalible' => $move->accuracy === null,
+            'infalible' => $exacta === null,
+            'tipo_real' => $tipoReal,
+            'campo' => $campo['campo'],
+            'prioridad_campo' => $campo['prioridad'],
         ];
     }
 
@@ -99,14 +113,20 @@ final class MovePower
         return $mejor;
     }
 
-    private function descartado(object $move): bool
+    private function descartado(object $move, bool $sinCarga): bool
     {
         $flags = $this->flags($move);
 
         foreach (self::DESCARTADOS as $flag) {
-            if (isset($flags[$flag])) {
-                return true;
+            if (! isset($flags[$flag])) {
+                continue;
             }
+
+            if ($flag === 'charge' && $sinCarga) {
+                continue;
+            }
+
+            return true;
         }
 
         return false;
