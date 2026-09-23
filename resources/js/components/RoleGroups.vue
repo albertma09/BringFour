@@ -2,30 +2,44 @@
 import { ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { comunes } from '@/ajustes';
-import { api, type CompaneroEstructural, type CompanerosEstructurales } from '@/api/cliente';
+import { api, type CompaneroEstructural } from '@/api/cliente';
 import SpeciesSprite from '@/components/SpeciesSprite.vue';
 import TypeTag from '@/components/TypeTag.vue';
 
-const props = withDefaults(defineProps<{ slug: string; equipo?: string[]; anadible?: boolean }>(), {
-    equipo: () => [],
-    anadible: false,
-});
+const props = withDefaults(
+    defineProps<{ slug?: string | null; equipo?: string[]; anadible?: boolean; porEquipo?: boolean }>(),
+    { slug: null, equipo: () => [], anadible: false, porEquipo: false },
+);
 const emit = defineEmits<{ anadir: [string] }>();
 
 const { locale } = useI18n();
 
 const cargando = ref(false);
-const datos = ref<CompanerosEstructurales | null>(null);
+const datos = ref<{ cubos: Record<string, CompaneroEstructural[]> } | null>(null);
 
 function nombre(fila: { name: string; name_es: string | null }): string {
     return locale.value === 'es' ? (fila.name_es ?? fila.name) : fila.name;
 }
 
 async function cargar(): Promise<void> {
+    if (props.porEquipo && props.equipo.length === 0) {
+        datos.value = null;
+
+        return;
+    }
+
+    if (!props.porEquipo && !props.slug) {
+        datos.value = null;
+
+        return;
+    }
+
     cargando.value = true;
 
     try {
-        datos.value = await api.estructurales(props.slug, comunes.value, props.equipo);
+        datos.value = props.porEquipo
+            ? await api.equipoCompaneros(comunes.value, props.equipo)
+            : await api.estructurales(props.slug as string, comunes.value, props.equipo);
     } catch {
         datos.value = null;
     } finally {
@@ -33,7 +47,7 @@ async function cargar(): Promise<void> {
     }
 }
 
-watch(() => [props.slug, props.equipo, comunes.value], cargar, { immediate: true, deep: true });
+watch(() => [props.slug, props.equipo, props.porEquipo, comunes.value], cargar, { immediate: true, deep: true });
 
 function razon(companero: CompaneroEstructural): string {
     return companero.razones

@@ -7,11 +7,15 @@ use App\Domain\Build\RoleClassifier;
 use App\Domain\Build\SetBuilder;
 use App\Domain\Build\SpeedContext;
 use App\Domain\Build\StructuralPartnerQuery;
+use App\Domain\Build\SwapAdvisor;
+use App\Domain\Build\TeamAnalyzer;
+use App\Domain\Build\TypeUsage;
 use App\Domain\Build\ThreatQuery;
 use App\Domain\Meta\ClosingQuery;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class BuildController extends ApiController
 {
@@ -91,6 +95,65 @@ class BuildController extends ApiController
                 $this->top($request, 4, 12),
             ),
         ]);
+    }
+
+    public function team(
+        Request $request,
+        TeamAnalyzer $analyzer,
+        SwapAdvisor $swap,
+        MetaRoster $roster,
+        TypeUsage $usage,
+        RoleClassifier $roles,
+        ClosingQuery $cierre,
+    ): JsonResponse {
+        [$especies, $formatId, $elo, $regulationId] = $this->equipo($request);
+        $meta = $roster->brought($formatId, $elo);
+        $pesos = $usage->shares($formatId, $elo);
+        $cierres = $cierre->rates($formatId, $elo, $this->min($request));
+
+        $analisis = $analyzer->analyse($especies, $formatId, $elo, $regulationId, $meta, $pesos, $cierres);
+        $papeles = $roles->forMany(array_column($meta, 'slug'), $regulationId);
+
+        return response()->json($analisis + [
+            'cambio' => $swap->advise($analisis, $meta, $papeles, $cierres, $pesos, $this->top($request, 4, 12)),
+            'pesos' => $pesos,
+        ]);
+    }
+
+    public function teamPartners(
+        Request $request,
+        TeamAnalyzer $analyzer,
+        StructuralPartnerQuery $query,
+        MetaRoster $roster,
+        TypeUsage $usage,
+        ClosingQuery $cierre,
+    ): JsonResponse {
+        [$especies, $formatId, $elo, $regulationId] = $this->equipo($request);
+        $meta = $roster->brought($formatId, $elo);
+        $pesos = $usage->shares($formatId, $elo);
+        $cierres = $cierre->rates($formatId, $elo, $this->min($request));
+
+        $analisis = $analyzer->analyse($especies, $formatId, $elo, $regulationId, $meta, $pesos, $cierres);
+
+        return response()->json([
+            'equipo' => array_column($analisis['miembros'], 'slug'),
+            'cubos' => $query->forTeam($analisis, $regulationId, $meta, $cierres, $this->top($request, 4, 12)),
+        ]);
+    }
+
+    private function equipo(Request $request): array
+    {
+        $slugs = array_slice(array_values(array_unique(array_filter(
+            explode(',', (string) $request->query('equipo', '')),
+        ))), 0, 6);
+
+        if ($slugs === []) {
+            throw new BadRequestHttpException('Hace falta al menos un Pokemon en el parametro equipo.');
+        }
+
+        [$formatId, $regulationId] = $this->contexto($request);
+
+        return [array_map(fn (string $slug) => $this->species($slug), $slugs), $formatId, $this->elo($request), $regulationId];
     }
 
     private function contexto(Request $request): array

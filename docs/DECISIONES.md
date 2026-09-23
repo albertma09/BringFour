@@ -442,3 +442,57 @@ Se mantiene la separación de siempre: **el papel se deduce, la tasa de cierre s
 - El ancla de la recomendación es **un solo Pokémon** (el último tocado), no el equipo entero. Los ya elegidos se excluyen, pero no se suman sus debilidades para buscar quien las tape todas.
 - La tasa de cierre no distingue ganar con seis en pie de ganar con uno: mira quién está en el campo, no cuántos quedaban.
 - Sigue pendiente que el conjunto propuesto conozca al resto del equipo.
+
+---
+
+# Fase 7 — Análisis del equipo completo (23-sep-2026)
+
+## De un ancla a los seis
+
+Las recomendaciones colgaban del **último Pokémon tocado**, que es una elección arbitraria: montas un equipo, no un Pokémon. Ahora `GET /api/build/team?equipo=a,b,c` analiza el conjunto y los compañeros se piden con `GET /api/build/team/partners`.
+
+## Las debilidades se pesan por lo que se lanza de verdad
+
+Tratar los 18 tipos por igual es falso. Contando los **40.691 ataques** registrados en los replays:
+
+```
+Normal 14,5%  ·  Fuego 9,4%  ·  Lucha 7,3%  ·  Siniestro 7,1%  ·  Psíquico 6,7%
+...
+Veneno 2,8%   ·  Volador 2,4%
+```
+
+Una debilidad a Fuego pesa casi cuatro veces más que una a Volador. La gravedad de una debilidad compartida es `miembros afectados × cuota real del tipo`, no una cuenta abstracta de la tabla de tipos. El reparto se cachea una hora por formato y corte de ELO.
+
+Las dos listas dicen cosas distintas y se presentan por separado: **debilidades compartidas** es recibir 2× (peligro real) y **sin resistir** es no llegar nunca a ½ (leve). Por eso tapar una compartida vale el triple que tapar un hueco al ordenar candidatos.
+
+## La propuesta de cambio
+
+Es lo más delicado que hace la herramienta: es la primera vez que dice *"yo quitaría a este"*. La forma de no cruzar la línea de `UNDERSTANDING > RECOMMENDATION` es que el criterio sea **medible y explicado**, no una nota de calidad:
+
+1. **Aportación única** de cada miembro: resistencias que solo él da (ponderadas por uso) y papeles que solo él cubre.
+2. **Parejas redundantes**: mismo eje ofensivo **y** debilidades en común.
+3. **Hueco serio**: una debilidad compartida que no resiste nadie, o una resistencia que falta y pesa ≥ 4 % de los ataques, o un papel que no tiene nadie.
+4. Solo propone si hay **las dos cosas**: redundancia y hueco. Si el equipo está equilibrado, lo dice y calla.
+5. El sustituto tiene que **resistir** el tipo del hueco; si no, ni se ofrece.
+
+Con cuatro Aguas (Clawitzer, Milotic, Pelipper, Basculegion):
+
+```
+sale: Clawitzer  ·  hace lo mismo que Milotic  ·  aporte único: 0
+arregla: eléctrico, débiles 4 de 4, no lo resiste nadie, 5,5 % de los ataques
+entran: Sinistcha, Sinistcha-Masterpiece, Scovillain, Rillaboom
+```
+
+Con un equipo variado (Rillaboom, Incineroar, Archaludon, Indeedee-F, Salamence, Gholdengo) hay **3 parejas parecidas y ninguna propuesta**, porque toda debilidad compartida tiene quien la resista. Eso es el comportamiento correcto.
+
+El texto dice *"estos dos hacen lo mismo"*, nunca *"este es peor"*, y cierra con **"si el que sale te gusta, no lo saques"**.
+
+## Amenazas al equipo
+
+Rivales a los que **se ha visto usar de verdad** un golpe súper eficaz contra dos o más miembros, ordenados por cuántos tocan y por cuánto se traen. Se reutiliza la separación confirmado/posible de la fase 5: no se inventan amenazas de learnset.
+
+## Limitaciones conocidas
+
+- **Solo cuenta tipos y papeles, no daño real.** Que Milotic resista Fuego no significa que aguante a Charizard: eso depende del reparto de SP y del objeto. El aviso está en pantalla.
+- El reparto físico/especial se mide por estadísticas base, no por los movimientos que el usuario haya elegido.
+- No se mide la cobertura ofensiva del equipo (a quién no llegáis entre todos), porque sin saber los movimientos elegidos la estimación sería demasiado floja para publicarla.

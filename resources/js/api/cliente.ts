@@ -304,6 +304,73 @@ export interface CompanerosEstructurales {
     cubos: Record<string, CompaneroEstructural[]>;
 }
 
+export interface MiembroEquipoAnalisis extends Especie {
+    tipos: string[];
+    stats: Record<string, number>;
+    eje: string;
+    etiquetas: string[];
+    debilidades: string[];
+    resistencias: string[];
+    cierre: TasaCierre | null;
+    peso: number;
+}
+
+export interface Compartida {
+    tipo: string;
+    miembros: string[];
+    cuantos: number;
+    resisten: number;
+    peso: number;
+    gravedad: number;
+}
+
+export interface AmenazaEquipo extends Especie {
+    tipos: string[];
+    peso: number;
+    movimiento: string | null;
+    movimiento_es: string | null;
+    n: number | null;
+    toca: string[];
+}
+
+export interface Redundante {
+    a: Especie;
+    b: Especie;
+    eje: string;
+    debilidades: string[];
+}
+
+export interface Sustituto extends Especie {
+    tipos: string[];
+    eje: string;
+    etiquetas: string[];
+    peso: number;
+    cierre: TasaCierre | null;
+    razones: { clave: string; tipo?: string; papel?: string }[];
+}
+
+export interface Cambio {
+    redundantes: Redundante[];
+    propuesta: {
+        sale: Especie & { aporta: { resistencias: string[]; papeles: string[]; valor: number } };
+        pareja: (Especie & { debilidades: string[] }) | null;
+        arregla: { clave: string; tipo: string | null; papel?: string; cuantos?: number; peso: number };
+        entran: Sustituto[];
+    } | null;
+}
+
+export interface AnalisisEquipo {
+    miembros: MiembroEquipoAnalisis[];
+    papeles: { tiene: string[]; faltan: string[] };
+    reparto: { fisicos: number; especiales: number; sesgado: string | null };
+    velocidad: { percentil: number; perfil: string; con_control: string[]; sin_control: boolean };
+    compartidas: Compartida[];
+    sin_resistir: { tipo: string; peso: number }[];
+    amenazas: AmenazaEquipo[];
+    cambio: Cambio;
+    pesos: Record<string, number>;
+}
+
 async function get<T>(ruta: string, params: Record<string, string | number> = {}): Promise<T> {
     const query = new URLSearchParams();
 
@@ -371,6 +438,15 @@ export const api = {
         }),
 
     analisis: (slug: string, c: Comunes) => get<Analisis>(`/build/species/${slug}/analysis`, c),
+
+    equipoAnalisis: (c: Comunes, equipo: string[]) =>
+        get<AnalisisEquipo>('/build/team', { ...c, equipo: equipo.join(',') }),
+
+    equipoCompaneros: (c: Comunes, equipo: string[]) =>
+        get<{ equipo: string[]; cubos: Record<string, CompaneroEstructural[]> }>('/build/team/partners', {
+            ...c,
+            equipo: equipo.join(','),
+        }),
 
     amenazas: (slug: string, c: Comunes) => get<Amenazas>(`/build/species/${slug}/threats`, c),
 

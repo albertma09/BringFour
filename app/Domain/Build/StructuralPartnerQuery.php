@@ -59,6 +59,101 @@ final class StructuralPartnerQuery
             }
         }
 
+        return $this->repartir($cubos, $porCubo);
+    }
+
+    public function forTeam(array $analisis, int $regulationId, array $meta, array $cierres, int $porCubo): array
+    {
+        $dentro = array_column($analisis['miembros'], 'slug');
+        $compartidas = array_column($analisis['compartidas'], 'cuantos', 'tipo');
+        $sinResistir = array_column($analisis['sin_resistir'], 'peso', 'tipo');
+        $faltan = $analisis['papeles']['faltan'];
+        $necesita = $analisis['velocidad']['sin_control'] ? self::CONTROL : [];
+
+        $candidatos = array_values(array_filter($meta, fn (array $r) => ! in_array($r['slug'], $dentro, true)));
+        $slugs = array_column($candidatos, 'slug');
+        $papeles = $this->roles->forMany($slugs, $regulationId);
+        $aportes = $this->aportes($slugs, $regulationId, [...self::CONTROL, ...self::REDIRECCION]);
+
+        $cubos = array_fill_keys(RoleClassifier::CUBOS, []);
+
+        foreach ($candidatos as $rival) {
+            $papel = $papeles[$rival['slug']] ?? ['eje' => 'apoyo', 'etiquetas' => [], 'cubos' => ['apoyo']];
+            $razones = $this->razonesDeEquipo($rival, $papel, $compartidas, $sinResistir, $faltan, $necesita, $aportes);
+
+            $ficha = [
+                'slug' => $rival['slug'],
+                'name' => $rival['name'],
+                'name_es' => $rival['name_es'],
+                'sprite' => $rival['sprite'],
+                'sprite_stone' => $rival['sprite_stone'],
+                'tipos' => $rival['tipos'],
+                'peso' => $rival['peso'],
+                'eje' => $papel['eje'],
+                'etiquetas' => $papel['etiquetas'],
+                'razones' => $razones['lista'],
+                'encaje' => $razones['valor'],
+                'cierre' => $cierres[$rival['slug']] ?? null,
+            ];
+
+            foreach ($papel['cubos'] as $cubo) {
+                $cubos[$cubo][] = $ficha;
+            }
+        }
+
+        return $this->repartir($cubos, $porCubo);
+    }
+
+    private function razonesDeEquipo(array $rival, array $papel, array $compartidas, array $sinResistir, array $faltan, array $necesita, array $aportes): array
+    {
+        $lista = [];
+        $valor = 0;
+        $tapa = [];
+
+        foreach ($compartidas as $tipo => $cuantos) {
+            if ($this->chart->multiplier($tipo, $rival['tipos']) < 1.0) {
+                $tapa[] = $tipo;
+                $valor += $cuantos * 3;
+            }
+        }
+
+        if ($tapa !== []) {
+            $lista[] = ['clave' => 'tapa', 'tipos' => $tapa];
+        }
+
+        $huecos = [];
+
+        foreach ($sinResistir as $tipo => $peso) {
+            if ($this->chart->multiplier($tipo, $rival['tipos']) < 1.0) {
+                $huecos[] = $tipo;
+                $valor += 1;
+            }
+        }
+
+        if ($huecos !== []) {
+            $lista[] = ['clave' => 'hueco', 'tipos' => array_slice($huecos, 0, 4)];
+        }
+
+        $suyos = $aportes[$rival['slug']] ?? [];
+        $ritmo = array_values(array_intersect_key($suyos, array_flip($necesita)));
+
+        if ($ritmo !== []) {
+            $lista[] = ['clave' => 'ritmo', 'movimientos' => $ritmo];
+            $valor += 2;
+        }
+
+        $aporta = array_values(array_intersect($faltan, $papel['etiquetas']));
+
+        if ($aporta !== []) {
+            $lista[] = ['clave' => 'papel', 'tipos' => $aporta];
+            $valor += 2 * count($aporta);
+        }
+
+        return ['lista' => $lista, 'valor' => $valor];
+    }
+
+    private function repartir(array $cubos, int $porCubo): array
+    {
         $usados = [];
         $salida = [];
 

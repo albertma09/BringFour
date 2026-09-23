@@ -7,6 +7,7 @@ import BehaviorPanel from '@/components/BehaviorPanel.vue';
 import Cargando from '@/components/Cargando.vue';
 import PartnerSuggest from '@/components/PartnerSuggest.vue';
 import RoleGroups from '@/components/RoleGroups.vue';
+import TeamAnalysis from '@/components/TeamAnalysis.vue';
 import Rotulo from '@/components/Rotulo.vue';
 import SlotEditor, { type Hueco } from '@/components/SlotEditor.vue';
 import SpeciesSprite from '@/components/SpeciesSprite.vue';
@@ -110,13 +111,20 @@ function anadir(slug: string): void {
     enfoque.value = indice;
 }
 
+function sustituir({ sale, entra }: { sale: string; entra: string }): void {
+    const indice = huecos.value.findIndex((h) => h.slug === sale);
+
+    if (indice < 0) return;
+
+    huecos.value[indice] = { ...huecoVacio(), slug: entra };
+    enfoque.value = indice;
+}
+
 const enfocado = computed(() => {
     if (enfoque.value === null) return null;
 
     return huecos.value[enfoque.value]?.slug ?? null;
 });
-
-const ancla = computed(() => enfocado.value ?? slugsElegidos.value[slugsElegidos.value.length - 1] ?? null);
 
 const datosMeta = computed(() =>
     elegidos.value
@@ -202,12 +210,16 @@ const pegado = computed(() =>
                 />
             </div>
 
-            <section v-if="ancla" class="mb-14">
+            <section v-if="slugsElegidos.length > 0" class="mb-14">
+                <Rotulo :texto="$t('equipo_analisis.titulo')" />
+                <p class="mb-5 max-w-2xl text-sm leading-relaxed text-fog">{{ $t('equipo_analisis.entradilla') }}</p>
+                <TeamAnalysis :equipo="slugsElegidos" @sustituir="sustituir" />
+            </section>
+
+            <section v-if="slugsElegidos.length > 0" class="mb-14">
                 <Rotulo :texto="$t('papel.titulo')" />
-                <p class="mb-5 max-w-2xl text-sm leading-relaxed text-fog">
-                    {{ $t('papel.entradilla', { especie: ancla }) }}
-                </p>
-                <RoleGroups :slug="ancla" :equipo="slugsElegidos" anadible @anadir="anadir" />
+                <p class="mb-5 max-w-2xl text-sm leading-relaxed text-fog">{{ $t('papel.entradilla') }}</p>
+                <RoleGroups :equipo="slugsElegidos" por-equipo anadible @anadir="anadir" />
             </section>
 
             <section v-if="datosMeta.length > 0" class="mb-14">
