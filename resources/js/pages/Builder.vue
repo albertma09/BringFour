@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { comunes } from '@/ajustes';
-import { api, type Alineamiento, type Especie, type FilaBringRate } from '@/api/cliente';
+import { api, type Alineamiento, type Especie, type FilaBringRate, type FuenteHueco } from '@/api/cliente';
 import BehaviorPanel from '@/components/BehaviorPanel.vue';
 import Cargando from '@/components/Cargando.vue';
 import PartnerSuggest from '@/components/PartnerSuggest.vue';
@@ -40,6 +40,7 @@ const catalogo = ref<Especie[]>([]);
 const alineamientos = ref<Alineamiento[]>([]);
 const meta = ref<FilaBringRate[]>([]);
 const huecos = ref<Hueco[]>(inicial());
+const fuentes = ref<(FuenteHueco | null)[]>(Array.from({ length: 6 }, () => null));
 const enfoque = ref<number | null>(null);
 
 async function cargar(): Promise<void> {
@@ -76,19 +77,56 @@ watch(
     { deep: true },
 );
 
+function intacto(hueco: Hueco): boolean {
+    return hueco.movimientos.length === 0 && hueco.habilidad === null && hueco.objeto === null;
+}
+
+async function rellenar(indice: number, slug: string): Promise<void> {
+    fuentes.value[indice] = null;
+
+    try {
+        const base = await api.porDefecto(slug, comunes.value);
+        const actual = huecos.value[indice];
+
+        if (actual.slug !== slug || !intacto(actual)) return;
+
+        huecos.value[indice] = {
+            ...actual,
+            movimientos: base.hueco.movimientos,
+            habilidad: base.hueco.habilidad,
+            objeto: base.hueco.objeto,
+            sp: { ...repartoVacio(), ...base.hueco.sp },
+            alineamiento: base.hueco.alineamiento,
+        };
+        fuentes.value[indice] = base.fuente;
+    } catch {
+        // sin datos el hueco se queda vacio y editable
+    }
+}
+
 function cambiar(indice: number, hueco: Hueco): void {
+    const anterior = huecos.value[indice].slug;
+
     huecos.value[indice] = hueco;
     enfoque.value = indice;
+
+    if (hueco.slug && hueco.slug !== anterior) {
+        void rellenar(indice, hueco.slug);
+    } else {
+        fuentes.value[indice] = null;
+    }
 }
 
 function quitar(indice: number): void {
     huecos.value[indice] = huecoVacio();
+    fuentes.value[indice] = null;
 
     if (enfoque.value === indice) enfoque.value = null;
 }
 
 function vaciar(): void {
     huecos.value = Array.from({ length: 6 }, huecoVacio);
+    fuentes.value = Array.from({ length: 6 }, () => null);
     enfoque.value = null;
 }
 
@@ -109,6 +147,7 @@ function anadir(slug: string): void {
 
     huecos.value[indice] = { ...huecoVacio(), slug };
     enfoque.value = indice;
+    void rellenar(indice, slug);
 }
 
 function sustituir({ sale, entra }: { sale: string; entra: string }): void {
@@ -118,6 +157,7 @@ function sustituir({ sale, entra }: { sale: string; entra: string }): void {
 
     huecos.value[indice] = { ...huecoVacio(), slug: entra };
     enfoque.value = indice;
+    void rellenar(indice, entra);
 }
 
 const enfocado = computed(() => {
@@ -206,6 +246,7 @@ const pegado = computed(() =>
                     :catalogo="catalogo"
                     :alineamientos="alineamientos"
                     :equipo="slugsElegidos"
+                    :fuente="fuentes[indice]"
                     @cambiar="cambiar(indice, $event)"
                     @quitar="quitar(indice)"
                 />

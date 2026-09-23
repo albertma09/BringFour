@@ -21,6 +21,7 @@ Route::get('/builder/alignments', [BuilderController::class, 'alignments']);
 Route::get('/builder/partners', [BuilderController::class, 'partners']);
 Route::get('/builder/species/{slug}', [BuilderController::class, 'options']);
 Route::get('/builder/species/{slug}/set', [BuilderController::class, 'set']);
+Route::get('/builder/species/{slug}/defaults', [BuilderController::class, 'defaults']);
 Route::get('/builder/species/{slug}/spread', [BuilderController::class, 'spread']);
 Route::get('/build/team', [BuildController::class, 'team']);
 Route::get('/build/team/partners', [BuildController::class, 'teamPartners']);

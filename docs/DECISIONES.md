@@ -665,3 +665,80 @@ De paso: las razones de compañero se mostraban como una lista pelada de nombres
 - **≥2× es alcance de tipo, no daño.** Un súper eficaz contra un muro con 250 de defensa sigue sin matar. El cálculo de daño real sigue en `@smogon/calc`, en el navegador.
 - **Repetir tipo no es un fallo** y así se dice: puede ser el plan. Solo importa si además no llegas a nadie.
 - El conjunto deducido de un miembro sin muestra entra en la cobertura del equipo: es una propuesta, y va etiquetada como tal.
+
+---
+
+# Fase 10 — El hueco sale relleno al añadir (23-sep-2026)
+
+## Lo que se pedía y lo que se puede
+
+Que al añadir un Pokémon salga puesto con lo que más juega la gente, sin esperar al mínimo de muestra, y que luego se edite.
+
+Se puede con los movimientos, la habilidad y el objeto. **No se puede con las estadísticas**, y conviene tenerlo escrito.
+
+## Por qué el SP no puede salir de los replays
+
+La única línea de un replay que habla del equipo es:
+
+```
+|poke|p1|Floette-Eternal, L50, F|
+```
+
+Especie, nivel y género. No hay `showteam`, no hay EVs y no hay alineamiento. Revisado el inventario completo de tipos de línea de un replay: `move`, `switch`, `-ability`, `-item`, `-damage`, `-boost`… ninguna trae estadísticas. Tampoco hay importador de las usage stats de Smogon, que es donde sí viven los spreads.
+
+Así que el hueco se rellena en dos velocidades y **se dice cuál es cuál en pantalla**:
+
+| Pieza | Origen |
+|---|---|
+| Movimientos, habilidad, objeto | Lo más jugado, medido |
+| SP y alineamiento | Deducidos por reglas |
+
+## El mínimo de muestra no aplica aquí, y no es una excepción a la regla
+
+La regla de N=30 es para **mostrar un porcentaje**. Aquí no se muestra ninguno: se rellena un punto de partida editable. Clawitzer se ha traído 5 veces y sale con Pulso Umbrío / Pulso Agua / Esfera Aural / Rayo Hielo, que es lo poco que se le ha visto. El `n` va a la vista para que se sepa sobre qué se decidió.
+
+## Dos sesgos que había que tapar
+
+Las habilidades y los objetos **solo se revelan cuando se activan**, y eso premia a los ruidosos:
+
+- **Sneasler salía con Presión**, vista 19 veces sobre 1.223 partidas traídas. Presión se anuncia; Liviano no se anuncia nunca.
+- **Torkoal salía con Botón de Escape**, visto 3 veces sobre 224. Un Carbón nunca se revela.
+
+Solución: una revelación solo se acepta si llega al **15 % de las partidas en que se trajo**. No al 15 % de las revelaciones, que no arreglaría nada: si lo único que se revela es el Botón de Escape, es el 100 % de las revelaciones.
+
+Con eso: Rillaboom acepta Campo de Hierba (94,4 %), Incineroar acepta Intimidación (99,3 %) y Baya Zidra (33,7 %), Indeedee-F acepta Semilla Psíquica (18,2 %), y Torkoal se queda **sin objeto**, que es más honesto que ponerle uno inventado.
+
+Cuando la habilidad no llega a la cuota se cae a la primera de la especie. Para Sneasler eso da Presión igualmente, y es lo mejor que se puede hacer sin datos: la etiqueta dice que es deducida.
+
+## El alineamiento se decide por los movimientos elegidos, no por las bases
+
+Primer intento: mapear el `papel`/`ritmo` de `SpreadAdvisor` a una naturaleza. Dio dos resultados malos que se vieron enseguida:
+
+- **Incineroar salía Brave** (−Vel). Bajar velocidad solo tiene sentido jugando Espacio Raro. Fuera las naturalezas de −Vel: el menos siempre va al ataque que no se usa.
+- **Torkoal salía Calm (−At. Esp.) llevando Erupción.** Tiene 85 de Ataque y 85 de Especial y el desempate por bases elegía físico — el mismo fallo que ya se corrigió en `SetBuilder::categoria`.
+
+Arreglo: el lado ofensivo se decide contando las categorías de los **movimientos que acaban de elegirse**. Torkoal tiene tres especiales y pasa a Modest.
+
+## Un Pokémon de 85 no es necesariamente de apoyo
+
+`SpreadAdvisor` llama apoyo a todo el que no llegue a 100 de ataque base. Eso dejaba a **Torkoal y Pelipper con 0 en Ataque Especial** llevando Erupción y Vendaval.
+
+`suggest()` acepta ahora un `$papel` opcional que sobrescribe ese umbral; por defecto se comporta igual que antes, así que `/spread` no cambia. `SlotDefaults` lo pasa como ofensivo cuando el conjunto tiene 2 o más ataques. Solo cambia Torkoal y Pelipper, ambos a mejor.
+
+## Resultado
+
+```
+rillaboom   adamant  hp10 atk32 spe24   grassysurge   —             sorpresa/hierba parásita/mazazo/ida y vuelta
+torkoal     modest   hp32 spa32 spd2    drought       —             erupción/protección/bola clima/onda ígnea
+indeedeef   bold     hp32 def14 spe20   psychicsurge  psychicseed   señuelo/refuerzo/psíquico/espacio raro
+sneasler    jolly    hp2 atk32 spe32    pressure*     psychicseed   a bocajarro/garra dracma/sorpresa/protección
+clawitzer   modest   hp32 def2 spa32    megalauncher* —             pulso umbrío/pulso agua/esfera aural/rayo hielo
+```
+
+`*` habilidad deducida, no medida.
+
+## Limitaciones conocidas
+
+- **El SP sigue siendo deducido.** Para que fuera medido haría falta importar el JSON `chaos` de las usage stats de Smogon, que trae `Spreads` con naturaleza y EVs, y convertirlos a SP (1 SP = 8 EVs, el primero de cada stat cuesta 4). Misma población que nuestros replays. Es trabajo aparte.
+- **La habilidad silenciosa no se puede saber.** Si nadie revela ninguna, se pone la primera de la especie y se etiqueta como deducida.
+- **El objeto se queda vacío** cuando no hay evidencia suficiente. Preferimos el hueco vacío a un Botón de Escape inventado.

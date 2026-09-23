@@ -283,6 +283,11 @@ export default {
         parejas: 'These look alike:',
         aviso: 'This looks at types and roles, not at real damage. Resisting a type does not mean surviving the hit: that depends on the SP spread and the item. And if you like the one going out, keep it.',
     },
+    relleno: {
+        visto: 'Filled in with the most played across {n} games. The SP spread is deduced: replays never reveal it.',
+        mixto: 'Filled in with the most played across {n} games ({vistos} of 4 moves); the rest and the SP spread are deduced.',
+        deducido: 'Nobody has brought it in the replays: all of this is a proposal, change it as you like.',
+    },
     ofensiva: {
         titulo: 'Who you reach',
         texto: 'The other way round from above: not where damage comes in, but how much of what gets brought you hit super effectively with what the six of you carry.',

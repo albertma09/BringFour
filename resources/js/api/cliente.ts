@@ -383,6 +383,28 @@ export interface CampoEquipo {
     bloquea_prioridad: boolean;
 }
 
+export interface FuenteHueco {
+    traidas: number;
+    vistos: number;
+    deducidos: number;
+    movimientos: { slug: string; origen: 'visto' | 'deducido'; n: number | null }[];
+    habilidad: { n: number | null; cuota: number | null };
+    objeto: { n: number | null; cuota: number | null };
+    sp: string;
+}
+
+export interface HuecoPorDefecto {
+    hueco: {
+        slug: string;
+        movimientos: string[];
+        habilidad: string | null;
+        objeto: string | null;
+        sp: Record<string, number>;
+        alineamiento: string | null;
+    };
+    fuente: FuenteHueco;
+}
+
 export interface Intocable {
     slug: string;
     name: string;
@@ -520,6 +542,9 @@ export const api = {
             ...c,
             equipo: equipo.join(','),
         }),
+
+    porDefecto: (slug: string, c: Comunes) =>
+        get<HuecoPorDefecto>(`/builder/species/${slug}/defaults`, c),
 
     opciones: (slug: string, c: Comunes) =>
         get<{ especie: Especie & { abilities: Habilidad[] }; movimientos: Movimiento[]; objetos: ObjetoBuilder[] }>(

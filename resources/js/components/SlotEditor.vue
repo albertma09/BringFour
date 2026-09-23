@@ -2,7 +2,15 @@
 import { computed, ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { comunes } from '@/ajustes';
-import { api, type Alineamiento, type Especie, type Habilidad, type Movimiento, type ObjetoBuilder } from '@/api/cliente';
+import {
+    api,
+    type Alineamiento,
+    type Especie,
+    type FuenteHueco,
+    type Habilidad,
+    type Movimiento,
+    type ObjetoBuilder,
+} from '@/api/cliente';
 import SetSuggest from '@/components/SetSuggest.vue';
 import SpeciesSprite from '@/components/SpeciesSprite.vue';
 import SpreadSuggest from '@/components/SpreadSuggest.vue';
@@ -20,12 +28,18 @@ export interface Hueco {
 }
 
 const props = withDefaults(
-    defineProps<{ hueco: Hueco; catalogo: Especie[]; alineamientos: Alineamiento[]; equipo?: string[] }>(),
-    { equipo: () => [] },
+    defineProps<{
+        hueco: Hueco;
+        catalogo: Especie[];
+        alineamientos: Alineamiento[];
+        equipo?: string[];
+        fuente?: FuenteHueco | null;
+    }>(),
+    { equipo: () => [], fuente: null },
 );
 const emit = defineEmits<{ cambiar: [Hueco]; quitar: [] }>();
 
-const { locale } = useI18n();
+const { locale, t } = useI18n();
 
 const busqueda = ref('');
 const ayuda = ref(false);
@@ -108,6 +122,18 @@ function podar(): void {
 }
 
 watch(() => [props.hueco.slug, comunes.value], cargarOpciones, { immediate: true, deep: true });
+
+const relleno = computed(() => {
+    const fuente = props.fuente;
+
+    if (!fuente) return '';
+
+    if (fuente.traidas === 0 || fuente.vistos === 0) return t('relleno.deducido');
+
+    return fuente.deducidos > 0
+        ? t('relleno.mixto', { vistos: fuente.vistos, n: fuente.traidas })
+        : t('relleno.visto', { n: fuente.traidas });
+});
 
 function actualizar(cambios: Partial<Hueco>): void {
     emit('cambiar', { ...props.hueco, ...cambios });
@@ -232,6 +258,9 @@ function aplicarReparto(sp: Reparto): void {
                     <div class="mt-1 flex gap-1">
                         <TypeTag v-for="tipo in especie.types" :key="tipo" :type="tipo" />
                     </div>
+                    <p v-if="relleno" class="mt-1.5 text-[10px] leading-relaxed text-fog-dim">
+                        {{ relleno }}
+                    </p>
                 </div>
                 <button
                     type="button"

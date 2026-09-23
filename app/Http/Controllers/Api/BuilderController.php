@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Domain\Build\MetaRoster;
+use App\Domain\Build\SlotDefaults;
 use App\Domain\Build\SpeedContext;
 use App\Domain\Meta\PartnerQuery;
 use App\Domain\Meta\SetQuery;
@@ -122,6 +123,18 @@ class BuilderController extends ApiController
             'especie' => $species->slug,
             'muestra' => ['min_sample' => $this->min($request)],
         ]);
+    }
+
+    public function defaults(Request $request, SlotDefaults $defaults, MetaRoster $roster, string $slug): JsonResponse
+    {
+        $species = $this->species($slug);
+        $formatId = $this->formatId($request);
+        $elo = $this->elo($request);
+        $regulationId = (int) DB::table('formats')->where('id', $formatId)->value('regulation_id');
+
+        return response()->json(
+            $defaults->forSpecies($species, $formatId, $elo, $regulationId, $roster->brought($formatId, $elo)),
+        );
     }
 
     public function spread(

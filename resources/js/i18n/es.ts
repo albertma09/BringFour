@@ -283,6 +283,11 @@ export default {
         parejas: 'Se parecen entre sí:',
         aviso: 'Esto mira tipos y papeles, no daño real. Que uno resista un tipo no quiere decir que aguante el golpe: eso depende del reparto de SP y del objeto. Y si el que sale te gusta, no lo saques.',
     },
+    relleno: {
+        visto: 'Puesto con lo más jugado de {n} partidas. El reparto de SP es deducido: los replays no lo revelan.',
+        mixto: 'Puesto con lo más jugado de {n} partidas ({vistos} de 4 movimientos); el resto y el reparto de SP, deducidos.',
+        deducido: 'Nadie lo ha traído en los replays: todo esto es una propuesta, cámbiala a gusto.',
+    },
     ofensiva: {
         titulo: 'A quién llegáis',
         texto: 'Al revés que lo de arriba: no por dónde os entra a vosotros, sino a qué parte de lo que se trae le pegáis súper eficaz con lo que lleváis entre los seis.',

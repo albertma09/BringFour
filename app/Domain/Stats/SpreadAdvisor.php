@@ -23,10 +23,10 @@ final class SpreadAdvisor
         'apoyo_lento' => ['hp' => 32, 'defensa' => 32, 'spe' => 2],
     ];
 
-    public function suggest(array $baseStats, ?string $plus = null, ?string $minus = null, ?string $medido = null): array
+    public function suggest(array $baseStats, ?string $plus = null, ?string $minus = null, ?string $medido = null, ?string $papel = null): array
     {
         $ofensiva = $this->ofensiva($baseStats, $plus, $minus);
-        $papel = max((int) ($baseStats['atk'] ?? 0), (int) ($baseStats['spa'] ?? 0)) >= self::OFENSIVO ? 'ofensivo' : 'apoyo';
+        $papel ??= max((int) ($baseStats['atk'] ?? 0), (int) ($baseStats['spa'] ?? 0)) >= self::OFENSIVO ? 'ofensivo' : 'apoyo';
         $ritmo = $this->ritmo($baseStats, $plus, $minus, $medido);
         $defensa = ((int) ($baseStats['def'] ?? 0)) <= ((int) ($baseStats['spd'] ?? 0)) ? 'def' : 'spd';
 
