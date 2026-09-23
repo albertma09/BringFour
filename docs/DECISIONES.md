@@ -496,3 +496,43 @@ Rivales a los que **se ha visto usar de verdad** un golpe súper eficaz contra d
 - **Solo cuenta tipos y papeles, no daño real.** Que Milotic resista Fuego no significa que aguante a Charizard: eso depende del reparto de SP y del objeto. El aviso está en pantalla.
 - El reparto físico/especial se mide por estadísticas base, no por los movimientos que el usuario haya elegido.
 - No se mide la cobertura ofensiva del equipo (a quién no llegáis entre todos), porque sin saber los movimientos elegidos la estimación sería demasiado floja para publicarla.
+
+---
+
+# Códigos de equipo aportados por jugadores — investigado y aparcado (23-sep-2026)
+
+**Decisión del usuario: no se implementa de momento.** Se retomará si la herramienta se publica y coge tracción, porque es una función que sin usuarios queda vacía y resta.
+
+## Generar un código es imposible, no difícil
+
+Se volvió a mirar porque PikaChampions anuncia *"copy a 10-character Replica Team Code"* como si lo generase desde el navegador. No puede ser, y la cuenta lo cierra:
+
+```
+10 caracteres → 36^10 = 3,6·10^15 → unos 52 bits
+```
+
+Lo que habría que codificar de **un solo** Pokémon: especie de ~400 (8,6 bits) + habilidad (1,6) + objeto de ~170 (7,4) + alineamiento de 25 (4,6) + 4 movimientos de ~100 (21,9) + reparto de 66 SP (~20) ≈ **64 bits**. Seis Pokémon son ~384 bits contra 52 disponibles. Solo las seis especies (6 × 8,6 = 52) ya llenan el código entero.
+
+Es un identificador que apunta a algo guardado en los servidores de Nintendo. Serebii lo describe como **subir** el equipo y recibir un ID. Confirma lo que ya estaba en `CLAUDE.md`.
+
+## Nadie verifica: lo que varía es de dónde sale la confianza
+
+| Sitio | Señal de confianza |
+|---|---|
+| **op.gg** | Cuenta con perfil, votos positivos y fecha. Sin insignia de verificado, sin voto negativo, sin reportar |
+| **Victory Road / PokeReplicas** | Procedencia: "es el equipo con el que Fulano ganó tal torneo". Su "verified" es trazabilidad, no comprobación |
+| **Game8** | Tablón; el código es un campo opcional que pega el jugador |
+
+Ninguno comprueba que el código cargue, porque no hay API de Champions.
+
+## El fallo de diseño que se evitó
+
+La primera propuesta llevaba votos de **"funciona / no funciona"**. Es mala idea por la mecánica del propio juego: el código solo carga **si ya tienes todos los Pokémon y objetos del equipo**. Un "no funciona" sería indistinguible de "me faltaba el Archaludon", así que el contador mediría el inventario del votante y no el código, y el auto-ocultado enterraría códigos buenos.
+
+Si se retoma, el diseño correcto es: **solo confirmación positiva** (*"a mí me ha cargado"*) con fecha de la última, antigüedad visible como señal de que puede estar muerto, y reportar reservado a basura. Más una línea explicando por qué puede no cargarte aunque el código sea bueno, que es información que ninguna de las otras herramientas da.
+
+## El desajuste de fondo
+
+Los equipos que enseña BringFour salen de **replays de Showdown**, y esos jugadores no juegan a Champions: sus equipos no tienen código ni lo tendrán. Cualquier código que apareciese sería de alguien que haya montado esas seis especies por su cuenta.
+
+Además, el identificador de equipo son **las seis especies ordenadas**, no una configuración: un código sería "de *un* equipo con estos seis", con otros objetos y otro reparto de SP. Eso habría que decirlo en pantalla.
