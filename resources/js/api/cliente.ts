@@ -255,6 +255,7 @@ export interface Analisis {
         alternativas: MovimientoTaller[];
         utilidad: MovimientoTaller[];
         cobertura: Cobertura;
+        ajustado_al_equipo: boolean;
     };
     meta: { especies: number; traidas: number };
     deducido: boolean;
@@ -382,6 +383,38 @@ export interface CampoEquipo {
     bloquea_prioridad: boolean;
 }
 
+export interface Intocable {
+    slug: string;
+    name: string;
+    name_es: string | null;
+    sprite: string | null;
+    sprite_stone: string | null;
+    tipos: string[];
+    peso: number;
+    x: number;
+    inmune: boolean;
+}
+
+export interface FuenteGolpes {
+    slug: string;
+    name: string;
+    name_es: string | null;
+    n: number;
+    origen: 'visto' | 'deducido';
+    tipos: string[];
+}
+
+export interface OfensivaEquipo {
+    pct: number;
+    pobre: boolean;
+    intocables: Intocable[];
+    repetidos: { tipo: string; quienes: string[]; cuantos: number }[];
+    mejor_anadido: { tipo: string; ganancia: number }[];
+    fuentes: FuenteGolpes[];
+    tipos: string[];
+    meta: { especies: number; traidas: number };
+}
+
 export interface CamposVistos {
     partidas: number;
     campos: { campo: string; clase: string; turnos: number; partidas: number; pct: number }[];
@@ -390,6 +423,7 @@ export interface CamposVistos {
 export interface AnalisisEquipo {
     campo: CampoEquipo;
     campos_vistos: CamposVistos;
+    ofensiva: OfensivaEquipo;
     miembros: MiembroEquipoAnalisis[];
     papeles: { tiene: string[]; faltan: string[] };
     reparto: { fisicos: number; especiales: number; sesgado: string | null };
@@ -467,7 +501,8 @@ export const api = {
             alignment: alignment ?? '',
         }),
 
-    analisis: (slug: string, c: Comunes) => get<Analisis>(`/build/species/${slug}/analysis`, c),
+    analisis: (slug: string, c: Comunes, equipo: string[] = []) =>
+        get<Analisis>(`/build/species/${slug}/analysis`, { ...c, equipo: equipo.join(',') }),
 
     equipoAnalisis: (c: Comunes, equipo: string[]) =>
         get<AnalisisEquipo>('/build/team', { ...c, equipo: equipo.join(',') }),

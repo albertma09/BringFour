@@ -29,7 +29,7 @@ async function cargar(): Promise<void> {
     cargando.value = true;
 
     try {
-        analisis.value = await api.analisis(props.slug, comunes.value);
+        analisis.value = await api.analisis(props.slug, comunes.value, props.equipo);
     } catch {
         analisis.value = null;
     } finally {
@@ -37,7 +37,7 @@ async function cargar(): Promise<void> {
     }
 }
 
-watch(() => [props.slug, comunes.value], cargar, { immediate: true, deep: true });
+watch(() => [props.slug, props.equipo, comunes.value], cargar, { immediate: true, deep: true });
 
 function etiquetas(movimiento: MovimientoTaller): string[] {
     const salida: string[] = [];
@@ -143,6 +143,9 @@ function aplicar(): void {
                 >
                     {{ $t('taller.resisten') }}
                     {{ analisis.conjunto.cobertura.resisten.map((r) => nombre(r)).join(' · ') }}
+                </p>
+                <p v-if="analisis.conjunto.ajustado_al_equipo" class="mt-2 text-[11px] leading-relaxed text-amber">
+                    {{ $t('ofensiva.ajustado') }}
                 </p>
             </section>
 

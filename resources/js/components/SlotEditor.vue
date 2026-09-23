@@ -19,7 +19,10 @@ export interface Hueco {
     movimientos: string[];
 }
 
-const props = defineProps<{ hueco: Hueco; catalogo: Especie[]; alineamientos: Alineamiento[] }>();
+const props = withDefaults(
+    defineProps<{ hueco: Hueco; catalogo: Especie[]; alineamientos: Alineamiento[]; equipo?: string[] }>(),
+    { equipo: () => [] },
+);
 const emit = defineEmits<{ cambiar: [Hueco]; quitar: [] }>();
 
 const { locale } = useI18n();
@@ -339,7 +342,7 @@ function aplicarReparto(sp: Reparto): void {
                 <div v-if="ayuda" class="mt-3 space-y-4 rounded-lg border border-line-soft bg-night/40 p-3">
                     <section>
                         <p class="rotulo mb-2">{{ $t('sugerencia.lo_que_se_ve') }}</p>
-                        <SetSuggest :slug="especie.slug" @aplicar="aplicarConjunto" />
+                        <SetSuggest :slug="especie.slug" :equipo="props.equipo" @aplicar="aplicarConjunto" />
                     </section>
 
                     <section class="border-t border-line-soft pt-3">

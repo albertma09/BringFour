@@ -599,3 +599,69 @@ El reparto de SP se entera por la cadena: un Nado Rápido con lluvia deja de ser
 - **El campo del rival no se modela.** Si el rival pone Campo Psíquico, tu Hierba Parásita pierde la prioridad. Eso es dinámica de combate, no de construcción.
 - Los climas duran 5 turnos (8 con roca); aquí se tratan como permanentes, que es lo razonable cuando los pone una habilidad.
 - Sigue sin calcularse daño real: un ×1,3 sobre potencia efectiva no es un cálculo de daño.
+
+---
+
+# Fase 9 — Cobertura ofensiva del equipo (23-sep-2026)
+
+## El agujero que quedaba
+
+El análisis de equipo decía **por dónde te entra a ti** (debilidades compartidas, tipos que nadie resiste, rivales que tocan a varios) y no decía nada de **a quién no llegas tú**. Un equipo podía tener seis atacantes sin un solo golpe que pegara súper eficaz a Garchomp y la herramienta no lo mencionaba.
+
+Además el conjunto propuesto en el taller se calculaba para cada Pokémon **aislado**: optimizaba su cobertura personal sin saber qué llevaban los otros cinco.
+
+## La decisión que sostiene todo: de dónde salen los tipos de ataque
+
+Hay dos fuentes posibles y **no se mezclan sin decirlo**:
+
+| Origen | Qué es | Cuándo se usa |
+|---|---|---|
+| `visto` | Tipos que se le han visto lanzar de verdad en `replay_actions`, con su `n` | Cuando el Pokémon supera el mínimo de muestra |
+| `deducido` | Tipos del conjunto que propone el taller | Cuando no hay muestra (el caso Clawitzer) |
+
+**No se usa el learnset.** Es la misma decisión que se tomó al separar amenazas `confirmadas` de `posibles`: que un Pokémon *pueda* aprender Colmillo Rayo no significa que nadie se lo ponga. El panel enseña el origen de cada miembro para que se vea cuál es dato y cuál es propuesta.
+
+Dentro de lo visto se descarta el golpe anecdótico: un tipo cuenta si llega al 5 % de los ataques de esa especie, con suelo de 3 usos. Sin ese filtro, un Garra Ígnea suelto convertía a cualquiera en «cubre Acero».
+
+## Qué se mide
+
+- **Cobertura**: porcentaje de lo que se trae, ponderado por veces traído, al que alguien del equipo llega con ≥2×.
+- **Intocables**: los que nadie toca súper eficaz, ordenados por peso, marcando además si son inmunes a alguno de tus golpes.
+- **Qué tipo te falta**: se simulan los 18 tipos y se devuelven los 3 que más subirían la cobertura, con la ganancia en puntos.
+- **Golpes repetidos**: tipos que llevan 3 o más miembros.
+
+Verificado con un equipo real del meta (Rillaboom + Sneasler + Indeedee-F + Incineroar): **96,3 %**, y los tres intocables son Garchomp, Sableye y Gallade. Coincide: ese equipo no lleva Hielo, Dragón ni Hada. Y `mejor_anadido` dice hada +3,7 / dragón +3,1 / hielo +3,1.
+
+## Dos ajustes que hubo que hacer
+
+1. **Normal repetido no es una redundancia.** Salía `normal x4` porque casi todos llevan Sorpresa. La regla no es una excepción para Normal: un tipo solo entra en repetidos si es súper eficaz contra alguien del meta. Normal no lo es contra nadie, así que cae solo.
+
+2. **El aviso de cobertura pobre solo aparece con 4 o más.** Con dos o tres Pokémon la cobertura baja es normal y el aviso sería ruido mientras montas.
+
+## El conjunto ya conoce al resto del equipo
+
+`SetBuilder::build()` acepta los huecos del equipo y el hueco de cobertura suma una bonificación por cuántos tapa. Es **desempate, no mandato**: el tope es de 5 puntos frente a una ganancia de cobertura que va de 0 a 100.
+
+Barriendo los 40 Pokémon más traídos con los huecos de ese equipo, **cambian 2**:
+
+```
+Politoed    solo:   Agua Lodosa / Tierra Viva / Rayo Hielo
+            equipo: Agua Lodosa / Rayo Hielo / Tierra Viva     (mismo conjunto, otro orden)
+
+Grimmsnarl  solo:   Juego Sucio / Golpe Bajo / Fuerza Bruta
+            equipo: Juego Sucio / Golpe Bajo / Carantoña       (Hada pega a Garchomp y Gallade)
+```
+
+2 de 40 es exactamente el comportamiento buscado: no reescribe conjuntos, corrige el caso en que dos opciones estaban empatadas.
+
+## Compañeros que llegan donde tú no
+
+Razón nueva `alcanza`: el candidato golpea ≥2× a alguno de tus intocables, usando sus tipos **vistos**. Vale 3 por cada uno resuelto con tope de 9, para que no aplaste a las razones defensivas. Con el equipo de prueba, los que resuelven los tres huecos son todos Hada — Mawile, Klefki, Tinkaton, Whimsicott, Primarina, Floette-Eternal.
+
+De paso: las razones de compañero se mostraban como una lista pelada de nombres sin explicar por qué. Ahora se traduce la clave, así que se lee «le pega a Garchomp, Sableye, Gallade» en vez de «Garchomp, Sableye, Gallade».
+
+## Limitaciones conocidas
+
+- **≥2× es alcance de tipo, no daño.** Un súper eficaz contra un muro con 250 de defensa sigue sin matar. El cálculo de daño real sigue en `@smogon/calc`, en el navegador.
+- **Repetir tipo no es un fallo** y así se dice: puede ser el plan. Solo importa si además no llegas a nadie.
+- El conjunto deducido de un miembro sin muestra entra en la cobertura del equipo: es una propuesta, y va etiquetada como tal.

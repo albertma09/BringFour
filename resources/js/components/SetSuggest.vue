@@ -6,7 +6,7 @@ import { api, type ConjuntoVisto } from '@/api/cliente';
 import NoDataWorkshop from '@/components/NoDataWorkshop.vue';
 import TypeTag from '@/components/TypeTag.vue';
 
-const props = defineProps<{ slug: string }>();
+const props = withDefaults(defineProps<{ slug: string; equipo?: string[] }>(), { equipo: () => [] });
 const emit = defineEmits<{
     aplicar: [{ habilidad: string | null; objeto: string | null; movimientos: string[] }];
 }>();
@@ -57,7 +57,12 @@ function aplicar(): void {
             <p class="mb-3 text-[11px] leading-relaxed text-fog-dim">
                 {{ $t('sugerencia.sin_conjunto', { min: datos?.muestra.min_sample ?? 30 }) }}
             </p>
-            <NoDataWorkshop :slug="slug" aplicable @aplicar="emit('aplicar', { ...$event, objeto: null })" />
+            <NoDataWorkshop
+                :slug="slug"
+                :equipo="props.equipo"
+                aplicable
+                @aplicar="emit('aplicar', { ...$event, objeto: null })"
+            />
         </template>
 
         <template v-else-if="datos">

@@ -10,6 +10,7 @@ use App\Domain\Build\SpeedContext;
 use App\Domain\Build\StructuralPartnerQuery;
 use App\Domain\Build\SwapAdvisor;
 use App\Domain\Build\TeamAnalyzer;
+use App\Domain\Build\TeamOffense;
 use App\Domain\Build\TypeUsage;
 use App\Domain\Build\ThreatQuery;
 use App\Domain\Meta\ClosingQuery;
@@ -28,14 +29,16 @@ class BuildController extends ApiController
         MetaRoster $roster,
         RoleClassifier $roles,
         ClosingQuery $cierre,
+        TeamOffense $offense,
         string $slug,
     ): JsonResponse {
         $species = $this->species($slug);
         [$formatId, $regulationId] = $this->contexto($request);
         $elo = $this->elo($request);
         $meta = $roster->brought($formatId, $elo);
+        $huecos = $this->huecosDelEquipo($request, $offense, $species->slug, $formatId, $elo, $regulationId, $meta);
 
-        $conjunto = $builder->build($species, $regulationId, $meta);
+        $conjunto = $builder->build($species, $regulationId, $meta, $huecos);
         $habilidades = array_values(json_decode((string) $species->abilities, true) ?: []);
         $contexto = app(FieldEffects::class)->context($habilidades);
         $ritmo = $speed->forSpecies(
@@ -78,14 +81,16 @@ class BuildController extends ApiController
         SpeedContext $speed,
         MetaRoster $roster,
         ClosingQuery $cierre,
+        TeamOffense $offense,
         string $slug,
     ): JsonResponse {
         $species = $this->species($slug);
         [$formatId, $regulationId] = $this->contexto($request);
         $elo = $this->elo($request);
         $meta = $roster->brought($formatId, $elo);
+        $huecos = $this->huecosDelEquipo($request, $offense, $species->slug, $formatId, $elo, $regulationId, $meta);
 
-        $conjunto = $builder->build($species, $regulationId, $meta);
+        $conjunto = $builder->build($species, $regulationId, $meta, $huecos);
         $ritmo = $speed->forSpecies(json_decode((string) $species->base_stats, true) ?: [], $meta);
         $sinCubrir = $this->sinCubrir($conjunto['cobertura']['resisten'], $meta);
         $excluir = array_filter(explode(',', (string) $request->query('equipo', '')));
@@ -121,7 +126,7 @@ class BuildController extends ApiController
         $pesos = $usage->shares($formatId, $elo);
         $cierres = $cierre->rates($formatId, $elo, $this->min($request));
 
-        $analisis = $analyzer->analyse($especies, $formatId, $elo, $regulationId, $meta, $pesos, $cierres);
+        $analisis = $analyzer->analyse($especies, $formatId, $elo, $regulationId, $meta, $pesos, $cierres, $this->min($request));
         $papeles = $roles->forMany(array_column($meta, 'slug'), $regulationId);
 
         return response()->json($analisis + [
@@ -138,17 +143,20 @@ class BuildController extends ApiController
         MetaRoster $roster,
         TypeUsage $usage,
         ClosingQuery $cierre,
+        TeamOffense $offense,
     ): JsonResponse {
         [$especies, $formatId, $elo, $regulationId] = $this->equipo($request);
         $meta = $roster->brought($formatId, $elo);
         $pesos = $usage->shares($formatId, $elo);
-        $cierres = $cierre->rates($formatId, $elo, $this->min($request));
+        $min = $this->min($request);
+        $cierres = $cierre->rates($formatId, $elo, $min);
 
-        $analisis = $analyzer->analyse($especies, $formatId, $elo, $regulationId, $meta, $pesos, $cierres);
+        $analisis = $analyzer->analyse($especies, $formatId, $elo, $regulationId, $meta, $pesos, $cierres, $min);
+        $golpes = $offense->tiposVistos(array_column($meta, 'slug'), $formatId, $elo);
 
         return response()->json([
             'equipo' => array_column($analisis['miembros'], 'slug'),
-            'cubos' => $query->forTeam($analisis, $regulationId, $meta, $cierres, $this->top($request, 4, 12)),
+            'cubos' => $query->forTeam($analisis, $regulationId, $meta, $cierres, $this->top($request, 4, 12), $golpes),
         ]);
     }
 
@@ -165,6 +173,28 @@ class BuildController extends ApiController
         [$formatId, $regulationId] = $this->contexto($request);
 
         return [array_map(fn (string $slug) => $this->species($slug), $slugs), $formatId, $this->elo($request), $regulationId];
+    }
+
+    private function huecosDelEquipo(
+        Request $request,
+        TeamOffense $offense,
+        string $propio,
+        int $formatId,
+        int $elo,
+        int $regulationId,
+        array $meta,
+    ): array {
+        $slugs = array_values(array_diff(array_unique(array_filter(
+            explode(',', (string) $request->query('equipo', '')),
+        )), [$propio]));
+
+        if ($slugs === []) {
+            return [];
+        }
+
+        $companeros = array_map(fn (string $slug) => $this->species($slug), array_slice($slugs, 0, 5));
+
+        return $offense->huecos($companeros, $formatId, $elo, $regulationId, $meta, $this->min($request));
     }
 
     private function contexto(Request $request): array

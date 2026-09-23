@@ -5,6 +5,7 @@ import { api, type AnalisisEquipo } from '@/api/cliente';
 import FieldPanel from '@/components/FieldPanel.vue';
 import SwapHint from '@/components/SwapHint.vue';
 import TeamGaps from '@/components/TeamGaps.vue';
+import TeamOffense from '@/components/TeamOffense.vue';
 
 const props = defineProps<{ equipo: string[] }>();
 const emit = defineEmits<{ sustituir: [{ sale: string; entra: string }] }>();
@@ -63,6 +64,8 @@ defineExpose({ recargar: cargar });
             </p>
 
             <FieldPanel :campo="datos.campo" :vistos="datos.campos_vistos" class="mb-8" />
+
+            <TeamOffense :ofensiva="datos.ofensiva" class="mb-8" />
 
             <TeamGaps :analisis="datos" class="mb-8" />
 

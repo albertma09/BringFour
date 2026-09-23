@@ -17,9 +17,10 @@ final class TeamAnalyzer
         private RoleClassifier $roles,
         private SpeedContext $speed,
         private FieldEffects $field,
+        private TeamOffense $offense,
     ) {}
 
-    public function analyse(array $especies, int $formatId, int $elo, int $regulationId, array $meta, array $pesos, array $cierres): array
+    public function analyse(array $especies, int $formatId, int $elo, int $regulationId, array $meta, array $pesos, array $cierres, int $min = 30): array
     {
         $miembros = $this->miembros($especies, $regulationId, $cierres, $meta);
         $campo = $this->campo($miembros);
@@ -29,6 +30,7 @@ final class TeamAnalyzer
             'papeles' => $this->papeles($miembros),
             'reparto' => $this->reparto($miembros),
             'campo' => $campo,
+            'ofensiva' => $this->offense->analyse($especies, $formatId, $elo, $regulationId, $meta, $min),
             'velocidad' => $this->velocidad($miembros, $meta, $campo['clima']),
             'compartidas' => $this->compartidas($miembros, $pesos),
             'sin_resistir' => $this->sinResistir($miembros, $pesos),

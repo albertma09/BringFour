@@ -10,6 +10,8 @@ final class StructuralPartnerQuery
 
     private const REDIRECCION = ['followme', 'ragepowder'];
 
+    private const TOPE_ALCANCE = 9;
+
     public function __construct(private TypeChart $chart, private RoleClassifier $roles, private FieldEffects $field) {}
 
     public function forSpecies(
@@ -62,8 +64,9 @@ final class StructuralPartnerQuery
         return $this->repartir($cubos, $porCubo);
     }
 
-    public function forTeam(array $analisis, int $regulationId, array $meta, array $cierres, int $porCubo): array
+    public function forTeam(array $analisis, int $regulationId, array $meta, array $cierres, int $porCubo, array $golpes = []): array
     {
+        $intocables = $analisis['ofensiva']['intocables'] ?? [];
         $dentro = array_column($analisis['miembros'], 'slug');
         $compartidas = array_column($analisis['compartidas'], 'cuantos', 'tipo');
         $sinResistir = array_column($analisis['sin_resistir'], 'peso', 'tipo');
@@ -89,6 +92,13 @@ final class StructuralPartnerQuery
                 $razones['valor'] += 4;
             }
 
+            $alcance = $this->alcanza($golpes[$rival['slug']] ?? [], $intocables);
+
+            if ($alcance !== null) {
+                $razones['lista'][] = $alcance['razon'];
+                $razones['valor'] += $alcance['valor'];
+            }
+
             $ficha = [
                 'slug' => $rival['slug'],
                 'name' => $rival['name'],
@@ -110,6 +120,34 @@ final class StructuralPartnerQuery
         }
 
         return $this->repartir($cubos, $porCubo);
+    }
+
+    private function alcanza(array $golpes, array $intocables): ?array
+    {
+        if ($golpes === [] || $intocables === []) {
+            return null;
+        }
+
+        $resueltos = [];
+
+        foreach ($intocables as $intocable) {
+            foreach ($golpes as $tipo) {
+                if ($this->chart->multiplier($tipo, $intocable['tipos']) >= 2.0) {
+                    $resueltos[] = $intocable['name'];
+
+                    break;
+                }
+            }
+        }
+
+        if ($resueltos === []) {
+            return null;
+        }
+
+        return [
+            'razon' => ['clave' => 'alcanza', 'tipos' => array_slice($resueltos, 0, 3)],
+            'valor' => min(self::TOPE_ALCANCE, 3 * count($resueltos)),
+        ];
     }
 
     private function porCampo(array $rival, array $habilidades, array $campo): ?array

@@ -21,9 +21,11 @@ final class SetBuilder
 
     private const EMPATE = 10;
 
+    private const HUECO = 5.0;
+
     public function __construct(private MovePower $power, private TypeChart $chart, private FieldEffects $field) {}
 
-    public function build(object $species, int $regulationId, array $meta): array
+    public function build(object $species, int $regulationId, array $meta, array $huecos = []): array
     {
         $tipos = json_decode((string) $species->types, true) ?: [];
         $baseStats = json_decode((string) $species->base_stats, true) ?: [];
@@ -34,7 +36,7 @@ final class SetBuilder
         $ataques = $this->ataques($repertorio, $tipos, $habilidades, $categoria, $contexto);
         $utilidad = $this->utilidad($repertorio);
 
-        $elegidos = $this->elegir($ataques, $utilidad, $meta);
+        $elegidos = $this->elegir($ataques, $utilidad, $meta, $huecos);
 
         return [
             'categoria' => $categoria,
@@ -47,6 +49,7 @@ final class SetBuilder
             )), 0, 6),
             'utilidad' => $utilidad,
             'cobertura' => $this->cobertura($elegidos, $meta),
+            'ajustado_al_equipo' => $huecos !== [],
         ];
     }
 
@@ -125,7 +128,7 @@ final class SetBuilder
         return $salida;
     }
 
-    private function elegir(array $ataques, array $utilidad, array $meta): array
+    private function elegir(array $ataques, array $utilidad, array $meta, array $huecos): array
     {
         $elegidos = [];
         $proteccion = array_values(array_filter($utilidad, fn (array $m) => $m['funcion'] === 'proteccion'));
@@ -150,7 +153,7 @@ final class SetBuilder
         $viables = $this->viables($limpios);
 
         while (count($elegidos) < 4) {
-            $mejor = $this->mejorCobertura($viables, $elegidos, $meta);
+            $mejor = $this->mejorCobertura($viables, $elegidos, $meta, $huecos);
 
             if ($mejor === null) {
                 break;
@@ -218,10 +221,9 @@ final class SetBuilder
         return array_values(array_filter($ataques, fn (array $m) => $m['sin_campo'] >= $techo * self::VIABLE));
     }
 
-    private function mejorCobertura(array $ataques, array $elegidos, array $meta): ?array
+    private function mejorCobertura(array $ataques, array $elegidos, array $meta, array $huecos): ?array
     {
         $yaEstan = array_column($elegidos, 'slug');
-        $tiposPuestos = array_column($elegidos, 'type');
         $actual = $this->cobertura($elegidos, $meta)['pct'];
         $mejor = null;
         $mejorGanancia = -1.0;
@@ -231,7 +233,8 @@ final class SetBuilder
                 continue;
             }
 
-            $ganancia = $this->cobertura([...$elegidos, $ataque], $meta)['pct'] - $actual;
+            $ganancia = $this->cobertura([...$elegidos, $ataque], $meta)['pct'] - $actual
+                + self::HUECO * $this->tapaHuecos($ataque, $huecos);
 
             if ($ganancia > $mejorGanancia || ($ganancia === $mejorGanancia && $mejor !== null && $ataque['efectiva'] > $mejor['efectiva'])) {
                 $mejorGanancia = $ganancia;
@@ -240,6 +243,20 @@ final class SetBuilder
         }
 
         return $mejor;
+    }
+
+    private function tapaHuecos(array $ataque, array $huecos): float
+    {
+        if ($huecos === []) {
+            return 0.0;
+        }
+
+        $tapados = count(array_filter(
+            $huecos,
+            fn (array $hueco) => $this->chart->multiplier($ataque['type'], $hueco['tipos'] ?? []) >= 2.0,
+        ));
+
+        return $tapados / count($huecos);
     }
 
     private function cobertura(array $movimientos, array $meta): array

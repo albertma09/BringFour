@@ -12,7 +12,7 @@ const props = withDefaults(
 );
 const emit = defineEmits<{ anadir: [string] }>();
 
-const { locale } = useI18n();
+const { locale, t } = useI18n();
 
 const cargando = ref(false);
 const datos = ref<{ cubos: Record<string, CompaneroEstructural[]> } | null>(null);
@@ -51,8 +51,7 @@ watch(() => [props.slug, props.equipo, props.porEquipo, comunes.value], cargar, 
 
 function razon(companero: CompaneroEstructural): string {
     return companero.razones
-        .map((r) => String(r.tipos?.join(', ') ?? r.movimientos?.join(', ') ?? ''))
-        .filter((texto) => texto !== '')
+        .map((r) => t(`sugerencia.razon.${r.clave}`, { que: (r.tipos ?? r.movimientos ?? []).join(', ') }))
         .join(' · ');
 }
 </script>

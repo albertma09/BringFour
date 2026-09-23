@@ -205,6 +205,7 @@ const pegado = computed(() =>
                     :hueco="hueco"
                     :catalogo="catalogo"
                     :alineamientos="alineamientos"
+                    :equipo="slugsElegidos"
                     @cambiar="cambiar(indice, $event)"
                     @quitar="quitar(indice)"
                 />
